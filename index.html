@@ -34,8 +34,8 @@
 <link rel="preload" href="fonts/ibm-plex-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ibm-plex-sans-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="ds/styles.css?v=7749ab00">
-<link rel="stylesheet" href="site.css?v=7749ab00">
+<link rel="stylesheet" href="ds/styles.css?v=893ee0f8">
+<link rel="stylesheet" href="site.css?v=893ee0f8">
 <noscript><style>
   /* No JavaScript: the dialog cannot be opened, so it unfolds into the footer
      band instead of hiding a compliance text. Ink colours, since it lands on ink. */
@@ -98,10 +98,7 @@
       <div class="be-hero-grid">
         <div>
           <h1 class="be-h1">Programa prekiauja. <span class="blyn-grad">Mes tyrinėjame, kaip.</span></h1>
-          <div class="be-axes">
-            <p class="be-axis be-axis--blyn"><b>BLYN</b><br>Block Ledger Yardstick Normalization — grandinė, žurnalas, pelno kreivė.</p>
-            <p class="be-axis be-axis--ai"><b>AI</b><br>Algorithmic Inference — išvada ir orderis, priimtas taisyklių.</p>
-          </div>
+          <p class="be-lead">Dvi autonominės prekybos sistemos veikia realioje kriptoturto rinkoje be pertraukos — eksperimentinė platforma, kurioje algoritmų hipotezės tikrinamos tikrais pinigais, o kiekvienas sprendimas skelbiamas.</p>
           <div class="be-cta">
             <a class="be-btn be-btn--pri" href="https://blynai.meetluko.eu">Gyvas žurnalas</a>
             <a class="be-btn be-btn--sec" href="https://github.com/bykovas/trading-bot">GitHub &#183; atvirasis kodas</a>
@@ -111,6 +108,11 @@
           <p class="be-eyebrow">Būsena</p>
           <p>Botai veikia be pertraukos.<br>Žurnalas atviras.<br>Klientų lėšų — nėra ir nebus.</p>
         </aside>
+      </div>
+      <div class="be-verbs">
+        <p class="be-verb"><b>Kuriame</b><br>autonomines prekybos sistemas: nuo rinkos duomenų iki orderio ir jo žurnalo.</p>
+        <p class="be-verb"><b>Tiriame</b><br>rinkos mikrostruktūrą ir algoritmų elgseną gyvoje rinkoje.</p>
+        <p class="be-verb"><b>Tikriname</b><br>strategijas, savas ir išorines: backtestas, sausasis režimas ir gyva prekyba tuo pačiu kodu.</p>
       </div>
     </div>
     <svg class="be-curve" viewBox="0 0 1200 190" preserveAspectRatio="none" aria-hidden="true">
@@ -123,11 +125,35 @@
     </svg>
   </section>
 
-  <dl class="be-stats">
-    <div class="be-stat"><dt>Teisinė forma</dt><dd>Mažoji bendrija</dd></div>
-    <div class="be-stat"><dt>Nariai</dt><dd>2 &#183; po 50 %</dd></div>
-    <div class="be-stat"><dt>Kodo licencija</dt><dd>Atvirasis kodas</dd></div>
-  </dl>
+  <section class="be-statband" aria-label="Veikiančios sistemos apimtis">
+    <dl class="be-stats">
+      <div class="be-stat"><dt>Porų analizių per parą</dt><dd>~117&#8239;000</dd></div>
+      <div class="be-stat"><dt>Algoritminių vertinimų per valandą</dt><dd>~4&#8239;900</dd></div>
+      <div class="be-stat"><dt>Strategijos konfigūracijos iteracijų</dt><dd>67</dd></div>
+    </dl>
+    <p class="be-stats-note">Veikiančių sistemų duomenys &#183; 2026-08-25 &#183; „~“ &#8212; apskaičiuota pagal veikiančią konfigūraciją, 67 &#8212; iš kodo saugyklos istorijos</p>
+  </section>
+
+  <section class="be-section be-section--raised" id="metodas">
+    <p class="be-eyebrow">Kaip tai veikia</p>
+    <ol class="be-rows">
+      <li class="be-row">
+        <span class="be-row-n">01</span>
+        <h3>Stebėjimas</h3>
+        <p>Kas minutę nuskaitoma ~160 biržos porų — gyvas skaičius matomas žurnale. Kiekviena pora vertinama pagal dešimtis signalų ir šimtus konfigūracijos parametrų: EMA sankirtas, RSI, momentum, ATR volatilumą, spread&#8217;ą, 24&#160;h apimtį, orderių knygos gylį, koreliaciją su BTC ir rinkos režimą.</p>
+      </li>
+      <li class="be-row">
+        <span class="be-row-n">02</span>
+        <h3>Sprendimas</h3>
+        <p>Euristikos ir algoritminė inferencija dirba kartu: iš signalų gimsta vienas balas, iš balo — sprendimas. Pozicija atidaroma, dydis parenkamas pagal rizikos limitus, stop-loss ir tikslai nustatomi, nuostolis fiksuojamas anksčiau, nei nuosmukis įsibėgėja — automatiškai, be žmogaus įsikišimo.</p>
+      </li>
+      <li class="be-row">
+        <span class="be-row-n">03</span>
+        <h3>Įrašas</h3>
+        <p>Kiekvienas sprendimas įrašomas: kodėl įeita, kurie signalai svėrė, kokia buvo rizika ir kas buvo atmesta. Ne tikėti, o patikrinti — kiekvieną įrašą galima atkartoti.</p>
+      </li>
+    </ol>
+  </section>
 
   <section class="be-section" id="vardas">
     <p class="be-eyebrow">Vardas &#183; du skiemenys</p>
@@ -221,8 +247,8 @@
   <section class="be-coins">
     <div>
       <p class="be-eyebrow">Dvi pusės, dvi valiutos</p>
-      <h2>L&amp;D: dvi nepriklausomos boto instancijos</h2>
-      <p class="be-coins-lead">Tas pats kodas, atskiros sąskaitos, atskiri žurnalai. Jei rezultatai skiriasi — skirtumas irgi yra duomenys.</p>
+      <h2>L&amp;D: dvi sistemos, viena rinka</h2>
+      <p class="be-coins-lead">Tie patys rinkos duomenys, atskiros sąskaitos, skirtingos strategijų konfigūracijos ir sprendimai be tarpusavio koordinavimo &#8212; šiuo metu atitinkamai ~68 ir ~95 aktyvios rinkos. Bendras įvestis leidžia lyginti skirtingą algoritminę elgseną tomis pačiomis sąlygomis: jei rezultatai skiriasi, skirtumas irgi yra duomenys.</p>
     </div>
     <div class="be-coins-grid">
       <a class="be-coin be-coin--luko" href="https://meetluko.eu">

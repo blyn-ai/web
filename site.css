@@ -103,12 +103,18 @@ html{scroll-padding-top:calc(var(--be-topbar-h) + var(--space-3))}
   margin-top:24px;align-items:start}
 .be-h1{margin:0;font:var(--fw-regular) 54px/var(--lh-display) var(--font-display);
   letter-spacing:var(--track-display);color:var(--text-heading)}
-.be-axes{display:flex;flex-wrap:wrap;gap:var(--space-10);margin-top:var(--space-8)}
-.be-axis{margin:0;max-width:30ch;font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);
+.be-lead{margin-top:var(--space-8);max-width:var(--measure-lead);
+  font:var(--type-lead);color:var(--text-body)}
+/* Full-width three-up under the hero grid: confined to the left column the
+   third verb wrapped alone and left the right side of the hero empty. */
+.be-verbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:var(--space-5) var(--space-10);margin-top:var(--space-10)}
+.be-verb{margin:0;max-width:38ch;font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);
   color:var(--text-body)}
-.be-axis b{font:var(--fw-semibold) var(--fs-meta) var(--font-mono);letter-spacing:.1em}
-.be-axis--blyn b{color:var(--gold-900)}
-.be-axis--ai b{color:var(--violet-800)}
+.be-verb b{font:var(--fw-semibold) var(--fs-meta) var(--font-mono);letter-spacing:.1em}
+.be-verb:nth-child(1) b{color:var(--gold-900)}
+.be-verb:nth-child(2) b{color:var(--gold-800)}
+.be-verb:nth-child(3) b{color:var(--violet-800)}
 .be-cta{display:flex;gap:var(--gap-inline);margin-top:30px}
 .be-btn{display:inline-flex;align-items:center;justify-content:center;height:var(--control-h);
   padding:0 var(--pad-button-x);border-radius:var(--radius-sm);font:var(--type-button);
@@ -128,11 +134,18 @@ html{scroll-padding-top:calc(var(--be-topbar-h) + var(--space-3))}
 
 /* --- stat strip on ink -------------------------------------------------- */
 /* Separators are borders, not a 1px grid gap over a coloured backdrop: the
-   strip now carries its own ink so it can be padded to the canvas. */
+   band carries the ink so the strip can be padded to the canvas. */
+.be-statband{background:var(--ink-780)}
 .be-stats{display:grid;grid-template-columns:repeat(3,1fr);
-  padding-inline:var(--be-bleed-ink);background:var(--ink-780)}
+  padding-inline:var(--be-bleed-ink);margin:0}
 .be-stat{padding:var(--space-8) var(--be-x-ink)}
 .be-stat + .be-stat{border-left:1px solid var(--border-hairline-on-ink)}
+/* Provenance, in the registry voice: which numbers are measured, which are
+   derived, and when. The numbers above mean nothing without this line. */
+.be-stats-note{padding:var(--space-3) calc(var(--be-bleed-ink) + var(--be-x-ink)) var(--space-4);
+  border-top:1px solid var(--border-hairline-on-ink);text-align:center;
+  font:var(--fs-micro) var(--font-mono);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--sand-400)}
 .be-stat dt{font:var(--fs-micro) var(--font-mono);letter-spacing:.14em;text-transform:uppercase;
   color:var(--text-meta-on-ink)}
 .be-stat dd{margin:9px 0 0;font:var(--fw-semibold) var(--fs-h4) var(--font-display);
@@ -374,8 +387,9 @@ html{scroll-padding-top:calc(var(--be-topbar-h) + var(--space-3))}
   .be-hero > .be-hero-inner > .be-eyebrow{font-size:var(--fs-micro);letter-spacing:var(--track-eyebrow-tight)}
   .be-hero-grid{display:block;margin-top:var(--space-7)}
   .be-h1{font-size:34px;max-width:18ch}
-  .be-axes{gap:var(--space-6)}
-  .be-axis{max-width:none}
+  .be-lead{margin-top:var(--space-5);font-size:15.5px;max-width:none}
+  .be-verbs{grid-template-columns:1fr;gap:var(--space-5);margin-top:var(--space-6)}
+  .be-verb{max-width:none;font-size:var(--fs-body)}
   .be-cta{flex-direction:column;gap:10px;margin-top:var(--space-8)}
   .be-btn{height:var(--control-h-lg);width:100%;padding:0}
   .be-status{margin-top:var(--space-7)}
@@ -383,6 +397,7 @@ html{scroll-padding-top:calc(var(--be-topbar-h) + var(--space-3))}
   .be-stats{grid-template-columns:1fr}
   .be-stat{padding:var(--space-5) var(--mobile-x)}
   .be-stat + .be-stat{border-left:0;border-top:1px solid var(--border-hairline-on-ink)}
+  .be-stats-note{padding:10px var(--mobile-x) var(--space-3);letter-spacing:.06em;text-align:left}
   .be-row{display:block;padding:var(--space-6) 0}
   .be-row-n{font-size:var(--fs-meta)}
   .be-row h3{margin:8px 0;font-size:var(--fs-h4)}
