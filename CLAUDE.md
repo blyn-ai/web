@@ -46,8 +46,7 @@ destination URLs live in `ds/ui_kits/website/content.js`.
 - **The 1160px canvas.** `--be-pad-x` in `site.css` keeps bands full-bleed while
   content stays on the canvas the design was drawn on. Do not replace it with a
   centred `max-width` wrapper — the bands must keep bleeding.
-- **BLYN expands to „Bid-Level Yardstick Normalization"** — full name
-  „Bid-Level Yardstick Normalization & Algorithmic Inference". The vendored
+- **BLYN expands to „Block Ledger Yardstick Normalization".** The vendored
   design system still writes „Blockchain Ledger Yield Numerics" in
   `ds/readme.md`, `content.js` and the ui kits — it predates the change. The
   page is right; `ds/` is stale on this one string until the designer re-issues
