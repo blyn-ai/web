@@ -24,6 +24,9 @@
      1160/2 - 72 = 508   ·   1160/2 - 34 = 546 */
   --be-pad-x:max(var(--be-x),calc(50% - 508px));
   --be-pad-x-ink:max(var(--be-x-ink),calc(50% - 546px));
+  /* Height of the sticky brand band: 18 + 42px mark + 18 header padding, plus
+     the 6px gradient rule. Anchors scroll past it, see scroll-padding below. */
+  --be-topbar-h:84px;
   /* The ink strips pad their own cells, so they only need the overhang. */
   --be-bleed-ink:max(0px,calc(50% - 546px));
 }
@@ -35,6 +38,9 @@
 
 body{background:var(--surface-page)}
 img{max-width:100%}
+/* Every in-page anchor stops below the sticky band instead of under it. Applies
+   to the nav links, to :target and to a deep link opened from outside. */
+html{scroll-padding-top:calc(var(--be-topbar-h) + var(--space-3))}
 
 /* --- shared roles ------------------------------------------------------- */
 .be-eyebrow{font:var(--type-eyebrow);letter-spacing:var(--track-eyebrow);
@@ -44,6 +50,10 @@ img{max-width:100%}
 .be-section > .be-eyebrow{display:block;margin-bottom:30px}
 
 /* --- header band -------------------------------------------------------- */
+/* Sticky, by client decision: the design system keeps the brand pages free of
+   fixed and sticky chrome. The band is the header plus its gradient rule, so
+   the rule travels with it rather than scrolling away underneath. */
+.be-topbar{position:sticky;top:0;z-index:10}
 .be-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
   gap:18px 24px;padding:var(--pad-header-y) var(--be-pad-x-ink);background:var(--surface-ink)}
 .be-brand{display:inline-flex;align-items:center;gap:var(--gap-inline);color:inherit;text-decoration:none}
@@ -258,7 +268,9 @@ img{max-width:100%}
    760px. One column, full-width controls, 44px tap targets.
    ========================================================================== */
 @media (max-width:760px){
-  :root{--be-x:var(--mobile-x);--be-x-ink:var(--mobile-x);--be-rule-h:var(--rule-h)}
+  /* 14 + 44px mark row + 14, plus the 3px rule. */
+  :root{--be-x:var(--mobile-x);--be-x-ink:var(--mobile-x);--be-rule-h:var(--rule-h);
+    --be-topbar-h:75px}
   .be-top{padding:14px var(--mobile-x);flex-wrap:nowrap;position:relative}
   .be-brand{min-height:var(--tap-min)}
   .be-mark{width:var(--mark-size-sm);height:var(--mark-size-sm);border-radius:var(--radius-md)}

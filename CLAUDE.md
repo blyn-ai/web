@@ -35,6 +35,10 @@ destination URLs live in `ds/ui_kits/website/content.js`.
   server and from the domain root without edits.
 - **One breakpoint: 760px.** Narrow values come from the `narrow` branch of the
   matching design-system component, not from taste.
+- **The sticky band owns `--be-topbar-h`.** The header and its gradient rule are
+  pinned (`.be-topbar`), and `html{scroll-padding-top}` is derived from that
+  variable so in-page anchors never land under the band. Change the header's
+  height and you must change the variable at both breakpoints — 84px and 75px.
 - **The 1160px canvas.** `--be-pad-x` in `site.css` keeps bands full-bleed while
   content stays on the canvas the design was drawn on. Do not replace it with a
   centred `max-width` wrapper — the bands must keep bleeding.
