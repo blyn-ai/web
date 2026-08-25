@@ -1,0 +1,15 @@
+# Cloudflare Pages headers.
+#
+# The page and its stylesheet must never be served from a stale cache: the HTML
+# and the CSS are deployed together and one without the other is a broken page.
+# Pages' default is four hours, which is long enough for a visitor to get new
+# markup with the previous stylesheet — exactly what happened after the product
+# band shipped. max-age=0 + must-revalidate means the browser asks every time
+# and gets a 304 when nothing changed, so the cost is one conditional request.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Font files are content-stable: the weight and the subset are in the filename,
+# and a new cut would be a new name. Safe to keep for a year.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
