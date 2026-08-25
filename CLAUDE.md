@@ -46,11 +46,10 @@ destination URLs live in `ds/ui_kits/website/content.js`.
 - **The 1160px canvas.** `--be-pad-x` in `site.css` keeps bands full-bleed while
   content stays on the canvas the design was drawn on. Do not replace it with a
   centred `max-width` wrapper — the bands must keep bleeding.
-- **BLYN expands to „Block Ledger Yardstick Normalization".** The vendored
-  design system still writes „Blockchain Ledger Yield Numerics" in
-  `ds/readme.md`, `content.js` and the ui kits — it predates the change. The
-  page is right; `ds/` is stale on this one string until the designer re-issues
-  the package. Do not copy it back.
+- **BLYN expands to „Blockchain Ledger Y-Axis Numerics".** The vendored design
+  system still writes „Yield Numerics" in `ds/readme.md`, `content.js` and the
+  ui kits — it predates the change. The page is right; `ds/` is stale on this one
+  string until the designer re-issues the package. Do not copy it back.
 - **`ds/` is vendored.** Update it by copying a newer package over the folder,
   then restore `ds/tokens/fonts.css` (self-hosted fonts). Do not hand-edit it.
 - **No new dependencies.** No npm, no package.json, no framework. The two tools
