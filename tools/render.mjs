@@ -1,7 +1,9 @@
 /**
- * Renders every raster file the page needs from the vector sources in this repo:
+* Renders every raster file the page needs from the vector sources in this repo:
  *
- *   og/og-card.html        -> og.png                     (1200x630, exact)
+ *   og/og-card.html        -> assets/og-card.png         (1200x630, exact)
+ *      NOTE: the shipped og-card.png is the designer's render; run this only
+ *      after editing the card's copy, and eyeball the result.
  *   assets/favicon.svg     -> favicon.ico                (16 + 32 + 48)
  *   assets/logo-avatar-512.svg -> assets/apple-touch-icon.png (180)
  *                             -> assets/icon-192.png, assets/icon-512.png
@@ -121,7 +123,7 @@ function ico(pngs) {
 
 try {
   console.log('share card');
-  await shot(`http://127.0.0.1:${PORT}/og/og-card.html`, join(ROOT, 'og.png'), 1200, 630);
+  await shot(`http://127.0.0.1:${PORT}/og/og-card.html`, join(ROOT, 'assets', 'og-card.png'), 1200, 630);
 
   console.log('favicon.ico');
   const parts = [];

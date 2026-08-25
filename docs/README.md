@@ -4,11 +4,10 @@ What the site is and what the company is: [../README.md](../README.md). This fil
 is the working documentation. Every path below is relative to the repository
 root, and every command is run from there.
 
-The page is one static HTML file, no build step, no framework. The only script on
-it is the twelve lines that open the disclaimer dialog.
-
-Everything visual comes from the **BlynAI Capital design system**; nothing here
-invents a colour, a size or a piece of copy.
+The page is one static HTML file implementing the designer's "BlynAI Home v2"
+handoff. No build step, no framework; two small inline scripts (the disclaimer
+dialog and the /api/public-stats telemetry fetch). Lithuanian only — the EN
+mirror is designed but postponed.
 
 ```
 index.html          the page

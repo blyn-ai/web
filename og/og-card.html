@@ -2,75 +2,57 @@
 <html lang="lt">
 <head>
 <meta charset="utf-8">
-<title>MB „BlynAI“ — share card 1200×630</title>
-<!-- Source file for /og.png. Render it with:  node tools/render.mjs
-     Layout is the design system's "Sakinys" share card
-     (ui_kits/social/OGCard.jsx · templates/share-card/ShareCard.dc.html):
-     6px gradient rule at the very top, lockup top-left, one claim in two lines,
-     the equity curve band along the bottom, mono footer line above it.
-     Headline stays at 52px — in a chat bubble that renders at 27 %, i.e. 14px. -->
+<title>BlynAI — OG kortelė 1200×630</title>
+<!-- Source of assets/og-card.png — the approved variant (2a) of the designer's
+     OG handoff, rebuilt on the repo's own tokens and self-hosted fonts so the
+     copy can be edited here. Regenerate the PNG with:  node tools/render.mjs
+     The shipped assets/og-card.png is the designer's render; rerunning the tool
+     replaces it with a render of this file. -->
 <link rel="stylesheet" href="../ds/styles.css">
 <style>
 html,body{margin:0;background:var(--paper-200)}
-.og{position:relative;width:1200px;height:630px;overflow:hidden;
-  background:
-    radial-gradient(820px 520px at 2% 0%,rgba(245,184,79,.24),transparent 68%),
-    radial-gradient(760px 560px at 100% 100%,rgba(107,78,219,.20),transparent 70%),
-    var(--paper-050)}
-.og-rule{position:absolute;inset:0 0 auto 0;height:var(--rule-h-lg);background:var(--gradient-rule)}
-.og-lock{position:absolute;left:64px;top:60px;display:flex;align-items:center;gap:18px}
-.og-mark{width:var(--mark-size-lg);height:var(--mark-size-lg);flex:none;display:grid;place-items:center;
-  border-radius:var(--radius-3xl);background:var(--ink-800);border:1px solid rgba(245,184,79,.34);
-  box-shadow:var(--shadow-mark-lg)}
-.og-mark svg{width:46px;height:46px;display:block}
-.og-word{display:flex;flex-direction:column;gap:5px}
-.og-word b{font:var(--fw-semibold) 27px/1 var(--font-display);letter-spacing:.01em;
+.og{width:1200px;height:630px;position:relative;overflow:hidden;display:flex;flex-direction:column;
+  background:var(--wash-gold),var(--wash-violet),var(--paper-000)}
+.og-rule{height:8px;flex:none;background:var(--gradient-rule)}
+.og-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:16px 64px 0}
+.og-lockup{display:flex;align-items:center;gap:36px}
+.og-plate{width:158px;height:158px;flex:none;display:grid;place-items:center;border-radius:36px;
+  background:var(--ink-900);border:1px solid var(--border-gold);
+  box-shadow:var(--shadow-mark),0 0 54px rgba(245,184,79,.22)}
+.og-plate img{display:block;width:114px;height:114px}
+.og-word{display:inline-flex;flex-direction:column;align-items:flex-start;gap:12px}
+.og-word b{font:var(--fw-semibold) 116px/1 var(--font-display);letter-spacing:-.02em;
   white-space:nowrap;color:var(--text-heading)}
 .og-word b i{font-style:normal;color:var(--gold-700)}
-.og-word small{font:var(--fs-meta) var(--font-mono);text-transform:uppercase;
-  letter-spacing:var(--track-eyebrow-tight);white-space:nowrap;color:var(--violet-700)}
-.og-head{position:absolute;left:64px;top:196px;width:1072px;margin:0;
-  font:var(--fw-regular) 52px/1.14 var(--font-display);letter-spacing:-.04em;color:var(--text-heading)}
-.og-foot{position:absolute;left:64px;right:64px;bottom:172px;display:flex;align-items:baseline;
-  justify-content:space-between;gap:24px;font:16px var(--font-mono);letter-spacing:.14em;
-  text-transform:uppercase;color:var(--text-meta)}
-.og-curve{position:absolute;left:0;bottom:0;display:block;width:1200px;height:190px}
+.og-word small{font:500 34px var(--font-mono);text-transform:uppercase;letter-spacing:.18em;
+  color:var(--violet-700)}
+.og-tagline{margin-top:42px;font:var(--fw-regular) 48px/1.22 var(--font-display);color:var(--text-heading)}
+.og-domain{margin-top:18px;align-self:flex-end;font:500 30px var(--font-mono);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--text-heading)}
+.og-curve{display:block;width:100%;height:110px;flex:none}
 </style>
 </head>
 <body>
 <div class="og">
   <div class="og-rule"></div>
-
-  <div class="og-lock">
-    <span class="og-mark">
-      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <defs><linearGradient id="mark-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD987"/><stop offset="1" stop-color="#F5B84F"/></linearGradient></defs>
-        <path d="M16.5 9 L8.5 20 L16.5 31" stroke="url(#mark-gold)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M23.5 9 L31.5 20 L23.5 31" stroke="url(#mark-gold)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="17" cy="17.5" r="2.1" fill="#FFD987"/><circle cx="23" cy="17.5" r="2.1" fill="#C8963B"/>
-        <circle cx="17" cy="22.5" r="2.1" fill="#C8963B"/><circle cx="23" cy="22.5" r="2.1" fill="#FFD987"/>
-      </svg>
-    </span>
-    <span class="og-word">
-      <b>Blyn<i>AI</i> Capital</b>
-      <small>L&amp;D Finance Lab</small>
-    </span>
+  <div class="og-body">
+    <div class="og-lockup">
+      <span class="og-plate"><img src="../assets/logo-mark.svg" alt=""></span>
+      <span class="og-word">
+        <b>Blyn<i>AI</i> Capital</b>
+        <small>L&amp;D Finance Lab</small>
+      </span>
+    </div>
+    <p class="og-tagline">Kripto finansų sistemos,<br><span class="blyn-grad">patikrintos gyvoje rinkoje.</span></p>
+    <p class="og-domain">blynai.eu</p>
   </div>
-
-  <p class="og-head">Algoritminė prekyba kriptovaliutomis.<br><span class="blyn-grad">Tyrimai, inovacijos, sprendimai.</span></p>
-
-  <div class="og-foot">
-    <p>blynai.eu</p>
-    <p>MB „BlynAI“ &#183; Lietuva</p>
-  </div>
-
   <svg class="og-curve" viewBox="0 0 1200 190" preserveAspectRatio="none" aria-hidden="true">
     <defs>
-      <linearGradient id="curve-line" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#F5B84F"/><stop offset=".55" stop-color="#C98F63"/><stop offset="1" stop-color="#6B4EDB"/></linearGradient>
-      <linearGradient id="curve-fill" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="rgba(245,184,79,.22)"/><stop offset="1" stop-color="rgba(107,78,219,.18)"/></linearGradient>
+      <linearGradient id="og-line" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#F5B84F"/><stop offset=".55" stop-color="#C98F63"/><stop offset="1" stop-color="#6B4EDB"/></linearGradient>
+      <linearGradient id="og-fill" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="rgba(245,184,79,.22)"/><stop offset="1" stop-color="rgba(107,78,219,.18)"/></linearGradient>
     </defs>
-    <path d="M0 150 L100 140 L190 156 L290 120 L380 134 L480 96 L570 112 L670 72 L760 88 L860 50 L950 66 L1060 26 L1130 40 L1200 8 L1200 190 L0 190 Z" fill="url(#curve-fill)"/>
-    <path d="M0 150 L100 140 L190 156 L290 120 L380 134 L480 96 L570 112 L670 72 L760 88 L860 50 L950 66 L1060 26 L1130 40 L1200 8" fill="none" stroke="url(#curve-line)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M0 150 L100 140 L190 156 L290 120 L380 134 L480 96 L570 112 L670 72 L760 88 L860 50 L950 66 L1060 26 L1130 40 L1200 8 L1200 190 L0 190 Z" fill="url(#og-fill)"/>
+    <path d="M0 150 L100 140 L190 156 L290 120 L380 134 L480 96 L570 112 L670 72 L760 88 L860 50 L950 66 L1060 26 L1130 40 L1200 8" fill="none" stroke="url(#og-line)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
   </svg>
 </div>
 </body>
