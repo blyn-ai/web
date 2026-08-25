@@ -31,6 +31,10 @@ destination URLs live in `ds/ui_kits/website/content.js`.
 
 ## Conventions that are easy to break
 
+- **Stamp the CSS after changing it.** `node tools/stamp-css.mjs` rewrites the
+  `?v=` on every stylesheet link. The zone overrides Cache-Control for static
+  extensions with its own 4-hour Browser Cache TTL, so without a fresh URL a
+  returning visitor can get new markup with the previous stylesheet.
 - **Paths stay relative.** The page must open from `file://`, from any static
   server and from the domain root without edits.
 - **One breakpoint: 760px.** Narrow values come from the `narrow` branch of the
