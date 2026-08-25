@@ -193,9 +193,13 @@ img{max-width:100%}
   font:var(--fs-meta) var(--font-mono)}
 .be-reg dt{color:var(--text-meta)}
 .be-reg dd{margin:0;color:var(--text-heading)}
-/* The founding act, in the same registry voice as the rows above it. */
+/* The founding act: its own labelled block under the registry rows — the label
+   is an eyebrow, like „Registro duomenys“ above it, and the two links sit in the
+   same mono as the rows. */
 .be-reg-doc{margin-top:var(--space-7);padding-top:var(--space-5);
-  border-top:1px solid var(--border-hairline);font:var(--fs-meta) var(--font-mono)}
+  border-top:1px solid var(--border-hairline)}
+.be-reg-doc .be-eyebrow{display:block;margin-bottom:var(--space-3)}
+.be-reg-doc-links{font:var(--fs-meta) var(--font-mono);color:var(--text-meta)}
 .be-members{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-grid)}
 .be-member img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius-hair);
   background:rgba(26,23,18,.06)}
