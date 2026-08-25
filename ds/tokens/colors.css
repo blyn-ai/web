@@ -1,0 +1,89 @@
+/* BlynAI Capital — colour system.
+   Two brand axes: GOLD (BLYN, the measured data) and VIOLET (AI, the inference).
+   Everything else is ink, paper or neutral text. No red/green: P&L is drawn with
+   the gold-to-violet gradient, never with market-convention colours. */
+:root{
+/* --- base: gold axis (BLYN) --- */
+--gold-100:#FFF3D8;--gold-200:#F7E6C1;--gold-300:#FFD987;--gold-400:#F5B84F;--gold-500:#C9A86A;
+--gold-600:#C8963B;--gold-700:#B97F2E;--gold-800:#A0762F;--gold-900:#8A6320;
+/* --- base: violet axis (AI) --- */
+--violet-200:#DCD3F5;--violet-300:#C6BEDA;--violet-400:#A18AFF;--violet-500:#8C6BC9;
+--violet-600:#8360C4;--violet-700:#6B4EDB;--violet-800:#5B3FC4;
+/* --- bridge: the single hue where the two axes meet --- */
+--bridge-500:#C98F63;
+/* --- base: ink (dark surfaces) --- */
+--ink-900:#050505;--ink-850:#07060B;--ink-800:#0A0A0A;--ink-780:#0A0B09;--ink-760:#0A0812;
+--ink-740:#0B0D10;--ink-700:#11120F;--ink-600:#1A1712;
+/* --- base: paper (light surfaces) --- */
+--paper-000:#FFFDF8;--paper-050:#FBF8F2;--paper-100:#F7F4ED;--paper-150:#F6EFE1;--paper-200:#E9E6E0;
+/* --- base: neutral text on paper --- */
+--stone-700:#4A423A;--stone-600:#6E655A;--stone-500:#8A8175;--stone-400:#B9AFA0;
+/* --- base: neutral text on ink --- */
+--sand-200:#C8BBA6;--sand-400:#82796D;--sand-500:#6E6659;--sand-600:#4F4A42;
+/* --- base: neutral text on violet-ink --- */
+--lilac-100:#EFEAF7;--lilac-200:#DCD3F5;--lilac-400:#BDB2D6;--lilac-600:#7C7391;--lilac-800:#4A4358;
+/* --- member marks: the two bot instances --- */
+--luko-coin:#C9A86A;--luko-ink:#0A0A0A;--luko-label:#8A6320;--luko-line:rgba(185,127,46,.36);
+--byko-coin:#7CCBFF;--byko-ink:#0B0D10;--byko-label:#2E5F94;--byko-tint:#BFE2FF;--byko-line:rgba(52,95,158,.30);
+
+/* --- semantic: surfaces --- */
+--surface-page:var(--paper-100);
+--surface-card:var(--paper-000);
+--surface-raised:var(--paper-050);
+--surface-ink:var(--ink-900);
+--surface-ink-soft:var(--ink-780);
+--surface-ink-violet:var(--ink-760);
+--surface-card-on-ink:rgba(17,18,15,.90);
+--surface-glass-on-ink:rgba(255,255,255,.035);
+/* --- semantic: text on paper --- */
+--text-heading:var(--ink-600);
+--text-body:var(--stone-700);
+--text-muted:var(--stone-600);
+--text-meta:var(--stone-500);
+--text-faint:var(--stone-400);
+/* --- semantic: text on ink --- */
+--text-heading-on-ink:var(--gold-200);
+--text-body-on-ink:var(--sand-200);
+--text-on-ink:var(--paper-150);
+--text-meta-on-ink:var(--sand-400);
+--text-faint-on-ink:var(--sand-600);
+/* --- semantic: accents --- */
+--accent-gold:var(--gold-400);
+--accent-gold-ink:var(--gold-700);
+--accent-violet:var(--violet-700);
+--accent-violet-on-ink:var(--violet-400);
+--eyebrow-on-paper:var(--violet-700);
+--eyebrow-on-ink:var(--gold-400);
+/* --- semantic: links --- */
+--link:var(--violet-700);
+--link-hover:var(--gold-900);
+--link-on-ink:var(--gold-400);
+--link-on-ink-hover:var(--gold-300);
+--link-nav-on-ink:var(--sand-200);
+--link-nav-on-ink-hover:var(--gold-200);
+/* --- semantic: borders --- */
+--border-hairline:rgba(26,23,18,.14);
+--border-strong:rgba(26,23,18,.22);
+--border-card:rgba(26,23,18,.16);
+--border-rule:var(--ink-600);
+--border-hairline-on-ink:rgba(246,218,160,.12);
+--border-card-on-ink:rgba(246,218,160,.14);
+--border-gold:rgba(245,184,79,.28);
+--border-violet:rgba(161,138,255,.20);
+--border-violet-strong:rgba(161,138,255,.40);
+
+/* --- gradients: the brand's one recurring device --- */
+--gradient-rule:linear-gradient(90deg,#F5B84F,#C98F63 42%,#8C6BC9 74%,#6B4EDB); /* @kind color */
+--gradient-text:linear-gradient(96deg,#B97F2E,#6B4EDB); /* @kind color */
+--gradient-text-reverse:linear-gradient(96deg,#6B4EDB,#B97F2E); /* @kind color */
+--gradient-action:linear-gradient(96deg,#8A6320,#5B3FC4); /* @kind color */
+--gradient-divider-v:linear-gradient(180deg,rgba(245,184,79,.5),rgba(107,78,219,.45)); /* @kind color */
+--gradient-curve:linear-gradient(to top right,#F5B84F,#C98F63 55%,#6B4EDB); /* @kind color */
+/* --- washes: large soft field light, always in pairs (gold NW, violet SE) --- */
+--wash-gold:radial-gradient(760px 460px at 4% 0%,rgba(245,184,79,.20),transparent 68%); /* @kind color */
+--wash-violet:radial-gradient(700px 520px at 98% 96%,rgba(107,78,219,.16),transparent 70%); /* @kind color */
+--wash-gold-ink:radial-gradient(820px 520px at 2% 0%,rgba(245,184,79,.16),transparent 66%); /* @kind color */
+--wash-violet-ink:radial-gradient(820px 620px at 100% 100%,rgba(107,78,219,.30),transparent 70%); /* @kind color */
+--tint-gold-fade:linear-gradient(180deg,rgba(245,184,79,.13),transparent 72%); /* @kind color */
+--tint-violet-fade:linear-gradient(180deg,rgba(107,78,219,.13),transparent 72%); /* @kind color */
+}

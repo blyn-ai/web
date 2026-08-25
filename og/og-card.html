@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<title>MB „BlynAI“ — share card 1200×630</title>
+<!-- Source file for /og.png. Render it with:  node tools/render.mjs
+     Layout is the design system's "Sakinys" share card
+     (ui_kits/social/OGCard.jsx · templates/share-card/ShareCard.dc.html):
+     6px gradient rule at the very top, lockup top-left, one claim in two lines,
+     the equity curve band along the bottom, mono footer line above it.
+     Headline stays at 52px — in a chat bubble that renders at 27 %, i.e. 14px. -->
+<link rel="stylesheet" href="../ds/styles.css">
+<style>
+html,body{margin:0;background:var(--paper-200)}
+.og{position:relative;width:1200px;height:630px;overflow:hidden;
+  background:
+    radial-gradient(820px 520px at 2% 0%,rgba(245,184,79,.24),transparent 68%),
+    radial-gradient(760px 560px at 100% 100%,rgba(107,78,219,.20),transparent 70%),
+    var(--paper-050)}
+.og-rule{position:absolute;inset:0 0 auto 0;height:var(--rule-h-lg);background:var(--gradient-rule)}
+.og-lock{position:absolute;left:64px;top:60px;display:flex;align-items:center;gap:18px}
+.og-mark{width:var(--mark-size-lg);height:var(--mark-size-lg);flex:none;display:grid;place-items:center;
+  border-radius:var(--radius-3xl);background:var(--ink-800);border:1px solid rgba(245,184,79,.34);
+  box-shadow:var(--shadow-mark-lg)}
+.og-mark svg{width:46px;height:46px;display:block}
+.og-word{display:flex;flex-direction:column;gap:5px}
+.og-word b{font:var(--fw-semibold) 27px/1 var(--font-display);letter-spacing:.01em;
+  white-space:nowrap;color:var(--text-heading)}
+.og-word b i{font-style:normal;color:var(--gold-700)}
+.og-word small{font:var(--fs-meta) var(--font-mono);text-transform:uppercase;
+  letter-spacing:var(--track-eyebrow-tight);white-space:nowrap;color:var(--violet-700)}
+.og-head{position:absolute;left:64px;top:196px;width:1072px;margin:0;
+  font:var(--fw-regular) 52px/1.14 var(--font-display);letter-spacing:-.04em;color:var(--text-heading)}
+.og-foot{position:absolute;left:64px;right:64px;bottom:172px;display:flex;align-items:baseline;
+  justify-content:space-between;gap:24px;font:16px var(--font-mono);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-meta)}
+.og-curve{position:absolute;left:0;bottom:0;display:block;width:1200px;height:190px}
+</style>
+</head>
+<body>
+<div class="og">
+  <div class="og-rule"></div>
+
+  <div class="og-lock">
+    <span class="og-mark">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <defs><linearGradient id="mark-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD987"/><stop offset="1" stop-color="#F5B84F"/></linearGradient></defs>
+        <path d="M16.5 9 L8.5 20 L16.5 31" stroke="url(#mark-gold)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23.5 9 L31.5 20 L23.5 31" stroke="url(#mark-gold)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="17" cy="17.5" r="2.1" fill="#FFD987"/><circle cx="23" cy="17.5" r="2.1" fill="#C8963B"/>
+        <circle cx="17" cy="22.5" r="2.1" fill="#C8963B"/><circle cx="23" cy="22.5" r="2.1" fill="#FFD987"/>
+      </svg>
+    </span>
+    <span class="og-word">
+      <b>Blyn<i>AI</i> Capital</b>
+      <small>L&amp;D Finance Lab</small>
+    </span>
+  </div>
+
+  <p class="og-head">Algoritminė prekyba kriptovaliutomis.<br><span class="blyn-grad">Tyrimai, inovacijos, sprendimai.</span></p>
+
+  <div class="og-foot">
+    <p>blynai.eu</p>
+    <p>MB „BlynAI“ &#183; Lietuva</p>
+  </div>
+
+  <svg class="og-curve" viewBox="0 0 1200 190" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="curve-line" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#F5B84F"/><stop offset=".55" stop-color="#C98F63"/><stop offset="1" stop-color="#6B4EDB"/></linearGradient>
+      <linearGradient id="curve-fill" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="rgba(245,184,79,.22)"/><stop offset="1" stop-color="rgba(107,78,219,.18)"/></linearGradient>
+    </defs>
+    <path d="M0 150 L100 140 L190 156 L290 120 L380 134 L480 96 L570 112 L670 72 L760 88 L860 50 L950 66 L1060 26 L1130 40 L1200 8 L1200 190 L0 190 Z" fill="url(#curve-fill)"/>
+    <path d="M0 150 L100 140 L190 156 L290 120 L380 134 L480 96 L570 112 L670 72 L760 88 L860 50 L950 66 L1060 26 L1130 40 L1200 8" fill="none" stroke="url(#curve-line)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  </svg>
+</div>
+</body>
+</html>

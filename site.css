@@ -1,0 +1,325 @@
+/* ==========================================================================
+   blynai.eu — page styles for index.html.
+   Everything here composes design-system tokens (ds/styles.css); no literal
+   colour, size or spacing value is invented. The page is the approved home
+   direction, "Variant 04 · Žurnalas" (ui_kits/website/HomeLedger.jsx in the
+   BlynAI Capital design system): the equity curve carries the hero, the two
+   syllables open the page, the stat strip sits directly under the curve.
+
+   One breakpoint, 760px, serving both widths — the shipped-page constraint.
+   Narrow values are taken from the same component's `narrow` branch.
+   ========================================================================== */
+
+:root{
+  --be-x:var(--section-x);        /* page gutter, 72px -> 18px at 760 */
+  --be-x-ink:var(--pad-header-x); /* the tighter gutter of the ink bands, 34px */
+  --be-rule-h:var(--rule-h-lg);   /* the gradient rule, 6px -> 3px at 760 */
+
+  /* The design system draws this page on a 1160px canvas: 72px gutters on the
+     light document bands, 34px on the ink ones. Below 1160 that is exactly the
+     gutter; above it the gutter grows so the content stays on the same canvas
+     and stays centred, while every band keeps its full-bleed background. Without
+     this, an 82ch note on a 1920px screen ends at 40% and reads as a broken line
+     break rather than a measure.
+     1160/2 - 72 = 508   ·   1160/2 - 34 = 546 */
+  --be-pad-x:max(var(--be-x),calc(50% - 508px));
+  --be-pad-x-ink:max(var(--be-x-ink),calc(50% - 546px));
+  /* The ink strips pad their own cells, so they only need the overhang. */
+  --be-bleed-ink:max(0px,calc(50% - 546px));
+}
+
+/* Carried over from the shipped page; the design system's base.css leaves it
+   out. Without it a full-width outline button is 2px wider than the filled one
+   beside it, and the 44px burger becomes 46px. */
+*,*::before,*::after{box-sizing:border-box}
+
+body{background:var(--surface-page)}
+img{max-width:100%}
+
+/* --- shared roles ------------------------------------------------------- */
+.be-eyebrow{font:var(--type-eyebrow);letter-spacing:var(--track-eyebrow);
+  text-transform:uppercase;color:var(--eyebrow-on-paper)}
+.be-section{padding:var(--section-y) var(--be-pad-x);border-bottom:1px solid var(--border-hairline)}
+.be-section--raised{background:var(--surface-card)}
+.be-section > .be-eyebrow{display:block;margin-bottom:30px}
+
+/* --- header band -------------------------------------------------------- */
+.be-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:18px 24px;padding:var(--pad-header-y) var(--be-pad-x-ink);background:var(--surface-ink)}
+.be-brand{display:inline-flex;align-items:center;gap:var(--gap-inline);color:inherit;text-decoration:none}
+.be-mark{width:var(--mark-size);height:var(--mark-size);flex:none;display:grid;place-items:center;
+  border-radius:var(--radius-lg);background:rgba(0,0,0,.28);border:1px solid var(--border-gold);
+  box-shadow:var(--shadow-mark)}
+.be-mark svg{width:31px;height:31px;display:block}
+.be-wordmark{display:flex;flex-direction:column;gap:2px}
+.be-wordmark b{font:var(--fw-semibold) 17px/1.05 var(--font-display);letter-spacing:.01em;
+  white-space:nowrap;color:var(--text-heading-on-ink)}
+.be-wordmark b i{font-style:normal;color:var(--accent-gold)}
+.be-wordmark small{font:var(--fs-micro) var(--font-mono);text-transform:uppercase;
+  letter-spacing:.14em;white-space:nowrap;color:var(--accent-violet-on-ink)}
+.be-nav{display:flex;align-items:center;gap:var(--gap-nav);
+  font:var(--fs-eyebrow) var(--font-mono);letter-spacing:var(--track-nav);text-transform:uppercase}
+.be-nav a{color:var(--link-nav-on-ink);text-decoration:none}
+.be-nav a:hover{color:var(--link-nav-on-ink-hover)}
+
+/* Narrow-screen menu. A <details> rather than a dead button: the design system
+   draws a burger at 390px but has no menu behind it, and the page ships without
+   JavaScript. Three 17x1.5px bars in --sand-200, per the iconography rules. */
+.be-menu{display:none}
+.be-menu > summary{width:var(--tap-min);height:var(--tap-min);display:grid;place-items:center;
+  border:1px solid rgba(246,218,160,.18);border-radius:var(--radius-md);list-style:none;cursor:pointer}
+.be-menu > summary::-webkit-details-marker{display:none}
+.be-burger{display:flex;flex-direction:column;gap:5px}
+.be-burger i{display:block;width:17px;height:1.5px;background:var(--sand-200)}
+.be-menu[open] > summary{border-color:rgba(246,218,160,.34)}
+/* top:100% hangs the panel off the header band, not off the summary box: its
+   static position sits 14px up inside the header. */
+.be-menu-panel{position:absolute;top:100%;left:0;right:0;z-index:2;display:flex;flex-direction:column;
+  padding:0 var(--mobile-x) var(--space-3);background:var(--surface-ink);
+  font:var(--fs-eyebrow) var(--font-mono);letter-spacing:var(--track-nav);text-transform:uppercase}
+.be-menu-panel a{padding:14px 0;color:var(--link-nav-on-ink);text-decoration:none;
+  border-top:1px solid var(--border-hairline-on-ink)}
+
+/* The one place the gold-to-violet axis is shown neat. Once per surface. */
+.be-rule{height:var(--be-rule-h);background:var(--gradient-rule)}
+
+/* --- hero --------------------------------------------------------------- */
+.be-hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border-hairline);
+  background:var(--wash-gold),var(--wash-violet),var(--paper-000)}
+.be-hero-inner{padding:44px var(--be-pad-x) 0}
+/* align-items:start, not end: with `end` the status card sinks to the bottom of
+   the row and empties the whole top-right corner. */
+.be-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--gap-wide);
+  margin-top:24px;align-items:start}
+.be-h1{margin:0;font:var(--fw-regular) 54px/var(--lh-display) var(--font-display);
+  letter-spacing:var(--track-display);color:var(--text-heading)}
+.be-axes{display:flex;flex-wrap:wrap;gap:var(--space-10);margin-top:var(--space-8)}
+.be-axis{margin:0;max-width:30ch;font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);
+  color:var(--text-body)}
+.be-axis b{font:var(--fw-semibold) var(--fs-meta) var(--font-mono);letter-spacing:.1em}
+.be-axis--blyn b{color:var(--gold-900)}
+.be-axis--ai b{color:var(--violet-800)}
+.be-cta{display:flex;gap:var(--gap-inline);margin-top:30px}
+.be-btn{display:inline-flex;align-items:center;justify-content:center;height:var(--control-h);
+  padding:0 var(--pad-button-x);border-radius:var(--radius-sm);font:var(--type-button);
+  text-decoration:none;transition:background-color var(--dur-fast) var(--ease),filter var(--dur-fast) var(--ease)}
+/* Darkened gradient, not raw --gold-400: white on #F5B84F measures ~1.9:1. */
+.be-btn--pri{background:var(--gradient-action);color:#fff;border:0}
+.be-btn--pri:hover{color:#fff;filter:brightness(1.1)}
+.be-btn--sec{border:1px solid var(--border-strong);color:var(--text-heading)}
+.be-btn--sec:hover{color:var(--text-heading);background:rgba(26,23,18,.05)}
+.be-status{margin-top:4px;padding:24px 26px;background:var(--surface-card);
+  border:1px solid var(--border-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-violet-edge)}
+.be-status .be-eyebrow{display:block;margin-bottom:var(--gap-stack);
+  font-size:var(--fs-micro);letter-spacing:var(--track-eyebrow-tight)}
+.be-status p{font:var(--fs-body-sm)/var(--lh-mono) var(--font-mono);color:var(--text-heading)}
+/* The brand's only illustration. A drawing of a gain line, never a data series. */
+.be-curve{display:block;width:100%;height:150px;margin-top:30px}
+
+/* --- stat strip on ink -------------------------------------------------- */
+/* Separators are borders, not a 1px grid gap over a coloured backdrop: the
+   strip now carries its own ink so it can be padded to the canvas. */
+.be-stats{display:grid;grid-template-columns:repeat(3,1fr);
+  padding-inline:var(--be-bleed-ink);background:var(--ink-780)}
+.be-stat{padding:var(--space-8) var(--be-x-ink)}
+.be-stat + .be-stat{border-left:1px solid var(--border-hairline-on-ink)}
+.be-stat dt{font:var(--fs-micro) var(--font-mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-meta-on-ink)}
+.be-stat dd{margin:9px 0 0;font:var(--fw-semibold) var(--fs-h4) var(--font-display);
+  color:var(--text-heading-on-ink)}
+
+/* --- numbered research rows --------------------------------------------- */
+.be-rows{margin:0;padding:0;list-style:none}
+.be-row{display:grid;grid-template-columns:var(--grid-numbered);gap:var(--gap-col);
+  padding:var(--pad-row-y) 0;border-top:1px solid var(--border-hairline)}
+.be-row:last-child{border-bottom:1px solid var(--border-hairline)}
+/* The numerals are the icon set. Their colour walks gold into violet. */
+.be-row-n{font:var(--fw-regular) var(--fs-body-md) var(--font-mono)}
+.be-row:nth-child(1) .be-row-n{color:var(--gold-700)}
+.be-row:nth-child(2) .be-row-n{color:var(--gold-800)}
+.be-row:nth-child(3) .be-row-n{color:var(--violet-600)}
+.be-row:nth-child(4) .be-row-n{color:var(--violet-700)}
+.be-row h3{margin:0;font:var(--type-h3);letter-spacing:var(--track-h3);color:var(--text-heading)}
+.be-row p{font:var(--type-body);color:var(--text-body)}
+
+/* --- BLYN / AI ---------------------------------------------------------- */
+.be-split{display:grid;grid-template-columns:1fr 1fr;border-top:var(--rule-strong)}
+.be-syl{padding:var(--pad-card-lg)}
+.be-syl--blyn{border-right:1px solid var(--border-hairline);background:var(--tint-gold-fade)}
+.be-syl--ai{background:var(--tint-violet-fade)}
+.be-syl b{display:block;font:var(--fw-regular) var(--fs-syllable)/var(--lh-flat) var(--font-display);
+  letter-spacing:var(--track-h2)}
+.be-syl--blyn b{color:var(--gold-700)}
+.be-syl--ai b{color:var(--violet-700)}
+.be-syl-x{margin-top:var(--space-6);font:var(--fw-regular) var(--fs-h3)/1.35 var(--font-display);
+  color:var(--text-heading)}
+.be-syl-d{margin-top:var(--space-3);font:var(--fs-body-sm)/var(--lh-body) var(--font-body);
+  color:var(--text-muted)}
+/* No ch cap on the three prose blocks that own a whole band or column: the
+   design system caps them at 82ch/96ch/46ch, which stops them well short of the
+   band and reads as an arbitrary line break rather than a measure. The 1160px
+   canvas above is what keeps the line from running away on a wide screen. */
+.be-note{margin-top:var(--space-6);font:var(--fs-meta)/var(--lh-body) var(--font-body);
+  color:var(--text-muted)}
+
+/* --- the two instances -------------------------------------------------- */
+.be-coins{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:var(--gap-section);
+  align-items:center;padding:52px var(--be-pad-x);border-bottom:1px solid var(--border-hairline);
+  background:var(--paper-000)}
+.be-coins h2{margin:var(--gap-stack) 0 0;font:var(--type-h2);letter-spacing:var(--track-h2)}
+.be-coins-lead{margin-top:var(--fs-meta);
+  font:var(--fs-body-md)/var(--lh-body) var(--font-body);color:var(--text-body)}
+.be-coins-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-inline)}
+/* The coin marks belong to the two members, not to the brand: never recoloured. */
+.be-coin{display:flex;flex-direction:column;align-items:flex-start;gap:var(--gap-inline);
+  padding:var(--pad-card-sm);border-radius:var(--radius-sm);background:var(--paper-000);
+  text-decoration:none;min-width:0}
+.be-coin img{width:44px;height:44px;flex:none}
+.be-coin b{display:block;font:var(--fw-semibold) 16px var(--font-display);letter-spacing:.02em}
+.be-coin small{font:11.5px var(--font-mono);color:var(--text-meta)}
+.be-coin--luko{border:1px solid var(--luko-line)}
+.be-coin--luko b{color:var(--luko-label)}
+.be-coin--byko{border:1px solid var(--byko-line)}
+.be-coin--byko b{color:var(--byko-label)}
+
+/* --- registry + members ------------------------------------------------- */
+.be-legal{display:grid;grid-template-columns:var(--grid-split);gap:0 var(--gap-wide);
+  padding:var(--section-y) var(--be-pad-x);background:var(--surface-card)}
+/* The vertical gradient divider is used only where the two columns map to the
+   two axes: registry (measured fact) beside the members (the people). */
+.be-legal-div{background:var(--gradient-divider-v)}
+.be-legal .be-eyebrow{display:block;margin-bottom:var(--space-7)}
+.be-reg{display:grid;grid-template-columns:auto 1fr;gap:13px var(--space-8);margin:0;
+  font:var(--fs-meta) var(--font-mono)}
+.be-reg dt{color:var(--text-meta)}
+.be-reg dd{margin:0;color:var(--text-heading)}
+/* The founding act, in the same registry voice as the rows above it. */
+.be-reg-doc{margin-top:var(--space-7);padding-top:var(--space-5);
+  border-top:1px solid var(--border-hairline);font:var(--fs-meta) var(--font-mono)}
+.be-members{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-grid)}
+.be-member img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius-hair);
+  background:rgba(26,23,18,.06)}
+/* Lukas' frame is dropped: a centred crop cuts the top of his head. */
+.be-member--l img{object-position:50% 12%;border:1px solid rgba(185,127,46,.35)}
+.be-member--d img{border:1px solid rgba(107,78,219,.30)}
+.be-member b{display:block;margin-top:var(--space-3);
+  font:var(--fw-medium) var(--fs-body-md) var(--font-display);color:var(--text-heading)}
+.be-member small{font:var(--fs-caption) var(--font-mono);color:var(--text-meta)}
+
+/* --- footer ------------------------------------------------------------- */
+.be-foot{padding:var(--space-10) var(--be-pad-x) var(--space-11);background:var(--surface-ink)}
+.be-foot p{font:12.5px/var(--lh-body) var(--font-body);color:var(--text-meta-on-ink)}
+.be-foot-c{margin-top:var(--space-6);font:var(--fs-eyebrow) var(--font-mono);
+  letter-spacing:var(--track-foot);text-transform:uppercase;color:var(--sand-600)}
+/* „Skaityti plačiau“ — same control as the live journal's footnote line: a gold
+   underlined word inside the sentence, not a button that looks like a button. */
+.be-more{margin-left:8px;padding:0;border:0;background:none;cursor:pointer;
+  color:var(--link-on-ink);font:inherit;text-decoration:underline;text-underline-offset:3px;
+  transition:var(--transition-color)}
+.be-more:hover{color:var(--link-on-ink-hover)}
+
+/* --- disclaimer dialog -------------------------------------------------- */
+/* Native <dialog>: Esc, the focus trap and the backdrop are the browser's.
+   The card is paper, not ink. The journal's dialog is dark because that whole
+   page is dark; this is a light document page, where the design system allows
+   ink only as full-bleed bands (header, stat strip, footer) and specifies a
+   card as #FFFDF8 with a hairline at 6px and no drop shadow. A dark card here
+   would be the third surface on a document that is allowed two. */
+.be-modal{width:min(720px,100vw - 32px);max-height:82vh;padding:0;overflow:hidden;
+  border:1px solid var(--border-card);border-radius:var(--radius-sm);
+  background:var(--surface-card);color:var(--text-body);box-shadow:var(--shadow-violet-edge)}
+/* Warm ink at 55%, not black: the brand has no pure grey and no pure black scrim. */
+.be-modal::backdrop{background:rgba(26,23,18,.55)}
+.be-modal-head{display:flex;align-items:flex-start;gap:16px;padding:20px 22px 14px;
+  border-bottom:1px solid var(--border-hairline)}
+.be-modal-t{flex:1;margin:0;font:var(--fw-medium) clamp(17px,2.4vw,21px)/var(--lh-h3) var(--font-display);
+  letter-spacing:var(--track-h3);color:var(--text-heading)}
+.be-modal-x{flex:none;width:32px;height:32px;border:1px solid var(--border-hairline);
+  border-radius:var(--radius-xs);background:transparent;color:var(--text-meta);
+  cursor:pointer;font:var(--fs-body) var(--font-mono);transition:var(--transition-color)}
+.be-modal-x:hover{color:var(--text-heading);border-color:var(--border-strong)}
+.be-modal-body{max-height:calc(82vh - 70px);overflow-y:auto;padding:18px 22px 24px;
+  font:var(--fs-body-sm)/1.65 var(--font-body)}
+.be-modal-body p{margin:0 0 11px}
+.be-modal-body p:last-child{margin-bottom:0}
+/* Mono section labels, same register as the eyebrows on the page itself. */
+.be-modal-body h3{margin:var(--space-6) 0 8px;font:var(--fw-semibold) var(--fs-meta) var(--font-mono);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--text-meta)}
+.be-modal-body h3:first-child{margin-top:0}
+.be-modal-body ul{margin:0 0 11px;padding-left:20px}
+.be-modal-body li{margin-bottom:5px}
+.be-modal-body b{font-weight:var(--fw-semibold);color:var(--text-heading)}
+
+/* ==========================================================================
+   760px. One column, full-width controls, 44px tap targets.
+   ========================================================================== */
+@media (max-width:760px){
+  :root{--be-x:var(--mobile-x);--be-x-ink:var(--mobile-x);--be-rule-h:var(--rule-h)}
+  .be-top{padding:14px var(--mobile-x);flex-wrap:nowrap;position:relative}
+  .be-brand{min-height:var(--tap-min)}
+  .be-mark{width:var(--mark-size-sm);height:var(--mark-size-sm);border-radius:var(--radius-md)}
+  .be-mark svg{width:26px;height:26px}
+  .be-wordmark b{font-size:var(--fs-body-md)}
+  .be-wordmark small{font-size:9px}
+  .be-nav{display:none}
+  .be-menu{display:block}
+  .be-section{padding:var(--mobile-y) var(--be-x)}
+  .be-section > .be-eyebrow{margin-bottom:var(--space-7);
+    font-size:var(--fs-micro);letter-spacing:var(--track-eyebrow-tight)}
+  .be-hero-inner{padding:var(--mobile-y) var(--be-x) 0}
+  .be-hero > .be-hero-inner > .be-eyebrow{font-size:var(--fs-micro);letter-spacing:var(--track-eyebrow-tight)}
+  .be-hero-grid{display:block;margin-top:var(--space-7)}
+  .be-h1{font-size:34px;max-width:18ch}
+  .be-axes{gap:var(--space-6)}
+  .be-axis{max-width:none}
+  .be-cta{flex-direction:column;gap:10px;margin-top:var(--space-8)}
+  .be-btn{height:var(--control-h-lg);width:100%;padding:0}
+  .be-status{margin-top:var(--space-7)}
+  .be-curve{height:96px;margin-top:var(--space-7)}
+  .be-stats{grid-template-columns:1fr}
+  .be-stat{padding:var(--space-5) var(--mobile-x)}
+  .be-stat + .be-stat{border-left:0;border-top:1px solid var(--border-hairline-on-ink)}
+  .be-row{display:block;padding:var(--space-6) 0}
+  .be-row-n{font-size:var(--fs-meta)}
+  .be-row h3{margin:8px 0;font-size:var(--fs-h4)}
+  .be-row p{font-size:var(--fs-body-sm)}
+  .be-split{display:block}
+  .be-syl{padding:var(--space-6) 0 var(--space-7)}
+  .be-syl--blyn{border-right:0;border-bottom:1px solid var(--border-hairline)}
+  .be-syl b{font-size:40px}
+  .be-syl-x{margin-top:var(--gap-stack);font-size:17px}
+  .be-syl-d{margin-top:var(--space-2);font-size:var(--fs-meta)}
+  .be-coins{display:block;padding:var(--mobile-y) var(--be-x)}
+  .be-coins h2{font-size:var(--fs-h3)}
+  .be-coins-lead{font-size:var(--fs-body)}
+  .be-coins-grid{gap:10px;margin-top:var(--space-6)}
+  .be-coin{flex-direction:row;align-items:center;gap:13px;padding:var(--space-4);min-height:56px}
+  .be-coin img{width:30px;height:30px}
+  .be-coin b{font-size:var(--fs-body)}
+  .be-coin small{font-size:var(--fs-micro)}
+  /* One column: members, then the registry — the DOM order already reads that
+     way, and the gradient divider has no two columns left to divide. */
+  .be-legal{display:block;padding:var(--mobile-y) var(--be-x)}
+  .be-legal-reg{margin-top:var(--space-9);padding-top:var(--space-7);
+    border-top:1px solid var(--border-hairline)}
+  .be-legal-div{display:none}
+  .be-legal .be-eyebrow{margin-bottom:var(--space-6)}
+  .be-members{gap:var(--gap-stack)}
+  .be-member b{margin-top:10px;font-size:var(--fs-body)}
+  .be-member small{font-size:var(--fs-eyebrow)}
+  .be-reg{gap:var(--space-3) var(--space-5);font-size:var(--fs-caption)}
+  /* 44px hit area for the mail and act links without moving the mono rows. */
+  .be-reg dd a,.be-reg-doc a{display:inline-block;padding:14px 0;margin:-14px 0}
+  .be-reg-doc{margin-top:var(--space-5);padding-top:var(--space-4)}
+  .be-foot{padding:var(--space-9) var(--be-x) var(--space-10)}
+  .be-foot p{font-size:var(--fs-caption)}
+  .be-foot-c{font-size:var(--fs-micro)}
+  /* 44px tap target, on its own line so the sentence above keeps its rhythm. */
+  .be-more{display:inline-flex;align-items:center;min-height:var(--tap-min);margin:6px 0 0}
+  .be-modal-head{padding:16px 18px 12px}
+  .be-modal-body{padding:16px 18px 20px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:0.01ms !important}
+}

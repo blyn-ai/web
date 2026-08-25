@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Company home page" description="blynai.eu one-page company site: ink header, wash hero, BLYN/AI split, numbered research rows, instance coins, registry and the legal footer." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>body{margin:0;background:#F7F4ED;font-family:"IBM Plex Sans",system-ui,sans-serif}a{color:#6B4EDB;text-decoration:none}a:hover{color:#8A6320}</style>
+</helmet>
+
+<header style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 24px;padding:18px 34px;background:#050505">
+<a href="#" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none">
+<x-import component-from-global-scope="BlynAICapitalDesignSystem_090ef4.LogoMark" hint-size="42px,42px"></x-import>
+<span style="display:flex;flex-direction:column;gap:2px">
+<b style="font:600 17px/1.05 'Space Grotesk',sans-serif;letter-spacing:.01em;color:#F7E6C1;white-space:nowrap">Blyn<i style="font-style:normal;color:#F5B84F">AI</i> Capital</b>
+<small style="font:10px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:#A18AFF;white-space:nowrap">L&amp;D Finance Lab</small>
+</span>
+</a>
+<nav style="display:flex;align-items:center;gap:22px;font:11px 'IBM Plex Mono',monospace;letter-spacing:.13em;text-transform:uppercase">
+<a href="#vardas" style="color:#C8BBA6">Apie</a>
+<a href="#tyrimai" style="color:#C8BBA6">Tyrimai</a>
+<a href="#nariai" style="color:#C8BBA6">Nariai</a>
+<a href="#rekvizitai" style="color:#C8BBA6">Kontaktai</a>
+</nav>
+</header>
+<div style="height:6px;background:linear-gradient(90deg,#F5B84F,#C98F63 42%,#8C6BC9 74%,#6B4EDB)"></div>
+
+<section style="position:relative;overflow:hidden;border-bottom:1px solid rgba(26,23,18,.14);background:radial-gradient(760px 460px at 4% 0%,rgba(245,184,79,.20),transparent 68%),radial-gradient(700px 520px at 98% 96%,rgba(107,78,219,.16),transparent 70%),#FFFDF8">
+<div style="padding:44px 72px 0">
+<p style="margin:0;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#6B4EDB">Mažoji bendrija · įsteigta Lietuvoje</p>
+<div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;margin-top:24px;align-items:start">
+<div>
+<h1 style="margin:0;font:400 58px/1.03 'Space Grotesk',sans-serif;letter-spacing:-.035em;color:#1A1712;max-width:20ch">Programa prekiauja. <span class="blyn-grad">Mes tyrinėjame, kaip.</span></h1>
+<div style="display:flex;gap:34px;margin-top:26px;flex-wrap:wrap">
+<p style="margin:0;max-width:30ch;font:400 15px/1.6 'IBM Plex Sans',sans-serif;color:#4A423A"><b style="font:600 13px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#8A6320">BLYN</b><br>Blockchain Ledger Yield Numerics — grandinė, žurnalas, pelno kreivė.</p>
+<p style="margin:0;max-width:30ch;font:400 15px/1.6 'IBM Plex Sans',sans-serif;color:#4A423A"><b style="font:600 13px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:#5B3FC4">AI</b><br>Algorithmic Inference — išvada ir orderis, priimtas taisyklių.</p>
+</div>
+<div style="display:flex;gap:12px;margin-top:30px">
+<a href="https://blynai.meetluko.eu" style="display:inline-flex;align-items:center;height:46px;padding:0 24px;border-radius:6px;background:linear-gradient(96deg,#8A6320,#5B3FC4);color:#fff;font:600 13.5px 'Space Grotesk',sans-serif">Gyvas žurnalas</a>
+<a href="https://github.com/bykovas/trading-bot" style="display:inline-flex;align-items:center;height:46px;padding:0 24px;border-radius:6px;border:1px solid rgba(26,23,18,.22);color:#1A1712;font:600 13.5px 'Space Grotesk',sans-serif">GitHub · atvirasis kodas</a>
+</div>
+</div>
+<div style="margin-top:4px;padding:24px 26px;border:1px solid rgba(26,23,18,.16);border-radius:6px;background:#FFFDF8;box-shadow:0 1px 0 rgba(107,78,219,.06)">
+<p style="margin:0 0 14px;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#6B4EDB">Būsena</p>
+<p style="margin:0;font:13.5px/1.75 'IBM Plex Mono',monospace;color:#1A1712">Botai veikia be pertraukos.<br>Žurnalas atviras.<br>Klientų lėšų — nėra ir nebus.</p>
+</div>
+</div>
+</div>
+<sc-if value="{{ showCurve }}" hint-placeholder-val="{{ true }}">
+<x-import component-from-global-scope="BlynAICapitalDesignSystem_090ef4.EquityCurve" variant="band" hint-size="100%,150px" style="display:block;margin-top:30px;height:150px"></x-import>
+</sc-if>
+</section>
+
+<section style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(246,218,160,.12)">
+<div style="padding:26px 34px;background:#0A0B09"><p style="margin:0;font:10px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#82796D">Teisinė forma</p><p style="margin:9px 0 0;font:600 18px 'Space Grotesk',sans-serif;color:#F7E6C1">Mažoji bendrija</p></div>
+<div style="padding:26px 34px;background:#0A0B09"><p style="margin:0;font:10px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#82796D">Nariai</p><p style="margin:9px 0 0;font:600 18px 'Space Grotesk',sans-serif;color:#F7E6C1">2 · po 50 %</p></div>
+<div style="padding:26px 34px;background:#0A0B09"><p style="margin:0;font:10px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#82796D">Kodo licencija</p><p style="margin:9px 0 0;font:600 18px 'Space Grotesk',sans-serif;color:#F7E6C1">Atvirasis kodas</p></div>
+</section>
+
+<section id="tyrimai" style="padding:56px 72px;border-bottom:1px solid rgba(26,23,18,.14);background:#FFFDF8">
+<p style="margin:0 0 34px;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#6B4EDB">Tyrimų kryptys</p>
+<ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0">
+<li style="display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,1.1fr);gap:32px;padding:26px 0;border-top:1px solid rgba(26,23,18,.14)">
+<span style="font:400 15px 'IBM Plex Mono',monospace;color:#B97F2E">01</span>
+<h3 style="margin:0;font:500 21px/1.25 'Space Grotesk',sans-serif;letter-spacing:-.015em;color:#1A1712">Paaiškinamas sprendimas</h3>
+<p style="margin:0;font:14.5px/1.6 'IBM Plex Sans',sans-serif;color:#4A423A">Kiekvienas orderis įrašomas su signalais, rizikos ribomis ir atmestomis alternatyvomis. Jei sprendimo negalima perskaityti po savaitės — jis netinka tyrimui.</p>
+</li>
+<li style="display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,1.1fr);gap:32px;padding:26px 0;border-top:1px solid rgba(26,23,18,.14)">
+<span style="font:400 15px 'IBM Plex Mono',monospace;color:#A0762F">02</span>
+<h3 style="margin:0;font:500 21px/1.25 'Space Grotesk',sans-serif;letter-spacing:-.015em;color:#1A1712">Simuliacija prieš tikrovę</h3>
+<p style="margin:0;font:14.5px/1.6 'IBM Plex Sans',sans-serif;color:#4A423A">Tas pats algoritmas vienu metu leidžiamas istoriniuose duomenyse ir gyvoje rinkoje. Matuojame ne pelną, o atotrūkį tarp dviejų kreivių.</p>
+</li>
+<li style="display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,1.1fr);gap:32px;padding:26px 0;border-top:1px solid rgba(26,23,18,.14)">
+<span style="font:400 15px 'IBM Plex Mono',monospace;color:#8360C4">03</span>
+<h3 style="margin:0;font:500 21px/1.25 'Space Grotesk',sans-serif;letter-spacing:-.015em;color:#1A1712">Rizikos mechanika</h3>
+<p style="margin:0;font:14.5px/1.6 'IBM Plex Sans',sans-serif;color:#4A423A">Pozicijų dydis, atvėsimo periodai, avarinis stabdys. Tikriname juos realaus kritimo metu, nes lentelėje jie visada atrodo veikiantys.</p>
+</li>
+<li style="display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,1.1fr);gap:32px;padding:26px 0;border-top:1px solid rgba(26,23,18,.14);border-bottom:1px solid rgba(26,23,18,.14)">
+<span style="font:400 15px 'IBM Plex Mono',monospace;color:#6B4EDB">04</span>
+<h3 style="margin:0;font:500 21px/1.25 'Space Grotesk',sans-serif;letter-spacing:-.015em;color:#1A1712">Atkuriamumas</h3>
+<p style="margin:0;font:14.5px/1.6 'IBM Plex Sans',sans-serif;color:#4A423A">Kodas, parametrai ir duomenų momentinės kopijos skelbiami atvirai, kad rezultatą galėtų pakartoti trečiasis asmuo be mūsų dalyvavimo.</p>
+</li>
+</ol>
+</section>
+
+<section id="vardas" style="padding:56px 72px;border-bottom:1px solid rgba(26,23,18,.14)">
+<p style="margin:0 0 30px;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#6B4EDB">Vardas · du skiemenys</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #1A1712">
+<div style="padding:28px 34px 30px;border-right:1px solid rgba(26,23,18,.14);background:linear-gradient(180deg,rgba(245,184,79,.13),transparent 72%)">
+<b style="display:block;font:400 54px/1 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#B97F2E">BLYN</b>
+<p style="margin:20px 0 0;font:400 21px/1.35 'Space Grotesk',sans-serif;color:#1A1712">Blockchain Ledger Yield Numerics</p>
+<p style="margin:12px 0 0;font:13.5px/1.6 'IBM Plex Sans',sans-serif;color:#6E655A">Kas matuojama: grandinės duomenys, orderių žurnalas, pelno kreivė ir skaičiai, kuriuos iš jų galima gauti.</p>
+</div>
+<div style="padding:28px 34px 30px;background:linear-gradient(180deg,rgba(107,78,219,.13),transparent 72%)">
+<b style="display:block;font:400 54px/1 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#6B4EDB">AI</b>
+<p style="margin:20px 0 0;font:400 21px/1.35 'Space Grotesk',sans-serif;color:#1A1712">Algorithmic Inference</p>
+<p style="margin:12px 0 0;font:13.5px/1.6 'IBM Plex Sans',sans-serif;color:#6E655A">Kas iš to daroma: išvada ir orderis, priimtas taisyklių, o ne nuojautos. Be žmogaus rankos ir be jo nuotaikos.</p>
+</div>
+</div>
+<p style="margin:20px 0 0;max-width:82ch;font:13px/1.6 'IBM Plex Sans',sans-serif;color:#6E655A">Lietuviškai tas pats žodis skaitomas kaip „blynai“. Bendrija sąmoningai laikosi abiejų skaitymų: pirmasis paaiškina, ką darome, antrasis — kad nesame rimtesni, nei esame.</p>
+</section>
+
+<section style="display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:44px;align-items:center;padding:52px 72px;border-bottom:1px solid rgba(26,23,18,.14);background:#FFFDF8">
+<div>
+<p style="margin:0;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#6B4EDB">Du nariai, dvi valiutos</p>
+<h2 style="margin:14px 0 0;font:500 27px/1.2 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#1A1712">L&amp;D: dvi nepriklausomos boto instancijos</h2>
+<p style="margin:13px 0 0;max-width:46ch;font:15px/1.6 'IBM Plex Sans',sans-serif;color:#4A423A">Tas pats kodas, atskiros sąskaitos, atskiri žurnalai. Jei rezultatai skiriasi — skirtumas irgi yra duomenys.</p>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<x-import component-from-global-scope="BlynAICapitalDesignSystem_090ef4.CoinCard" member="luko" hint-size="100%,130px"></x-import>
+<x-import component-from-global-scope="BlynAICapitalDesignSystem_090ef4.CoinCard" member="byko" hint-size="100%,130px"></x-import>
+</div>
+</section>
+
+<sc-if value="{{ showRegistry }}" hint-placeholder-val="{{ true }}">
+<section id="nariai" style="display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);gap:0 56px;padding:56px 72px;border-bottom:1px solid rgba(26,23,18,.14)">
+<div id="rekvizitai">
+<p style="margin:0 0 24px;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#6B4EDB">Registro duomenys</p>
+<dl style="display:grid;grid-template-columns:auto 1fr;gap:13px 26px;margin:0;font:13px 'IBM Plex Mono',monospace">
+<dt style="color:#8A8175">Pavadinimas</dt><dd style="margin:0;color:#1A1712">MB „BlynAI“</dd>
+<dt style="color:#8A8175">Forma</dt><dd style="margin:0;color:#1A1712">Mažoji bendrija</dd>
+<dt style="color:#8A8175">J. a. kodas</dt><dd style="margin:0;color:#1A1712">registruojama</dd>
+<dt style="color:#8A8175">Buveinė</dt><dd style="margin:0;color:#1A1712">Lietuvos Respublika</dd>
+<dt style="color:#8A8175">Direktorius</dt><dd style="margin:0;color:#1A1712">Lukas Peciukonis</dd>
+<dt style="color:#8A8175">Paštas</dt><dd style="margin:0"><a href="mailto:info@blynai.eu" style="color:#6B4EDB">info@blynai.eu</a></dd>
+</dl>
+</div>
+<div style="background:linear-gradient(180deg,rgba(245,184,79,.5),rgba(107,78,219,.45))"></div>
+<div>
+<p style="margin:0 0 24px;font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#6B4EDB">Nariai · po 50 %</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+<div><img src="https://meetluko.eu/assets/founder-lukas.png" alt="Lukas Peciukonis" style="width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 12%;border-radius:3px;border:1px solid rgba(185,127,46,.35)"><b style="display:block;margin-top:12px;font:500 15px 'Space Grotesk',sans-serif;color:#1A1712">Lukas Peciukonis</b><small style="font:12px 'IBM Plex Mono',monospace;color:#8A8175">MB vadovas · Λ</small></div>
+<div><img src="https://meetluko.eu/assets/founder-denisas.png" alt="Denisas Bykovas" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px;border:1px solid rgba(107,78,219,.3)"><b style="display:block;margin-top:12px;font:500 15px 'Space Grotesk',sans-serif;color:#1A1712">Denisas Bykovas</b><small style="font:12px 'IBM Plex Mono',monospace;color:#8A8175">MB narys · Δ</small></div>
+</div>
+</div>
+</section>
+</sc-if>
+
+<footer style="padding:34px 72px 44px;background:#050505">
+<p style="margin:0;max-width:96ch;font:12.5px/1.6 'IBM Plex Sans',sans-serif;color:#82796D">MB „BlynAI“ nėra finansų įstaiga, investicijų valdytojas ar finansinių paslaugų teikėja. Bendrija neteikia investavimo rekomendacijų, nepriima ir nesaugo trečiųjų asmenų pinigų ar kriptoturto ir nevaldo trečiųjų asmenų biržos sąskaitų. Bendrija prekiauja tik savo lėšomis; paskelbti rezultatai yra tyrimo duomenys, o ne pasiūlymas ar prognozė.</p>
+<p style="margin:20px 0 0;font:11px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#4F4A42">blynai.eu · © 2026 MB „BlynAI“</p>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1160},&quot;showCurve&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sekcijos&quot;},&quot;showRegistry&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sekcijos&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showCurve: this.props.showCurve ?? true,
+      showRegistry: this.props.showRegistry ?? true
+    };
+  }
+}
+
+</script>
+</body>
+</html>

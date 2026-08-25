@@ -1,0 +1,35 @@
+/* BlynAI Capital — spacing & layout.
+   The brand does not snap to a 4px grid; odd values (9, 11, 13, 18, 22, 26, 34)
+   are intentional and taken from the built pages. Use these names, not new numbers. */
+:root{
+--space-1:6px; /* @kind spacing */--space-2:9px; /* @kind spacing */--space-3:12px; /* @kind spacing */--space-4:14px; /* @kind spacing */--space-5:18px; /* @kind spacing */--space-6:20px; /* @kind spacing */
+--space-7:22px; /* @kind spacing */--space-8:26px; /* @kind spacing */--space-9:32px; /* @kind spacing */--space-10:34px; /* @kind spacing */--space-11:44px; /* @kind spacing */--space-12:56px; /* @kind spacing */--space-13:72px; /* @kind spacing */
+
+/* --- component padding --- */
+--pad-header-y:18px; /* @kind spacing */--pad-header-x:34px; /* @kind spacing */
+--pad-card:26px; /* @kind spacing */--pad-card-sm:18px; /* @kind spacing */--pad-card-lg:28px 34px 30px; /* @kind spacing */
+--pad-button-x:24px; /* @kind spacing */--pad-button-x-sm:22px; /* @kind spacing */
+--pad-row-y:26px; /* @kind spacing */
+
+/* --- section rhythm --- */
+--section-y:56px; /* @kind spacing */--section-x:72px; /* @kind spacing */      /* light "document" pages */
+--section-x-ink:34px; /* @kind spacing */                   /* dark "lab" pages, tighter gutter */
+--section-x-ink-wide:40px; /* @kind spacing */
+--hero-y:70px; /* @kind spacing */--hero-y-ink:64px; /* @kind spacing */
+--mobile-x:18px; /* @kind spacing */--mobile-y:32px; /* @kind spacing */
+
+/* --- gaps --- */
+--gap-inline-xs:6px; /* @kind spacing */--gap-inline:12px; /* @kind spacing */--gap-stack:14px; /* @kind spacing */--gap-card:20px; /* @kind spacing */--gap-grid:22px; /* @kind spacing */
+--gap-nav:22px; /* @kind spacing */--gap-col:32px; /* @kind spacing */--gap-section:44px; /* @kind spacing */--gap-wide:56px; /* @kind spacing */
+
+/* --- controls --- */
+--control-h:46px; /* @kind spacing */--control-h-sm:44px; /* @kind spacing */--control-h-lg:48px; /* @kind spacing */--tap-min:44px; /* @kind spacing */
+--mark-size:42px; /* @kind spacing */--mark-size-sm:36px; /* @kind spacing */--mark-size-lg:64px; /* @kind spacing */
+
+/* --- grids seen in the brand --- */
+--grid-hero:minmax(0,1fr) 320px; /* @kind other */
+--grid-hero-ink:minmax(0,1fr) 420px; /* @kind other */
+--grid-split:minmax(0,1fr) 1px minmax(0,1fr); /* @kind other */
+--grid-numbered:64px minmax(0,1fr) minmax(0,1.1fr); /* @kind other */
+--page-max:1160px; /* @kind spacing */--mobile-w:390px; /* @kind spacing */--og-w:1200px; /* @kind spacing */--og-h:630px; /* @kind spacing */
+}

@@ -1,0 +1,24 @@
+/* BlynAI Capital — element defaults. Kept deliberately thin. */
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font:var(--type-body);text-wrap:pretty;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;color:var(--text-heading);font-family:var(--font-display);text-wrap:balance}
+h1{font:var(--type-h1);letter-spacing:var(--track-h1)}
+h2{font:var(--type-h2);letter-spacing:var(--track-h2)}
+h3{font:var(--type-h3);letter-spacing:var(--track-h3)}
+h4{font:var(--type-h4)}
+p{margin:0}
+a{color:var(--link);text-decoration:none;transition:var(--transition-color)}
+a:hover{color:var(--link-hover)}
+small{font-size:var(--fs-caption)}
+code,kbd,samp{font-family:var(--font-mono)}
+img{display:block;max-width:100%}
+button{font:inherit}
+::selection{background:rgba(245,184,79,.28);color:var(--ink-600)}
+:focus-visible{outline:2px solid var(--accent-violet);outline-offset:2px}
+
+/* The one gradient headline treatment, with the solid-gold fallback the production
+   page uses when background-clip:text is unsupported. Utility class because @supports
+   cannot be expressed inline. */
+.blyn-grad{font-style:normal;color:var(--gold-700);background:var(--gradient-text);-webkit-background-clip:text;background-clip:text}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.blyn-grad{color:transparent}}
+.blyn-grad--rev{background:var(--gradient-text-reverse)}

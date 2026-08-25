@@ -1,0 +1,56 @@
+/* BlynAI Capital — typography.
+   Three faces, three jobs, no overlap:
+   Space Grotesk = display + UI labels. IBM Plex Sans = running prose.
+   IBM Plex Mono = every eyebrow, every number, every piece of registry data. */
+:root{
+--font-display:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+--font-body:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+--font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+/* --- size scale (literal values used across the brand) --- */
+--fs-micro:10px; /* @kind font */      /* mono eyebrow, mobile */
+--fs-eyebrow:11px; /* @kind font */    /* mono eyebrow, nav */
+--fs-caption:12px; /* @kind font */    /* legal, footer meta */
+--fs-meta:13px; /* @kind font */       /* mono registry rows */
+--fs-body-sm:13.5px; /* @kind font */
+--fs-body:14.5px; /* @kind font */
+--fs-body-md:15px; /* @kind font */
+--fs-body-lg:17px; /* @kind font */
+--fs-lead:18px; /* @kind font */
+--fs-h4:18px; /* @kind font */
+--fs-h3:21px; /* @kind font */
+--fs-h2:27px; /* @kind font */
+--fs-h2-lg:30px; /* @kind font */
+--fs-h1:52px; /* @kind font */
+--fs-hero:56px; /* @kind font */
+--fs-hero-lg:58px; /* @kind font */
+--fs-display:70px; /* @kind font */
+--fs-syllable:54px; /* @kind font */   /* BLYN / AI split blocks */
+--fs-syllable-lg:96px; /* @kind font *//* social cards */
+
+/* --- weights --- */
+--fw-light:300; /* @kind font */--fw-regular:400; /* @kind font */--fw-medium:500; /* @kind font */--fw-semibold:600; /* @kind font */--fw-bold:700; /* @kind font */
+
+/* --- line heights --- */
+--lh-display:1.03; /* @kind font */--lh-h1:1.06; /* @kind font */--lh-h2:1.2; /* @kind font */--lh-h3:1.25; /* @kind font */--lh-lead:1.6; /* @kind font */
+--lh-body:1.6; /* @kind font */--lh-body-tight:1.55; /* @kind font */--lh-mono:1.75; /* @kind font */--lh-flat:1; /* @kind font */
+
+/* --- tracking --- */
+--track-display:-.035em; /* @kind font */--track-h1:-.03em; /* @kind font */--track-h2:-.02em; /* @kind font */--track-h3:-.015em; /* @kind font */
+--track-eyebrow:.2em; /* @kind font */--track-eyebrow-tight:.18em; /* @kind font */--track-nav:.13em; /* @kind font */--track-foot:.12em; /* @kind font */--track-coin:.06em; /* @kind font */
+
+/* --- measures --- */
+--measure-heading:22ch; /* @kind spacing */--measure-lead:56ch; /* @kind spacing */--measure-body:46ch; /* @kind spacing */--measure-legal:96ch; /* @kind spacing */
+
+/* --- composed roles --- */
+--type-hero:var(--fw-regular) var(--fs-hero)/var(--lh-display) var(--font-display); /* @kind font */
+--type-h1:var(--fw-bold) var(--fs-h1)/var(--lh-h1) var(--font-display); /* @kind font */
+--type-h2:var(--fw-medium) var(--fs-h2)/var(--lh-h2) var(--font-display); /* @kind font */
+--type-h3:var(--fw-medium) var(--fs-h3)/var(--lh-h3) var(--font-display); /* @kind font */
+--type-h4:var(--fw-semibold) var(--fs-h4)/var(--lh-h3) var(--font-display); /* @kind font */
+--type-lead:var(--fw-regular) var(--fs-lead)/var(--lh-lead) var(--font-body); /* @kind font */
+--type-body:var(--fw-regular) var(--fs-body)/var(--lh-body) var(--font-body); /* @kind font */
+--type-eyebrow:var(--fw-semibold) var(--fs-eyebrow)/1.2 var(--font-mono); /* @kind font */
+--type-mono:var(--fw-regular) var(--fs-meta)/var(--lh-mono) var(--font-mono); /* @kind font */
+--type-button:var(--fw-semibold) 13.5px/1 var(--font-display); /* @kind font */
+}
