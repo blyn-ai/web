@@ -236,7 +236,16 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
 .cs-tagline{margin-top:var(--space-8);
   font:var(--fw-regular) var(--fs-h3)/var(--lh-h3) var(--font-display);
   letter-spacing:var(--track-h3);color:var(--text-heading)}
-.cs-links{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-top:24px;
+/* The app's screens, one step quieter than the two links below: the label is
+   meta, the destinations are links. */
+.cs-features{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-top:var(--space-5);
+  font:var(--fs-meta) var(--font-mono);letter-spacing:.04em}
+.cs-features span{color:var(--text-meta)}
+.cs-features a{white-space:nowrap;color:var(--link);text-decoration:none;
+  border-bottom:1px solid currentColor;padding-bottom:1px;transition:var(--transition-color)}
+.cs-features a:hover{color:var(--link-hover)}
+
+.cs-links{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-top:var(--space-3);
   font:var(--fs-meta) var(--font-mono);letter-spacing:.04em}
 .cs-links a{white-space:nowrap;color:var(--link);text-decoration:none;
   border-bottom:1px solid currentColor;padding-bottom:1px;transition:var(--transition-color)}
@@ -346,7 +355,7 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
   .cs-desc{font-size:9px}
   .cs-lead{font-size:16px;max-width:none}
   .cs-tagline{font-size:20px}
-  .cs-links a{display:inline-block;padding:12px 0;margin:-12px 0}
+  .cs-links a,.cs-features a{display:inline-block;padding:12px 0;margin:-12px 0}
   .be-member{grid-template-columns:88px minmax(0,1fr)}
   .be-member img{width:88px}
   .be-split{display:block}
