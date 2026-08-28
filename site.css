@@ -81,17 +81,6 @@ img{max-width:100%}
 .be-rule{height:var(--rule-h-lg);background:var(--gradient-rule)}
 /* LT/EN toggle: segmented, on the ink header. Active side is a static <b>,
    the other a link — no JavaScript, each language is its own URL. */
-.be-lang{display:inline-flex;font:var(--fs-eyebrow) var(--font-mono);letter-spacing:.1em;
-  text-transform:uppercase}
-.be-lang b,.be-lang a{padding:8px 12px;border:1px solid var(--border-hairline-on-ink);
-  font:inherit;letter-spacing:inherit;text-decoration:none}
-.be-lang > :first-child{border-radius:var(--radius-xs) 0 0 var(--radius-xs)}
-.be-lang > :last-child{border-radius:0 var(--radius-xs) var(--radius-xs) 0;border-left:0}
-.be-lang b{background:rgba(245,184,79,.14);border-color:var(--border-gold);
-  color:var(--accent-gold);font-weight:500}
-.be-lang a{background:transparent;color:var(--text-meta-on-ink);transition:var(--transition-color)}
-.be-lang a:hover{color:var(--link-nav-on-ink-hover)}
-
 
 /* --- hero ---------------------------------------------------------------- */
 .be-hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border-hairline);
