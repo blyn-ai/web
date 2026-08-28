@@ -11,8 +11,16 @@ telemetry fetch.
 systems lab), live telemetry strip, Metodas (four verbs), Programa Nr. 1 with
 the pipeline SVG, Ką išmokome, Kryptys, Komanda, Ko ieškome, the quiet Vardas
 split, registry + the signed founders' act, footer with the disclaimer dialog.
-Lithuanian only — the EN mirror is designed but deliberately postponed; do not
-add a language switch until an EN page exists.
+Two languages: **EN is the default at `/`**, LT lives at `/lt/`. Each is a real
+static page served 200 — there is NO language-guessing redirect on `/` (that
+is the SEO trap the client called out). The LT/EN switch is a plain link:
+gold pills in the ink header on desktop, the first row of the burger menu on
+mobile. hreflang on both pages (en→/, lt→/lt/, x-default→/ = EN); sitemap
+lists both with alternates. **Copy lives in two files** — edit `index.html`
+(EN) and `lt/index.html` (LT) together; `tools/stamp-css.mjs` stamps both.
+The disclaimer dialog is per-language; the EN one opens with a line that the
+Lithuanian text is authoritative (compliance copy must not read as a second
+legal original).
 
 ## Facts and numbers
 

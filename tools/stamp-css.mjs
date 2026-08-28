@@ -18,7 +18,7 @@ import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const PAGES = ['index.html', 'dokumentacija/index.html'];
+const PAGES = ['index.html', 'lt/index.html', 'dokumentacija/index.html'];
 
 // Everything the pages actually load: our sheet, the design system entry point
 // and every token file it imports.

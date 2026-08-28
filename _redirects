@@ -1,0 +1,5 @@
+# EN is the default at /, LT lives at /lt/. No language-guessing redirect on /
+# (that is the SEO trap). Only one defensive single-hop alias: /en/* was never
+# public, but if anyone types it, send them to the EN root rather than a 404.
+/en      /       301
+/en/*    /       301
