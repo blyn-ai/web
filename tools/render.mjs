@@ -1,7 +1,8 @@
 /**
 * Renders every raster file the page needs from the vector sources in this repo:
  *
- *   og/og-card.html        -> assets/og-card.png         (1200x630, exact)
+ *   og/og-card.html        -> assets/og-card.png         (EN, 1200x630 exact)
+ *   og/og-card-lt.html     -> assets/og-card-lt.png      (LT, 1200x630 exact)
  *      NOTE: the shipped og-card.png is the designer's render; run this only
  *      after editing the card's copy, and eyeball the result.
  *   assets/favicon.svg     -> favicon.ico                (16 + 32 + 48)
@@ -63,6 +64,10 @@ const tmp = await mkdtemp(join(tmpdir(), 'blynai-render-'));
  * exiting. So: spawn it, wait for the file to appear and stop growing, kill it.
  */
 async function shot(url, out, w, h, transparent = false) {
+  // Remove any previous render first: the wait below watches for the file to
+  // appear and stop growing, and a stale file of the same name satisfies that
+  // instantly — the old PNG would survive and look like a fresh one.
+  if (existsSync(out)) await rm(out);
   const child = spawn(CHROME, [
     '--headless', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1',
     // Its own profile: without this the run blocks on the singleton lock of a
@@ -122,8 +127,9 @@ function ico(pngs) {
 }
 
 try {
-  console.log('share card');
+  console.log('share cards');
   await shot(`http://127.0.0.1:${PORT}/og/og-card.html`, join(ROOT, 'assets', 'og-card.png'), 1200, 630);
+  await shot(`http://127.0.0.1:${PORT}/og/og-card-lt.html`, join(ROOT, 'assets', 'og-card-lt.png'), 1200, 630);
 
   console.log('favicon.ico');
   const parts = [];
