@@ -44,8 +44,13 @@ img{max-width:100%}
 .be-wordmark b{font:var(--fw-semibold) 17px/1.05 var(--font-display);letter-spacing:.01em;
   white-space:nowrap;color:var(--text-heading-on-ink)}
 .be-wordmark b i{font-style:normal;color:var(--accent-gold)}
-.be-wordmark small{font:var(--fs-micro) var(--font-mono);text-transform:uppercase;
-  letter-spacing:.14em;white-space:nowrap;color:var(--accent-violet-on-ink)}
+/* The sub-line is justified across the wordmark's own width — the two empty <i>
+   open the word gaps — so both lines end flush, per the logo handoff. Letter
+   spacing is not used: space-between does the distributing. */
+.be-wordmark small{display:flex;justify-content:space-between;
+  font:500 var(--fs-micro) var(--font-mono);text-transform:uppercase;
+  white-space:nowrap;color:var(--accent-violet-on-ink)}
+.be-wordmark small i{flex:0 0 .5em}
 .be-nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;
   font:var(--fs-eyebrow) var(--font-mono);letter-spacing:var(--track-nav);text-transform:uppercase}
 .be-nav a{color:var(--link-nav-on-ink);text-decoration:none}
