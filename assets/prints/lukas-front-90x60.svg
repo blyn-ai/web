@@ -9,10 +9,8 @@
   </defs>
   <rect x="0" y="0" width="90" height="60" fill="#FFFFFF"></rect>
   <svg x="7.5" y="7.5" width="6.7" height="7" viewBox="7.2 6.7 25.6 26.6"><g><path d="M16.5 9 L8.5 20 L16.5 31" stroke="url(#goldInk)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><path d="M23.5 9 L31.5 20 L23.5 31" stroke="url(#goldInk)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><circle cx="17" cy="17.5" r="2.1" fill="#B98A3B"></circle><circle cx="23" cy="17.5" r="2.1" fill="#7E5C22"></circle><circle cx="17" cy="22.5" r="2.1" fill="#7E5C22"></circle><circle cx="23" cy="22.5" r="2.1" fill="#B98A3B"></circle></g></svg>
-  <text x="15.59" y="12.144" font-family="Space Grotesk" font-size="3.351" font-weight="500" fill="#1A1712" xml:space="preserve">Blyn</text>
-  <text x="22.79" y="12.144" font-family="Space Grotesk" font-size="3.351" font-weight="500" fill="#A9762F" xml:space="preserve">AI</text>
-  <text x="26.44" y="12.144" font-family="Space Grotesk" font-size="3.351" font-weight="500" fill="#1A1712" xml:space="preserve">Systems</text>
-  <rect x="41.91" y="10.75" width="8.59" height="0.5" fill="url(#ruleH)"></rect>
+  <text x="15.59" y="12.144" font-family="Space Grotesk" font-size="3.351" font-weight="500" fill="#1A1712" xml:space="preserve">Blyn<tspan fill="#A9762F">AI</tspan><tspan fill="#1A1712"> Systems</tspan></text>
+  <rect x="43" y="10.75" width="7.5" height="0.5" fill="url(#ruleH)"></rect>
   <text x="7.5" y="26.900" font-family="Space Grotesk" font-size="4.41" font-weight="500" letter-spacing="-0.044" fill="#1A1712" xml:space="preserve">Lukas Peciukonis</text>
   <text x="7.5" y="32.020" font-family="IBM Plex Mono" font-size="2.646" font-weight="400" letter-spacing="0.582" fill="#A9762F" xml:space="preserve">DIREKTORIUS</text>
   <text x="7.5" y="44.110" font-family="IBM Plex Mono" font-size="2.469" font-weight="400" fill="#4A423A" xml:space="preserve">+370 630 13327</text>
