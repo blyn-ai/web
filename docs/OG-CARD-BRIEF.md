@@ -9,7 +9,7 @@ equity curve, proportions — stays exactly as you built it.
 1. **The wordmark is now `BlynAI Systems`.** "Capital" is retired brand-wide —
    it read as a fund / asset manager, which is precisely what the company is
    not, and it clashed with the legal disclaimer. The card still says
-   "BlynAI Capital".
+   "BlynAI Systems".
 2. **The site is now bilingual**: English at `/` (default, x-default) and
    Lithuanian at `/lt/`. Both pages currently point at the *same* Lithuanian
    card, so an English visitor sharing the root gets a Lithuanian preview.

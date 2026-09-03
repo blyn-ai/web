@@ -1,6 +1,6 @@
 # blynai.eu — notes for agents
 
-The public one-page site of MB „BlynAI“ (wordmark: BlynAI Capital · L&D Finance
+The public one-page site of MB „Blynai“ (wordmark: BlynAI Systems · L&D Finance
 Lab, where L&D reads Learn & Develop). Static HTML, no build step, no framework.
 The only scripts are two small inline blocks: the disclaimer `<dialog>` and the
 telemetry fetch.

@@ -1,6 +1,6 @@
 ---
 name: blynai-design
-description: Design rules and tokens for blynai.eu (MB „BlynAI“ / BlynAI Capital). Use when changing anything visual on the site — the tokens live in ds/, the conventions in CLAUDE.md.
+description: Design rules and tokens for blynai.eu (MB „Blynai“ / BlynAI Systems). Use when changing anything visual on the site — the tokens live in ds/, the conventions in CLAUDE.md.
 user-invocable: true
 ---
 

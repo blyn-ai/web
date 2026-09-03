@@ -1,4 +1,4 @@
-/* BlynAI Capital — spacing & layout.
+/* BlynAI Systems — spacing & layout.
    The brand does not snap to a 4px grid; odd values (9, 11, 13, 18, 22, 26, 34)
    are intentional and taken from the built pages. Use these names, not new numbers. */
 :root{
