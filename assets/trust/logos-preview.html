@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BlynAI marquee logo preview</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f5f6f7;
+      --surface: #e6e9ec;
+      --line: #cbd1d6;
+      --ink: #202428;
+      --muted: #687078;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(1500px, calc(100% - 40px));
+      margin: 38px auto 70px;
+    }
+
+    h1, h2 { margin: 0; letter-spacing: -0.02em; }
+    h1 { font-size: clamp(28px, 4vw, 44px); }
+    h2 { margin-top: 42px; font-size: 22px; }
+
+    .lede {
+      max-width: 760px;
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .card {
+      min-width: 0;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card-head strong { color: var(--ink); font-weight: 650; }
+
+    .neutral {
+      min-width: 500px;
+      min-height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 10px;
+      background: var(--surface);
+    }
+
+    .neutral img {
+      flex: none;
+      display: block;
+      height: 160px;
+      width: auto;
+    }
+
+    .ticker-shell {
+      margin-top: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 42s linear infinite;
+    }
+
+    .ticker-shell:hover .ticker-track { animation-play-state: paused; }
+
+    .ticker-item {
+      flex: none;
+      height: 160px;
+      display: grid;
+      place-items: center;
+      border-right: 1px solid rgba(70, 78, 85, 0.14);
+    }
+
+    .ticker-item img {
+      display: block;
+      width: auto;
+      height: 160px;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-shell { overflow-x: auto; }
+      .ticker-track { animation: none; }
+    }
+
+    @media (max-width: 620px) {
+      main { width: min(100% - 20px, 1500px); margin-top: 22px; }
+      .comparison { grid-template-columns: 1fr; }
+      .neutral { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>BlynAI logo marquee</h1>
+    <p class="lede">All assets are shown on the same neutral background at their intrinsic 160 px canvas height. Internal safe areas—not CSS scaling—set the visible logo size.</p>
+
+    <h2>Static scale and alignment comparison</h2>
+    <section class="comparison" aria-label="Logo comparison grid">
+      <article class="card"><div class="card-head"><strong>Shell</strong><span>160×160</span></div><div class="neutral"><img src="logos/shell.svg" width="160" height="160" alt="Shell"></div></article>
+      <article class="card"><div class="card-head"><strong>Flinke Folk</strong><span>480×160 · vectorized</span></div><div class="neutral"><img src="logos/flinke-folk.svg" width="480" height="160" alt="Flinke Folk"></div></article>
+      <article class="card"><div class="card-head"><strong>Lauresta</strong><span>480×160 · vectorized</span></div><div class="neutral"><img src="logos/lauresta.svg" width="480" height="160" alt="Lauresta"></div></article>
+      <article class="card"><div class="card-head"><strong>VMI</strong><span>320×160</span></div><div class="neutral"><img src="logos/vmi.svg" width="320" height="160" alt="VMI"></div></article>
+      <article class="card"><div class="card-head"><strong>Vilniaus Vandenys</strong><span>320×160</span></div><div class="neutral"><img src="logos/vilniaus-vandenys.svg" width="320" height="160" alt="Vilniaus Vandenys"></div></article>
+      <article class="card"><div class="card-head"><strong>BDO Global</strong><span>320×160</span></div><div class="neutral"><img src="logos/bdo-global.svg" width="320" height="160" alt="BDO Global"></div></article>
+      <article class="card"><div class="card-head"><strong>Lietuvos bankas</strong><span>480×160</span></div><div class="neutral"><img src="logos/lietuvos-bankas.svg" width="480" height="160" alt="Lietuvos bankas"></div></article>
+      <article class="card"><div class="card-head"><strong>Alna Software</strong><span>480×160 · vectorized</span></div><div class="neutral"><img src="logos/alna-software.svg" width="480" height="160" alt="Alna Software"></div></article>
+      <article class="card"><div class="card-head"><strong>Reiz Tech</strong><span>480×160</span></div><div class="neutral"><img src="logos/reiz-tech.svg" width="480" height="160" alt="Reiz Tech"></div></article>
+      <article class="card"><div class="card-head"><strong>Codigy</strong><span>160×160</span></div><div class="neutral"><img src="logos/codigy.svg" width="160" height="160" alt="Codigy"></div></article>
+      <article class="card"><div class="card-head"><strong>Baltic Amadeus</strong><span>320×160</span></div><div class="neutral"><img src="logos/baltic-amadeus.svg" width="320" height="160" alt="Baltic Amadeus"></div></article>
+      <article class="card"><div class="card-head"><strong>Registrų Centras</strong><span>320×160</span></div><div class="neutral"><img src="logos/registru-centras.svg" width="320" height="160" alt="Registrų Centras"></div></article>
+    </section>
+
+    <h2>Simulated continuous ticker</h2>
+    <p class="lede">Each ticker item is exactly 160 px high. Hover to pause; reduced-motion preferences disable animation.</p>
+    <section class="ticker-shell" aria-label="Simulated scrolling logo ticker">
+      <div class="ticker-track">
+        <div class="ticker-item"><img src="logos/shell.svg" width="160" height="160" alt="Shell"></div>
+        <div class="ticker-item"><img src="logos/flinke-folk.svg" width="480" height="160" alt="Flinke Folk"></div>
+        <div class="ticker-item"><img src="logos/lauresta.svg" width="480" height="160" alt="Lauresta"></div>
+        <div class="ticker-item"><img src="logos/vmi.svg" width="320" height="160" alt="VMI"></div>
+        <div class="ticker-item"><img src="logos/vilniaus-vandenys.svg" width="320" height="160" alt="Vilniaus Vandenys"></div>
+        <div class="ticker-item"><img src="logos/bdo-global.svg" width="320" height="160" alt="BDO Global"></div>
+        <div class="ticker-item"><img src="logos/lietuvos-bankas.svg" width="480" height="160" alt="Lietuvos bankas"></div>
+        <div class="ticker-item"><img src="logos/alna-software.svg" width="480" height="160" alt="Alna Software"></div>
+        <div class="ticker-item"><img src="logos/reiz-tech.svg" width="480" height="160" alt="Reiz Tech"></div>
+        <div class="ticker-item"><img src="logos/codigy.svg" width="160" height="160" alt="Codigy"></div>
+        <div class="ticker-item"><img src="logos/baltic-amadeus.svg" width="320" height="160" alt="Baltic Amadeus"></div>
+        <div class="ticker-item"><img src="logos/registru-centras.svg" width="320" height="160" alt="Registrų Centras"></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/shell.svg" width="160" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/flinke-folk.svg" width="480" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/lauresta.svg" width="480" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/vmi.svg" width="320" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/vilniaus-vandenys.svg" width="320" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/bdo-global.svg" width="320" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/lietuvos-bankas.svg" width="480" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/alna-software.svg" width="480" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/reiz-tech.svg" width="480" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/codigy.svg" width="160" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/baltic-amadeus.svg" width="320" height="160" alt=""></div>
+        <div class="ticker-item" aria-hidden="true"><img src="logos/registru-centras.svg" width="320" height="160" alt=""></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
