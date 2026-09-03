@@ -18,7 +18,8 @@ import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const PAGES = ['index.html', 'lt/index.html', 'dokumentacija/index.html'];
+const PAGES = ['index.html', 'lt/index.html', 'dokumentacija/index.html',
+  '404.html'];
 
 // Everything the pages actually load: our sheet, the design system entry point
 // and every token file it imports.
@@ -30,7 +31,9 @@ const hash = createHash('sha256');
 for (const rel of sheets) hash.update(rel).update(await readFile(join(ROOT, rel)));
 const stamp = hash.digest('hex').slice(0, 8);
 
-const LINK = /href="((?:\.\.\/)?(?:ds\/styles|site)\.css)(?:\?v=[0-9a-f]+)?"/g;
+// 404.html is served for any missing path at any depth, so its links are
+// root-absolute; every other page keeps them relative so it opens from file://.
+const LINK = /href="((?:\.\.\/|\/)?(?:ds\/styles|site)\.css)(?:\?v=[0-9a-f]+)?"/g;
 for (const page of PAGES) {
   const file = join(ROOT, page);
   const before = await readFile(file, 'utf8');
