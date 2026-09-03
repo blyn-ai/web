@@ -541,3 +541,7 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
    and do not mean. Quieter than .tr-note above the lane, and full band width —
    a ch cap here breaks the line mid-band and reads as truncation. */
 .tr-note--legal{margin-top:var(--space-5);color:var(--text-meta);opacity:.78}
+
+/* .pr-txt is a flex column, so a chip would stretch to the card width and sit
+   flush against the role line. The only rule this patch adds. */
+.pr-txt .be-status-chip{margin-top:.5rem;align-self:flex-start}
