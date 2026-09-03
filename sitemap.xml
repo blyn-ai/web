@@ -20,11 +20,23 @@
   <!-- The founders' act: linked from both language pages, indexable, and until
        now missing from this file. Single-language (Lithuanian), so no
        hreflang alternates. dokumentacija/ stays out: it is noindex and
-       unlinked. Pages on cryptosmithx.blynai.eu belong in that host's own
-       sitemap — a sitemap may only list URLs from its own host. -->
+       unlinked. -->
   <url>
     <loc>https://blynai.eu/aktas/</loc>
     <lastmod>2026-09-03</lastmod>
     <changefreq>yearly</changefreq><priority>0.5</priority>
+  </url>
+  <!-- cryptosmithx.blynai.eu is a different host but the same registrable
+       domain, so listing it here is a cross-submission Google supports once
+       both properties are verified in Search Console. Only the root is listed:
+       /strategy-modeler, /config, /arena and /agent are client-rendered
+       bundles whose server response carries the title "Bundled Page", and
+       inviting the crawler to them now would put four pages under that name in
+       the index. Add them here once they render a real title — or better, give
+       that host its own sitemap.xml and a Sitemap line in its robots.txt. -->
+  <url>
+    <loc>https://cryptosmithx.blynai.eu/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
 </urlset>
