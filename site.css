@@ -312,6 +312,20 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
   border-top:1px solid var(--border-hairline);font:var(--fs-meta)/var(--lh-body) var(--font-mono);
   color:var(--text-meta)}
 
+/* --- social links: icon tiles ---------------------------------------------- */
+.be-social{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.be-social a{display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border:1px solid var(--border-card);border-radius:var(--radius-sm);
+  color:var(--link);transition:color .15s ease,border-color .15s ease,background .15s ease}
+.be-social a:hover{color:var(--link-hover);border-color:var(--border-violet-strong);
+  background:var(--surface-raised)}
+.be-foot-social{display:flex;gap:10px;margin-top:var(--space-6)}
+.be-foot-social a{display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border:1px solid var(--border-card-on-ink);border-radius:var(--radius-sm);
+  color:var(--text-meta-on-ink);text-decoration:none;
+  transition:color .15s ease,border-color .15s ease}
+.be-foot-social a:hover{color:var(--text-on-ink);border-color:var(--border-hairline-on-ink)}
+
 /* --- footer + dialog ------------------------------------------------------ */
 .be-foot{padding:var(--space-10) var(--be-pad-x) var(--space-11);background:var(--surface-ink)}
 .be-foot p{font:12.5px/var(--lh-body) var(--font-body);color:var(--text-meta-on-ink)}
