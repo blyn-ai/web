@@ -34,13 +34,9 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 
-<link rel="preload" href="fonts/space-grotesk-300-700-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/space-grotesk-300-700-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/ibm-plex-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/ibm-plex-sans-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
-
-<link rel="stylesheet" href="ds/styles.css?v=a40e17f7">
-<link rel="stylesheet" href="site.css?v=a40e17f7">
+<link rel="stylesheet" href="ds/tokens/fonts.cdn.css">
+<link rel="stylesheet" href="ds/styles.css?v=31cf1af9">
+<link rel="stylesheet" href="site.css?v=31cf1af9">
 <noscript><style>
   /* No JavaScript: the dialog cannot open, so the full disclaimer unfolds into
      the footer band; the telemetry strip keeps its dashes. */
@@ -76,11 +72,11 @@
   </a>
   <nav class="be-nav" aria-label="Page sections">
     <a href="#metodas">Method</a>
+    <a href="#kryptys">Directions</a>
+    <a href="#produktai">Products</a>
     <a href="#programa">Programme</a>
     <a href="#ismokome">What we learned</a>
-    <a href="#kryptys">Directions</a>
     <a href="#komanda">Team</a>
-    <a href="#produktai">Products</a>
     <a href="#kontaktai">Contact</a>
   </nav>
   <div class="be-lang" role="group" aria-label="Language">
@@ -91,11 +87,11 @@
     <nav class="be-menu-panel" aria-label="Page sections">
         <a class="be-menu-lang" href="lt/" hreflang="lt" lang="lt">Lietuvių</a>
       <a href="#metodas">Method</a>
+      <a href="#kryptys">Directions</a>
+      <a href="#produktai">Products</a>
       <a href="#programa">Programme</a>
       <a href="#ismokome">What we learned</a>
-      <a href="#kryptys">Directions</a>
       <a href="#komanda">Team</a>
-      <a href="#produktai">Products</a>
       <a href="#kontaktai">Contact</a>
     </nav>
   </details>
@@ -147,6 +143,124 @@
       <p class="be-verb be-verb--3"><b>We test</b>strategies, our own and external ones: backtest, dry run and live trading on the same code.</p>
       <p class="be-verb be-verb--4"><b>We publish</b>results and failures: the journal is open, the code is open, mistakes are not removed from the history.</p>
     </div>
+  </section>
+
+  <section class="be-section" id="kryptys">
+    <p class="be-eyebrow">Directions &#183; research questions</p>
+    <ol class="be-rows be-rows--q">
+      <li class="be-row3">
+        <span class="be-row-n">01</span>
+        <p><b>Simulation against reality</b> &#8212; how much of a backtest result survives in a live market, and why.</p>
+        <span class="be-status-chip be-status-chip--live">in progress</span>
+      </li>
+      <li class="be-row3">
+        <span class="be-row-n">02</span>
+        <p><b>Risk mechanics during a real drawdown</b> &#8212; whether position sizing, cool-down periods and the emergency stop behave as designed.</p>
+        <span class="be-status-chip be-status-chip--live">in progress</span>
+      </li>
+      <li class="be-row3">
+        <span class="be-row-n">03</span>
+        <p>Whether the heuristic score beats a random entry under the same exit rules.</p>
+        <span class="be-status-chip be-status-chip--plan">planned</span>
+      </li>
+      <li class="be-row3">
+        <span class="be-row-n">04</span>
+        <p>Whether a learned model beats the heuristic out of sample, at the same risk.</p>
+        <span class="be-status-chip be-status-chip--plan">planned, later</span>
+      </li>
+      <li class="be-row3">
+        <span class="be-row-n">05</span>
+        <p>How far the method carries over to other markets and instruments.</p>
+        <span class="be-status-chip be-status-chip--hyp">hypothesis</span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Products: one per slide, the screenshot at full canvas width. Prev/next
+       nudge a scroll-snap track, so swipe keeps working without the script. -->
+  <section class="be-section be-section--raised" id="produktai">
+    <div class="pr-head">
+      <p class="be-eyebrow">Technology we build</p>
+      <div class="pr-nav">
+        <span class="pr-count" id="prCount"><b>01</b> / 03</span>
+        <button type="button" class="pr-btn" id="prPrev" aria-label="Previous product">&#8592;</button>
+        <button type="button" class="pr-btn" id="prNext" aria-label="Next product">&#8594;</button>
+      </div>
+    </div>
+    <div class="pr-track" id="prTrack">
+      <article class="pr-card" aria-label="Product 1 of 3">
+        <span class="pr-lock">
+          <span class="cs-plate"><svg viewBox="4.6 12.43 30.8 15.14" width="42" height="21" fill="none" aria-hidden="true" style="display:block;color:#BE0069"><path d="M20 23.54 L15.97 27.57 L12.43 24.03 L16.46 20 L12.43 15.97 L15.97 12.43 L20 16.46 L24.03 12.43 L27.57 15.97 L23.54 20 L27.57 24.03 L24.03 27.57 Z" fill="currentColor"></path><circle cx="6.6" cy="20" r="2" fill="currentColor" opacity=".55"></circle><circle cx="33.4" cy="20" r="2" fill="currentColor" opacity=".55"></circle></svg></span>
+          <span class="pr-txt">
+            <span class="pr-pre">CryptoSmith X</span>
+            <b class="pr-name">Studio <i>&amp; API</i></b>
+            <span class="pr-role">Exchange markets &#183; public API &#183; data research</span>
+          </span>
+        </span>
+        <div class="pr-shot">
+          <div class="pr-bar"><span class="pr-url">cryptosmithx.blynai.eu/strategy-modeler</span></div>
+          <img class="pr-img" src="assets/csx-studio-teaser-light.png" alt="CryptoSmith X Studio &amp; API &#8212; fragmented sources, normalisation and one verified market model" loading="lazy" width="2023" height="1270">
+        </div>
+        <div>
+          <p class="pr-body">The market-data floor of the ecosystem and its public gateway. Studio aggregates, normalises and stores history from Kraken, Binance, WEEX, Hyperliquid and others, discovers new instruments by itself and tracks their whole life cycle. The stream is quality-controlled &#8212; a gap is never passed off as a zero &#8212; and cross-exchange spreads stay comparable on one clock.</p>
+          <p class="pr-for"><b>For</b> &#8212; anyone who needs a clean, uninterrupted API and a foundation a backtest can stand on.</p>
+        </div>
+        <p class="cs-links">
+          <a href="https://cryptosmithx.blynai.eu/strategy-modeler">cryptosmithx.blynai.eu</a>
+          <a href="https://github.com/blyn-ai/CryptoSmith-X">GitHub &#183; open source</a>
+        </p>
+      </article>
+      <article class="pr-card" aria-label="Product 2 of 3">
+        <span class="pr-lock">
+          <span class="cs-plate"><svg viewBox="4.6 12.43 30.8 15.14" width="42" height="21" fill="none" aria-hidden="true" style="display:block;color:#BE0069"><path d="M20 23.54 L15.97 27.57 L12.43 24.03 L16.46 20 L12.43 15.97 L15.97 12.43 L20 16.46 L24.03 12.43 L27.57 15.97 L23.54 20 L27.57 24.03 L24.03 27.57 Z" fill="currentColor"></path><circle cx="6.6" cy="20" r="2" fill="currentColor" opacity=".55"></circle><circle cx="33.4" cy="20" r="2" fill="currentColor" opacity=".55"></circle></svg></span>
+          <span class="pr-txt">
+            <span class="pr-pre">CryptoSmith X</span>
+            <b class="pr-name"><i>Agent</i></b>
+            <span class="pr-role">Trading bot &#183; personal execution environment</span>
+          </span>
+        </span>
+        <div class="pr-shot">
+          <div class="pr-bar"><span class="pr-url">cryptosmithx.blynai.eu/agent</span></div>
+          <img class="pr-img" src="assets/csx-agent-teaser.png" alt="CryptoSmith X Agent &#8212; market in, strategy deciding, open position and equity" loading="lazy" width="2023" height="1270">
+        </div>
+        <div>
+          <p class="pr-body">An isolated environment where trading logic becomes real orders. You connect your own API keys, compose the strategy, set the risk rules and hand over the mechanics: the Agent reads the Studio streams, executes on perpetual futures and watches open positions, margin and P&amp;L without stopping.</p>
+          <p class="pr-for"><b>For</b> &#8212; traders who want an execution engine that never pauses and never has a mood.</p>
+        </div>
+        <p class="cs-links">
+          <a href="https://cryptosmithx.blynai.eu">cryptosmithx.blynai.eu</a>
+          <a href="https://github.com/blyn-ai/CryptoSmith-X">GitHub &#183; open source</a>
+        </p>
+      </article>
+      <article class="pr-card" aria-label="Product 3 of 3">
+        <span class="pr-lock">
+          <span class="cs-plate"><svg viewBox="4.6 12.43 30.8 15.14" width="42" height="21" fill="none" aria-hidden="true" style="display:block;color:#BE0069"><path d="M20 23.54 L15.97 27.57 L12.43 24.03 L16.46 20 L12.43 15.97 L15.97 12.43 L20 16.46 L24.03 12.43 L27.57 15.97 L23.54 20 L27.57 24.03 L24.03 27.57 Z" fill="currentColor"></path><circle cx="6.6" cy="20" r="2" fill="currentColor" opacity=".55"></circle><circle cx="33.4" cy="20" r="2" fill="currentColor" opacity=".55"></circle></svg></span>
+          <span class="pr-txt">
+            <span class="pr-pre">CryptoSmith X</span>
+            <b class="pr-name"><i>Arena</i></b>
+            <span class="pr-role">Verified strategy leaderboard &#183; telemetry</span>
+          </span>
+        </span>
+        <div class="pr-shot">
+          <div class="pr-bar"><span class="pr-url">cryptosmithx.blynai.eu/arena</span></div>
+          <img class="pr-img" src="assets/csx-arena-teaser.png" alt="CryptoSmith X Arena &#8212; measurement field, drawdown depth and the verified leaderboard" loading="lazy" width="2023" height="1270">
+        </div>
+        <div>
+          <p class="pr-body">A public register of results and the social core of the ecosystem: operators stream their Agents’ telemetry and publish strategies. Rankings are built from confirmed P&amp;L, maximum drawdown, win rate and the profit split per exchange &#8212; every metric traceable to real exchange data rather than a screenshot.</p>
+          <p class="pr-for"><b>For</b> &#8212; quants who want a track record anyone can check, and comparisons on identical market phases.</p>
+        </div>
+        <p class="cs-links">
+          <a href="https://cryptosmithx.blynai.eu/arena">cryptosmithx.blynai.eu</a>
+          <a href="https://github.com/blyn-ai/CryptoSmith-X">GitHub &#183; open source</a>
+        </p>
+      </article>
+    </div>
+    <div class="pr-dots" id="prDots" aria-hidden="true">
+      <span class="pr-dot" aria-current="true"></span>
+      <span class="pr-dot"></span>
+      <span class="pr-dot"></span>
+    </div>
+    <p class="pr-pipe"><b>Analysis</b> (Studio &amp; API) &#8594; <b>Action</b> (Agent) &#8594; <b>Proof</b> (Arena) &#8212; one pipeline, three products. CryptoSmith X is in closed testing; the screenshots show the interface with sample data.</p>
   </section>
 
   <section class="be-section" id="programa">
@@ -296,38 +410,7 @@
     <p class="be-footnote be-footnote--sm">Every entry is confirmed by Denisas before publication; the dates are not invented.</p>
   </section>
 
-  <section class="be-section" id="kryptys">
-    <p class="be-eyebrow">Directions &#183; research questions</p>
-    <ol class="be-rows be-rows--q">
-      <li class="be-row3">
-        <span class="be-row-n">01</span>
-        <p><b>Simulation against reality</b> &#8212; how much of a backtest result survives in a live market, and why.</p>
-        <span class="be-status-chip be-status-chip--live">in progress</span>
-      </li>
-      <li class="be-row3">
-        <span class="be-row-n">02</span>
-        <p><b>Risk mechanics during a real drawdown</b> &#8212; whether position sizing, cool-down periods and the emergency stop behave as designed.</p>
-        <span class="be-status-chip be-status-chip--live">in progress</span>
-      </li>
-      <li class="be-row3">
-        <span class="be-row-n">03</span>
-        <p>Whether the heuristic score beats a random entry under the same exit rules.</p>
-        <span class="be-status-chip be-status-chip--plan">planned</span>
-      </li>
-      <li class="be-row3">
-        <span class="be-row-n">04</span>
-        <p>Whether a learned model beats the heuristic out of sample, at the same risk.</p>
-        <span class="be-status-chip be-status-chip--plan">planned, later</span>
-      </li>
-      <li class="be-row3">
-        <span class="be-row-n">05</span>
-        <p>How far the method carries over to other markets and instruments.</p>
-        <span class="be-status-chip be-status-chip--hyp">hypothesis</span>
-      </li>
-    </ol>
-  </section>
-
-  <section class="be-section be-section--raised" id="komanda">
+  <section class="be-section" id="komanda">
     <p class="be-eyebrow">Team and competencies</p>
     <div class="be-team">
       <div class="be-member be-member--l">
@@ -355,48 +438,44 @@
     </div>
   </section>
 
-  <!-- Products, under the team. The lockup is live type, per the mark's own
-       readme: „CryptoSmith" in ink, the X the one violet; the descriptor's
-       three slots spread to exactly the wordmark's width. No separator
-       characters — a wrap would strand them. -->
-  <section class="be-section" id="produktai">
-    <p class="be-eyebrow">Technology we build</p>
-    <div class="cs-grid">
-      <div>
-        <span class="cs-lockup">
-          <span class="cs-plate"><img src="assets/cryptosmith-mark.svg" alt="" width="46" height="46"></span>
-          <span class="cs-text">
-            <b class="cs-name">CryptoSmith <i>X</i></b>
-            <span class="cs-desc"><span>PERPS &amp;&#160;CRYPTO</span><span>TRADE</span><span>BOT</span></span>
-          </span>
+  <!-- The record from before the company: logos the founders earned at other
+       companies, apart. One quiet lane, paused on hover. -->
+  <section class="be-section be-section--raised" id="pasitikejimas" aria-label="Built on trust we earned apart">
+    <p class="be-eyebrow">Built on trust we earned apart</p>
+    <p class="tr-note">Where we earned trust working on systems, before MB &#8222;Blynai&#8220; existed.</p>
+    <div class="tr-row">
+      <div class="tr-lane">
+        <span class="tr-set">
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/shell.svg" alt="Shell AS" loading="lazy"></span><span class="tr-name">Shell AS<small>ENERGY &#183; 2018</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/flinke-folk.svg" alt="Flinke Folk" loading="lazy"></span><span class="tr-name">Flinke Folk<small>HOSPITALITY &#183; 2018</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/lauresta.svg" alt="Lauresta" loading="lazy"></span><span class="tr-name">Lauresta<small>CONSTRUCTION &#183; 2016</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/vmi.svg" alt="VMI" loading="lazy"></span><span class="tr-name">VMI<small>TAX ADMINISTRATION &#183; 2021</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/vilniaus-vandenys.svg" alt="Vilniaus Vandenys" loading="lazy"></span><span class="tr-name">Vilniaus Vandenys<small>UTILITIES &#183; 2021</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/bdo-global.svg" alt="BDO Global" loading="lazy"></span><span class="tr-name">BDO Global<small>AUDIT &amp; ADVISORY &#183; 2022</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/lietuvos-bankas.svg" alt="Lietuvos bankas" loading="lazy"></span><span class="tr-name">Lietuvos bankas<small>CENTRAL BANKING &#183; 2024</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/alna-software.svg" alt="Alna Software" loading="lazy"></span><span class="tr-name">Alna Software<small>SOFTWARE &#183; 2018</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/reiz-tech.svg" alt="Reiz Tech" loading="lazy"></span><span class="tr-name">Reiz Tech<small>SOFTWARE &#183; 2024</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/codigy.svg" alt="Codigy" loading="lazy"></span><span class="tr-name">Codigy<small>SOFTWARE &#183; 2025</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/baltic-amadeus.svg" alt="Baltic Amadeus" loading="lazy"></span><span class="tr-name">Baltic Amadeus<small>SOFTWARE &#183; 2026</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/registru-centras.svg" alt="Registrų Centras" loading="lazy"></span><span class="tr-name">Registrų Centras<small>PUBLIC REGISTRY &#183; 2025</small></span></span>
         </span>
-
-        <p class="cs-lead">A free, open-source, self-hosted trading-strategy platform &#8212; the same testbed we study our own programme on.</p>
-
-        <ul class="cs-facts">
-          <li>Your own container</li>
-          <li>Your own API keys</li>
-          <li>Your own strategies</li>
-          <li>Your own trades</li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="cs-body">A strategy is composed visually, checked against independent market data and run on several exchanges at once. The same definition drives the backtest, the dry run and live trading &#8212; what trades is the code that was tested. Everything runs in your own container: the keys, the data and the decision journal stay with whoever started it.</p>
-
-        <p class="cs-tagline">A forge for your own trading bot.</p>
-
-        <!-- The app's own screens. Gap-separated like everything else in this
-             band: a wrap would strand a separator character. More rows of
-             these will follow as the app grows. -->
-        <p class="cs-features"><span>Features</span><a href="https://cryptosmithx.blynai.eu/config">Settings</a><a href="https://cryptosmithx.blynai.eu/">Account</a></p>
-
-        <p class="cs-links">
-          <a href="https://cryptosmithx.blynai.eu">cryptosmithx.blynai.eu</a>
-          <a href="https://github.com/blyn-ai/CryptoSmith-X">GitHub &#183; open source</a>
-        </p>
+        <span class="tr-set" aria-hidden="true">
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/shell.svg" alt="" loading="lazy"></span><span class="tr-name">Shell AS<small>ENERGY &#183; 2018</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/flinke-folk.svg" alt="" loading="lazy"></span><span class="tr-name">Flinke Folk<small>HOSPITALITY &#183; 2018</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/lauresta.svg" alt="" loading="lazy"></span><span class="tr-name">Lauresta<small>CONSTRUCTION &#183; 2016</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/vmi.svg" alt="" loading="lazy"></span><span class="tr-name">VMI<small>TAX ADMINISTRATION &#183; 2021</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/vilniaus-vandenys.svg" alt="" loading="lazy"></span><span class="tr-name">Vilniaus Vandenys<small>UTILITIES &#183; 2021</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/bdo-global.svg" alt="" loading="lazy"></span><span class="tr-name">BDO Global<small>AUDIT &amp; ADVISORY &#183; 2022</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/lietuvos-bankas.svg" alt="" loading="lazy"></span><span class="tr-name">Lietuvos bankas<small>CENTRAL BANKING &#183; 2024</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/alna-software.svg" alt="" loading="lazy"></span><span class="tr-name">Alna Software<small>SOFTWARE &#183; 2018</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/reiz-tech.svg" alt="" loading="lazy"></span><span class="tr-name">Reiz Tech<small>SOFTWARE &#183; 2024</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/codigy.svg" alt="" loading="lazy"></span><span class="tr-name">Codigy<small>SOFTWARE &#183; 2025</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/baltic-amadeus.svg" alt="" loading="lazy"></span><span class="tr-name">Baltic Amadeus<small>SOFTWARE &#183; 2026</small></span></span>
+        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/registru-centras.svg" alt="" loading="lazy"></span><span class="tr-name">Registrų Centras<small>PUBLIC REGISTRY &#183; 2025</small></span></span>
+        </span>
       </div>
     </div>
+      <p class="tr-note tr-note--legal">Prior professional experience only. Logos identify organisations; no endorsement, partnership or current client relationship with MB &#8222;Blynai&#8220; is implied.</p>
   </section>
 
   <section class="be-section" id="kontaktai">
@@ -462,6 +541,13 @@
     <button type="button" class="be-more" id="beDisclaimerOpen">Read more</button></p>
   <p class="be-foot-c">blynai.eu &#183; &#169; 2026 MB „Blynai“</p>
 </footer>
+
+<dialog class="pr-zoom" id="prZoom" aria-label="Product screenshot">
+  <span class="pr-zoom-in">
+    <button type="button" class="pr-zoom-x" id="prZoomX" aria-label="Close">&#10005;</button>
+    <img id="prZoomImg" alt="">
+  </span>
+</dialog>
 
 <dialog class="be-modal" id="beDisclaimer" aria-labelledby="beDisclaimerTitle">
   <div class="be-modal-head">
@@ -586,6 +672,84 @@
       .catch(function () { clearTimeout(timer); tryHost(i + 1); });
   }
   if (window.fetch && window.AbortController) tryHost(0);
+})();
+</script>
+
+<script>
+/* Products carousel: the track is a scroll-snap row, so touch swipe and
+   keyboard scrolling already work. The buttons scroll by one card; the
+   counter and dots follow the scroll position, whoever moved it. */
+(function () {
+  var track = document.getElementById('prTrack');
+  if (!track) return;
+  var order = [].slice.call(track.children), n = order.length;
+  var count = document.getElementById('prCount');
+  var dots = document.getElementById('prDots').children;
+  var prev = document.getElementById('prPrev'), next = document.getElementById('prNext');
+  var lead = 0, pending = 0, busy = false;
+  function pad(i) { return (i < 9 ? '0' : '') + (i + 1); }
+  function step() { return n > 1 ? order[1].offsetLeft - order[0].offsetLeft || track.clientWidth : track.clientWidth; }
+  function sync() {
+    count.innerHTML = '<b>' + pad(lead) + '</b> / ' + pad(n - 1);
+    for (var d = 0; d < dots.length; d++) {
+      if (d === lead) dots[d].setAttribute('aria-current', 'true');
+      else dots[d].removeAttribute('aria-current');
+    }
+  }
+  /* Endless in both directions: the track never scrolls past its end — the
+     cards are reordered so the leading one sits first and scrollLeft is 0.
+     A swipe is not thrown away: whatever the gesture landed on becomes the
+     new lead, then the same normalisation runs. */
+  function normalise() {
+    for (var i = 0; i < n; i++) track.appendChild(order[(lead + i) % n]);
+    track.scrollLeft = 0;
+    sync();
+  }
+  function run() {
+    if (busy || !pending) return;
+    busy = true;
+    var s = pending > 0 ? 1 : -1;
+    pending -= s;
+    lead = (lead + s + n) % n;
+    track.style.opacity = '0';
+    setTimeout(function () {
+      normalise();
+      track.style.opacity = '1';
+      busy = false;
+      run();
+    }, 130);
+  }
+  function go(s) { pending += s; run(); }
+  /* The screenshot opens at window size — one file serves card and zoom. */
+  var zoom = document.getElementById('prZoom'), zoomImg = document.getElementById('prZoomImg');
+  if (zoom && zoom.showModal) {
+    track.addEventListener('click', function (e) {
+      var img = e.target.closest ? e.target.closest('.pr-img') : null;
+      if (!img) return;
+      zoomImg.src = img.currentSrc || img.src;
+      zoomImg.alt = img.alt || '';
+      zoom.showModal();
+    });
+    document.getElementById('prZoomX').addEventListener('click', function () { zoom.close(); });
+    zoom.addEventListener('click', function (e) {
+      if (e.target === zoom || e.target === zoomImg) zoom.close();
+    });
+  }
+  prev.addEventListener('click', function () { go(-1); });
+  next.addEventListener('click', function () { go(1); });
+  var t;
+  track.addEventListener('scroll', function () {
+    if (busy) return;
+    clearTimeout(t);
+    t = setTimeout(function () {
+      var shift = Math.round(track.scrollLeft / step());
+      if (!shift) return;
+      lead = (lead + shift) % n;
+      normalise();
+    }, 140);
+  });
+  window.addEventListener('resize', function () { if (!busy) normalise(); });
+  sync();
 })();
 </script>
 

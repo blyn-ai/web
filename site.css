@@ -404,3 +404,140 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
 @media (prefers-reduced-motion:reduce){
   *{transition-duration:0.01ms !important}
 }
+
+/* Append verbatim to the end of site.css (before the two closing media queries is
+   not required — these rules carry their own breakpoints). */
+
+/* --- produktai: one product per slide ------------------------------------
+   The screenshot is the argument, so it gets the whole canvas; prev/next and
+   an "01 / 03" counter carry the paging. Native scroll-snap does the moving —
+   the buttons only nudge the track, so touch swipe works with no JS at all. */
+.pr-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+  gap:12px 24px;margin-bottom:var(--space-7)}
+.pr-head .be-eyebrow{margin:0}
+.pr-nav{display:flex;align-items:center;gap:12px}
+.pr-count{font:var(--fs-meta) var(--font-mono);letter-spacing:.1em;color:var(--text-meta)}
+.pr-count b{color:var(--text-heading);font-weight:var(--fw-medium)}
+.pr-btn{width:44px;height:44px;display:grid;place-items:center;cursor:pointer;
+  border:1px solid var(--border-card);border-radius:var(--radius-xs);
+  background:var(--surface-card);color:var(--text-heading);
+  font:16px/1 var(--font-mono);transition:var(--transition-color)}
+.pr-btn:hover{border-color:var(--border-gold);color:var(--gold-700,#8A6320)}
+.pr-btn[disabled]{opacity:.32;cursor:default}
+.pr-track{display:flex;gap:var(--gap-wide);overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;-ms-overflow-style:none;opacity:1;transition:opacity .13s ease}
+.pr-track::-webkit-scrollbar{display:none}
+.pr-card{flex:0 0 calc(50% - var(--gap-wide) / 2);scroll-snap-align:start;
+  display:flex;flex-direction:column;gap:var(--space-6)}
+.pr-shot{border:1px solid var(--border-card);border-radius:var(--radius-sm);overflow:hidden;
+  box-shadow:0 10px 30px rgba(26,23,18,.1)}
+.pr-bar{display:flex;align-items:center;padding:9px 12px;background:var(--ink-760);
+  border-bottom:1px solid var(--border-hairline-on-ink)}
+.pr-url{flex:1;min-width:0;padding:4px 10px;border-radius:var(--radius-xs);
+  background:rgba(255,253,248,.06);font:11.5px/1.3 var(--font-mono);letter-spacing:.03em;
+  color:var(--sand-400);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pr-frame{aspect-ratio:16/10;display:grid;place-items:center;gap:8px;
+  background:repeating-linear-gradient(135deg,#F3EDE1 0 12px,#EFE8DA 12px 24px);
+  text-align:center;padding:20px}
+.pr-frame b{font:var(--fw-medium) 15px/1.3 var(--font-mono);letter-spacing:.04em;color:var(--text-body)}
+.pr-frame span{font:12px/1.5 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--text-meta)}
+/* height:auto is load-bearing — the img carries width/height attributes, and
+   aspect-ratio only applies while one axis is auto. contain, not cover: the
+   teaser is a wide mono diagram, and a crop of it says nothing. */
+.pr-img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:contain;
+  background:#F3EDE1}
+.pr-body{max-width:62ch;font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);
+  color:var(--text-body)}
+.pr-dots{display:flex;gap:8px;margin-top:var(--space-6)}
+.pr-dot{width:26px;height:3px;border-radius:2px;background:var(--border-card)}
+.pr-dot[aria-current="true"]{background:var(--accent-gold)}
+
+/* --- trust: the record from before the company ---------------------------
+   Logos earned apart, so the band is quiet: monograms, one lane, and it
+   stops on hover and for reduced motion. Full-bleed with a fade at both
+   ends — a marquee that hits a hard edge reads as a bug. */
+/* The eyebrow's 22px bottom margin collapses over this one's top margin, so the
+   visible gap is the larger of the two — tightening the pair means lowering
+   both, not just the note. */
+#pasitikejimas .be-eyebrow{margin-bottom:var(--space-3)}
+.tr-note{margin-top:var(--space-3);
+  font:var(--fs-meta)/var(--lh-body) var(--font-mono);color:var(--text-meta)}
+.tr-row{margin:var(--space-8) calc(-1 * var(--be-pad-x)) 0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.tr-lane{display:flex;width:max-content;animation:tr-scroll 64s linear infinite}
+.tr-row:hover .tr-lane{animation-play-state:paused}
+.tr-set{display:flex;align-items:center;gap:46px;padding-right:46px}
+.tr-logo{display:flex;align-items:center;gap:12px;white-space:nowrap}
+/* The plate takes the logo's own proportion — widths run 1:1 to 3:1 — and
+   only the height is shared, so the lane stays on one baseline. */
+.tr-mono img{display:block;height:22px;width:auto;max-width:none}
+.tr-mono{min-width:40px;height:40px;flex:none;display:grid;place-items:center;padding:0 10px;
+  border:1px solid var(--border-hairline);border-radius:var(--radius-xs);
+  background:var(--surface-card);
+  font:var(--fw-medium) 13px/1 var(--font-mono);letter-spacing:.06em;color:var(--text-meta)}
+.tr-name{font:var(--fw-regular) 17px/1.2 var(--font-display);letter-spacing:-.005em;color:var(--text-heading)}
+.tr-name small{display:block;font:10.5px/1.4 var(--font-mono);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-meta)}
+@keyframes tr-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tr-lane{animation:none;flex-wrap:wrap;width:auto}
+  .tr-set{flex-wrap:wrap;gap:22px 46px}}
+@media (max-width:760px){
+  .pr-card{flex:0 0 100%}
+  .pr-btn{width:44px;height:44px}
+  .tr-mono{min-width:34px;height:34px;padding:0 8px}
+  .tr-mono img{height:19px}
+  .tr-name{font-size:15px}
+}
+
+/* Programme No. 1 runs long: its rows sit tighter than the page default so the
+   list reads as one block instead of four separated ones. */
+#programa .be-rows{margin-top:var(--space-5)}
+#programa .be-row{padding:10px 0}
+#programa .be-row-links{margin-top:8px}
+#programa .be-eyebrow--gap{margin-top:var(--space-6)}
+#programa .be-scheme{margin-top:var(--space-7)}
+#programa .be-question{margin-top:var(--space-7)}
+
+/* The three CryptoSmith X products share a prefix, so the lockup splits it:
+   mono prefix, the product word at display size, descriptor under it. */
+.pr-lock{display:flex;align-items:center;gap:18px}
+.pr-lock .cs-plate{width:56px;height:56px;border-radius:var(--radius-lg)}
+.pr-lock .cs-plate img{width:34px;height:34px}
+.pr-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.pr-pre{font:var(--fw-regular) 11px/1 var(--font-mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text-meta)}
+.pr-name{font:var(--fw-semibold) 26px/1.05 var(--font-display);letter-spacing:-.01em;
+  color:var(--text-heading)}
+.pr-name i{font-style:normal;color:var(--violet-700)}
+/* Two lines reserved: the roles differ in length, and a wrap on one card
+   must not push its screenshot below the neighbour's. */
+.pr-role{min-height:2.6em;font:var(--fw-regular) 11px/1.3 var(--font-mono);letter-spacing:.09em;
+  text-transform:uppercase;color:var(--violet-700)}
+.pr-for{margin-top:var(--space-3);font:var(--fs-meta)/var(--lh-body) var(--font-mono);
+  color:var(--text-meta)}
+.pr-for b{font-weight:var(--fw-medium);color:var(--text-heading)}
+.pr-pipe{margin-top:var(--space-7);padding-top:var(--space-5);
+  border-top:1px solid var(--border-hairline);
+  font:var(--fs-meta)/var(--lh-body) var(--font-mono);letter-spacing:.04em;color:var(--text-meta)}
+.pr-pipe b{font-weight:var(--fw-medium);color:var(--text-heading)}
+@media (max-width:760px){.pr-name{font-size:22px}}
+
+/* Click a product shot: the same file, opened as big as the window allows.
+   Native <dialog>, so Esc and the focus trap come from the browser. */
+.pr-img{cursor:zoom-in}
+.pr-zoom{width:min(96vw,1900px);max-width:96vw;max-height:94vh;padding:0;
+  overflow:hidden;border:1px solid var(--border-card);border-radius:var(--radius-sm);
+  background:var(--surface-card);box-shadow:var(--shadow-violet-edge)}
+.pr-zoom::backdrop{background:rgba(26,23,18,.72)}
+.pr-zoom-in{position:relative;display:block}
+.pr-zoom img{display:block;width:100%;height:auto;max-height:94vh;object-fit:contain;cursor:zoom-out}
+.pr-zoom-x{position:absolute;top:12px;right:12px;width:40px;height:40px;display:grid;
+  place-items:center;cursor:pointer;border:1px solid var(--border-card);border-radius:var(--radius-xs);
+  background:var(--surface-card);color:var(--text-heading);font:14px/1 var(--font-mono)}
+.pr-zoom-x:hover{border-color:var(--border-gold)}
+
+/* The marquee shows third-party marks, so the band states plainly what they do
+   and do not mean. Quieter than .tr-note above the lane, and full band width —
+   a ch cap here breaks the line mid-band and reads as truncation. */
+.tr-note--legal{margin-top:var(--space-5);color:var(--text-meta);opacity:.78}
