@@ -14,10 +14,12 @@ split, registry + the signed founders' act, footer with the disclaimer dialog.
 Two languages: **EN is the default at `/`**, LT lives at `/lt/`. Each is a real
 static page served 200 — there is NO language-guessing redirect on `/` (that
 is the SEO trap the client called out). The LT/EN switch is a plain link:
-gold pills in the ink header on desktop, the first row of the burger menu on
-mobile. hreflang on both pages (en→/, lt→/lt/, x-default→/ = EN); sitemap
-lists both with alternates. **Copy lives in two files** — edit `index.html`
-(EN) and `lt/index.html` (LT) together; `tools/stamp-css.mjs` stamps both.
+gold pills in the ink header, at every width — on mobile they sit between the
+brand and the burger, never inside the menu (buried there, nobody finds them);
+404.html carries the same pills without a burger. hreflang on both pages
+(en→/, lt→/lt/, x-default→/ = EN); sitemap lists both with alternates.
+**Copy lives in two files** — edit `index.html` (EN) and `lt/index.html` (LT)
+together; `tools/stamp-css.mjs` stamps both.
 The disclaimer dialog is per-language; the EN one opens with a line that the
 Lithuanian text is authoritative (compliance copy must not read as a second
 legal original).
