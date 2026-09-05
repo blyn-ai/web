@@ -326,6 +326,31 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
   transition:color .15s ease,border-color .15s ease}
 .be-foot-social a:hover{color:var(--text-on-ink);border-color:var(--border-hairline-on-ink)}
 
+/* --- partner programmes ---------------------------------------------------- */
+/* A static list rather than the .tr-lane marquee: the block sits inside a text
+   section, where a moving lane would fight the contacts below it. */
+.pt-block{margin-top:var(--space-9)}
+.pt-block > .be-eyebrow{display:block;margin-bottom:var(--space-3)}
+.pt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:0 var(--gap-wide);margin-top:var(--space-6)}
+/* Rules sit on top of each row, not under it: with an odd count the two columns
+   end at different heights, and trailing rules would dangle mid-air. */
+.pt-item{display:flex;align-items:center;gap:14px;padding:14px 0;
+  border-top:1px solid var(--border-hairline)}
+/* A fixed square — a variable-width plate (as in .tr-mono) would ragged-indent
+   the text of the rows beneath it. */
+.pt-plate{width:40px;min-width:40px;height:40px;flex:none;display:grid;place-items:center;padding:0;
+  border:1px solid var(--border-hairline);border-radius:var(--radius-xs);
+  background:var(--surface-page);
+  font:var(--fw-medium) 12px/1 var(--font-mono);letter-spacing:.06em;color:var(--text-heading)}
+.pt-plate img{display:block;height:24px;width:auto;max-width:26px;object-fit:contain}
+.pt-plate--word{font-size:10px;letter-spacing:.02em}
+.pt-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.pt-name{font:var(--fw-regular) 17px/1.2 var(--font-display);letter-spacing:-.005em;
+  color:var(--text-heading)}
+.pt-prog{font:var(--fs-caption)/var(--lh-body) var(--font-mono);color:var(--text-meta)}
+@media (max-width:760px){.pt-grid{grid-template-columns:1fr}}
+
 /* --- footer + dialog ------------------------------------------------------ */
 .be-foot{padding:var(--space-10) var(--be-pad-x) var(--space-11);background:var(--surface-ink)}
 .be-foot p{font:12.5px/var(--lh-body) var(--font-body);color:var(--text-meta-on-ink)}
