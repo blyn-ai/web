@@ -35,8 +35,8 @@
 <link rel="manifest" href="site.webmanifest">
 
 <link rel="stylesheet" href="ds/tokens/fonts.cdn.css">
-<link rel="stylesheet" href="ds/styles.css?v=208adaec">
-<link rel="stylesheet" href="site.css?v=208adaec">
+<link rel="stylesheet" href="ds/styles.css?v=bf94be7b">
+<link rel="stylesheet" href="site.css?v=bf94be7b">
 <noscript><style>
   /* No JavaScript: the dialog cannot open, so the full disclaimer unfolds into
      the footer band; the telemetry strip keeps its dashes. */
@@ -366,15 +366,93 @@
   </section>
   <!-- The record from before the company: logos the founders earned at other
        companies, apart. One quiet lane, paused on hover. -->
-  <section class="be-section be-section--raised" id="infrastruktura" aria-label="Markets and infrastructure">
-      <p class="be-eyebrow">Markets and infrastructure</p>
-      <p class="tr-note">The exchanges the systems execute on and read from, and the stack they run on.</p>
-      <div class="tr-row">
+  <section class="be-section be-section--raised" id="infrastruktura" aria-label="Venues and infrastructure">
+      <p class="be-eyebrow">Venues &#183; exchange coverage</p>
+      <h2 class="be-h2">Venues</h2>
+      <p class="be-sub">Four exchanges are collecting now. Twelve more are queued.</p>
+      <p class="vn-body">Every venue prices the same instrument differently, and the difference is the data. We connect to each exchange directly over its own WebSocket, keep the order book in memory, and write what we saw with the time we saw it. Nothing is filled in, averaged across venues, or reconstructed later &#8212; a figure we did not measure stays empty.</p>
+      <div class="vn-grid">
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/hyperliquid.svg" alt="Hyperliquid" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live">Live</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/kraken.svg" alt="Kraken" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Futures</span><span class="be-status-chip be-status-chip--live">Live</span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp">Planned</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/weex.svg" alt="WEEX" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live">Live</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/binance.svg" alt="" loading="lazy"><b class="vn-nm">Binance</b></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live">Live</span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--plan">In progress</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/okx.svg" alt="OKX" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--plan">In progress</span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp">Planned</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/bybit.svg" alt="Bybit" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--plan">In progress</span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp">Planned</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/coinbase.svg" alt="Coinbase" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--plan">In progress</span></li>
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--hyp">Planned</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><b class="vn-nm">Deribit</b></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Options</span><span class="be-status-chip be-status-chip--hyp">Planned</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><b class="vn-nm">Gate</b></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--hyp">Planned</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/mexc.svg" alt="MEXC" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--hyp">Planned</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/bitget.svg" alt="Bitget" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--hyp">Planned</span></li>
+        </ul>
+      </div>
+      </div>
+      <p class="vn-sum">4 live &#183; 4 in progress &#183; 8 planned</p>
+      <p class="tr-note vn-note">Live means collecting into the database today. In progress means the adapter is being written. Planned means the venue is in the queue and the order can still change.</p>
+      <p class="vn-link"><a href="https://cryptosmithx.blynai.eu/arena" target="_blank" rel="noopener">See the live comparison &#8594;</a></p>
+      <div class="vn-stack">
+        <p class="be-eyebrow">The stack it runs on</p>
+        <p class="tr-note">The platform, the data store and the infrastructure the systems run on.</p>
+<div class="tr-row">
         <div class="tr-lane">
         <span class="tr-set">
-        <span class="tr-logo"><span class="tr-name">Kraken<small>LIVE EXECUTION &#183; FUTURES &#183; SINCE 2026-07</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/weex.svg" alt="WEEX" loading="lazy"></span><span class="tr-name">WEEX<small>MARKET DATA &#183; PERPETUALS</small></span></span>
-        <span class="tr-logo"><span class="tr-name">Hyperliquid<small>MARKET DATA &#183; PERPETUALS</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/dotnet.svg" alt=".NET" loading="lazy"></span><span class="tr-name">.NET<small>PLATFORM</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/postgresql.svg" alt="PostgreSQL" loading="lazy"></span><span class="tr-name">PostgreSQL<small>DECISION LOG</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/docker.svg" alt="Docker" loading="lazy"></span><span class="tr-name">Docker<small>CONTAINERS</small></span></span>
@@ -385,9 +463,6 @@
         <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/telegram.svg" alt="Telegram" loading="lazy"></span><span class="tr-name">Telegram<small>ALERTS</small></span></span>
         </span>
         <span class="tr-set" aria-hidden="true">
-        <span class="tr-logo"><span class="tr-name">Kraken<small>LIVE EXECUTION &#183; FUTURES &#183; SINCE 2026-07</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/weex.svg" alt="" loading="lazy"></span><span class="tr-name">WEEX<small>MARKET DATA &#183; PERPETUALS</small></span></span>
-        <span class="tr-logo"><span class="tr-name">Hyperliquid<small>MARKET DATA &#183; PERPETUALS</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/dotnet.svg" alt="" loading="lazy"></span><span class="tr-name">.NET<small>PLATFORM</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/postgresql.svg" alt="" loading="lazy"></span><span class="tr-name">PostgreSQL<small>DECISION LOG</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/docker.svg" alt="" loading="lazy"></span><span class="tr-name">Docker<small>CONTAINERS</small></span></span>
@@ -399,7 +474,8 @@
         </span>
         </div>
       </div>
-      <p class="tr-note tr-note--legal">Logos identify third-party services the company uses or integrates with. No endorsement or partnership is implied.</p>
+        <p class="tr-note tr-note--legal">Logos identify third-party services the company uses or integrates with. No endorsement or partnership is implied.</p>
+      </div>
     </section>
   <section class="be-section" id="ismokome">
     <p class="be-eyebrow">What we learned</p>

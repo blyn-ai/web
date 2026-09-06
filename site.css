@@ -351,6 +351,46 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
 .pt-prog{font:var(--fs-caption)/var(--lh-body) var(--font-mono);color:var(--text-meta)}
 @media (max-width:760px){.pt-grid{grid-template-columns:1fr}}
 
+/* --- venues + stack ---------------------------------------------------------- */
+/* Venues is a static list, not a lane: the point of the block is the status
+   column and the 4/4/8 ratio, and a column that slides past cannot be read.
+   The marquee stays underneath it for the stack, where identity marks are all
+   a moving lane has to carry. */
+.vn-body{margin-top:var(--space-6);
+  font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);color:var(--text-body)}
+.vn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:0 var(--gap-wide);margin-top:var(--space-8)}
+/* Rule on top of each venue, never bottom: the columns end at different
+   heights and a trailing rule would dangle. */
+.vn-venue{padding:16px 0 18px;border-top:1px solid var(--border-hairline)}
+/* Marks share a height and nothing else — the lockups run 1:1 to 6.5:1, so a
+   fixed plate would either crush the wordmarks or ragged-indent the rows. */
+.vn-mark{display:flex;align-items:center;gap:11px;height:26px}
+.vn-nm{font:var(--fw-medium) 15px/1 var(--font-display);letter-spacing:-.005em;
+  color:var(--text-heading)}
+.vn-mark img{height:auto;width:auto;max-height:19px;max-width:150px}
+/* Kraken's official lockup carries a "by PAYWARD" line under the wordmark,
+   so only 65% of its height is the name; at the shared 19px cap the word
+   reads a third smaller than its neighbours. 26px is the most the 26px row
+   allows and brings the wordmark to ~17px. */
+.vn-mark img[src*="kraken"]{max-height:26px}
+.vn-lines{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.vn-line{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.vn-p{font:var(--fs-caption)/1.4 var(--font-mono);letter-spacing:.06em;color:var(--text-meta)}
+.vn-sum{margin-top:var(--space-7);padding-top:var(--space-5);
+  border-top:1px solid var(--border-hairline);
+  font:var(--fw-medium) var(--fs-meta) var(--font-mono);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text-heading)}
+.vn-note{margin-top:var(--space-5)}
+.vn-link{margin-top:var(--space-5);font:var(--fs-meta) var(--font-mono);letter-spacing:.04em}
+.vn-stack{margin-top:var(--space-9);padding-top:var(--space-8);
+  border-top:1px solid var(--border-hairline)}
+.vn-stack > .be-eyebrow{display:block;margin-bottom:var(--space-3)}
+@media (max-width:760px){
+  .vn-grid{grid-template-columns:1fr}
+  .vn-link a{display:inline-block;padding:12px 0;margin:-12px 0}
+}
+
 /* --- footer + dialog ------------------------------------------------------ */
 .be-foot{padding:var(--space-10) var(--be-pad-x) var(--space-11);background:var(--surface-ink)}
 .be-foot p{font:12.5px/var(--lh-body) var(--font-body);color:var(--text-meta-on-ink)}

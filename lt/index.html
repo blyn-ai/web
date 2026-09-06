@@ -39,8 +39,8 @@
 <link rel="preload" href="../fonts/ibm-plex-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/ibm-plex-sans-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="../ds/styles.css?v=208adaec">
-<link rel="stylesheet" href="../site.css?v=208adaec">
+<link rel="stylesheet" href="../ds/styles.css?v=bf94be7b">
+<link rel="stylesheet" href="../site.css?v=bf94be7b">
 <noscript><style>
   /* No JavaScript: the dialog cannot open, so the full disclaimer unfolds into
      the footer band; the telemetry strip keeps its dashes. */
@@ -367,15 +367,93 @@
     </div>
     <p class="be-footnote">Stendo kodas viešas (MIT); supakuota versija savarankiškam diegimui rengiama.</p>
   </section>
-  <section class="be-section be-section--raised" id="infrastruktura" aria-label="Rinkos ir infrastruktūra">
-      <p class="be-eyebrow">Rinkos ir infrastruktūra</p>
-      <p class="tr-note">Biržos, kuriose sistemos vykdo sandorius ir iš kurių skaito duomenis, ir technologijos, ant kurių jos veikia.</p>
-      <div class="tr-row">
+  <section class="be-section be-section--raised" id="infrastruktura" aria-label="Biržos ir infrastruktūra">
+      <p class="be-eyebrow">Biržos &#183; apimtis</p>
+      <h2 class="be-h2">Biržos</h2>
+      <p class="be-sub">Keturios biržos duomenis renka jau dabar. Dar dvylika &#8212; eilėje.</p>
+      <p class="vn-body">Kiekviena birža tą patį instrumentą įvertina kitaip, ir tas skirtumas yra duomenys. Prie kiekvienos biržos jungiamės tiesiogiai per jos WebSocket, orderių knygą laikome atmintyje ir įrašome tai, ką matėme, su laiku, kada matėme. Nieko neužpildome, nevidurkiname per biržas ir vėliau neatkuriame &#8212; neišmatuotas skaičius lieka tuščias.</p>
+      <div class="vn-grid">
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="../assets/venues/hyperliquid.svg" alt="Hyperliquid" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetualai</span><span class="be-status-chip be-status-chip--live">Gyva</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="../assets/venues/kraken.svg" alt="Kraken" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Futures</span><span class="be-status-chip be-status-chip--live">Gyva</span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp">Planuojama</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="../assets/venues/weex.svg" alt="WEEX" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetualai</span><span class="be-status-chip be-status-chip--live">Gyva</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="../assets/venues/binance.svg" alt="" loading="lazy"><b class="vn-nm">Binance</b></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetualai</span><span class="be-status-chip be-status-chip--live">Gyva</span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--plan">Vykdoma</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="../assets/venues/okx.svg" alt="OKX" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetualai</span><span class="be-status-chip be-status-chip--plan">Vykdoma</span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp">Planuojama</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="../assets/venues/bybit.svg" alt="Bybit" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetualai</span><span class="be-status-chip be-status-chip--plan">Vykdoma</span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp">Planuojama</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="../assets/venues/coinbase.svg" alt="Coinbase" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--plan">Vykdoma</span></li>
+        <li class="vn-line"><span class="vn-p">Perpetualai</span><span class="be-status-chip be-status-chip--hyp">Planuojama</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><b class="vn-nm">Deribit</b></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Opcionai</span><span class="be-status-chip be-status-chip--hyp">Planuojama</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><b class="vn-nm">Gate</b></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetualai</span><span class="be-status-chip be-status-chip--hyp">Planuojama</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="../assets/venues/mexc.svg" alt="MEXC" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetualai</span><span class="be-status-chip be-status-chip--hyp">Planuojama</span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="../assets/venues/bitget.svg" alt="Bitget" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetualai</span><span class="be-status-chip be-status-chip--hyp">Planuojama</span></li>
+        </ul>
+      </div>
+      </div>
+      <p class="vn-sum">4 gyvos &#183; 4 vykdomos &#183; 8 planuojamos</p>
+      <p class="tr-note vn-note">„Gyva“ reiškia, kad duomenys šiandien rašomi į duomenų bazę. „Vykdoma“ &#8212; adapteris rašomas. „Planuojama“ &#8212; birža yra eilėje, ir tvarka dar gali keistis.</p>
+      <p class="vn-link"><a href="https://cryptosmithx.blynai.eu/arena" target="_blank" rel="noopener">Gyvas palyginimas &#8594;</a></p>
+      <div class="vn-stack">
+        <p class="be-eyebrow">Technologijos, ant kurių veikia</p>
+        <p class="tr-note">Platforma, duomenų sandėlis ir infrastruktūra, ant kurių veikia sistemos.</p>
+<div class="tr-row">
         <div class="tr-lane">
         <span class="tr-set">
-        <span class="tr-logo"><span class="tr-name">Kraken<small>GYVAS VYKDYMAS &#183; FUTURES &#183; NUO 2026-07</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="../assets/logos/weex.svg" alt="WEEX" loading="lazy"></span><span class="tr-name">WEEX<small>RINKOS DUOMENYS &#183; PERPETUALAI</small></span></span>
-        <span class="tr-logo"><span class="tr-name">Hyperliquid<small>RINKOS DUOMENYS &#183; PERPETUALAI</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="../assets/logos/dotnet.svg" alt=".NET" loading="lazy"></span><span class="tr-name">.NET<small>PLATFORMA</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="../assets/logos/postgresql.svg" alt="PostgreSQL" loading="lazy"></span><span class="tr-name">PostgreSQL<small>SPRENDIMŲ ŽURNALAS</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="../assets/logos/docker.svg" alt="Docker" loading="lazy"></span><span class="tr-name">Docker<small>KONTEINERIAI</small></span></span>
@@ -386,9 +464,6 @@
         <span class="tr-logo"><span class="tr-mono"><img src="../assets/logos/telegram.svg" alt="Telegram" loading="lazy"></span><span class="tr-name">Telegram<small>PRANEŠIMAI</small></span></span>
         </span>
         <span class="tr-set" aria-hidden="true">
-        <span class="tr-logo"><span class="tr-name">Kraken<small>GYVAS VYKDYMAS &#183; FUTURES &#183; NUO 2026-07</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="../assets/logos/weex.svg" alt="" loading="lazy"></span><span class="tr-name">WEEX<small>RINKOS DUOMENYS &#183; PERPETUALAI</small></span></span>
-        <span class="tr-logo"><span class="tr-name">Hyperliquid<small>RINKOS DUOMENYS &#183; PERPETUALAI</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="../assets/logos/dotnet.svg" alt="" loading="lazy"></span><span class="tr-name">.NET<small>PLATFORMA</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="../assets/logos/postgresql.svg" alt="" loading="lazy"></span><span class="tr-name">PostgreSQL<small>SPRENDIMŲ ŽURNALAS</small></span></span>
         <span class="tr-logo"><span class="tr-mono"><img src="../assets/logos/docker.svg" alt="" loading="lazy"></span><span class="tr-name">Docker<small>KONTEINERIAI</small></span></span>
@@ -400,7 +475,8 @@
         </span>
         </div>
       </div>
-      <p class="tr-note tr-note--legal">Logotipai žymi trečiųjų šalių paslaugas, kuriomis bendrija naudojasi arba su kuriomis integruojasi. Tai nėra nei rekomendacija, nei partnerystė.</p>
+        <p class="tr-note tr-note--legal">Logotipai žymi trečiųjų šalių paslaugas, kuriomis bendrija naudojasi arba su kuriomis integruojasi. Tai nėra nei rekomendacija, nei partnerystė.</p>
+      </div>
     </section>
   <section class="be-section" id="ismokome">
     <p class="be-eyebrow">Ką išmokome</p>

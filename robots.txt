@@ -1,4 +1,18 @@
+# Cloudflare prepends its managed AI-crawler block to this file at the edge, so
+# what a crawler actually reads is that block first — content-signal rules and
+# nine AI-bot Disallow groups, including its own User-agent: * — and only then
+# these lines. The repo copy is a few dozen bytes and the served copy is close
+# to two thousand: that gap is the edge, not a tampered file.
+#
+# Nothing here is disallowed on purpose. The two pages that should not be
+# indexed say so in their own markup — /dokumentacija/ in its served HTML,
+# /aktas/ once its bundle renders — and a Disallow would only stop the crawler
+# before it ever read that instruction, while leaving the URL listable by
+# reference. Blocking the crawl is not how you ask for a page to be left out.
 User-agent: *
 Allow: /
 
+# One Sitemap line, for this host only. cryptosmithx.blynai.eu declares its own
+# sitemap from its own robots.txt; naming it here as well would tell no crawler
+# anything that host does not already tell it directly.
 Sitemap: https://blynai.eu/sitemap.xml

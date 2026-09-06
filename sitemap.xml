@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Two URLs, and that is the whole indexable host: the EN root and its LT
+     twin. Everything else this site serves is either noindex or not a page,
+     and the reasons are at the bottom of this file.
+
+     lastmod is edited by hand when a page changes — a date that moves on its
+     own says nothing. Both entries move to 2026-09-05, the day the partner
+     programmes band shipped into index.html and lt/index.html. The logo work
+     dated 2026-09-06 touched only assets/trust/, which neither page
+     references, so it is not a change to either page and does not earn a
+     date. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blynai.eu/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://blynai.eu/"/>
     <xhtml:link rel="alternate" hreflang="lt" href="https://blynai.eu/lt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://blynai.eu/"/>
@@ -11,32 +21,53 @@
   </url>
   <url>
     <loc>https://blynai.eu/lt/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://blynai.eu/"/>
     <xhtml:link rel="alternate" hreflang="lt" href="https://blynai.eu/lt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://blynai.eu/"/>
     <changefreq>monthly</changefreq><priority>0.9</priority>
   </url>
-  <!-- The founders' act: linked from both language pages, indexable, and until
-       now missing from this file. Single-language (Lithuanian), so no
-       hreflang alternates. dokumentacija/ stays out: it is noindex and
-       unlinked. -->
-  <url>
-    <loc>https://blynai.eu/aktas/</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>yearly</changefreq><priority>0.5</priority>
-  </url>
-  <!-- cryptosmithx.blynai.eu is a different host but the same registrable
-       domain, so listing it here is a cross-submission Google supports once
-       both properties are verified in Search Console. Only the root is listed:
-       /strategy-modeler, /config, /arena and /agent are client-rendered
-       bundles whose server response carries the title "Bundled Page", and
-       inviting the crawler to them now would put four pages under that name in
-       the index. Add them here once they render a real title — or better, give
-       that host its own sitemap.xml and a Sitemap line in its robots.txt. -->
-  <url>
-    <loc>https://cryptosmithx.blynai.eu/</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq><priority>0.7</priority>
-  </url>
+  <!-- The alternates above are the same three links each page carries in its
+       own <head>, pointing the same way in both directions, with x-default on
+       the EN root because EN is what / serves. There is no third language and
+       no language-guessing redirect on / — see _redirects, which explains why
+       that stays a trap we do not walk into.
+
+       WHAT IS DELIBERATELY NOT LISTED
+
+       /aktas/ was listed here, described as indexable. It is not, and it never
+       was. The page is a client-rendered bundle: its served HTML carries no
+       robots meta, but the template the runtime swaps into the document does,
+       so the rendered DOM says <meta name="robots" content="noindex">.
+       Checked against the live page in a browser, not inferred from the file.
+       A sitemap entry for a noindex URL asks the crawler to index something
+       the page then refuses, which Search Console reports as an error against
+       the sitemap rather than a note against the page. It comes out under the
+       rule this file already stated for /dokumentacija/ — noindex pages are
+       not listed — rather than a new rule written to fit. Removing the
+       noindex from the page instead was rejected: it is baked into the
+       bundle's own template, so that edit belongs where the bundle is
+       generated, not in a hand-maintained sitemap. List /aktas/ again the day
+       the rendered page stops saying noindex, with the alternates omitted —
+       it is Lithuanian only.
+
+       /dokumentacija/ stays out for the reason it always did: noindex, and
+       linked from nowhere. /og/og-card.html, /og/og-card-lt.html and
+       /assets/trust/logos-preview.html are unlinked render sources for a
+       social image and a contrast audit — nothing links them, and they are
+       not pages anyone should land on.
+
+       https://cryptosmithx.blynai.eu/ is gone from this file. It was here as a
+       Google cross-submission: permitted only because both properties are
+       verified in Search Console, and a flat violation of the sitemaps.org
+       rule that every URL in one sitemap share one host. The thing that made
+       that exception worth taking has since been built. That host now serves
+       its own sitemap.xml at its root and names it from a Sitemap line in its
+       own robots.txt — exactly what the previous version of this comment
+       recommended as the better answer. Keeping the entry anyway, as belt and
+       braces, was rejected on two counts: it duplicates a single URL that is
+       already linked from both pages above and already carried by that host's
+       own sitemap, and its lastmod would be maintained in this repo while the
+       page ships from another one, so the only thing it could do over time is
+       go stale and contradict the sitemap that is actually right. -->
 </urlset>
