@@ -4,16 +4,15 @@
      and the reasons are at the bottom of this file.
 
      lastmod is edited by hand when a page changes — a date that moves on its
-     own says nothing. Both entries move to 2026-09-05, the day the partner
-     programmes band shipped into index.html and lt/index.html. The logo work
-     dated 2026-09-06 touched only assets/trust/, which neither page
-     references, so it is not a change to either page and does not earn a
-     date. -->
+     own says nothing. Both entries carry 2026-09-06, the day the Venues block
+     replaced the markets strip in index.html and lt/index.html. Work that
+     touches only assets/trust/, which neither page references, is not a change
+     to either page and does not earn a date. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blynai.eu/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://blynai.eu/"/>
     <xhtml:link rel="alternate" hreflang="lt" href="https://blynai.eu/lt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://blynai.eu/"/>
@@ -21,7 +20,7 @@
   </url>
   <url>
     <loc>https://blynai.eu/lt/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://blynai.eu/"/>
     <xhtml:link rel="alternate" hreflang="lt" href="https://blynai.eu/lt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://blynai.eu/"/>
