@@ -19,17 +19,14 @@ Geometry and colour are otherwise untouched.
 | `hyperliquid.svg` | 6.50:1 | Carried over from `assets/trust/logos/` | 2026-09-06 | Near-black `#03211C`. |
 | `bybit.svg` | 2.89:1 | Carried over from `assets/trust/logos/` | 2026-09-06 | Gradients kept as authored. |
 | `mexc.svg` | 5.39:1 | Carried over from `assets/trust/logos/` | 2026-09-06 | `#0057FF`. |
+| `gate.svg` | 4.31:1 | Gate's brand kit, horizontal colour variant for light backgrounds (`gate-horizontal-color.svg`; the kit also ships `-on-dark`) | 2026-09-06 | Wordmark `#14141E`, glyph `#0068FF` + `#17E6A1`. Supplied by the client after I failed to find it. Its 447×251 canvas is mostly padding — the artwork is 310.55×72 in the middle — so the crop matters more here than anywhere else. |
 | `deribit.svg` | 3.39:1 | The lockup deribit.com serves in its own header | 2026-09-06 | Authored dark-on-light: `#0A0B0D` wordmark, `#0052FF` glyph and "by coinbase". The site wraps it in `class="dark"` with an inline `<style>` that repaints every path white for its dark header; dropping that wrapper leaves the file's own colours untouched. No recolouring was done. |
 
 ## Rendered as text, no mark
 
-One venue carries its name in `.vn-nm` instead of an image, on the same terms
-as everywhere else on this site: no look-alike is substituted and no mark is
-recoloured to fit.
-
-| Venue | Reason |
-|---|---|
-| Gate | Publishes no SVG of the current "Gate" identity. The site serves its logo as a raster, `gate.com/brand` and `gate.io/brand` both answer 403, and the only vector on Wikimedia is the retired "gate.io" wordmark, which would be stale branding. |
+None. Every venue carries its own mark. Binance keeps its name in `.vn-nm`
+beside the glyph because its lockup is a bare diamond that does not spell the
+name; that is a layout decision, not a missing asset.
 
 ## The per-mark CSS rule
 
