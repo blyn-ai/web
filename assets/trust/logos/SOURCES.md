@@ -53,7 +53,7 @@ the same terms as the twelve above.
 | `bitget.svg` | 480×160 | 9 | `#00F0FF`, `white` | Valid, self-contained, no external refs. Built for a **dark** background: the wordmark is `fill="white"`. |
 | `bybit.svg` | 480×160 | 5 | `#FF9C2E` + four linear gradients | Valid, self-contained. Gradient ids are unprefixed (`paint0_linear_79_5699`), which can collide if several such files are ever inlined into one document. |
 | `deribit.svg` | 480×160 | 3 | `#0052FF`, `#FFF` | Valid, self-contained. Also a **dark**-background variant — two of its three fills are white. |
-| `hyperliquid.svg` | 480×160 | 13 | `#03211C` | Valid, self-contained. Near-black, so it needs a light background. |
+| `hyperliquid.svg` | 480×160 | 13 | `#03211C` | Valid, self-contained. Near-black, so it needs a light background. Its thirteen fills arrived as `var(--token-6f446d9a-…, rgb(3,33,28))`, a Framer export artefact depending on a variable defined nowhere in this project; resolved to the literal on 2026-09-06. |
 | `mexc.svg` | 480×160 | 2 | `#0057FF` | Valid, self-contained. Dark navy, so it needs a light background. |
 
 ## Rendering audit
