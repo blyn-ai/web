@@ -1,5 +1,10 @@
 # BlynAI marquee logo sources
 
+This folder holds two sets: twelve organisations from the founders' prior
+professional work, and five crypto venues for the exchange-coverage block.
+Only the first twelve carry a researched provenance record — see NEEDS REVIEW
+below for the rest.
+
 Research and normalization completed 2026-09-03. Every delivered logo is a
 self-contained, path-based SVG with a transparent background. No file embeds a
 raster image, live text, remote font, external stylesheet, or remote image.
@@ -35,3 +40,58 @@ was then visually compared with the downloaded original.
 `NEEDS REVIEW`: **none for logo artwork**. The Shell legal-suffix discrepancy is
 recorded above because it concerns the requested company label, not the sourced
 Pecten artwork.
+
+## NEEDS REVIEW — venue logos, provenance not recorded
+
+These five arrived in the repository without a source record, so nothing below
+is a provenance claim: it is what the files themselves contain. Each needs a
+source URL, a licence note and a confidence rating before it is published, on
+the same terms as the twelve above.
+
+| File | Canvas | Paths | Colours in the file | What can be verified by inspection |
+|---|---:|---:|---|---|
+| `bitget.svg` | 480×160 | 9 | `#00F0FF`, `white` | Valid, self-contained, no external refs. Built for a **dark** background: the wordmark is `fill="white"`. |
+| `bybit.svg` | 480×160 | 5 | `#FF9C2E` + four linear gradients | Valid, self-contained. Gradient ids are unprefixed (`paint0_linear_79_5699`), which can collide if several such files are ever inlined into one document. |
+| `deribit.svg` | 480×160 | 3 | `#0052FF`, `#FFF` | Valid, self-contained. Also a **dark**-background variant — two of its three fills are white. |
+| `hyperliquid.svg` | 480×160 | 13 | `#03211C` | Valid, self-contained. Near-black, so it needs a light background. |
+| `mexc.svg` | 480×160 | 2 | `#0057FF` | Valid, self-contained. Dark navy, so it needs a light background. |
+
+## Rendering audit
+
+Measured 2026-09-06 by rasterising each file at 160 px on a transparent ground
+and comparing the mean colour of its opaque pixels against the two surfaces the
+site actually uses: paper `#F7F4ED` and ink `#1A1712`. Contrast is the WCAG
+ratio; below about 1.6 a mark is effectively invisible.
+
+| File | Artwork height of 160 | vs paper | vs ink | Note |
+|---|---:|---:|---:|---|
+| `alna-software.svg` | 52 | 2.72 | 2.62 | works on both |
+| `baltic-amadeus.svg` | 66 | 12.37 | 1.73 | paper only |
+| `bdo-global.svg` | 98 | 2.87 | 2.48 | works on both |
+| `bitget.svg` | 114 | **1.27** | 5.61 | **invisible on paper** — needs a light-background variant |
+| `bybit.svg` | 116 | 2.25 | 3.16 | works on both |
+| `codigy.svg` | 100 | 1.91 | 3.73 | weak on paper |
+| `deribit.svg` | 112 | **1.34** | 5.32 | **invisible on paper** — needs a light-background variant |
+| `flinke-folk.svg` | 53 | 5.88 | 1.21 | paper only |
+| `hyperliquid.svg` | 60 | 6.76 | 1.06 | paper only |
+| `lauresta.svg` | 82 | 3.15 | 2.26 | works on both |
+| `lietuvos-bankas.svg` | 94 | 20.15 | 2.83 | works on both |
+| `mexc.svg` | 70 | 6.07 | 1.18 | paper only |
+| `registru-centras.svg` | 80 | 2.12 | 3.36 | weak on paper |
+| `reiz-tech.svg` | 116 | 20.15 | 2.83 | works on both |
+| `shell.svg` | 118 | **1.46** | 4.88 | **invisible on paper** — the Pecten's yellow dominates |
+| `vilniaus-vandenys.svg` | 118 | 1.60 | 4.47 | weak on paper |
+| `vmi.svg` | 118 | 2.18 | 3.27 | weak on paper |
+
+Two things the original validation list could not catch, both visible above.
+
+**Contrast.** A white-on-transparent mark passes every mechanical check — valid
+XML, transparent background, exact canvas, no clipping — and still disappears
+on the page. Three files fail on paper today.
+
+**Visual height.** The brief asked for marks that look balanced beside each
+other, not for identical bounds. Actual artwork heights run from 52 px
+(`alna-software`) to 118 px (`shell`, `vmi`, `vilniaus-vandenys`) on the same
+160 px canvas — a factor of 2.3. In a marquee the small ones read as mistakes.
+Evening this out means re-normalising the safe area per file, not rescaling the
+canvas.

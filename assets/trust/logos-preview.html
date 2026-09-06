@@ -1,185 +1,206 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BlynAI marquee logo preview</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --page: #f5f6f7;
-      --surface: #e6e9ec;
-      --line: #cbd1d6;
-      --ink: #202428;
-      --muted: #687078;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--page);
-      color: var(--ink);
-      font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    main {
-      width: min(1500px, calc(100% - 40px));
-      margin: 38px auto 70px;
-    }
-
-    h1, h2 { margin: 0; letter-spacing: -0.02em; }
-    h1 { font-size: clamp(28px, 4vw, 44px); }
-    h2 { margin-top: 42px; font-size: 22px; }
-
-    .lede {
-      max-width: 760px;
-      margin: 8px 0 0;
-      color: var(--muted);
-    }
-
-    .comparison {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .card {
-      min-width: 0;
-      overflow-x: auto;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: white;
-    }
-
-    .card-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 11px 14px;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .card-head strong { color: var(--ink); font-weight: 650; }
-
-    .neutral {
-      min-width: 500px;
-      min-height: 190px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 10px;
-      background: var(--surface);
-    }
-
-    .neutral img {
-      flex: none;
-      display: block;
-      height: 160px;
-      width: auto;
-    }
-
-    .ticker-shell {
-      margin-top: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: var(--surface);
-    }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 42s linear infinite;
-    }
-
-    .ticker-shell:hover .ticker-track { animation-play-state: paused; }
-
-    .ticker-item {
-      flex: none;
-      height: 160px;
-      display: grid;
-      place-items: center;
-      border-right: 1px solid rgba(70, 78, 85, 0.14);
-    }
-
-    .ticker-item img {
-      display: block;
-      width: auto;
-      height: 160px;
-    }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .ticker-shell { overflow-x: auto; }
-      .ticker-track { animation: none; }
-    }
-
-    @media (max-width: 620px) {
-      main { width: min(100% - 20px, 1500px); margin-top: 22px; }
-      .comparison { grid-template-columns: 1fr; }
-      .neutral { justify-content: flex-start; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BlynAI logo preview &#183; 17 files</title>
+<style>
+  /* The two surfaces the site actually uses. A neutral grey preview hides the
+     one defect that matters: a mark that vanishes into its background. */
+  :root { --paper:#F7F4ED; --ink:#1A1712; --line:#d8d3c8; --muted:#6b6559; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#fff; color:#1A1712;
+    font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; }
+  main { width:min(1500px,calc(100% - 40px)); margin:32px auto 64px; }
+  h1 { font-size:19px; margin:0 0 4px; font-weight:600; }
+  p.lede { margin:0 0 26px; color:var(--muted); max-width:70ch; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px; }
+  .card { margin:0; border:1px solid var(--line); border-radius:6px; overflow:hidden; }
+  .on-paper,.on-ink { height:120px; display:flex; align-items:center; justify-content:center; }
+  .on-paper { background:var(--paper); }
+  .on-ink { background:var(--ink); }
+  .card img { height:80px; width:auto; display:block; }
+  figcaption { display:flex; flex-wrap:wrap; gap:4px 14px; align-items:center;
+    padding:9px 11px; border-top:1px solid var(--line); background:#fbfaf8; }
+  figcaption b { font-weight:600; }
+  .m { color:var(--muted); font-size:12px; display:inline-flex; align-items:center; gap:5px; }
+  .m i { width:8px; height:8px; border-radius:50%; display:inline-block; }
+  .ok { background:#3f8f4f; } .weak { background:#c8963b; } .bad { background:#b3402f; }
+  /* The marquee test: real lane height, both surfaces, nothing cropped. */
+  h2 { font-size:15px; margin:34px 0 10px; font-weight:600; }
+  .lane { display:flex; align-items:center; gap:46px; height:160px; padding:0 24px;
+    overflow-x:auto; border:1px solid var(--line); border-radius:6px; }
+  .lane img { height:160px; width:auto; flex:none; }
+  .lane.paper { background:var(--paper); }
+  .lane.ink { background:var(--ink); margin-top:12px; }
+</style>
 </head>
 <body>
-  <main>
-    <h1>BlynAI logo marquee</h1>
-    <p class="lede">All assets are shown on the same neutral background at their intrinsic 160 px canvas height. Internal safe areas—not CSS scaling—set the visible logo size.</p>
+<main>
+  <h1>Logo preview &#183; 17 files</h1>
+  <p class="lede">Every file in <code>assets/trust/logos/</code> on the two surfaces the site
+  uses. The dot before each ratio is the WCAG contrast of the mark's mean colour against that
+  surface: green passes, amber is weak, red is effectively invisible. Regenerate with the
+  snippet recorded in SOURCES.md whenever files are added.</p>
+  <div class="grid">
+    <figure class="card">
+      <div class="on-paper"><img src="logos/alna-software.svg" alt="alna-software on paper"></div>
+      <div class="on-ink"><img src="logos/alna-software.svg" alt="alna-software on ink"></div>
+      <figcaption>
+        <b>alna-software</b>
+        <span class="m"><i class="ok"></i>paper 2.72</span>
+        <span class="m"><i class="ok"></i>ink 2.62</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/baltic-amadeus.svg" alt="baltic-amadeus on paper"></div>
+      <div class="on-ink"><img src="logos/baltic-amadeus.svg" alt="baltic-amadeus on ink"></div>
+      <figcaption>
+        <b>baltic-amadeus</b>
+        <span class="m"><i class="ok"></i>paper 12.37</span>
+        <span class="m"><i class="weak"></i>ink 1.73</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/bdo-global.svg" alt="bdo-global on paper"></div>
+      <div class="on-ink"><img src="logos/bdo-global.svg" alt="bdo-global on ink"></div>
+      <figcaption>
+        <b>bdo-global</b>
+        <span class="m"><i class="ok"></i>paper 2.87</span>
+        <span class="m"><i class="ok"></i>ink 2.48</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/bitget.svg" alt="bitget on paper"></div>
+      <div class="on-ink"><img src="logos/bitget.svg" alt="bitget on ink"></div>
+      <figcaption>
+        <b>bitget</b>
+        <span class="m"><i class="bad"></i>paper 1.27</span>
+        <span class="m"><i class="ok"></i>ink 5.61</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/bybit.svg" alt="bybit on paper"></div>
+      <div class="on-ink"><img src="logos/bybit.svg" alt="bybit on ink"></div>
+      <figcaption>
+        <b>bybit</b>
+        <span class="m"><i class="ok"></i>paper 2.25</span>
+        <span class="m"><i class="ok"></i>ink 3.16</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/codigy.svg" alt="codigy on paper"></div>
+      <div class="on-ink"><img src="logos/codigy.svg" alt="codigy on ink"></div>
+      <figcaption>
+        <b>codigy</b>
+        <span class="m"><i class="weak"></i>paper 1.91</span>
+        <span class="m"><i class="ok"></i>ink 3.73</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/deribit.svg" alt="deribit on paper"></div>
+      <div class="on-ink"><img src="logos/deribit.svg" alt="deribit on ink"></div>
+      <figcaption>
+        <b>deribit</b>
+        <span class="m"><i class="bad"></i>paper 1.34</span>
+        <span class="m"><i class="ok"></i>ink 5.32</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/flinke-folk.svg" alt="flinke-folk on paper"></div>
+      <div class="on-ink"><img src="logos/flinke-folk.svg" alt="flinke-folk on ink"></div>
+      <figcaption>
+        <b>flinke-folk</b>
+        <span class="m"><i class="ok"></i>paper 5.88</span>
+        <span class="m"><i class="bad"></i>ink 1.21</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/hyperliquid.svg" alt="hyperliquid on paper"></div>
+      <div class="on-ink"><img src="logos/hyperliquid.svg" alt="hyperliquid on ink"></div>
+      <figcaption>
+        <b>hyperliquid</b>
+        <span class="m"><i class="ok"></i>paper 6.76</span>
+        <span class="m"><i class="bad"></i>ink 1.06</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/lauresta.svg" alt="lauresta on paper"></div>
+      <div class="on-ink"><img src="logos/lauresta.svg" alt="lauresta on ink"></div>
+      <figcaption>
+        <b>lauresta</b>
+        <span class="m"><i class="ok"></i>paper 3.15</span>
+        <span class="m"><i class="ok"></i>ink 2.26</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/lietuvos-bankas.svg" alt="lietuvos-bankas on paper"></div>
+      <div class="on-ink"><img src="logos/lietuvos-bankas.svg" alt="lietuvos-bankas on ink"></div>
+      <figcaption>
+        <b>lietuvos-bankas</b>
+        <span class="m"><i class="ok"></i>paper 20.15</span>
+        <span class="m"><i class="ok"></i>ink 2.83</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/mexc.svg" alt="mexc on paper"></div>
+      <div class="on-ink"><img src="logos/mexc.svg" alt="mexc on ink"></div>
+      <figcaption>
+        <b>mexc</b>
+        <span class="m"><i class="ok"></i>paper 6.07</span>
+        <span class="m"><i class="bad"></i>ink 1.18</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/registru-centras.svg" alt="registru-centras on paper"></div>
+      <div class="on-ink"><img src="logos/registru-centras.svg" alt="registru-centras on ink"></div>
+      <figcaption>
+        <b>registru-centras</b>
+        <span class="m"><i class="weak"></i>paper 2.12</span>
+        <span class="m"><i class="ok"></i>ink 3.36</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/reiz-tech.svg" alt="reiz-tech on paper"></div>
+      <div class="on-ink"><img src="logos/reiz-tech.svg" alt="reiz-tech on ink"></div>
+      <figcaption>
+        <b>reiz-tech</b>
+        <span class="m"><i class="ok"></i>paper 20.15</span>
+        <span class="m"><i class="ok"></i>ink 2.83</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/shell.svg" alt="shell on paper"></div>
+      <div class="on-ink"><img src="logos/shell.svg" alt="shell on ink"></div>
+      <figcaption>
+        <b>shell</b>
+        <span class="m"><i class="bad"></i>paper 1.46</span>
+        <span class="m"><i class="ok"></i>ink 4.88</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/vilniaus-vandenys.svg" alt="vilniaus-vandenys on paper"></div>
+      <div class="on-ink"><img src="logos/vilniaus-vandenys.svg" alt="vilniaus-vandenys on ink"></div>
+      <figcaption>
+        <b>vilniaus-vandenys</b>
+        <span class="m"><i class="weak"></i>paper 1.6</span>
+        <span class="m"><i class="ok"></i>ink 4.47</span>
+      </figcaption>
+    </figure>
+    <figure class="card">
+      <div class="on-paper"><img src="logos/vmi.svg" alt="vmi on paper"></div>
+      <div class="on-ink"><img src="logos/vmi.svg" alt="vmi on ink"></div>
+      <figcaption>
+        <b>vmi</b>
+        <span class="m"><i class="weak"></i>paper 2.18</span>
+        <span class="m"><i class="ok"></i>ink 3.27</span>
+      </figcaption>
+    </figure>
+  </div>
 
-    <h2>Static scale and alignment comparison</h2>
-    <section class="comparison" aria-label="Logo comparison grid">
-      <article class="card"><div class="card-head"><strong>Shell</strong><span>160×160</span></div><div class="neutral"><img src="logos/shell.svg" width="160" height="160" alt="Shell"></div></article>
-      <article class="card"><div class="card-head"><strong>Flinke Folk</strong><span>480×160 · vectorized</span></div><div class="neutral"><img src="logos/flinke-folk.svg" width="480" height="160" alt="Flinke Folk"></div></article>
-      <article class="card"><div class="card-head"><strong>Lauresta</strong><span>480×160 · vectorized</span></div><div class="neutral"><img src="logos/lauresta.svg" width="480" height="160" alt="Lauresta"></div></article>
-      <article class="card"><div class="card-head"><strong>VMI</strong><span>320×160</span></div><div class="neutral"><img src="logos/vmi.svg" width="320" height="160" alt="VMI"></div></article>
-      <article class="card"><div class="card-head"><strong>Vilniaus Vandenys</strong><span>320×160</span></div><div class="neutral"><img src="logos/vilniaus-vandenys.svg" width="320" height="160" alt="Vilniaus Vandenys"></div></article>
-      <article class="card"><div class="card-head"><strong>BDO Global</strong><span>320×160</span></div><div class="neutral"><img src="logos/bdo-global.svg" width="320" height="160" alt="BDO Global"></div></article>
-      <article class="card"><div class="card-head"><strong>Lietuvos bankas</strong><span>480×160</span></div><div class="neutral"><img src="logos/lietuvos-bankas.svg" width="480" height="160" alt="Lietuvos bankas"></div></article>
-      <article class="card"><div class="card-head"><strong>Alna Software</strong><span>480×160 · vectorized</span></div><div class="neutral"><img src="logos/alna-software.svg" width="480" height="160" alt="Alna Software"></div></article>
-      <article class="card"><div class="card-head"><strong>Reiz Tech</strong><span>480×160</span></div><div class="neutral"><img src="logos/reiz-tech.svg" width="480" height="160" alt="Reiz Tech"></div></article>
-      <article class="card"><div class="card-head"><strong>Codigy</strong><span>160×160</span></div><div class="neutral"><img src="logos/codigy.svg" width="160" height="160" alt="Codigy"></div></article>
-      <article class="card"><div class="card-head"><strong>Baltic Amadeus</strong><span>320×160</span></div><div class="neutral"><img src="logos/baltic-amadeus.svg" width="320" height="160" alt="Baltic Amadeus"></div></article>
-      <article class="card"><div class="card-head"><strong>Registrų Centras</strong><span>320×160</span></div><div class="neutral"><img src="logos/registru-centras.svg" width="320" height="160" alt="Registrų Centras"></div></article>
-    </section>
-
-    <h2>Simulated continuous ticker</h2>
-    <p class="lede">Each ticker item is exactly 160 px high. Hover to pause; reduced-motion preferences disable animation.</p>
-    <section class="ticker-shell" aria-label="Simulated scrolling logo ticker">
-      <div class="ticker-track">
-        <div class="ticker-item"><img src="logos/shell.svg" width="160" height="160" alt="Shell"></div>
-        <div class="ticker-item"><img src="logos/flinke-folk.svg" width="480" height="160" alt="Flinke Folk"></div>
-        <div class="ticker-item"><img src="logos/lauresta.svg" width="480" height="160" alt="Lauresta"></div>
-        <div class="ticker-item"><img src="logos/vmi.svg" width="320" height="160" alt="VMI"></div>
-        <div class="ticker-item"><img src="logos/vilniaus-vandenys.svg" width="320" height="160" alt="Vilniaus Vandenys"></div>
-        <div class="ticker-item"><img src="logos/bdo-global.svg" width="320" height="160" alt="BDO Global"></div>
-        <div class="ticker-item"><img src="logos/lietuvos-bankas.svg" width="480" height="160" alt="Lietuvos bankas"></div>
-        <div class="ticker-item"><img src="logos/alna-software.svg" width="480" height="160" alt="Alna Software"></div>
-        <div class="ticker-item"><img src="logos/reiz-tech.svg" width="480" height="160" alt="Reiz Tech"></div>
-        <div class="ticker-item"><img src="logos/codigy.svg" width="160" height="160" alt="Codigy"></div>
-        <div class="ticker-item"><img src="logos/baltic-amadeus.svg" width="320" height="160" alt="Baltic Amadeus"></div>
-        <div class="ticker-item"><img src="logos/registru-centras.svg" width="320" height="160" alt="Registrų Centras"></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/shell.svg" width="160" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/flinke-folk.svg" width="480" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/lauresta.svg" width="480" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/vmi.svg" width="320" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/vilniaus-vandenys.svg" width="320" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/bdo-global.svg" width="320" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/lietuvos-bankas.svg" width="480" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/alna-software.svg" width="480" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/reiz-tech.svg" width="480" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/codigy.svg" width="160" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/baltic-amadeus.svg" width="320" height="160" alt=""></div>
-        <div class="ticker-item" aria-hidden="true"><img src="logos/registru-centras.svg" width="320" height="160" alt=""></div>
-      </div>
-    </section>
-  </main>
+  <h2>Marquee test &#8212; 160&#8239;px lane, actual canvas height</h2>
+  <div class="lane paper"><img src="logos/alna-software.svg" alt=""><img src="logos/baltic-amadeus.svg" alt=""><img src="logos/bdo-global.svg" alt=""><img src="logos/bitget.svg" alt=""><img src="logos/bybit.svg" alt=""><img src="logos/codigy.svg" alt=""><img src="logos/deribit.svg" alt=""><img src="logos/flinke-folk.svg" alt=""><img src="logos/hyperliquid.svg" alt=""><img src="logos/lauresta.svg" alt=""><img src="logos/lietuvos-bankas.svg" alt=""><img src="logos/mexc.svg" alt=""><img src="logos/registru-centras.svg" alt=""><img src="logos/reiz-tech.svg" alt=""><img src="logos/shell.svg" alt=""><img src="logos/vilniaus-vandenys.svg" alt=""><img src="logos/vmi.svg" alt=""></div>
+  <div class="lane ink"><img src="logos/alna-software.svg" alt=""><img src="logos/baltic-amadeus.svg" alt=""><img src="logos/bdo-global.svg" alt=""><img src="logos/bitget.svg" alt=""><img src="logos/bybit.svg" alt=""><img src="logos/codigy.svg" alt=""><img src="logos/deribit.svg" alt=""><img src="logos/flinke-folk.svg" alt=""><img src="logos/hyperliquid.svg" alt=""><img src="logos/lauresta.svg" alt=""><img src="logos/lietuvos-bankas.svg" alt=""><img src="logos/mexc.svg" alt=""><img src="logos/registru-centras.svg" alt=""><img src="logos/reiz-tech.svg" alt=""><img src="logos/shell.svg" alt=""><img src="logos/vilniaus-vandenys.svg" alt=""><img src="logos/vmi.svg" alt=""></div>
+</main>
 </body>
 </html>
