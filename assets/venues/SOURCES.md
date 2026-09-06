@@ -19,26 +19,28 @@ Geometry and colour are otherwise untouched.
 | `hyperliquid.svg` | 6.50:1 | Carried over from `assets/trust/logos/` | 2026-09-06 | Near-black `#03211C`. |
 | `bybit.svg` | 2.89:1 | Carried over from `assets/trust/logos/` | 2026-09-06 | Gradients kept as authored. |
 | `mexc.svg` | 5.39:1 | Carried over from `assets/trust/logos/` | 2026-09-06 | `#0057FF`. |
+| `deribit.svg` | 3.39:1 | The lockup deribit.com serves in its own header | 2026-09-06 | Authored dark-on-light: `#0A0B0D` wordmark, `#0052FF` glyph and "by coinbase". The site wraps it in `class="dark"` with an inline `<style>` that repaints every path white for its dark header; dropping that wrapper leaves the file's own colours untouched. No recolouring was done. |
 
 ## Rendered as text, no mark
 
-Two venues carry their name in `.vn-nm` instead of an image, on the same terms
+One venue carries its name in `.vn-nm` instead of an image, on the same terms
 as everywhere else on this site: no look-alike is substituted and no mark is
 recoloured to fit.
 
 | Venue | Reason |
 |---|---|
 | Gate | Publishes no SVG of the current "Gate" identity. The site serves its logo as a raster, `gate.com/brand` and `gate.io/brand` both answer 403, and the only vector on Wikimedia is the retired "gate.io" wordmark, which would be stale branding. |
-| Deribit | Only a dark-background lockup is published. The mark on deribit.com is the current one — blue `#0052FF` glyph with "by coinbase" — but its wordmark paths compute to white, so it is invisible on this page's paper. Recolouring it would be an unauthorised variant. Drop in an official light lockup and the row becomes an `<img>`. |
 
-## The one per-mark CSS rule
+## The per-mark CSS rule
 
-`.vn-mark img{max-height:19px}` gives every mark the same cap. Kraken is the
-exception: its official lockup sets "by PAYWARD" below the wordmark, so only
-65 % of the file's height is the name — measured, not estimated — and at 19 px
-the word reads a third smaller than its neighbours. `.vn-mark
-img[src*="kraken"]{max-height:26px}` brings the wordmark back to about 17 px.
+`.vn-mark img{max-height:19px}` gives every mark the same cap. Two are
+exceptions, for the same reason: their official lockups set an endorsement line
+under the wordmark — Kraken's "by PAYWARD" and Deribit's "by coinbase" — so the
+name itself is only 65 % and 52 % of the file's height, measured rather than
+estimated. At 19 px both read far smaller than their neighbours, so
+`.vn-mark img[src*="kraken"], .vn-mark img[src*="deribit"]{max-height:26px}`.
 26 px is the ceiling: `.vn-mark` is a 26 px row, and matching the others
-exactly would need 29 px. The endorsement line stays small either way; a
-glyph-only Kraken mark with the name in text would remove it, at the cost of
-breaking the rule that a mark spelling its own name never repeats it.
+exactly would need 29 px for Kraken and 36 px for Deribit. The endorsement
+lines stay small either way; glyph-only marks with the name in text would
+remove them, at the cost of breaking the rule that a mark spelling its own name
+never repeats it.

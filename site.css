@@ -369,11 +369,13 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
 .vn-nm{font:var(--fw-medium) 15px/1 var(--font-display);letter-spacing:-.005em;
   color:var(--text-heading)}
 .vn-mark img{height:auto;width:auto;max-height:19px;max-width:150px}
-/* Kraken's official lockup carries a "by PAYWARD" line under the wordmark,
-   so only 65% of its height is the name; at the shared 19px cap the word
-   reads a third smaller than its neighbours. 26px is the most the 26px row
-   allows and brings the wordmark to ~17px. */
-.vn-mark img[src*="kraken"]{max-height:26px}
+/* Two lockups set an endorsement line under the wordmark — Kraken's "by
+   PAYWARD" and Deribit's "by coinbase" — so only 65% and 52% of their
+   height is the name itself, measured rather than guessed. At the shared
+   19px cap both read far smaller than their neighbours. 26px is the most
+   the 26px row allows. */
+.vn-mark img[src*="kraken"],
+.vn-mark img[src*="deribit"]{max-height:26px}
 .vn-lines{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
 .vn-line{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .vn-p{font:var(--fs-caption)/1.4 var(--font-mono);letter-spacing:.06em;color:var(--text-meta)}
