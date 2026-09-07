@@ -24,9 +24,13 @@ Geometry and colour are otherwise untouched.
 
 ## Rendered as text, no mark
 
-None. Every venue carries its own mark. Binance keeps its name in `.vn-nm`
-beside the glyph because its lockup is a bare diamond that does not spell the
-name; that is a layout decision, not a missing asset.
+| Venue | Reason |
+|---|---|
+| Avantis | The only logo the site publishes, `avantisfi.com/images/avantis-logo.svg`, is filled `white` on transparent — an authored dark-background asset, not an override, so it is invisible on this page's paper. No light variant exists beside it, and the hero mark is a decorative graphic using radial gradients and white rather than the logo. Recolouring would be an unauthorised variant. Drop in a light lockup and the row becomes an `<img>`. |
+
+Binance keeps its name in `.vn-nm` beside the glyph for a different reason: its
+lockup is a bare diamond that does not spell the name. That is a layout
+decision, not a missing asset.
 
 ## The per-mark CSS rule
 
