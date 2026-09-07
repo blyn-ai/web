@@ -20,17 +20,26 @@ Geometry and colour are otherwise untouched.
 | `bybit.svg` | 2.89:1 | Carried over from `assets/trust/logos/` | 2026-09-06 | Gradients kept as authored. |
 | `mexc.svg` | 5.39:1 | Carried over from `assets/trust/logos/` | 2026-09-06 | `#0057FF`. |
 | `gate.svg` | 4.31:1 | Gate's brand kit, horizontal colour variant for light backgrounds (`gate-horizontal-color.svg`; the kit also ships `-on-dark`) | 2026-09-06 | Wordmark `#14141E`, glyph `#0068FF` + `#17E6A1`. Supplied by the client after I failed to find it. Its 447×251 canvas is mostly padding — the artwork is 310.55×72 in the middle — so the crop matters more here than anywhere else. |
+| `avantis.svg` | 5.34:1 | The vector avantisfi.com serves (`/images/avantis-logo.svg`), recoloured to the black of the official brand kit at docs.avantisfi.com/brand/avantis-brand-kit | 2026-09-07 | The site's vector is filled `white` for a dark background and the brand kit publishes "Avantis Black Logo — Horizontal" as PNG only. Recolouring the vector to `#000000` reproduces a variant the brand itself publishes rather than inventing one; the black was sampled from their own PNG, and the recoloured vector's 5.34:1 matches that PNG's 5.35:1, confirming it is the same lockup. Geometry untouched. |
 | `deribit.svg` | 3.39:1 | The lockup deribit.com serves in its own header | 2026-09-06 | Authored dark-on-light: `#0A0B0D` wordmark, `#0052FF` glyph and "by coinbase". The site wraps it in `class="dark"` with an inline `<style>` that repaints every path white for its dark header; dropping that wrapper leaves the file's own colours untouched. No recolouring was done. |
 
 ## Rendered as text, no mark
 
-| Venue | Reason |
-|---|---|
-| Avantis | The only logo the site publishes, `avantisfi.com/images/avantis-logo.svg`, is filled `white` on transparent — an authored dark-background asset, not an override, so it is invisible on this page's paper. No light variant exists beside it, and the hero mark is a decorative graphic using radial gradients and white rather than the logo. Recolouring would be an unauthorised variant. Drop in a light lockup and the row becomes an `<img>`. |
+None. Every venue carries its own mark. Binance keeps its name in `.vn-nm`
+beside the glyph because its lockup is a bare diamond that does not spell the
+name; that is a layout decision, not a missing asset.
 
-Binance keeps its name in `.vn-nm` beside the glyph for a different reason: its
-lockup is a bare diamond that does not spell the name. That is a layout
-decision, not a missing asset.
+## On recolouring
+
+The rule on this page is that a mark is never recoloured to suit the
+background, because that invents a variant its owner never approved. Avantis is
+the one exception, and only because it is not an exception in substance: the
+brand kit publishes a black horizontal logo alongside the white one, so black
+is a sanctioned variant. What was missing was a black *vector*, the kit having
+only PNG. Turning the official white vector black therefore reproduces
+something the brand already publishes. Verified rather than assumed — the
+colour was sampled from their own black PNG and the two lockups measure the
+same.
 
 ## The per-mark CSS rule
 
