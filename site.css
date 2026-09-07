@@ -511,7 +511,10 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
 .pr-track{display:flex;gap:var(--gap-wide);overflow-x:auto;scroll-snap-type:x mandatory;
   scrollbar-width:none;-ms-overflow-style:none;opacity:1;transition:opacity .13s ease}
 .pr-track::-webkit-scrollbar{display:none}
-.pr-card{flex:0 0 calc(50% - var(--gap-wide) / 2);scroll-snap-align:start;
+/* min-width:0 or a long path in the window bar sets the card's width instead of
+   the flex basis: one card then comes out wider than its siblings and the
+   scroll-snap rhythm breaks. .pr-url already ellipsises once the card holds. */
+.pr-card{flex:0 0 calc(50% - var(--gap-wide) / 2);min-width:0;scroll-snap-align:start;
   display:flex;flex-direction:column;gap:var(--space-6)}
 .pr-shot{border:1px solid var(--border-card);border-radius:var(--radius-sm);overflow:hidden;
   box-shadow:0 10px 30px rgba(26,23,18,.1)}
