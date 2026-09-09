@@ -393,6 +393,22 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
   .vn-link a{display:inline-block;padding:12px 0;margin:-12px 0}
 }
 
+/* --- venues: values that arrive from the API ------------------------------- */
+/* The chip keeps its last known text in the markup and hides it behind a
+   placeholder while the call is in flight. A crawler and a reader without
+   scripts still get real content, and a failed call falls back to it rather
+   than spinning for ever. */
+.vn-live{position:relative}
+.vn-live .vn-val{visibility:hidden}
+.vn-live::after{content:"";position:absolute;top:50%;left:50%;width:11px;height:11px;
+  margin:-6px 0 0 -6px;border:1.5px solid var(--border-hairline);
+  border-top-color:var(--text-meta);border-radius:50%;animation:vn-spin .75s linear infinite}
+.vn-sum.vn-live::after{left:6px;margin-left:0}
+@keyframes vn-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){
+  .vn-live::after{animation:none;border-top-color:var(--border-hairline)}
+}
+
 /* --- footer + dialog ------------------------------------------------------ */
 .be-foot{padding:var(--space-10) var(--be-pad-x) var(--space-11);background:var(--surface-ink)}
 .be-foot p{font:12.5px/var(--lh-body) var(--font-body);color:var(--text-meta-on-ink)}
