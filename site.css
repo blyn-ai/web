@@ -393,11 +393,9 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
   .vn-link a{display:inline-block;padding:12px 0;margin:-12px 0}
 }
 
-/* In Venues the live state is the point of the list, so it reads in violet on a
-   violet ground and stands out from the planned rows around it. Everywhere else
-   the live chip keeps its quiet gold. Tokens only. */
-.vn-grid .be-status-chip--live{color:var(--violet-700);background:var(--violet-200);
-  border-color:var(--border-violet-strong)}
+/* In Venues the word itself carries the live state: the chip keeps its gold,
+   and only "Live" reads violet, so it stands out without restyling the badge. */
+.vn-grid .vn-on{color:var(--violet-700)}
 /* Synthetix's wordmark runs 13.8:1, so the shared 150px width cap would squeeze
    it to about 11px tall; it needs more room than any other mark to read at all. */
 .vn-mark img[src*="synthetix"]{max-width:210px}
