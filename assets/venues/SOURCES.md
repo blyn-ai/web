@@ -21,13 +21,21 @@ Geometry and colour are otherwise untouched.
 | `mexc.svg` | 5.39:1 | Carried over from `assets/trust/logos/` | 2026-09-06 | `#0057FF`. |
 | `gate.svg` | 4.31:1 | Gate's brand kit, horizontal colour variant for light backgrounds (`gate-horizontal-color.svg`; the kit also ships `-on-dark`) | 2026-09-06 | Wordmark `#14141E`, glyph `#0068FF` + `#17E6A1`. Supplied by the client after I failed to find it. Its 447×251 canvas is mostly padding — the artwork is 310.55×72 in the middle — so the crop matters more here than anywhere else. |
 | `avantis.svg` | 5.34:1 | The vector avantisfi.com serves (`/images/avantis-logo.svg`), recoloured to the black of the official brand kit at docs.avantisfi.com/brand/avantis-brand-kit | 2026-09-07 | The site's vector is filled `white` for a dark background and the brand kit publishes "Avantis Black Logo — Horizontal" as PNG only. Recolouring the vector to `#000000` reproduces a variant the brand itself publishes rather than inventing one; the black was sampled from their own PNG, and the recoloured vector's 5.34:1 matches that PNG's 5.35:1, confirming it is the same lockup. Geometry untouched. |
+| `dydx.svg` | 3.21:1 | Supplied by the client (`dydx.svg`) | 2026-09-13 | The letterforms were filled `white` for a dark background; recoloured to `#000000`, the variant dYdX uses on light backgrounds. The gradient stroke of the X is the brand colour and is untouched. Unverified against an official kit, unlike Avantis. |
+| `synthetix.svg` | 13.76:1 | Supplied by the client (`snx-logo-primary.svg`) | 2026-09-13 | Cyan `#00D1FF` wordmark, as authored. Its only `white` fills are clip-path rectangles, which are masks, not visible artwork — no recolouring. The wordmark is so wide that it takes its own width override (see below). The icon-only variant was also supplied and not used, because the wordmark spells the name. |
+| `drift.svg` | 1.00:1 | Supplied by the client (`Drift_idgJ1I6vn9_0.svg`, a filename typical of a logo-CDN download) | 2026-09-13 | Glyph only, so the row sets the name beside it. Gradient fills as authored; its `white` is a clip-path rectangle. |
+| `gmx.svg` | 1.38:1 | Supplied by the client, from **svgstack.com**, a third-party icon collection (`gmx-token-logo_svgstack_com_…svg`) | 2026-09-13 | Glyph only, name set beside it. Had no `viewBox`; one was derived from its own 40×40. **Provenance is not first-party** — this is the file on the page least backed by its owner, and the first to replace with an official GMX asset. |
 | `deribit.svg` | 3.39:1 | The lockup deribit.com serves in its own header | 2026-09-06 | Authored dark-on-light: `#0A0B0D` wordmark, `#0052FF` glyph and "by coinbase". The site wraps it in `class="dark"` with an inline `<style>` that repaints every path white for its dark header; dropping that wrapper leaves the file's own colours untouched. No recolouring was done. |
 
 ## Rendered as text, no mark
 
-None. Every venue carries its own mark. Binance keeps its name in `.vn-nm`
-beside the glyph because its lockup is a bare diamond that does not spell the
-name; that is a layout decision, not a missing asset.
+| Venue | Reason |
+|---|---|
+| Vertex | The file supplied, `vertex-inc-logo-vector.svg`, is the logo of **Vertex Inc.**, the US tax-technology company (navy wordmark, green mark, dated 2021). `vertex-perp` is Vertex Protocol, a perpetuals exchange launched in 2023 with an unrelated identity. Shipping it would have put another company's trademark on the page. Vertex Protocol's own `vertexprotocol.com` and `app.vertexprotocol.com` both answer 404, so no first-party mark could be fetched either. |
+
+Binance, Drift and GMX set their name beside the glyph for a different reason:
+their marks do not spell the name. That is a layout decision, not a missing
+asset.
 
 ## On recolouring
 
@@ -49,6 +57,10 @@ under the wordmark — Kraken's "by PAYWARD" and Deribit's "by coinbase" — so 
 name itself is only 65 % and 52 % of the file's height, measured rather than
 estimated. At 19 px both read far smaller than their neighbours, so
 `.vn-mark img[src*="kraken"], .vn-mark img[src*="deribit"]{max-height:26px}`.
+Synthetix takes the opposite adjustment. Its wordmark runs 13.8:1, so the shared
+`max-width:150px` would hold it to about 11 px tall; `.vn-mark
+img[src*="synthetix"]{max-width:210px}` lets it reach 15 px.
+
 26 px is the ceiling: `.vn-mark` is a 26 px row, and matching the others
 exactly would need 29 px for Kraken and 36 px for Deribit. The endorsement
 lines stay small either way; glyph-only marks with the name in text would
