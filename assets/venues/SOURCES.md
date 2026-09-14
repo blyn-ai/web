@@ -33,6 +33,11 @@ Geometry and colour are otherwise untouched.
 |---|---|
 | Vertex | The file supplied, `vertex-inc-logo-vector.svg`, is the logo of **Vertex Inc.**, the US tax-technology company (navy wordmark, green mark, dated 2021). `vertex-perp` is Vertex Protocol, a perpetuals exchange launched in 2023 with an unrelated identity. Shipping it would have put another company's trademark on the page. Vertex Protocol's own `vertexprotocol.com` and `app.vertexprotocol.com` both answer 404, so no first-party mark could be fetched either. |
 
+| Nado | No mark was supplied, and none has been fetched and vetted. The Venues grid is rendered from the CryptoSmith X API, so a venue with no file here is set as its name by design — it appears on the page the day it starts collecting, without waiting for a logo. |
+| Coinbase International | The API lists it as its own company (`coinbase-intx`), separate from Coinbase spot. `coinbase.svg` spells "Coinbase" alone, so reusing it would drop the "International" that tells the two apart. |
+
+Vertex is no longer on the page at all: the API lists `vertex-perp` as disabled (closed in July 2025), and the grid shows only venues that collect or are queued. Drift is disabled for the same reason; its file stays for the day a successor needs it.
+
 Binance, Drift and GMX set their name beside the glyph for a different reason:
 their marks do not spell the name. That is a layout decision, not a missing
 asset.

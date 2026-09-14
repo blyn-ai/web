@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>BlynAI — L&amp;D Finance Lab · infrastructure for autonomous financial systems</title>
-<meta name="description" content="EU-registered engineering company. CryptoSmith X collects derivatives-market data from four venues and keeps it the way it was seen — gaps as gaps, every figure with its source and time. Live comparison open; stored history on request. Own funds only, no client money.">
+<meta name="description" content="EU-registered engineering company. CryptoSmith X collects derivatives-market data over each venue’s own API and keeps it the way it was seen — gaps as gaps, every figure with its source and time. Live comparison open; stored history on request. Own funds only, no client money.">
 <link rel="canonical" href="https://blynai.eu/">
 <link rel="alternate" hreflang="en" href="https://blynai.eu/">
 <link rel="alternate" hreflang="lt" href="https://blynai.eu/lt/">
@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://blynai.eu/">
 <meta property="og:site_name" content="BlynAI">
 <meta property="og:title" content="BlynAI — L&amp;D Finance Lab · infrastructure for autonomous financial systems">
-<meta property="og:description" content="EU-registered engineering company. CryptoSmith X collects derivatives-market data from four venues and keeps it the way it was seen — gaps as gaps, every figure with its source and time. Live comparison open; stored history on request. Own funds only, no client money.">
+<meta property="og:description" content="EU-registered engineering company. CryptoSmith X collects derivatives-market data over each venue’s own API and keeps it the way it was seen — gaps as gaps, every figure with its source and time. Live comparison open; stored history on request. Own funds only, no client money.">
 <meta property="og:image" content="https://blynai.eu/assets/og-card.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -103,7 +103,7 @@
       <p class="be-eyebrow">EU-registered company &#183; Vilnius, Lithuania</p>
       <h1 class="be-h1">Infrastructure for autonomous financial systems.</h1>
       <p class="be-sub be-sub--hero"><span class="blyn-grad">Market data that remembers how it looked at the time.</span></p>
-      <p class="be-lead">MB „Blynai“ is an EU-registered engineering company. We collect derivatives-market data from four venues over their own APIs and keep it the way it was seen: every figure with its source and the time it arrived, gaps left as gaps, nothing reconstructed afterwards. That store is CryptoSmith X Studio. Live figures are open; stored history is available on request. Our own trading programme runs on the same data &#8212; that is how we test it.</p>
+      <p class="be-lead">MB „Blynai“ is an EU-registered engineering company. We collect derivatives-market data from <span data-cov-live>18</span> venues over their own APIs and keep it the way it was seen: every figure with its source and the time it arrived, gaps left as gaps, nothing reconstructed afterwards. That store is CryptoSmith X Studio. Live figures are open; stored history is available on request. Our own trading programme runs on the same data &#8212; that is how we test it.</p>
       <div class="be-cta">
         <a class="be-btn be-btn--pri" href="#produktai">CryptoSmith X</a>
         <a class="be-btn be-btn--sec" href="https://cryptosmithx.blynai.eu/studio" target="_blank" rel="noopener">Live comparison</a>
@@ -144,7 +144,7 @@
   <section class="be-section be-section--raised" id="metodas">
     <p class="be-eyebrow">What we do</p>
     <div class="be-verbs">
-      <p class="be-verb be-verb--1"><b>We collect</b>market data from four venues over their own APIs, every figure with the time it was seen.</p>
+      <p class="be-verb be-verb--1"><b>We collect</b>market data from <span data-cov-live>18</span> venues over their own APIs, every figure with the time it was seen.</p>
       <p class="be-verb be-verb--2"><b>We keep</b>gaps as gaps, a source on every row, each venue on its own clock.</p>
       <p class="be-verb be-verb--3"><b>We serve</b>live comparison open now; stored history on request; a free live API in preparation.</p>
       <p class="be-verb be-verb--4"><b>We use it ourselves</b>our own trading programme runs on the same data. That is the test.</p>
@@ -173,7 +173,7 @@
             <span class="pr-pre">CryptoSmith X</span>
             <b class="pr-name">Studio</b>
             <span class="pr-role">Market data &#183; collection &#183; history</span>
-            <span class="be-status-chip be-status-chip--live">Collecting since 2026-09-05 &#183; 4 venues &#183; API in preparation</span>
+            <span class="be-status-chip be-status-chip--live">Collecting since <span data-cov-since>2026-09-05</span> &#183; <span data-cov-live>18</span> venues &#183; API in preparation</span>
           </span>
         </span>
         <div class="pr-shot">
@@ -181,7 +181,7 @@
           <img class="pr-img" src="assets/csx-studio-teaser-light.png" alt="CryptoSmith X Studio &#8212; seven venues quoting one instrument, every figure carrying the age of the call that wrote it" loading="lazy" width="2023" height="1270">
         </div>
         <div>
-          <p class="pr-body">Studio collects perpetual-market data from Kraken Futures, WEEX, Hyperliquid and Binance USD-M over their own APIs and keeps it the way it was seen: ticker, funding, open interest, order-book depth by band, 1-minute candles &#8212; every figure with its source and the time it arrived, gaps left as gaps. Instruments are discovered automatically and keep their dates. Live figures will be open through a free API; stored history is available on request.</p>
+          <p class="pr-body">Studio collects perpetual and spot market data from every live venue listed under Venues, over each venue’s own API and keeps it the way it was seen: ticker, funding, open interest, order-book depth by band, 1-minute candles &#8212; every figure with its source and the time it arrived, gaps left as gaps. Instruments are discovered automatically and keep their dates. Live figures will be open through a free API; stored history is available on request.</p>
           <p class="pr-for"><b>For</b> &#8212; developers and quantitative researchers who need multi-exchange market data a backtest can stand on.</p>
         </div>
         <p class="cs-links">
@@ -248,119 +248,118 @@
   <section class="be-section" id="infrastruktura" aria-label="Venues and infrastructure">
       <p class="be-eyebrow">Venues &#183; exchange coverage</p>
       <h2 class="be-h2">Venues</h2>
-      <p class="be-sub vn-live" data-sub><span class="vn-val">11 venues are collecting now. 11 more are queued.</span></p>
+      <p class="be-sub vn-live" data-sub><span class="vn-val">18 venues are collecting now. 3 more are queued.</span></p>
       <p class="vn-body">Every venue prices the same instrument differently, and the difference is the data. We read each venue over its own API &#8212; WebSocket where the venue offers a usable one, REST where it does not &#8212; and write what we saw with the time we saw it. Nothing is averaged across venues or reconstructed later; a figure we did not measure stays empty.</p>
-      <div class="vn-grid">
+      <div class="vn-grid" data-venues>
       <div class="vn-venue">
         <span class="vn-mark"><img src="assets/venues/hyperliquid.svg" alt="Hyperliquid" loading="lazy"></span>
         <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="hyperliquid"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-05</span></span></li>
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-05</span></span></li>
         </ul>
       </div>
       <div class="vn-venue">
         <span class="vn-mark"><img src="assets/venues/kraken.svg" alt="Kraken" loading="lazy"></span>
         <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Futures</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="kraken-futures"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-05</span></span></li>
-        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="kraken-spot"><span class="vn-val">Planned</span></span></li>
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-05</span></span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp vn-live"><span class="vn-val">Planned</span></span></li>
         </ul>
       </div>
       <div class="vn-venue">
         <span class="vn-mark"><img src="assets/venues/weex.svg" alt="WEEX" loading="lazy"></span>
         <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="weex-futures"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-05</span></span></li>
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-05</span></span></li>
         </ul>
       </div>
       <div class="vn-venue">
         <span class="vn-mark"><img src="assets/venues/binance.svg" alt="" loading="lazy"><b class="vn-nm">Binance</b></span>
         <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="binance-usdm"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-07</span></span></li>
-        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="binance-spot"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/okx.svg" alt="OKX" loading="lazy"></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="okx-perp"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="okx-spot"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/bybit.svg" alt="Bybit" loading="lazy"></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="bybit-perp"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="bybit-spot"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/coinbase.svg" alt="Coinbase" loading="lazy"></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="coinbase-spot"><span class="vn-val">Planned</span></span></li>
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="coinbase-perp"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/deribit.svg" alt="Deribit" loading="lazy"></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Options</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="deribit-option"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/gate.svg" alt="Gate" loading="lazy"></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="gate-perp"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/mexc.svg" alt="MEXC" loading="lazy"></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="mexc-perp"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/bitget.svg" alt="Bitget" loading="lazy"></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="bitget-perp"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-07</span></span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
         </ul>
       </div>
       <div class="vn-venue">
         <span class="vn-mark"><img src="assets/venues/avantis.svg" alt="Avantis" loading="lazy"></span>
         <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live" data-venue="avantis-perp"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-11</span></span></li>
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-11</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/bitget.svg" alt="Bitget" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/bybit.svg" alt="Bybit" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><b class="vn-nm">Coinbase International</b></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/gate.svg" alt="Gate" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/mexc.svg" alt="MEXC" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/okx.svg" alt="OKX" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
         </ul>
       </div>
       <div class="vn-venue">
         <span class="vn-mark"><img src="assets/venues/dydx.svg" alt="dYdX" loading="lazy"></span>
         <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="dydx-perp"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><b class="vn-nm">Vertex</b></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="vertex-perp"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/drift.svg" alt="" loading="lazy"><b class="vn-nm">Drift</b></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="drift-perp"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/synthetix.svg" alt="Synthetix" loading="lazy"></span>
-        <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="synthetix-perp"><span class="vn-val">Planned</span></span></li>
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
         </ul>
       </div>
       <div class="vn-venue">
         <span class="vn-mark"><img src="assets/venues/gmx.svg" alt="" loading="lazy"><b class="vn-nm">GMX</b></span>
         <ul class="vn-lines">
-        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--hyp vn-live" data-venue="gmx-perp"><span class="vn-val">Planned</span></span></li>
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><b class="vn-nm">Nado</b></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/synthetix.svg" alt="Synthetix" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/coinbase.svg" alt="Coinbase" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp vn-live"><span class="vn-val">Planned</span></span></li>
+        </ul>
+      </div>
+      <div class="vn-venue">
+        <span class="vn-mark"><img src="assets/venues/deribit.svg" alt="Deribit" loading="lazy"></span>
+        <ul class="vn-lines">
+        <li class="vn-line"><span class="vn-p">Options</span><span class="be-status-chip be-status-chip--hyp vn-live"><span class="vn-val">Planned</span></span></li>
         </ul>
       </div>
       </div>
-      <p class="vn-sum vn-live" data-sum><span class="vn-val">11 live &#183; 11 planned &#183; 2,264 instruments monitored</span></p>
-      <p class="tr-note vn-note">Live means writing to the database today, since the date shown. Planned means in the queue; the order can change. Trades are not collected yet.</p>
+      <p class="vn-sum vn-live" data-sum><span class="vn-val">18 live &#183; 3 planned &#183; 724 instruments monitored</span></p>
+      <p class="tr-note vn-note">Live means writing to the database today, since the date shown. Planned means in the queue; the order can change. <span data-trades>Trades are collected on 16 of the 18 live venues.</span></p>
       <p class="vn-link"><a href="https://cryptosmithx.blynai.eu/studio" target="_blank" rel="noopener">See the live comparison &#8594;</a></p>
       <div class="vn-stack">
         <p class="be-eyebrow">The stack it runs on</p>
@@ -667,7 +666,7 @@
     "L&D Finance Lab"
   ],
   "url": "https://blynai.eu/",
-  "description": "EU-registered engineering company. CryptoSmith X collects derivatives-market data from four venues and keeps it the way it was seen — gaps as gaps, every figure with its source and time. Live comparison open; stored history on request. Own funds only, no client money.",
+  "description": "EU-registered engineering company. CryptoSmith X collects derivatives-market data over each venue’s own API and keeps it the way it was seen — gaps as gaps, every figure with its source and time. Live comparison open; stored history on request. Own funds only, no client money.",
   "inLanguage": "en",
   "logo": "https://blynai.eu/assets/logo-avatar-512.svg",
   "image": "https://blynai.eu/assets/og-card.png",
@@ -829,16 +828,33 @@
 </script>
 
 <script>
-/* Venue statuses, first-seen dates and the instrument count come from
-   CryptoSmith X on load — hard-coded dates went stale within three days. One
-   pass, no polling: this is coverage, not a ticker. Every cell keeps its last
-   known text in the markup, so a failed or slow call leaves that standing
-   instead of a dash, and a crawler never sees an empty section. */
+/* Everything this page says about CryptoSmith X's coverage comes from its API
+   on load: which venues exist, which of them collect, since when, how many
+   instruments, whether trades are stored. Hand-kept lists fell behind the
+   product twice — the hero said four venues while eighteen were collecting.
+   The markup keeps the last snapshot so a failed call, a crawler or a reader
+   with scripts off still gets a true-when-written page; the API replaces it.
+   Venues the API lists as disabled (closed or retired) are not shown: Live
+   means collecting today and Planned means queued, and a closed venue is
+   neither. One pass, no polling: this is coverage, not a ticker. */
 (function () {
   var BASE = 'https://cryptosmithx.blynai.eu/api/v1/';
+  var ASSETS = 'assets/venues/';
+  /* The marks this site holds and has a source for (assets/venues/SOURCES.md).
+     name: the mark is a glyph, so the name is set beside it. A company with no
+     entry is set as text — a new venue appears without anyone drawing a logo. */
+  var MARKS = {
+    hyperliquid: {}, kraken: {}, weex: { alt: 'WEEX' }, binance: { name: true },
+    okx: { alt: 'OKX' }, bybit: {}, coinbase: {}, deribit: {}, gate: {},
+    mexc: { alt: 'MEXC' }, bitget: {}, avantis: {}, dydx: { alt: 'dYdX' },
+    drift: { name: true }, synthetix: {}, gmx: { name: true }
+  };
+  var KIND_ORDER = { perp: 0, futures: 1, option: 2, spot: 3 };
+  function rank(kind) { return kind in KIND_ORDER ? KIND_ORDER[kind] : 9; }
   var L = {
     loc: 'en',
     live: 'Live', since: 'since', planned: 'Planned',
+    kind: { perp: 'Perpetuals', futures: 'Futures', spot: 'Spot', option: 'Options' },
     sum: function (live, planned, instruments) {
       return live + ' live · ' + planned + ' planned · '
            + instruments + ' instruments monitored';
@@ -846,6 +862,11 @@
     sub: function (live, planned) {
       return live + (live === 1 ? ' venue is' : ' venues are') + ' collecting now. '
            + planned + ' more ' + (planned === 1 ? 'is' : 'are') + ' queued.';
+    },
+    trades: function (withTrades, live) {
+      return withTrades === live
+        ? 'Trades are collected on every live venue.'
+        : 'Trades are collected on ' + withTrades + ' of the ' + live + ' live venues.';
     }
   };
 
@@ -856,17 +877,87 @@
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (j) { clearTimeout(t); return j; });
   }
-  /* Lithuanian numerals govern one of three case forms. */
-  function form(n, one, few, many) {
-    var d = n % 10, h = n % 100;
-    if (d === 1 && h !== 11) return one;
-    if (d >= 2 && d <= 9 && (h < 11 || h > 19)) return few;
-    return many;
-  }
   function num(n) { return typeof n === 'number' ? n.toLocaleString(L.loc) : null; }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function setAll(sel, text) {
+    var n = document.querySelectorAll(sel);
+    for (var i = 0; i < n.length; i++) n[i].textContent = text;
+  }
   function reveal() {
     var n = document.querySelectorAll('.vn-live');
     for (var i = 0; i < n.length; i++) n[i].classList.remove('vn-live');
+  }
+  function chip(live, since) {
+    var c = el('span', 'be-status-chip be-status-chip--' + (live ? 'live' : 'hyp'));
+    var val = el('span', 'vn-val');
+    if (live) {
+      val.appendChild(el('span', 'vn-on', L.live));
+      if (since) val.appendChild(document.createTextNode(' · ' + L.since + ' ' + since));
+    } else {
+      val.textContent = L.planned;
+    }
+    c.appendChild(val);
+    return c;
+  }
+  function mark(code, name) {
+    var m = el('span', 'vn-mark');
+    var known = MARKS[code];
+    if (known) {
+      var img = el('img');
+      img.src = ASSETS + code + '.svg';
+      img.alt = known.name ? '' : (known.alt || name);
+      img.loading = 'lazy';
+      m.appendChild(img);
+    }
+    if (!known || known.name) m.appendChild(el('b', 'vn-nm', name));
+    return m;
+  }
+
+  /* The whole grid from the API: one card per company, one line per segment. */
+  function renderGrid(grid, ex, since) {
+    var byCompany = {};
+    ex.forEach(function (e) {
+      if (e.status !== 'enabled' && e.status !== 'planned') return;
+      var c = byCompany[e.exchangeCode] || (byCompany[e.exchangeCode] =
+        { code: e.exchangeCode, name: e.exchangeName, segments: [], first: null });
+      var s = since[e.code] || null;
+      c.segments.push({ kind: e.kind, live: e.status === 'enabled', since: s });
+      if (e.status === 'enabled' && s && (!c.first || s < c.first)) c.first = s;
+    });
+    var companies = Object.keys(byCompany).map(function (k) { return byCompany[k]; });
+    // Collecting companies first, oldest collection first; then the queue by name.
+    companies.sort(function (a, b) {
+      var al = a.segments.some(function (s) { return s.live; });
+      var bl = b.segments.some(function (s) { return s.live; });
+      if (al !== bl) return al ? -1 : 1;
+      if (al && a.first !== b.first) return (a.first || '9') < (b.first || '9') ? -1 : 1;
+      return a.name.localeCompare(b.name);
+    });
+    var frag = document.createDocumentFragment();
+    companies.forEach(function (c) {
+      c.segments.sort(function (a, b) {
+        if (a.live !== b.live) return a.live ? -1 : 1;
+        return rank(a.kind) - rank(b.kind);
+      });
+      var card = el('div', 'vn-venue');
+      card.appendChild(mark(c.code, c.name));
+      var ul = el('ul', 'vn-lines');
+      c.segments.forEach(function (s) {
+        var li = el('li', 'vn-line');
+        li.appendChild(el('span', 'vn-p', L.kind[s.kind] || s.kind));
+        li.appendChild(chip(s.live, s.since));
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+      frag.appendChild(card);
+    });
+    grid.textContent = '';
+    grid.appendChild(frag);
   }
 
   Promise.all([get('exchanges'), get('coverage')]).then(function (r) {
@@ -874,44 +965,29 @@
     if (!Array.isArray(ex) || !cv || !cv.totals) throw 0;
 
     var since = {};
+    var withTrades = 0;
     (cv.venues || []).forEach(function (v) {
-      if (v && v.code && v.since) since[v.code] = String(v.since).slice(0, 10);
+      if (!v || !v.code) return;
+      if (v.since) since[v.code] = String(v.since).slice(0, 10);
+      if (v.status === 'enabled' && (v.datasets || []).indexOf('trades') >= 0) withTrades++;
     });
 
-    ex.forEach(function (e) {
-      var el = document.querySelector('[data-venue="' + e.code + '"]');
-      if (!el) return;
-      var live = e.status === 'enabled';
-      var val = el.querySelector('.vn-val');
-      var text = live
-        ? (since[e.code] ? L.live + ' \u00b7 ' + L.since + ' ' + since[e.code] : L.live)
-        : L.planned;
-      if (val) {
-        val.textContent = '';
-        if (live) {
-          var on = document.createElement('span');
-          on.className = 'vn-on';
-          on.textContent = L.live;
-          val.appendChild(on);
-          if (since[e.code]) val.appendChild(document.createTextNode(' \u00b7 ' + L.since + ' ' + since[e.code]));
-        } else {
-          val.textContent = L.planned;
-        }
-      }
-      el.className = 'be-status-chip be-status-chip--' + (live ? 'live' : 'hyp') + ' vn-live';
-    });
+    var grid = document.querySelector('[data-venues]');
+    if (grid && ex.length && ex[0].exchangeCode) renderGrid(grid, ex, since);
 
-    // count real states only: the API also lists a disabled in-process test
-    // exchange, which is neither live nor planned and has no row here
+    // count real states only: disabled rows (closed venues, the in-process test
+    // exchange) are neither live nor planned and have no line here
     var live = ex.filter(function (e) { return e.status === 'enabled'; }).length;
     var planned = ex.filter(function (e) { return e.status === 'planned'; }).length;
     var t = cv.totals;
     var sum = document.querySelector('[data-sum] .vn-val');
-    if (sum && typeof t.instruments === 'number') {
-      sum.textContent = L.sum(live, planned, num(t.instruments), t.instruments);
-    }
+    if (sum && typeof t.instruments === 'number') sum.textContent = L.sum(live, planned, num(t.instruments));
     var sub = document.querySelector('[data-sub] .vn-val');
     if (sub) sub.textContent = L.sub(live, planned);
+    var trades = document.querySelector('[data-trades]');
+    if (trades && cv.venues) trades.textContent = L.trades(withTrades, live);
+    setAll('[data-cov-live]', String(live));
+    if (t.since) setAll('[data-cov-since]', String(t.since).slice(0, 10));
   }).catch(function () {
     /* leave every last known value exactly as the markup shipped it */
   }).then(reveal, reveal);

@@ -31,6 +31,18 @@ legal original).
   utc, lastCycleUtc, liveSinceUtc, marketsNow, decisionsTotal, instances[].
   Field names are frozen. Timestamps render in Europe/Vilnius. On failure the
   em dashes stay: the strip never invents a number.
+- **CryptoSmith X coverage comes from its API, never from the markup.** The
+  Venues grid, its summary lines, the trades sentence and every venue count or
+  start date in the prose (`data-venues`, `data-sum`, `data-sub`, `data-trades`,
+  `data-cov-live`, `data-cov-since`; on LT `data-cov-live-gen`/`-nom`, which
+  carry the noun because Lithuanian declines it by the number) are filled on
+  load from `GET cryptosmithx.blynai.eu/api/v1/exchanges` and `/v1/coverage`.
+  The markup holds the last snapshot for crawlers and failed calls; refresh it
+  when coverage changes, but never write a venue count into text the script does
+  not own — meta descriptions and JSON-LD say "over each venue's own API" and no
+  number, because they cannot be updated on load. Disabled venues are not
+  shown. The API allows CORS only from https://blynai.eu, so a local server shows
+  the snapshot, not live data.
 - Prose numbers were verified against the trading-bot repo and live APIs
   (~150+ markets, 120 s cycle, LLM only picks the watchlist, dozens of signals,
   hundreds of config parameters). Do not restate numbers without re-verifying.
