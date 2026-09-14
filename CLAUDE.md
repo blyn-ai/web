@@ -10,7 +10,7 @@ telemetry fetch.
 `index.html` implements the designer's "BlynAI Home v2" handoff: hero (finance
 systems lab), live telemetry strip, Metodas (four verbs), Programa Nr. 1 with
 the pipeline SVG, Ką išmokome, Kryptys, Komanda, Ko ieškome, the quiet Vardas
-split, registry data, footer with the disclaimer dialog.
+split, registry + the signed founders' act, footer with the disclaimer dialog.
 Two languages: **EN is the default at `/`**, LT lives at `/lt/`. Each is a real
 static page served 200 — there is NO language-guessing redirect on `/` (that
 is the SEO trap the client called out). The LT/EN switch is a plain link:
@@ -27,7 +27,7 @@ legal original).
 ## Facts and numbers
 
 - The telemetry strip reads `GET /api/public-stats` (blynai.meetluko.eu, then
-  the journal host). Contract:
+  blynai.bykovas.lt as fallback — same API container behind both). Contract:
   utc, lastCycleUtc, liveSinceUtc, marketsNow, decisionsTotal, instances[].
   Field names are frozen. Timestamps render in Europe/Vilnius. On failure the
   em dashes stay: the strip never invents a number.
@@ -45,7 +45,10 @@ legal original).
   the snapshot, not live data.
 - Prose numbers were verified against the trading-bot repo and live APIs
   (~150+ markets, 120 s cycle, LLM only picks the watchlist, dozens of signals,
-  hundreds of config parameters). Do not restate numbers without re-verifying.
+  hundreds of config parameters). Do not restate numbers without re-verifying;
+  "Ką išmokome" dates/links are git commits confirmed by Denisas.
+- The founders' act (aktas/aktas.pdf) is the signed version — qualified
+  e-signatures dated 2026-08-24 on page 1.
 
 ## Conventions that are easy to break
 
@@ -65,11 +68,8 @@ legal original).
   the primary button and the equity curve; disclaimer text is verbatim
   compliance copy — never trim or rephrase it.
 - **Kept for the future, not linked from the page:** dokumentacija/ (CryptoSmith
-  X holding page), assets/coin-luko.svg, assets/cryptosmith assets if any.
-- **The site names one person: the director, Lukas Peciukonis.** The other
-  member is referred to only as the technical Deployer — no name, portrait,
-  personal links, CV or instance name, in pages, docs or asset filenames. There
-  is no founders' act on the site; do not restore aktas/ or link a deed.
+  X holding page), assets/coin-*.svg, assets/cryptosmith assets if any. aktas/
+  is linked and must stay.
 - `og/og-card.html` is the editable source of `assets/og-card.png` (approved
   variant 2a). `node tools/render.mjs` re-renders it plus favicon/app icons;
   the shipped PNG is the designer's render — regenerate only after copy edits.

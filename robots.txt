@@ -4,9 +4,9 @@
 # these lines. The repo copy is a few dozen bytes and the served copy is close
 # to two thousand: that gap is the edge, not a tampered file.
 #
-# Nothing here is disallowed on purpose. The page that should not be indexed
-# says so in its own markup — /dokumentacija/ in its served HTML — and a
-# Disallow would only stop the crawler
+# Nothing here is disallowed on purpose. The two pages that should not be
+# indexed say so in their own markup — /dokumentacija/ in its served HTML,
+# /aktas/ once its bundle renders — and a Disallow would only stop the crawler
 # before it ever read that instruction, while leaving the URL listable by
 # reference. Blocking the crawl is not how you ask for a page to be left out.
 User-agent: *
