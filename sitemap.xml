@@ -34,22 +34,6 @@
 
        WHAT IS DELIBERATELY NOT LISTED
 
-       /aktas/ was listed here, described as indexable. It is not, and it never
-       was. The page is a client-rendered bundle: its served HTML carries no
-       robots meta, but the template the runtime swaps into the document does,
-       so the rendered DOM says <meta name="robots" content="noindex">.
-       Checked against the live page in a browser, not inferred from the file.
-       A sitemap entry for a noindex URL asks the crawler to index something
-       the page then refuses, which Search Console reports as an error against
-       the sitemap rather than a note against the page. It comes out under the
-       rule this file already stated for /dokumentacija/ — noindex pages are
-       not listed — rather than a new rule written to fit. Removing the
-       noindex from the page instead was rejected: it is baked into the
-       bundle's own template, so that edit belongs where the bundle is
-       generated, not in a hand-maintained sitemap. List /aktas/ again the day
-       the rendered page stops saying noindex, with the alternates omitted —
-       it is Lithuanian only.
-
        /dokumentacija/ stays out for the reason it always did: noindex, and
        linked from nowhere. /og/og-card.html, /og/og-card-lt.html and
        /assets/trust/logos-preview.html are unlinked render sources for a

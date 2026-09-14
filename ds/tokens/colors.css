@@ -24,7 +24,7 @@
 --lilac-100:#EFEAF7;--lilac-200:#DCD3F5;--lilac-400:#BDB2D6;--lilac-600:#7C7391;--lilac-800:#4A4358;
 /* --- member marks: the two bot instances --- */
 --luko-coin:#C9A86A;--luko-ink:#0A0A0A;--luko-label:#8A6320;--luko-line:rgba(185,127,46,.36);
---byko-coin:#7CCBFF;--byko-ink:#0B0D10;--byko-label:#2E5F94;--byko-tint:#BFE2FF;--byko-line:rgba(52,95,158,.30);
+
 
 /* --- semantic: surfaces --- */
 --surface-page:var(--paper-100);

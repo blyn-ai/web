@@ -25,8 +25,6 @@ CLAUDE.md           what an agent needs to know before touching the design
 assets/             marks, coin marks, equity curves, member portraits, icons
 fonts/              self-hosted woff2 (Space Grotesk, IBM Plex Sans, IBM Plex Mono)
 og/og-card.html     source of og.png, at exactly 1200x630
-aktas/              the founders' act, copied verbatim from the trading-bot repo:
-                    aktas.pdf (linked from the registry block) and its own page
 tools/              render.mjs (og.png + icons), fetch-fonts.mjs (webfonts)
 ```
 
@@ -120,20 +118,12 @@ For GitHub Pages add a `CNAME` file containing `blynai.eu`.
 
 - `J. a. kodas` still reads *registruojama* — swap in the real company number in
   `index.html` once the registration completes.
-- **`aktas/aktas.pdf` is the unsigned draft.** Its cover carries a NEPASIRAŠYTA
-  stamp, the signature lines on page 3 are blank, and the header marks it
-  VIDINIS DOKUMENTAS; by its own §7.1 it takes effect only once both founders
-  sign. The registry block links to it as *"2026-08-24 pasirašytas steigėjų
-  ketinimų aktas"*, so either a signed export replaces the file, or the link text
-  drops the word *pasirašytas*. Its appendix also states a revenue target
-  (5 000 USD/mėn.), which is the kind of number the brand rules keep off the
-  site — worth a look before this goes public.
 - Member portraits are 256x320; 512x512 originals would survive a retina screen
   better. The frame for Lukas is dropped 12% so the crop keeps his head.
 - **The dialog's long disclaimer is new copy and wants a read-through.** Only its
   first three sentences come from the design system verbatim; the six sections
   after them were written here from facts already on the page, in the design
-  system and in the founders' act (own funds only, two instances, no third-party
+  system and on the page (own funds only, two instances, no third-party
   assets, results are historical research data, open source as-is, company
   status). Nothing was copied from the live journal's disclaimer — that one is
   written for a project that is explicitly *not* a legal entity, the opposite of

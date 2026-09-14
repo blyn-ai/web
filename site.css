@@ -202,7 +202,9 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
 .be-member img{width:112px;aspect-ratio:1;object-fit:cover;border-radius:var(--radius-hair);
   background:rgba(26,23,18,.06)}
 .be-member--l img{object-position:50% 12%;border:1px solid rgba(185,127,46,.35)}
-.be-member--d img{border:1px solid rgba(107,78,219,.30)}
+/* A role card with no portrait takes the full width instead of leaving the
+   112px image column empty. */
+.be-member.be-member--anon{grid-template-columns:minmax(0,1fr)}
 .be-member b{display:block;font:var(--fw-medium) var(--fs-body-md) var(--font-display);color:var(--text-heading)}
 .be-member small{font:var(--fs-caption) var(--font-mono);color:var(--text-meta)}
 .be-member div p{margin-top:8px;font:var(--fs-body-sm)/var(--lh-body) var(--font-body);color:var(--text-body)}
@@ -311,6 +313,8 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
 .be-akt-legal{margin-top:var(--space-7);padding-top:var(--space-5);
   border-top:1px solid var(--border-hairline);font:var(--fs-meta)/var(--lh-body) var(--font-mono);
   color:var(--text-meta)}
+/* With nothing above it in the column, the disclaimer line needs no divider. */
+.be-akt-legal:first-child{margin-top:0;padding-top:0;border-top:0}
 
 /* --- social links: icon tiles ---------------------------------------------- */
 .be-social{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}

@@ -13,8 +13,8 @@ result without the company's help.
 |---|---|
 | Site | <https://blynai.eu> |
 | Live journal | <https://blynai.meetluko.eu> |
-| Source code | <https://github.com/bykovas/trading-bot> |
-| Contact | <info@blynai.eu> |
+| Source code | <https://github.com/blyn-ai> |
+| Contact | <hello@blynai.eu> |
 
 This repository holds the site itself: one static page, its assets, the vendored
 brand design system and two small render tools. The site is published in
@@ -42,8 +42,8 @@ company's own funds, and publishing the results.
 ### Trading with own funds
 
 The software runs as two independent instances — **LUKO**
-(blynai.meetluko.eu) and **BYKO** (blynai.bykovas.lt). The same code, separate
-accounts, separate journals.
+(blynai.meetluko.eu) and a second instance operated by the technical Deployer.
+The same code, separate accounts, separate journals.
 
 - trading is done only with the funds of the company and of its members;
 - each instance runs in its own exchange account, with its own API keys;
@@ -80,7 +80,5 @@ decisions on their behalf and does not control their account or their funds.
 ### Company status
 
 MB „Blynai“ is a *mažoji bendrija* in the Republic of Lithuania. The company
-number is pending registration and will be stated on the site once the company
-is entered in the Register of Legal Entities. The members are Lukas Peciukonis
-and Denisas Bykovas, 50 % each. The manager is Lukas Peciukonis. Contact:
-info@blynai.eu.
+code is 308115000, entered in the Register of Legal Entities on 31 August 2026.
+The director is Lukas Peciukonis. Contact: hello@blynai.eu.
