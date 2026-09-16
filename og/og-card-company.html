@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BlynAI — company OG card (EN)</title>
+<!-- Company card (not a product card): flat ink, lockup as in the site header,
+     one headline, one grey line. No numbers — the card is cached by social
+     networks for months. Render: node tools/render.mjs -->
+<link rel="stylesheet" href="../ds/styles.css">
+<style>
+html,body{margin:0;background:var(--paper-200)}
+.ogc{width:1200px;height:630px;box-sizing:border-box;padding:60px;display:flex;flex-direction:column;
+  justify-content:space-between;overflow:hidden;background:var(--ink-900)}
+.ogc-lock{display:flex;align-items:center;gap:26px}
+.ogc-plate{width:96px;height:96px;flex:none;display:grid;place-items:center;border-radius:20px;
+  background:var(--surface-glass-on-ink);border:1px solid var(--border-gold);box-shadow:var(--shadow-mark)}
+.ogc-plate img{display:block;width:64px;height:64px}
+.ogc-wm{display:inline-flex;flex-direction:column;gap:6px}
+.ogc-wm b{font:var(--fw-semibold) 50px/1 var(--font-display);letter-spacing:.01em;white-space:nowrap;color:var(--text-heading-on-ink)}
+.ogc-wm b i{font-style:normal;color:var(--accent-gold)}
+.ogc-wm small{display:flex;justify-content:space-between;font:500 15px var(--font-mono);
+  text-transform:uppercase;white-space:nowrap;color:var(--accent-violet-on-ink)}
+.ogc-wm small i{flex:0 0 .5em}
+.ogc-copy{display:flex;flex-direction:column;gap:28px}
+.ogc-h{margin:0;max-width:1080px;font:var(--fw-medium) 72px/1.1 var(--font-display);letter-spacing:-.015em;
+  color:var(--text-on-ink);text-wrap:balance}
+.ogc-sub{margin:0;font:var(--fw-regular) 26px/1.3 var(--font-body);color:var(--text-meta-on-ink)}
+</style>
+</head>
+<body>
+<div class="ogc">
+  <div class="ogc-lock">
+    <span class="ogc-plate"><img src="../assets/logo-mark.svg" alt=""></span>
+    <span class="ogc-wm">
+      <b>Blyn<i>AI</i></b>
+      <small><span>L</span><span>&amp;</span><span>D</span><i></i><span>F</span><span>I</span><span>N</span><span>A</span><span>N</span><span>C</span><span>E</span><i></i><span>L</span><span>A</span><span>B</span></small>
+    </span>
+  </div>
+  <div class="ogc-copy">
+    <p class="ogc-h">Infrastructure for autonomous financial systems.</p>
+    <p class="ogc-sub">EU-registered engineering company&nbsp;·&nbsp;Vilnius, Lithuania</p>
+  </div>
+</div>
+</body>
+</html>
