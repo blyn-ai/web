@@ -35,8 +35,8 @@
 <link rel="manifest" href="site.webmanifest">
 
 <link rel="stylesheet" href="ds/tokens/fonts.cdn.css">
-<link rel="stylesheet" href="ds/styles.css?v=7b83c1d0">
-<link rel="stylesheet" href="site.css?v=7b83c1d0">
+<link rel="stylesheet" href="ds/styles.css?v=ced4e247">
+<link rel="stylesheet" href="site.css?v=ced4e247">
 <noscript><style>
   /* No JavaScript: the dialog cannot open, so the full disclaimer unfolds into
      the footer band; the telemetry strip keeps its dashes. */
@@ -72,7 +72,7 @@
   </a>
   <nav class="be-nav" aria-label="Page sections">
     <a href="#metodas">What we do</a>
-    <a href="#produktai">CryptoSmith X</a>
+    <a href="#produktai">DEBYKO</a>
     <a href="#infrastruktura">Venues</a>
     <a href="#programa">Programme</a>
     <a href="#komanda">Team</a>
@@ -85,7 +85,7 @@
     <summary aria-label="Menu"><span class="be-burger"><i></i><i></i><i></i></span></summary>
     <nav class="be-menu-panel" aria-label="Page sections">
       <a href="#metodas">What we do</a>
-      <a href="#produktai">CryptoSmith X</a>
+      <a href="#produktai">DEBYKO</a>
       <a href="#infrastruktura">Venues</a>
       <a href="#programa">Programme</a>
       <a href="#komanda">Team</a>
@@ -103,9 +103,9 @@
       <p class="be-eyebrow">EU-registered company &#183; Vilnius, Lithuania</p>
       <h1 class="be-h1">Infrastructure for autonomous financial systems.</h1>
       <p class="be-sub be-sub--hero"><span class="blyn-grad">Market data that remembers how it looked at the time.</span></p>
-      <p class="be-lead">MB „Blynai“ is an EU-registered engineering company. We collect derivatives-market data from <span data-cov-live>19</span> venues over their own APIs and keep it the way it was seen: every figure with its source and the time it arrived, gaps left as gaps, nothing reconstructed afterwards. That store is CryptoSmith X Studio. Live figures are open; stored history is available on request. Our own trading programme runs on the same data &#8212; that is how we test it.</p>
+      <p class="be-lead">MB „Blynai“ is an EU-registered engineering company. We collect derivatives-market data from <span data-cov-live>19</span> venues over their own APIs and keep it the way it was seen: every figure with its source and the time it arrived, gaps left as gaps, nothing reconstructed afterwards. That store powers DEBYKO &#8212; our market-data platform. Live figures are open; stored history is available on request. Our own trading programme runs on the same data &#8212; that is how we test it.</p>
       <div class="be-cta">
-        <a class="be-btn be-btn--pri" href="#produktai">CryptoSmith X</a>
+        <a class="be-btn be-btn--pri" href="https://debyko.com" target="_blank" rel="noopener">DEBYKO &#8212; the product</a>
         <a class="be-btn be-btn--sec" href="https://cryptosmithx.blynai.eu/studio" target="_blank" rel="noopener">Live comparison</a>
       </div>
     </div>
@@ -124,12 +124,12 @@
        the page and never invents a number. -->
   <section class="be-statband" aria-label="Live telemetry">
     <dl class="be-stats">
-      <div class="be-stat"><dt>Last cycle</dt><dd><span class="be-chip" id="tl-cycle">&#8212;</span></dd></div>
+      <div class="be-stat"><dt>Last cycle</dt><dd><span class="be-chip" id="tl-cycle">2026-09-16 22:38</span></dd></div>
       <div class="be-stat"><dt>Testbed live since</dt><dd><span class="be-chip" id="tl-since">2026-07-02</span></dd></div>
-      <div class="be-stat"><dt>Markets monitored</dt><dd><span class="be-chip" id="tl-markets">167</span></dd></div>
-      <div class="be-stat"><dt>System decisions logged</dt><dd><span class="be-chip" id="tl-decisions">5,278,794</span></dd></div>
+      <div class="be-stat"><dt>Markets monitored</dt><dd><span class="be-chip" id="tl-markets">263</span></dd></div>
+      <div class="be-stat"><dt>System decisions logged</dt><dd><span class="be-chip" id="tl-decisions">5,340,601</span></dd></div>
     </dl>
-    <p class="be-stats-note">Measured <span id="tl-ts">2026-09-16 10:06 &#183; snapshot</span> &#183; one decision = one pair scored in one cycle &#183; the same telemetry that feeds the journal</p>
+    <p class="be-stats-note">Measured <span id="tl-ts">2026-09-16 22:39 &#183; snapshot</span> &#183; one decision = one pair scored in one cycle &#183; the same telemetry that feeds the journal</p>
   </section>
 
 
@@ -152,97 +152,39 @@
   </section>
   <section class="be-section" id="problema">
     <p class="be-eyebrow">The problem</p>
-    <p class="be-seek">Almost every claim in algorithmic trading is unverifiable. Results are screenshots; backtests rest on data nobody can reconstruct as it looked at the time; the code that trades is rarely the code that was tested. We build the opposite by construction: one traceable path from market data to execution to evidence &#8212; and we run it on our own money first, publishing what we find.</p>
+    <p class="be-seek">Market data forgets. Aggregators average venues into one price, fill gaps with zeros, and overwrite history in place &#8212; so a backtest can see a market that never existed, and nobody can prove what a venue actually showed at 14:37. We build the opposite: every figure keeps its source, its arrival time and its age; gaps stay gaps; venues stay separate; the past stays as it was seen.</p>
   </section>
-  <!-- Products: one per slide, the screenshot at full canvas width. Prev/next
-       nudge a scroll-snap track, so swipe keeps working without the script. -->
+  <!-- The product: DEBYKO, one card. The engine under it is named below the
+       card, because that is the part that is open source. -->
   <section class="be-section be-section--raised" id="produktai">
     <div class="pr-head">
-      <p class="be-eyebrow">What we build &#183; CryptoSmith X</p>
-      <div class="pr-nav">
-        <span class="pr-count" id="prCount"><b>01</b> / 03</span>
-        <button type="button" class="pr-btn" id="prPrev" aria-label="Previous product">&#8592;</button>
-        <button type="button" class="pr-btn" id="prNext" aria-label="Next product">&#8594;</button>
-      </div>
+      <p class="be-eyebrow">What we build &#183; DEBYKO</p>
     </div>
-    <div class="pr-track" id="prTrack">
-      <article class="pr-card" aria-label="Product 1 of 3">
-        <span class="pr-lock">
-          <span class="cs-plate"><svg viewBox="4.6 12.43 30.8 15.14" width="42" height="21" fill="none" aria-hidden="true" style="display:block;color:#BE0069"><path d="M20 23.54 L15.97 27.57 L12.43 24.03 L16.46 20 L12.43 15.97 L15.97 12.43 L20 16.46 L24.03 12.43 L27.57 15.97 L23.54 20 L27.57 24.03 L24.03 27.57 Z" fill="currentColor"></path><circle cx="6.6" cy="20" r="2" fill="currentColor" opacity=".55"></circle><circle cx="33.4" cy="20" r="2" fill="currentColor" opacity=".55"></circle></svg></span>
-          <span class="pr-txt">
-            <span class="pr-pre">CryptoSmith X</span>
-            <b class="pr-name">Studio</b>
-            <span class="pr-role">Market data &#183; collection &#183; history</span>
-            <span class="be-status-chip be-status-chip--live">Collecting since <span data-cov-since>2026-09-05</span> &#183; <span data-cov-live>19</span> venues &#183; free read-only API</span>
+    <div class="pr-track pr-track--solo" id="prTrack">
+      <article class="pr-card pr-card--solo" aria-label="DEBYKO">
+        <div class="pr-main">
+          <span class="pr-lock">
+            <span class="cs-plate"><svg viewBox="268 38 302 388" width="22" height="28" aria-hidden="true" style="display:block"><defs><linearGradient id="dbk-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EE2F72"/><stop offset=".52" stop-color="#DE1A8C"/><stop offset="1" stop-color="#B8129F"/></linearGradient></defs><path d="M278 156L348 116V326L278 368Z" fill="#4A5060"/><path d="M376 98L462 48V366L376 416Z" fill="url(#dbk-g)"/><path d="M490 130L560 90V322L490 364Z" fill="#4A5060"/></svg></span>
+            <span class="pr-txt">
+              <b class="pr-name">DEBYKO</b>
+              <span class="pr-role">Market data, in context</span>
+              <span class="be-status-chip be-status-chip--hyp">Arena and Studio Pro live &#183; Trader in development &#183; Agent prototype</span>
+            </span>
           </span>
-        </span>
+          <p class="pr-body">DEBYKO &#8212; market data, in context. Live venue comparison (Arena), stored history with a point-in-time API (Studio Pro), a simplified trading interface in development (Studio Trader) and a self-hosted execution prototype (Agent). Every value carries its source, its receive time and its age; missing data stays missing.</p>
+          <p class="cs-links">
+            <a href="https://debyko.com" target="_blank" rel="noopener">debyko.com</a>
+            <a href="https://cryptosmithx.blynai.eu/studio" target="_blank" rel="noopener">Live comparison</a>
+            <a href="https://cryptosmithx.blynai.eu/scalar/v1" target="_blank" rel="noopener">API reference</a>
+          </p>
+        </div>
         <div class="pr-shot">
-          <div class="pr-bar"><span class="pr-url">cryptosmithx.blynai.eu/studio</span></div>
-          <img class="pr-img" src="assets/csx-studio-teaser-light.png" alt="CryptoSmith X Studio &#8212; seven venues quoting one instrument, every figure carrying the age of the call that wrote it" loading="lazy" width="2023" height="1270">
+          <div class="pr-bar"><span class="pr-url">debyko.com</span></div>
+          <img class="pr-img" src="assets/debyko-arena.png" alt="DEBYKO Arena &#8212; one instrument quoted by every venue side by side, each figure with its source and age" loading="lazy" width="2452" height="1532">
         </div>
-        <div>
-          <p class="pr-body">Studio collects perpetual and spot market data from every live venue listed under Venues, over each venue’s own API and keeps it the way it was seen: ticker, funding, open interest, order-book depth by band, 1-minute candles &#8212; every figure with its source and the time it arrived, gaps left as gaps. Instruments are discovered automatically and keep their dates. Live figures are open through a free read-only API that needs no key; stored history is available on request.</p>
-          <p class="pr-for"><b>For</b> &#8212; developers and quantitative researchers who need multi-exchange market data a backtest can stand on.</p>
-        </div>
-        <p class="cs-links">
-          <a href="https://cryptosmithx.blynai.eu/studio">cryptosmithx.blynai.eu/studio</a>
-          <a href="https://cryptosmithx.blynai.eu/scalar/v1">API reference</a>
-          <a href="https://github.com/blyn-ai/CryptoSmith-X">GitHub &#183; open source</a>
-          <a href="mailto:hello@blynai.eu?subject=CryptoSmith%20X%20data">Request data</a>
-        </p>
-      </article>
-      <article class="pr-card" aria-label="Product 2 of 3">
-        <span class="pr-lock">
-          <span class="cs-plate"><svg viewBox="4.6 12.43 30.8 15.14" width="42" height="21" fill="none" aria-hidden="true" style="display:block;color:#BE0069"><path d="M20 23.54 L15.97 27.57 L12.43 24.03 L16.46 20 L12.43 15.97 L15.97 12.43 L20 16.46 L24.03 12.43 L27.57 15.97 L23.54 20 L27.57 24.03 L24.03 27.57 Z" fill="currentColor"></path><circle cx="6.6" cy="20" r="2" fill="currentColor" opacity=".55"></circle><circle cx="33.4" cy="20" r="2" fill="currentColor" opacity=".55"></circle></svg></span>
-          <span class="pr-txt">
-            <span class="pr-pre">CryptoSmith X</span>
-            <b class="pr-name">Arena</b>
-            <span class="pr-role">Venues compared on one instrument &#183; live</span>
-            <span class="be-status-chip be-status-chip--live">Running</span>
-          </span>
-        </span>
-        <div class="pr-shot">
-          <div class="pr-bar"><span class="pr-url">cryptosmithx.blynai.eu/arena</span></div>
-          <img class="pr-img" src="assets/csx-arena-teaser.png" alt="CryptoSmith X Arena &#8212; measurement field, drawdown depth and the verified leaderboard" loading="lazy" width="2023" height="1270">
-        </div>
-        <div>
-          <p class="pr-body">One instrument, every venue that quotes it, side by side: bid, ask, spread, sizes, mark, index, funding with its interval, open interest, depth by band &#8212; each figure with the age of the call that wrote it, venues ranked best and worst where the comparison is fair. A second mode, for strategy telemetry, follows when Agent journals exist.</p>
-          <p class="pr-for"><b>For</b> &#8212; anyone choosing where to trade or measure a market &#8212; and anyone checking that our collection is alive.</p>
-        </div>
-        <p class="cs-links">
-          <a href="https://cryptosmithx.blynai.eu/arena">cryptosmithx.blynai.eu/arena</a>
-        </p>
-      </article>
-      <article class="pr-card" aria-label="Product 3 of 3">
-        <span class="pr-lock">
-          <span class="cs-plate"><svg viewBox="4.6 12.43 30.8 15.14" width="42" height="21" fill="none" aria-hidden="true" style="display:block;color:#BE0069"><path d="M20 23.54 L15.97 27.57 L12.43 24.03 L16.46 20 L12.43 15.97 L15.97 12.43 L20 16.46 L24.03 12.43 L27.57 15.97 L23.54 20 L27.57 24.03 L24.03 27.57 Z" fill="currentColor"></path><circle cx="6.6" cy="20" r="2" fill="currentColor" opacity=".55"></circle><circle cx="33.4" cy="20" r="2" fill="currentColor" opacity=".55"></circle></svg></span>
-          <span class="pr-txt">
-            <span class="pr-pre">CryptoSmith X</span>
-            <b class="pr-name"><i>Agent</i></b>
-            <span class="pr-role">Strategy execution &#183; self-hosted trading environment</span>
-            <span class="be-status-chip be-status-chip--plan">Prototype &#183; the previous generation runs live</span>
-          </span>
-        </span>
-        <div class="pr-shot">
-          <div class="pr-bar"><span class="pr-url">cryptosmithx.blynai.eu/agent</span></div>
-          <img class="pr-img" src="assets/csx-agent-teaser.png" alt="CryptoSmith X Agent &#8212; market in, strategy deciding, open position and equity" loading="lazy" width="2023" height="1270">
-        </div>
-        <div>
-          <p class="pr-body">An isolated execution environment being built to turn trading logic into real orders. The intended workflow connects an operator&#8217;s own API keys, strategy and risk rules to Studio market data, execution on perpetual futures and continuous position, margin and P&amp;L telemetry.</p>
-          <p class="pr-for"><b>For</b> &#8212; traders who want an execution engine that never pauses and never has a mood.</p>
-        </div>
-        <p class="cs-links">
-          <a href="https://cryptosmithx.blynai.eu/agent">cryptosmithx.blynai.eu/agent</a>
-          <a href="https://github.com/blyn-ai/CryptoSmith-X">GitHub &#183; open source</a>
-        </p>
       </article>
     </div>
-    <div class="pr-dots" id="prDots" aria-hidden="true">
-      <span class="pr-dot" aria-current="true"></span>
-      <span class="pr-dot"></span>
-      <span class="pr-dot"></span>
-    </div>
-    <p class="pr-pipe"><b>Studio</b> collects, <b>Arena</b> compares, <b>Agent</b> trades on it. Status is stated on each card.</p>
+    <p class="pr-pipe"><b>Engine</b> &#183; CryptoSmith X &#8212; the open-source .NET collection engine DEBYKO runs on. MIT. <a href="https://github.com/blyn-ai/CryptoSmith-X" target="_blank" rel="noopener">github.com/blyn-ai/CryptoSmith-X</a></p>
   </section>
   <!-- The record from before the company: logos the founders earned at other
        companies, apart. One quiet lane, paused on hover. -->
@@ -402,28 +344,28 @@
   <section class="be-section be-section--raised" id="duomenys" aria-label="How the data is kept">
     <p class="be-eyebrow">How the data is kept</p>
     <ol class="be-rows">
-      <!-- enable after schema change
       <li class="be-row">
         <span class="be-row-n">01</span>
-        <h3>A figure we did not measure stays empty</h3>
-        <p>A zero is an observation, not a placeholder.</p>
-      </li>
-      -->
-      <li class="be-row">
-        <span class="be-row-n">02</span>
         <h3>Every row carries its origin</h3>
         <p>Where it came from and when we saw it.</p>
       </li>
       <li class="be-row">
-        <span class="be-row-n">03</span>
+        <span class="be-row-n">02</span>
         <h3>Venues are never averaged into one price</h3>
         <p>Each keeps its own clock, and a comparison shows the age of every figure.</p>
       </li>
       <li class="be-row">
-        <span class="be-row-n">04</span>
+        <span class="be-row-n">03</span>
         <h3>An instrument keeps its dates</h3>
         <p>First seen, last seen, delisted. They are not overwritten.</p>
       </li>
+      <!-- enable after schema change
+      <li class="be-row">
+        <span class="be-row-n">04</span>
+        <h3>A figure we did not measure stays empty</h3>
+        <p>A zero is an observation, not a placeholder.</p>
+      </li>
+      -->
       <!-- enable after first backfill
       <li class="be-row">
         <span class="be-row-n">05</span>
@@ -455,7 +397,6 @@
         <h3>Two instances &#8212; LUKO and BYKO</h3>
         <div>
           <p>Two members, two accounts, two configurations, the same market data. Manual interventions and copied entries are marked separately in the journal.</p>
-          <p class="be-row-links"><a href="https://blynai.meetluko.eu">LUKO &#8212; blynai.meetluko.eu</a><a href="https://blynai.bykovas.lt">BYKO &#8212; blynai.bykovas.lt</a></p>
         </div>
       </li>
       <li class="be-row">
@@ -640,7 +581,7 @@
     <p>MB „Blynai“ is a two-member research and engineering company. Its activity is the development of algorithmic-trading software, the study of how it runs on the company&#8217;s own funds, and the publication of results.</p>
 
     <h3>Trading with own funds</h3>
-    <p>The software runs as two independent instances &#8212; <b>LUKO</b> (blynai.meetluko.eu) and <b>BYKO</b> (blynai.bykovas.lt). The same code, separate accounts, separate journals.</p>
+    <p>The software runs as two independent instances &#8212; <b>LUKO</b> and <b>BYKO</b>. The same code, separate accounts, separate journals.</p>
     <ul>
       <li>trading is done only with the funds of the company and its members;</li>
       <li>each instance runs in its own exchange account, with its own API keys;</li>
@@ -778,10 +719,27 @@
 (function () {
   var track = document.getElementById('prTrack');
   if (!track) return;
-  var order = [].slice.call(track.children), n = order.length;
-  var count = document.getElementById('prCount');
-  var dots = document.getElementById('prDots').children;
+  /* The screenshot opens at window size — one file serves card and zoom. */
+  var zoom = document.getElementById('prZoom'), zoomImg = document.getElementById('prZoomImg');
+  if (zoom && zoom.showModal) {
+    track.addEventListener('click', function (e) {
+      var img = e.target.closest ? e.target.closest('.pr-img') : null;
+      if (!img) return;
+      zoomImg.src = img.currentSrc || img.src;
+      zoomImg.alt = img.alt || '';
+      zoom.showModal();
+    });
+    document.getElementById('prZoomX').addEventListener('click', function () { zoom.close(); });
+    zoom.addEventListener('click', function (e) {
+      if (e.target === zoom || e.target === zoomImg) zoom.close();
+    });
+  }
+  /* Paging only when there is more than one card and the controls exist. */
+  var count = document.getElementById('prCount'), dotBox = document.getElementById('prDots');
   var prev = document.getElementById('prPrev'), next = document.getElementById('prNext');
+  if (track.children.length < 2 || !count || !dotBox || !prev || !next) return;
+  var order = [].slice.call(track.children), n = order.length;
+  var dots = dotBox.children;
   var lead = 0, pending = 0, busy = false;
   function pad(i) { return (i < 9 ? '0' : '') + (i + 1); }
   function step() { return n > 1 ? order[1].offsetLeft - order[0].offsetLeft || track.clientWidth : track.clientWidth; }
@@ -816,21 +774,6 @@
     }, 130);
   }
   function go(s) { pending += s; run(); }
-  /* The screenshot opens at window size — one file serves card and zoom. */
-  var zoom = document.getElementById('prZoom'), zoomImg = document.getElementById('prZoomImg');
-  if (zoom && zoom.showModal) {
-    track.addEventListener('click', function (e) {
-      var img = e.target.closest ? e.target.closest('.pr-img') : null;
-      if (!img) return;
-      zoomImg.src = img.currentSrc || img.src;
-      zoomImg.alt = img.alt || '';
-      zoom.showModal();
-    });
-    document.getElementById('prZoomX').addEventListener('click', function () { zoom.close(); });
-    zoom.addEventListener('click', function (e) {
-      if (e.target === zoom || e.target === zoomImg) zoom.close();
-    });
-  }
   prev.addEventListener('click', function () { go(-1); });
   next.addEventListener('click', function () { go(1); });
   var t;

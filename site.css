@@ -633,6 +633,16 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
 .pr-pipe b{font-weight:var(--fw-medium);color:var(--text-heading)}
 @media (max-width:760px){.pr-name{font-size:22px}}
 
+/* One product, one card: text beside the screenshot on the canvas, stacked on
+   a phone. No paging, so the track does not scroll. */
+.pr-track--solo{overflow:visible}
+.pr-card--solo{flex:1 1 100%;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+  gap:var(--gap-wide);align-items:start}
+.pr-main{display:flex;flex-direction:column;gap:var(--space-5);min-width:0}
+.pr-card--solo .pr-role{min-height:0}
+.pr-pipe a{color:inherit;text-decoration:underline;text-decoration-color:var(--border-card);text-underline-offset:3px}
+@media (max-width:760px){.pr-card--solo{grid-template-columns:minmax(0,1fr)}}
+
 /* Click a product shot: the same file, opened as big as the window allows.
    Native <dialog>, so Esc and the focus trap come from the browser. */
 .pr-img{cursor:zoom-in}
