@@ -14,7 +14,7 @@ result without the company's help.
 | Site | <https://blynai.eu> |
 | Live journal | <https://blynai.meetluko.eu> |
 | Source code | <https://github.com/bykovas/trading-bot> |
-| Contact | <info@blynai.eu> |
+| Contact | <hello@blynai.eu> |
 
 This repository holds the site itself: one static page, its assets, the vendored
 brand design system and two small render tools. The site is published in
@@ -83,4 +83,4 @@ MB „Blynai“ is a *mažoji bendrija* in the Republic of Lithuania. The compan
 number is pending registration and will be stated on the site once the company
 is entered in the Register of Legal Entities. The members are Lukas Peciukonis
 and Denisas Bykovas, 50 % each. The manager is Lukas Peciukonis. Contact:
-info@blynai.eu.
+hello@blynai.eu.

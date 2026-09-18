@@ -62,9 +62,9 @@ blynai.eu — публичный сайт литовской компании MB
 - **Google Search Console / Cloudflare** — рекомендованные ручные шаги
   (переиндексация, проверка Browser Cache TTL и Bot Fight Mode) висят за
   владельцем.
-- **Несколько заглушек-адресов**: почты `partnerships@blynai.eu` /
-  `research@blynai.eu` (всё падает на `@blynai.eu`), дата регистрации компании
-  (`suteikiamas įregistravus`).
+- **Почта**: на домене используется один адрес — `hello@blynai.eu` (2026-09-18 убраны
+  `info@`, `partnerships@`, `research@`, `alfa@`, `denisas@`). Заглушкой остаётся дата
+  регистрации компании (`suteikiamas įregistravus`).
 
 ## 4. Ключевые решения и ограничения
 
