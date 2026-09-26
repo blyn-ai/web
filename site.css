@@ -87,9 +87,8 @@ img{max-width:100%}
 .be-hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border-hairline);
   background:var(--wash-gold),var(--wash-violet),var(--paper-000)}
 .be-hero-inner{padding:44px var(--be-pad-x) 0}
-/* align-items:start, not end: with `end` the status card sinks to the bottom of
-   the row and empties the whole top-right corner. */
-.be-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--gap-wide);
+/* One column: the hero carries its own text where the status card stood. */
+.be-hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--gap-wide);
   margin-top:24px;align-items:start}
 .be-h1{margin:0;font:var(--fw-regular) 54px/var(--lh-display) var(--font-display);
   letter-spacing:var(--track-display);color:var(--text-heading)}
@@ -108,11 +107,11 @@ img{max-width:100%}
 .be-btn--pri:hover{color:#fff;filter:brightness(1.1)}
 .be-btn--sec{border:1px solid var(--border-strong);color:var(--text-heading)}
 .be-btn--sec:hover{color:var(--text-heading);background:rgba(26,23,18,.05)}
-.be-status{margin-top:4px;padding:24px 26px;background:var(--surface-card);
-  border:1px solid var(--border-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-violet-edge)}
-.be-status .be-eyebrow{display:block;margin-bottom:var(--gap-stack);
-  font-size:var(--fs-micro);letter-spacing:var(--track-eyebrow-tight)}
-.be-status p{font:var(--fs-body-sm)/var(--lh-mono) var(--font-mono);color:var(--text-heading)}
+/* The four paragraphs under the headline: body text, one measure wide. */
+.be-hero-lead{display:flex;flex-direction:column;gap:var(--space-5);
+  margin-top:var(--space-7);max-width:68ch}
+.be-hero-lead p{margin:0;font:var(--fw-regular) var(--fs-lead)/var(--lh-lead) var(--font-body);
+  color:var(--text-body)}
 /* The brand's only illustration. A drawing of a gain line, never a data series. */
 .be-curve{display:block;width:100%;height:150px;margin-top:30px}
 
@@ -272,7 +271,8 @@ img{max-width:100%}
   .be-axis{max-width:none}
   .be-cta{flex-direction:column;gap:10px;margin-top:var(--space-8)}
   .be-btn{height:var(--control-h-lg);width:100%;padding:0}
-  .be-status{margin-top:var(--space-7)}
+  .be-hero-lead{margin-top:var(--space-6);gap:var(--space-4)}
+  .be-hero-lead p{font-size:var(--fs-body-md)}
   .be-curve{height:96px;margin-top:var(--space-7)}
   .be-stats{grid-template-columns:1fr}
   .be-stat{padding:var(--space-5) var(--mobile-x)}
