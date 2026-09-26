@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Share card 1200×630" description="Open Graph / Twitter card at the exact 1200×630 box: gradient rule, large lockup, one claim, equity curve band, mono footer line." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>body{margin:0;background:#E9E6E0;display:grid;place-items:center;min-height:100vh;font-family:"IBM Plex Sans",system-ui,sans-serif}</style>
+</helmet>
+
+<div style="position:relative;width:1200px;height:630px;overflow:hidden;background:radial-gradient(820px 520px at 2% 0%,rgba(245,184,79,.24),transparent 68%),radial-gradient(760px 560px at 100% 100%,rgba(107,78,219,.20),transparent 70%),#FBF8F2">
+
+<div style="position:absolute;inset:0 0 auto 0;height:6px;background:linear-gradient(90deg,#F5B84F,#C98F63 42%,#8C6BC9 74%,#6B4EDB)"></div>
+
+<div style="position:absolute;left:64px;top:60px;display:flex;align-items:center;gap:18px">
+<span style="width:64px;height:64px;flex:none;display:grid;place-items:center;border-radius:18px;background:#0A0A0A;border:1px solid rgba(245,184,79,.34);box-shadow:0 0 32px rgba(245,184,79,.18)">
+<x-import component-from-global-scope="BlynAICapitalDesignSystem_090ef4.LogoMark" plate="{{ false }}" hint-size="46px,46px"></x-import>
+</span>
+<span style="display:flex;flex-direction:column;gap:5px">
+<b style="font:600 27px/1 'Space Grotesk',sans-serif;color:#1A1712;white-space:nowrap">Blyn<i style="font-style:normal;color:#B97F2E">AI</i> Capital</b>
+<small style="font:13px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.18em;color:#6B4EDB;white-space:nowrap">L&amp;D Finance Lab</small>
+</span>
+</div>
+
+<p style="position:absolute;left:64px;top:196px;width:1072px;margin:0;font:400 52px/1.14 'Space Grotesk',sans-serif;letter-spacing:-.04em;color:#1A1712">Algoritminė prekyba kriptovaliutomis.<br><span class="blyn-grad">Tyrimai, inovacijos, sprendimai.</span></p>
+
+<div style="position:absolute;left:64px;right:64px;bottom:172px;display:flex;align-items:baseline;justify-content:space-between;gap:24px;font:16px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#8A8175">
+<p style="margin:0">blynai.eu</p>
+<p style="margin:0">MB „BlynAI“ · Lietuva</p>
+</div>
+
+<x-import component-from-global-scope="BlynAICapitalDesignSystem_090ef4.EquityCurve" variant="band" hint-size="1200px,190px" style="position:absolute;left:0;bottom:0;width:1200px;height:190px"></x-import>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:630}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+
+</script>
+</body>
+</html>

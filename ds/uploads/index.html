@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MB „BlynAI“ — algoritminės prekybos tyrimų bendrija</title>
+<meta name="description" content="MB „BlynAI“ — mažoji bendrija, kurianti algoritminės prekybos programinę įrangą. Prekiaujame savo lėšomis, skelbiame kiekvieną sprendimą, platiname kodą atvirai. Finansinių paslaugų neteikiame.">
+<link rel="canonical" href="https://blynai.eu/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blynai.eu/">
+<meta property="og:title" content="MB „BlynAI“ — algoritminės prekybos tyrimų bendrija">
+<meta property="og:description" content="Algoritminė prekyba kriptovaliutomis. Tyrimai, inovacijos, sprendimai.">
+<meta property="og:image" content="https://blynai.eu/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BlynAI Capital — algoritminė prekyba kriptovaliutomis">
+<meta property="og:locale" content="lt_LT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   blynai.eu — MB „BlynAI“ oficialus puslapis. Vienas statinis failas.
+   Spalvos: auksas (BLYN, duomenys) -> violetinė (AI, išvada). Balta bazė,
+   tamsus tik topbar ir footer — tas pats prekės ženklo užrašas kaip
+   blynai.meetluko.eu dashborde, todėl abu puslapiai atpažįstami kaip vienas.
+   Breakpoint: 760px. Viena stilių lentelė aptarnauja abu plotius.
+   ========================================================================== */
+:root{
+  --gold:#F5B84F; --gold-mid:#B97F2E; --gold-deep:#8A6320;
+  --purple:#6B4EDB; --purple-lift:#A18AFF; --purple-mid:#8360C4;
+  --cream:#F7E6C1; --ink:#1A1712; --body:#4A423A; --muted:#8A8175;
+  --paper:#F7F4ED; --paper-warm:#FBF8F2; --paper-card:#FFFDF8;
+  --dark:#050505; --dark-ink:#C8BBA6; --dark-muted:#82796D;
+  --line:rgba(26,23,18,.14); --line-strong:rgba(26,23,18,.22);
+  --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --pad:72px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+p,h1,h2,h3,dl,dd,ol{margin:0}
+ol{padding:0;list-style:none}
+img{display:block;max-width:100%}
+a{color:var(--purple)}
+a:hover{color:var(--gold-deep)}
+.be-eyebrow{font:600 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--purple)}
+.be-note{font:13px/1.6 var(--sans);color:#6E655A}
+
+/* --- topbar (tamsus, prekės ženklas kaip dashborde) --- */
+.be-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:18px 24px;padding:18px 34px;background:var(--dark)}
+.be-brand{display:inline-flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+.be-mark{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:12px;
+  background:rgba(0,0,0,.28);border:1px solid rgba(245,184,79,.28);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 0 22px rgba(245,184,79,.14)}
+.be-mark svg{width:31px;height:31px}
+.be-brand-txt{display:flex;flex-direction:column;gap:2px}
+.be-brand-txt b{font:600 17px/1.05 var(--display);letter-spacing:.01em;color:var(--cream);white-space:nowrap}
+.be-brand-txt b i{font-style:normal;color:var(--gold)}
+.be-brand-txt small{font:10px var(--mono);text-transform:uppercase;letter-spacing:.14em;
+  color:var(--purple-lift);white-space:nowrap}
+.be-nav{display:flex;align-items:center;gap:22px;font:11px var(--mono);
+  letter-spacing:.13em;text-transform:uppercase}
+.be-nav a{color:var(--dark-ink);text-decoration:none}
+.be-nav a:hover{color:var(--cream)}
+/* .be-lang paliktas be elemento: EN versijos dar nera, o kai bus - grazinamas
+   vienas span'as, ne perrasomi keturi stiliai. */
+.be-lang{display:flex;gap:6px;padding-left:8px;border-left:1px solid rgba(246,218,160,.14)}
+.be-lang b{font-weight:500;color:#FFD987}
+.be-lang span{color:#4a463f}
+.be-lang a{color:var(--dark-muted);text-decoration:none}
+/* Aukso -> violetinės ašis. Vienintelė vieta, kur gradientas rodomas grynas. */
+.be-rule{height:3px;background:linear-gradient(90deg,var(--gold),#C98F63 42%,#8C6BC9 74%,var(--purple))}
+
+/* --- hero --- */
+.be-hero{padding:44px var(--pad) 48px;border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(760px 460px at 4% 0%,rgba(245,184,79,.20),transparent 68%),
+    radial-gradient(700px 520px at 98% 96%,rgba(107,78,219,.16),transparent 70%),
+    var(--paper-warm)}
+/* align-items:start, ne end. Su `end` 147px kortele buvo nustumta i 341px eilutes
+   apacia, o virs jos likdavo 193px tuscios vietos - visas virsutinis desinys kampas.
+   Nuo virsaus kortele stovi salia antrastes, kaip ir turi. */
+.be-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;
+  margin-top:22px;align-items:start}
+.be-h1{font:400 56px/1.03 var(--display);letter-spacing:-.035em;max-width:22ch;text-wrap:pretty}
+/* Gradientinis tekstas: "programa prekiauja". Fallback — vientisas auksas,
+   jei background-clip:text neveikia. */
+.be-h1 em{font-style:normal;color:var(--gold-mid);
+  background:linear-gradient(96deg,var(--gold-mid),var(--purple));
+  -webkit-background-clip:text;background-clip:text}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .be-h1 em{color:transparent}
+}
+.be-lead{margin-top:30px;max-width:56ch;font-size:18px;line-height:1.6;color:var(--body);text-wrap:pretty}
+.be-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.be-btn{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 24px;
+  border-radius:6px;font:600 13.5px var(--display);text-decoration:none}
+/* Tamsintas auksas, ne --gold: baltas tekstas ant #F5B84F duoda ~1.9:1. */
+.be-btn--pri{background:linear-gradient(96deg,var(--gold-deep),#5B3FC4);color:#fff;border:0}
+.be-btn--pri:hover{color:#fff;filter:brightness(1.08)}
+.be-btn--sec{border:1px solid var(--line-strong);color:var(--ink)}
+.be-btn--sec:hover{color:var(--ink);border-color:var(--ink)}
+.be-card{padding:24px 26px;border:1px solid rgba(26,23,18,.16);border-radius:6px;
+  background:var(--paper-card);box-shadow:0 1px 0 rgba(107,78,219,.06)}
+.be-card-l{margin-bottom:14px;font:10px var(--mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--purple)}
+.be-card-v{font:13.5px/1.75 var(--mono);color:var(--ink)}
+
+/* --- vardas: BLYN / AI --- */
+.be-name{padding:56px var(--pad);border-bottom:1px solid var(--line);background:var(--paper-card)}
+.be-name-grid{display:grid;grid-template-columns:1fr 1fr;margin-top:30px;border-top:2px solid var(--ink)}
+.be-syl{padding:28px 34px 30px}
+.be-syl--blyn{border-right:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(245,184,79,.13),transparent 72%)}
+.be-syl--ai{background:linear-gradient(180deg,rgba(107,78,219,.13),transparent 72%)}
+.be-syl b{display:block;font:400 54px/1 var(--display);letter-spacing:-.02em}
+.be-syl--blyn b{color:var(--gold-mid)}
+.be-syl--ai b{color:var(--purple)}
+.be-syl-x{margin-top:20px;font:400 21px/1.35 var(--display);color:var(--ink)}
+.be-syl-d{margin-top:12px;font:13.5px/1.6 var(--sans);color:#6E655A}
+.be-name .be-note{margin-top:20px;max-width:82ch}
+
+/* --- tyrimų kryptys --- */
+.be-dirs{padding:56px var(--pad);border-bottom:1px solid var(--line)}
+.be-dirs ol{margin-top:34px}
+.be-dir{display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,1.1fr);gap:32px;
+  padding:26px 0;border-top:1px solid var(--line)}
+.be-dir:last-child{border-bottom:1px solid var(--line)}
+.be-dir-n{font:400 15px var(--mono)}
+/* Numeracija pati yra gradientas: 01 auksinis, 04 violetinis. */
+.be-dir:nth-child(1) .be-dir-n{color:var(--gold-mid)}
+.be-dir:nth-child(2) .be-dir-n{color:#A0762F}
+.be-dir:nth-child(3) .be-dir-n{color:var(--purple-mid)}
+.be-dir:nth-child(4) .be-dir-n{color:var(--purple)}
+.be-dir h3{font:500 21px/1.25 var(--display);letter-spacing:-.015em;color:var(--ink)}
+.be-dir p{font-size:14.5px;line-height:1.6;color:var(--body)}
+
+/* --- du nariai, dvi valiutos --- */
+.be-coins{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:48px;align-items:center;
+  padding:52px var(--pad);border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(620px 380px at 0% 50%,rgba(245,184,79,.16),transparent 70%),
+    radial-gradient(620px 380px at 100% 50%,rgba(107,78,219,.13),transparent 70%),
+    var(--paper-card)}
+.be-coins h2{margin-top:14px;font:500 27px/1.2 var(--display);letter-spacing:-.02em}
+.be-coins-lead{margin-top:13px;max-width:46ch;font-size:15px;line-height:1.6;color:var(--body)}
+.be-coins-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.be-coin{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:6px;
+  background:#fff;text-decoration:none}
+.be-coin svg{width:44px;height:44px}
+.be-coin b{display:block;font:600 16px var(--display);letter-spacing:.02em}
+.be-coin small{font:11.5px var(--mono);color:var(--muted)}
+.be-coin--luko{border:1px solid rgba(185,127,46,.36)}
+.be-coin--luko b{color:var(--gold-deep)}
+.be-coin--byko{border:1px solid rgba(52,95,158,.3)}
+.be-coin--byko b{color:#2E5F94}
+
+/* --- nariai + rekvizitai --- */
+.be-legal{display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);gap:0 56px;
+  padding:56px var(--pad);border-bottom:1px solid var(--line)}
+.be-legal-div{background:linear-gradient(180deg,rgba(245,184,79,.5),rgba(107,78,219,.45))}
+.be-legal dl{display:grid;grid-template-columns:auto 1fr;gap:13px 26px;margin-top:24px;
+  font:13px var(--mono)}
+.be-legal dt{color:var(--muted)}
+.be-legal dd{color:var(--ink)}
+/* Stulpeliai pagal nuotrauka, ne per puse. Kai nuotrauka tapo 167px, o lastele liko
+   285px, tarp Luko ir Deniso atsivere tuscia juosta. */
+.be-members{display:grid;grid-template-columns:repeat(2,max-content);justify-content:start;
+  gap:22px;margin-top:24px}
+/* Aukstis lygiuojamas i desiniojo stulpelio rekvizitu sarasa (dl = 167px), kad abi
+   puses baigtusi vienoje linijoje. Aukstis nurodomas, plotis seka is aspect-ratio -
+   kadras lieka kvadratas, o Luko 50% 12% skaiciuojamas nuo to pacio ploto, kuriam
+   buvo parinktas. Siaurame ekrane sitai atsukama atgal (zr. media). */
+.be-member img{height:167px;width:auto;aspect-ratio:1;border-radius:3px;object-fit:cover;
+  background:rgba(26,23,18,.06)}
+/* Lukas: kadras nuleistas, kitaip apkerpa galvą. */
+.be-member--l img{object-position:50% 12%;border:1px solid rgba(185,127,46,.35)}
+.be-member--d img{border:1px solid rgba(107,78,219,.3)}
+.be-member b{display:block;margin-top:12px;font:500 15px var(--display);color:var(--ink)}
+.be-member small{font:12px var(--mono);color:var(--muted)}
+
+/* --- footer --- */
+.be-foot{padding:34px var(--pad) 44px;background:var(--dark)}
+.be-foot p{max-width:96ch;font:12.5px/1.6 var(--sans);color:var(--dark-muted)}
+.be-foot-c{margin-top:20px;font:11px var(--mono);letter-spacing:.12em;
+  text-transform:uppercase;color:#4f4a42}
+
+/* ==========================================================================
+   Narrow. Viskas į vieną stulpelį, mygtukai per visą plotį, 44px hit target.
+   ========================================================================== */
+@media (max-width:760px){
+  :root{--pad:18px}
+  .be-top{padding:14px 18px;flex-wrap:nowrap}
+  .be-mark{width:36px;height:36px;border-radius:10px}
+  .be-mark svg{width:26px;height:26px}
+  .be-brand-txt b{font-size:15px}
+  .be-brand-txt small{font-size:9px}
+  .be-nav{display:none}
+  .be-hero{padding:32px var(--pad) 30px}
+  .be-hero-grid{grid-template-columns:1fr;gap:24px;margin-top:16px}
+  .be-h1{font-size:34px;line-height:1.06;max-width:none}
+  .be-lead{margin-top:18px;font-size:15.5px;max-width:none}
+  .be-cta{flex-direction:column;gap:10px;margin-top:24px}
+  .be-btn{height:48px;font-size:14px}
+  .be-card{padding:18px 20px}
+  .be-card-v{font-size:13px}
+  .be-name,.be-dirs,.be-coins,.be-legal{padding:32px var(--pad)}
+  .be-name-grid{grid-template-columns:1fr;margin-top:18px}
+  .be-syl{padding:20px 0 22px}
+  .be-syl--blyn{border-right:0;border-bottom:1px solid var(--line)}
+  .be-syl b{font-size:40px}
+  .be-syl-x{margin-top:14px;font-size:17px}
+  .be-syl-d{margin-top:9px;font-size:13px}
+  .be-dirs ol{margin-top:22px}
+  .be-dir{grid-template-columns:1fr;gap:8px;padding:20px 0}
+  .be-dir-n{font-size:13px}
+  .be-dir h3{font-size:18px}
+  .be-dir p{font-size:13.5px}
+  .be-coins{grid-template-columns:1fr;gap:20px}
+  .be-coins h2{margin-top:12px;font-size:22px}
+  .be-coins-lead{margin-top:11px;font-size:14px;max-width:none}
+  .be-coins-row{gap:10px}
+  .be-coin{flex-direction:row;align-items:center;gap:10px;min-height:56px;padding:12px}
+  .be-coin svg{width:30px;height:30px;flex:none}
+  .be-coin b{font-size:14px}
+  .be-coin small{font-size:10px}
+  .be-legal{grid-template-columns:1fr;gap:0}
+  .be-legal-div{display:none}
+  /* Siaurame ekrane atgal per puse: nuotraukos vel per visa ploti. */
+  .be-members{grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  /* Siaurame ekrane grazinamas pilnas plotis: 167px kvadratas telefone atrodo kaip
+     miniatiura, o desiniojo stulpelio, i kuri buvo lygiuojamasi, cia jau nera. */
+  .be-member img{width:100%;height:auto}
+  .be-member b{margin-top:10px;font-size:14px}
+  .be-member small{font-size:11px}
+  .be-legal-req{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+  .be-legal dl{gap:12px 18px;margin-top:18px;font-size:12px}
+  /* 44px hit target siaurame ekrane. Zenklas gauna auksti tiesiogiai; pasto nuoroda
+     - vidini uzpilda su neigiama parastee, kad plotas augtu, o eilute nepasislinktu. */
+  .be-brand{min-height:44px}
+  .be-legal dd a{display:inline-block;padding:14px 0;margin:-14px 0}
+  .be-foot{padding:28px var(--pad) 34px}
+  .be-foot p{font-size:12px}
+  .be-foot-c{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<header class="be-top">
+  <a class="be-brand" href="/">
+    <span class="be-mark"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><defs><linearGradient id="bcm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD987"/><stop offset="1" stop-color="#F5B84F"/></linearGradient></defs><path d="M16.5 9 L8.5 20 L16.5 31" stroke="url(#bcm)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M23.5 9 L31.5 20 L23.5 31" stroke="url(#bcm)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="17.5" r="2.1" fill="#FFD987"/><circle cx="23" cy="17.5" r="2.1" fill="#C8963B"/><circle cx="17" cy="22.5" r="2.1" fill="#C8963B"/><circle cx="23" cy="22.5" r="2.1" fill="#FFD987"/></svg></span>
+    <span class="be-brand-txt"><b>Blyn<i>AI</i> Capital</b><small>L&amp;D Finance Lab</small></span>
+  </a>
+  <nav class="be-nav">
+    <a href="#vardas">Apie</a>
+    <a href="#tyrimai">Tyrimai</a>
+    <a href="#nariai">Nariai</a>
+    <a href="#rekvizitai">Kontaktai</a>
+  </nav>
+</header>
+<div class="be-rule"></div>
+
+<main>
+  <section class="be-hero">
+    <p class="be-eyebrow">Mažoji bendrija &#183; įsteigta Lietuvoje</p>
+    <div class="be-hero-grid">
+      <div>
+        <h1 class="be-h1">Skaičiai apie tai, kaip <em>programa prekiauja</em>.</h1>
+        <p class="be-lead">MB „BlynAI“ yra tyrimų bendrija: kuriame algoritminės prekybos programinę įrangą, leidžiame jai veikti su savo pinigais ir skelbiame viską, ką ji nusprendė — įskaitant tai, kur suklydo. Programinė įranga platinama atvirojo kodo principu, kad rezultatą galėtų pakartoti kas nors kitas.</p>
+        <div class="be-cta">
+          <a class="be-btn be-btn--pri" href="https://blynai.meetluko.eu">Gyvas žurnalas</a>
+          <a class="be-btn be-btn--sec" href="https://github.com/bykovas/trading-bot">GitHub &#183; atvirasis kodas</a>
+        </div>
+      </div>
+      <aside class="be-card">
+        <p class="be-card-l">Būsena</p>
+        <p class="be-card-v">Botai veikia be pertraukos.<br>Žurnalas atviras.<br>Klientų lėšų — nėra ir nebus.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="be-name" id="vardas">
+    <p class="be-eyebrow">Vardas &#183; du skiemenys</p>
+    <div class="be-name-grid">
+      <div class="be-syl be-syl--blyn">
+        <b>BLYN</b>
+        <p class="be-syl-x">Blockchain Ledger Yield Numerics</p>
+        <p class="be-syl-d">Kas matuojama: grandinės duomenys, orderių žurnalas, pelno kreivė ir skaičiai, kuriuos iš jų galima gauti.</p>
+      </div>
+      <div class="be-syl be-syl--ai">
+        <b>AI</b>
+        <p class="be-syl-x">Algorithmic Inference</p>
+        <p class="be-syl-d">Kas iš to daroma: išvada ir orderis, priimtas taisyklių, o ne nuojautos. Be žmogaus rankos ir be jo nuotaikos.</p>
+      </div>
+    </div>
+    <p class="be-note">Lietuviškai tas pats žodis skaitomas kaip „blynai“. Bendrija sąmoningai laikosi abiejų skaitymų: pirmasis paaiškina, ką darome, antrasis — kad nesame rimtesni, nei esame.</p>
+  </section>
+
+  <section class="be-dirs" id="tyrimai">
+    <p class="be-eyebrow">Tyrimų kryptys</p>
+    <ol>
+      <li class="be-dir">
+        <span class="be-dir-n">01</span>
+        <h3>Paaiškinamas sprendimas</h3>
+        <p>Kiekvienas orderis įrašomas su signalais, rizikos ribomis ir atmestomis alternatyvomis. Jei sprendimo negalima perskaityti po savaitės — jis netinka tyrimui.</p>
+      </li>
+      <li class="be-dir">
+        <span class="be-dir-n">02</span>
+        <h3>Simuliacija prieš tikrovę</h3>
+        <p>Tas pats algoritmas vienu metu leidžiamas istoriniuose duomenyse ir gyvoje rinkoje. Matuojame ne pelną, o atotrūkį tarp dviejų kreivių.</p>
+      </li>
+      <li class="be-dir">
+        <span class="be-dir-n">03</span>
+        <h3>Rizikos mechanika</h3>
+        <p>Pozicijų dydis, atvėsimo periodai, avarinis stabdys. Tikriname juos realaus kritimo metu, nes lentelėje jie visada atrodo veikiantys.</p>
+      </li>
+      <li class="be-dir">
+        <span class="be-dir-n">04</span>
+        <h3>Atkuriamumas</h3>
+        <p>Kodas, parametrai ir duomenų momentinės kopijos skelbiami atvirai, kad rezultatą galėtų pakartoti trečiasis asmuo be mūsų dalyvavimo.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="be-coins">
+    <div>
+      <p class="be-eyebrow">Du nariai, dvi valiutos</p>
+      <h2>L&amp;D: dvi nepriklausomos boto instancijos</h2>
+      <p class="be-coins-lead">Tas pats kodas, atskiros sąskaitos, atskiri žurnalai. Jei rezultatai skiriasi — skirtumas irgi yra duomenys.</p>
+    </div>
+    <div class="be-coins-row">
+      <a class="be-coin be-coin--luko" href="https://meetluko.eu">
+        <svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="256" fill="#0A0A0A"/><circle cx="256" cy="256" r="248" fill="none" stroke="#C9A86A" stroke-opacity=".5" stroke-width="8"/><g transform="translate(-117.1 -89.7) scale(1.4463)"><g opacity=".3"><path d="M144 164L182 122V167Z" fill="#C9A86A"/><g fill="none" stroke="#C9A86A" stroke-width="15"><circle cx="306" cy="186" r="58"/><path d="M364 186V312"/></g></g><path d="M182 122h52V312H346l16 16V358H182Z" fill="#C9A86A"/></g></svg>
+        <span><b>LUKO</b><small>blynai.meetluko.eu</small></span>
+      </a>
+      <a class="be-coin be-coin--byko" href="https://byko.bykovas.lt">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#7CCBFF"/><g transform="translate(2.1875 1.25) scale(.3125)" fill="none" stroke="#0B0D10" stroke-width="13"><path d="M24 14V82"/><path d="M40 20L70 48 40 76"/></g></svg>
+        <span><b>BYKO</b><small>blynai.bykovas.lt</small></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="be-legal" id="nariai">
+    <div>
+      <p class="be-eyebrow">Nariai &#183; po 50 %</p>
+      <div class="be-members">
+        <div class="be-member be-member--l">
+          <img src="/assets/founder-lukas.png" alt="Lukas Peciukonis" width="256" height="256" loading="lazy">
+          <b>Lukas Peciukonis</b><small>MB vadovas &#183; &#923;</small>
+        </div>
+        <div class="be-member be-member--d">
+          <img src="/assets/founder-denisas.png" alt="Denisas Bykovas" width="256" height="256" loading="lazy">
+          <b>Denisas Bykovas</b><small>MB narys &#183; &#916;</small>
+        </div>
+      </div>
+    </div>
+    <div class="be-legal-div"></div>
+    <div class="be-legal-req" id="rekvizitai">
+      <p class="be-eyebrow">Registro duomenys</p>
+      <dl>
+        <dt>Pavadinimas</dt><dd>MB „BlynAI“</dd>
+        <dt>Forma</dt><dd>Mažoji bendrija</dd>
+        <dt>J. a. kodas</dt><dd>registruojama</dd>
+        <dt>Buveinė</dt><dd>Lietuvos Respublika</dd>
+        <dt>Direktorius</dt><dd>Lukas Peciukonis</dd>
+        <dt>Paštas</dt><dd><a href="mailto:info@blynai.eu">info@blynai.eu</a></dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="be-foot">
+  <p>MB „BlynAI“ nėra finansų įstaiga, investicijų valdytojas ar finansinių paslaugų teikėja. Bendrija neteikia investavimo rekomendacijų, nepriima ir nesaugo trečiųjų asmenų pinigų ar kriptoturto ir nevaldo trečiųjų asmenų biržos sąskaitų. Bendrija prekiauja tik savo lėšomis; paskelbti rezultatai yra tyrimo duomenys, o ne pasiūlymas ar prognozė.</p>
+  <p class="be-foot-c">blynai.eu &#183; &#169; 2026 MB „BlynAI“</p>
+</footer>
+
+</body>
+</html>

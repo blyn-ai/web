@@ -1,40 +1,51 @@
 /* ==========================================================================
    blynai.eu — page styles for index.html.
-   The page is the "BlynAI Home v2" handoff: a finance-systems lab presenting
-   the company, its first programme and its team, Lithuanian only. Everything
-   composes design-system tokens (ds/styles.css); no colour, size or spacing
-   is invented. Bands are full-bleed, content sits on the 1160px canvas,
-   one breakpoint at 760px.
+   Everything here composes design-system tokens (ds/styles.css); no literal
+   colour, size or spacing value is invented. The page is the approved home
+   direction, "Variant 04 · Žurnalas" (ui_kits/website/HomeLedger.jsx in the
+   BlynAI Capital design system): the equity curve carries the hero, the two
+   syllables open the page, the stat strip sits directly under the curve.
+
+   One breakpoint, 760px, serving both widths — the shipped-page constraint.
+   Narrow values are taken from the same component's `narrow` branch.
    ========================================================================== */
 
 :root{
-  /* Canvas: 72px gutters on paper bands, 34px on ink, growing so content stays
-     on the 1160px canvas and centred on wide screens. */
-  --be-pad-x:max(72px,calc(50% - 508px));
-  --be-pad-x-ink:max(34px,calc(50% - 546px));
+  --be-x:var(--section-x);        /* page gutter, 72px -> 18px at 760 */
+  --be-x-ink:var(--pad-header-x); /* the tighter gutter of the ink bands, 34px */
+  --be-rule-h:var(--rule-h-lg);   /* the gradient rule, 6px -> 3px at 760 */
+
+  /* The design system draws this page on a 1160px canvas: 72px gutters on the
+     light document bands, 34px on the ink ones. Below 1160 that is exactly the
+     gutter; above it the gutter grows so the content stays on the same canvas
+     and stays centred, while every band keeps its full-bleed background. Without
+     this, an 82ch note on a 1920px screen ends at 40% and reads as a broken line
+     break rather than a measure.
+     1160/2 - 72 = 508   ·   1160/2 - 34 = 546 */
+  --be-pad-x:max(var(--be-x),calc(50% - 508px));
+  --be-pad-x-ink:max(var(--be-x-ink),calc(50% - 546px));
+  /* The ink strips pad their own cells, so they only need the overhang. */
   --be-bleed-ink:max(0px,calc(50% - 546px));
 }
+
+/* Carried over from the shipped page; the design system's base.css leaves it
+   out. Without it a full-width outline button is 2px wider than the filled one
+   beside it, and the 44px burger becomes 46px. */
 *,*::before,*::after{box-sizing:border-box}
-/* The sticky band owns the anchor offset. */
-html{scroll-padding-top:96px}
+
 body{background:var(--surface-page)}
 img{max-width:100%}
 
 /* --- shared roles ------------------------------------------------------- */
 .be-eyebrow{font:var(--type-eyebrow);letter-spacing:var(--track-eyebrow);
   text-transform:uppercase;color:var(--eyebrow-on-paper)}
-.be-eyebrow--tight{letter-spacing:var(--track-eyebrow-tight)}
-.be-eyebrow--gap{display:block;margin-top:var(--space-9)}
-.be-section{padding:40px var(--be-pad-x);border-bottom:1px solid var(--border-hairline)}
-.be-section > .be-eyebrow{display:block;margin-bottom:var(--space-7)}
+.be-section{padding:var(--section-y) var(--be-pad-x);border-bottom:1px solid var(--border-hairline)}
 .be-section--raised{background:var(--surface-card)}
-.be-footnote{margin-top:var(--space-5);font:var(--fs-meta)/var(--lh-body) var(--font-mono);color:var(--text-meta)}
-.be-footnote--sm{font-size:var(--fs-caption)}
+.be-section > .be-eyebrow{display:block;margin-bottom:30px}
 
-/* --- sticky brand band -------------------------------------------------- */
-.be-topbar{position:sticky;top:0;z-index:10}
+/* --- header band -------------------------------------------------------- */
 .be-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
-  gap:18px 24px;padding:14px var(--be-pad-x-ink);background:var(--surface-ink)}
+  gap:18px 24px;padding:var(--pad-header-y) var(--be-pad-x-ink);background:var(--surface-ink)}
 .be-brand{display:inline-flex;align-items:center;gap:var(--gap-inline);color:inherit;text-decoration:none}
 .be-mark{width:var(--mark-size);height:var(--mark-size);flex:none;display:grid;place-items:center;
   border-radius:var(--radius-lg);background:rgba(0,0,0,.28);border:1px solid var(--border-gold);
@@ -44,393 +55,180 @@ img{max-width:100%}
 .be-wordmark b{font:var(--fw-semibold) 17px/1.05 var(--font-display);letter-spacing:.01em;
   white-space:nowrap;color:var(--text-heading-on-ink)}
 .be-wordmark b i{font-style:normal;color:var(--accent-gold)}
-/* The sub-line is justified across the wordmark's own width — the two empty <i>
-   open the word gaps — so both lines end flush, per the logo handoff. Letter
-   spacing is not used: space-between does the distributing. */
-.be-wordmark small{display:flex;justify-content:space-between;
-  font:500 var(--fs-micro) var(--font-mono);text-transform:uppercase;
-  white-space:nowrap;color:var(--accent-violet-on-ink)}
-.be-wordmark small i{flex:0 0 .5em}
-.be-nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;
+.be-wordmark small{font:var(--fs-micro) var(--font-mono);text-transform:uppercase;
+  letter-spacing:.14em;white-space:nowrap;color:var(--accent-violet-on-ink)}
+.be-nav{display:flex;align-items:center;gap:var(--gap-nav);
   font:var(--fs-eyebrow) var(--font-mono);letter-spacing:var(--track-nav);text-transform:uppercase}
 .be-nav a{color:var(--link-nav-on-ink);text-decoration:none}
 .be-nav a:hover{color:var(--link-nav-on-ink-hover)}
-/* Burger: <details>, so it works without JavaScript. Dropdown panel, per the
-   handoff — not the full-width sheet of the previous design. */
-.be-menu{display:none;position:relative}
+
+/* Narrow-screen menu. A <details> rather than a dead button: the design system
+   draws a burger at 390px but has no menu behind it, and the page ships without
+   JavaScript. Three 17x1.5px bars in --sand-200, per the iconography rules. */
+.be-menu{display:none}
 .be-menu > summary{width:var(--tap-min);height:var(--tap-min);display:grid;place-items:center;
   border:1px solid rgba(246,218,160,.18);border-radius:var(--radius-md);list-style:none;cursor:pointer}
 .be-menu > summary::-webkit-details-marker{display:none}
-.be-menu[open] > summary{border-color:rgba(246,218,160,.34)}
 .be-burger{display:flex;flex-direction:column;gap:5px}
 .be-burger i{display:block;width:17px;height:1.5px;background:var(--sand-200)}
-.be-menu-panel{position:absolute;top:calc(100% + 15px);right:-18px;z-index:5;
-  display:flex;flex-direction:column;min-width:240px;padding:0 18px 12px;background:var(--surface-ink);
+.be-menu[open] > summary{border-color:rgba(246,218,160,.34)}
+/* top:100% hangs the panel off the header band, not off the summary box: its
+   static position sits 14px up inside the header. */
+.be-menu-panel{position:absolute;top:100%;left:0;right:0;z-index:2;display:flex;flex-direction:column;
+  padding:0 var(--mobile-x) var(--space-3);background:var(--surface-ink);
   font:var(--fs-eyebrow) var(--font-mono);letter-spacing:var(--track-nav);text-transform:uppercase}
 .be-menu-panel a{padding:14px 0;color:var(--link-nav-on-ink);text-decoration:none;
   border-top:1px solid var(--border-hairline-on-ink)}
-.be-menu-panel a:first-child{border-top:0}
-.be-rule{height:var(--rule-h-lg);background:var(--gradient-rule)}
-/* LT/EN toggle: two separate pills, gap between them, on the ink header.
-   Active side reads gold-filled; the other is an outlined link that lights up
-   on hover. No JavaScript — each language is its own URL. */
-.be-lang{display:inline-flex;gap:6px;font:var(--fw-semibold) var(--fs-eyebrow) var(--font-mono);
-  letter-spacing:.12em;text-transform:uppercase}
-.be-lang b,.be-lang a{display:inline-grid;place-items:center;min-width:40px;height:32px;
-  padding:0 10px;border-radius:var(--radius-xs);font:inherit;text-decoration:none;line-height:1}
-.be-lang b{background:var(--accent-gold);border:1px solid var(--accent-gold);color:var(--ink-900)}
-.be-lang a{background:rgba(246,218,160,.06);border:1px solid var(--border-gold);
-  color:var(--gold-200);transition:var(--transition-color)}
-.be-lang a:hover{background:rgba(245,184,79,.16);color:var(--accent-gold);border-color:var(--accent-gold)}
 
-.be-rule{height:var(--rule-h-lg);background:var(--gradient-rule)}
-/* LT/EN toggle: segmented, on the ink header. Active side is a static <b>,
-   the other a link — no JavaScript, each language is its own URL. */
+/* The one place the gold-to-violet axis is shown neat. Once per surface. */
+.be-rule{height:var(--be-rule-h);background:var(--gradient-rule)}
 
-/* --- hero ---------------------------------------------------------------- */
+/* --- hero --------------------------------------------------------------- */
 .be-hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border-hairline);
   background:var(--wash-gold),var(--wash-violet),var(--paper-000)}
 .be-hero-inner{padding:44px var(--be-pad-x) 0}
-.be-h1{margin-top:24px;font:var(--fw-regular) clamp(34px,4.4vw,54px)/var(--lh-display) var(--font-display);
+/* align-items:start, not end: with `end` the status card sinks to the bottom of
+   the row and empties the whole top-right corner. */
+.be-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--gap-wide);
+  margin-top:24px;align-items:start}
+.be-h1{margin:0;font:var(--fw-regular) 54px/var(--lh-display) var(--font-display);
   letter-spacing:var(--track-display);color:var(--text-heading)}
-.be-lead{margin-top:var(--space-8);font:var(--type-lead);color:var(--text-body)}
-.be-cta{display:flex;flex-wrap:wrap;gap:var(--gap-inline);margin-top:30px}
+.be-axes{display:flex;flex-wrap:wrap;gap:var(--space-10);margin-top:var(--space-8)}
+.be-axis{margin:0;max-width:30ch;font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);
+  color:var(--text-body)}
+.be-axis b{font:var(--fw-semibold) var(--fs-meta) var(--font-mono);letter-spacing:.1em}
+.be-axis--blyn b{color:var(--gold-900)}
+.be-axis--ai b{color:var(--violet-800)}
+.be-cta{display:flex;gap:var(--gap-inline);margin-top:30px}
 .be-btn{display:inline-flex;align-items:center;justify-content:center;height:var(--control-h);
   padding:0 var(--pad-button-x);border-radius:var(--radius-sm);font:var(--type-button);
   text-decoration:none;transition:background-color var(--dur-fast) var(--ease),filter var(--dur-fast) var(--ease)}
+/* Darkened gradient, not raw --gold-400: white on #F5B84F measures ~1.9:1. */
 .be-btn--pri{background:var(--gradient-action);color:#fff;border:0}
 .be-btn--pri:hover{color:#fff;filter:brightness(1.1)}
 .be-btn--sec{border:1px solid var(--border-strong);color:var(--text-heading)}
 .be-btn--sec:hover{color:var(--text-heading);background:rgba(26,23,18,.05)}
+.be-status{margin-top:4px;padding:24px 26px;background:var(--surface-card);
+  border:1px solid var(--border-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-violet-edge)}
+.be-status .be-eyebrow{display:block;margin-bottom:var(--gap-stack);
+  font-size:var(--fs-micro);letter-spacing:var(--track-eyebrow-tight)}
+.be-status p{font:var(--fs-body-sm)/var(--lh-mono) var(--font-mono);color:var(--text-heading)}
+/* The brand's only illustration. A drawing of a gain line, never a data series. */
 .be-curve{display:block;width:100%;height:150px;margin-top:30px}
 
-/* --- telemetry strip ----------------------------------------------------- */
-/* Values arrive from /api/public-stats — the journal's own telemetry. Dashed
-   gold chips per the handoff; a value that has not arrived stays an em dash. */
-.be-statband{background:var(--ink-780)}
-.be-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  padding-inline:var(--be-bleed-ink);margin:0}
-.be-stat{padding:var(--space-8) 34px;border-left:1px solid var(--border-hairline-on-ink)}
+/* --- stat strip on ink -------------------------------------------------- */
+/* Separators are borders, not a 1px grid gap over a coloured backdrop: the
+   strip now carries its own ink so it can be padded to the canvas. */
+.be-stats{display:grid;grid-template-columns:repeat(3,1fr);
+  padding-inline:var(--be-bleed-ink);background:var(--ink-780)}
+.be-stat{padding:var(--space-8) var(--be-x-ink)}
+.be-stat + .be-stat{border-left:1px solid var(--border-hairline-on-ink)}
 .be-stat dt{font:var(--fs-micro) var(--font-mono);letter-spacing:.14em;text-transform:uppercase;
   color:var(--text-meta-on-ink)}
-.be-stat dd{margin:9px 0 0}
-.be-chip{display:inline-block;padding:3px 9px;border:1px dashed rgba(245,184,79,.5);
-  border-radius:var(--radius-xs);background:rgba(245,184,79,.1);
-  font:500 var(--fs-meta) var(--font-mono);color:var(--gold-300);white-space:nowrap}
-.be-stats-note{padding:12px calc(var(--be-bleed-ink) + 34px) 14px;
-  border-top:1px solid var(--border-hairline-on-ink);text-align:center;
-  font:var(--fs-micro) var(--font-mono);letter-spacing:.08em;text-transform:uppercase;
-  color:var(--sand-400)}
+.be-stat dd{margin:9px 0 0;font:var(--fw-semibold) var(--fs-h4) var(--font-display);
+  color:var(--text-heading-on-ink)}
 
-/* --- metodas: the four verbs --------------------------------------------- */
-.be-verbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:var(--space-5) var(--space-10)}
-.be-verb{margin:0;font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);
-  color:var(--text-body)}
-.be-verb b{display:block;margin-bottom:6px;font:var(--fw-semibold) var(--fs-meta) var(--font-mono);
-  letter-spacing:.1em}
-.be-verb--1 b{color:var(--gold-900)}
-.be-verb--2 b{color:var(--gold-800)}
-.be-verb--3 b{color:var(--violet-600)}
-.be-verb--4 b{color:var(--violet-800)}
-
-/* --- programa ------------------------------------------------------------ */
-.be-h2{margin-top:var(--gap-stack);font:var(--type-h2);letter-spacing:var(--track-h2);
-  color:var(--text-heading)}
-.be-sub{margin-top:8px;font:var(--fw-regular) var(--fs-h3)/var(--lh-h3) var(--font-display)}
-/* In the hero the sub-line carries the method under the H1: it takes the band
-   width like the lead below it — a ch cap here reads as a broken line, not as
-   a measure. */
-.be-sub--hero{margin-top:var(--space-4);line-height:1.3}
-.be-rows{margin:var(--space-7) 0 0;padding:0;list-style:none}
-.be-row{display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,1.1fr);gap:var(--gap-col);
-  padding:16px 0;border-top:1px solid var(--border-hairline)}
+/* --- numbered research rows --------------------------------------------- */
+.be-rows{margin:0;padding:0;list-style:none}
+.be-row{display:grid;grid-template-columns:var(--grid-numbered);gap:var(--gap-col);
+  padding:var(--pad-row-y) 0;border-top:1px solid var(--border-hairline)}
 .be-row:last-child{border-bottom:1px solid var(--border-hairline)}
+/* The numerals are the icon set. Their colour walks gold into violet. */
 .be-row-n{font:var(--fw-regular) var(--fs-body-md) var(--font-mono)}
-/* The numeral ramp walks gold into violet, as everywhere on the page. */
-.be-row:nth-child(1) .be-row-n,.be-row3:nth-child(1) .be-row-n{color:var(--gold-700)}
-.be-row:nth-child(2) .be-row-n,.be-row3:nth-child(2) .be-row-n{color:var(--gold-800)}
-.be-row:nth-child(3) .be-row-n,.be-row3:nth-child(3) .be-row-n{color:var(--violet-600)}
-.be-row:nth-child(4) .be-row-n,.be-row3:nth-child(4) .be-row-n{color:var(--violet-700)}
-.be-rows--q .be-row3:nth-child(3) .be-row-n{color:var(--bridge-500)}
-.be-rows--q .be-row3:nth-child(4) .be-row-n{color:var(--violet-600)}
-.be-rows--q .be-row3:nth-child(5) .be-row-n{color:var(--violet-700)}
-.be-row h3{font:var(--type-h3);letter-spacing:var(--track-h3);color:var(--text-heading)}
+.be-row:nth-child(1) .be-row-n{color:var(--gold-700)}
+.be-row:nth-child(2) .be-row-n{color:var(--gold-800)}
+.be-row:nth-child(3) .be-row-n{color:var(--violet-600)}
+.be-row:nth-child(4) .be-row-n{color:var(--violet-700)}
+.be-row h3{margin:0;font:var(--type-h3);letter-spacing:var(--track-h3);color:var(--text-heading)}
 .be-row p{font:var(--type-body);color:var(--text-body)}
-.be-row-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;
-  font:var(--fs-meta) var(--font-mono);letter-spacing:.04em}
-.be-row-links a{white-space:nowrap;color:var(--link);text-decoration:none;
-  border-bottom:1px solid currentColor;padding-bottom:1px;transition:var(--transition-color)}
-.be-row-links a:hover{color:var(--link-hover)}
-/* Kryptys rows: numeral · question · status chip */
-.be-row3{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:var(--gap-col);
-  align-items:start;padding:16px 0;border-top:1px solid var(--border-hairline)}
-.be-row3:last-child{border-bottom:1px solid var(--border-hairline)}
-.be-row3 p{font:var(--type-body);color:var(--text-body)}
-.be-row3 b{font-weight:var(--fw-semibold);color:var(--text-heading)}
 
-.be-scheme{margin-top:var(--space-9);overflow-x:auto}
-.sch-d{display:block;width:100%;min-width:700px}
-.sch-m{display:none;width:100%}
-
-.be-question{margin-top:var(--space-10);padding:24px 26px;background:var(--surface-card);
-  border:1px solid var(--border-card);border-radius:var(--radius-sm);box-shadow:var(--shadow-violet-edge);
-  display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
-.be-question > div{flex:1;min-width:260px}
-.be-question-t{margin-top:10px;font:var(--fw-regular) var(--fs-h3)/var(--lh-h3) var(--font-display);
-  color:var(--text-heading)}
-.be-status-chip{flex:none;padding:4px 11px;border-radius:var(--radius-xs);
-  font:var(--fw-semibold) var(--fs-micro) var(--font-mono);letter-spacing:.12em;text-transform:uppercase}
-.be-status-chip--live{border:1px solid var(--luko-line);color:var(--gold-800)}
-.be-status-chip--plan{border:1px solid var(--border-violet-strong);color:var(--violet-700)}
-.be-status-chip--hyp{border:1px solid var(--border-hairline);color:var(--text-meta)}
-
-/* --- ką išmokome --------------------------------------------------------- */
-.be-learn{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px 24px;
-  padding:var(--space-6) 0;border-top:1px solid var(--border-hairline)}
-.be-learn:last-child{border-bottom:1px solid var(--border-hairline)}
-.be-learn p{flex:1;min-width:260px;font:var(--type-body);color:var(--text-body)}
-.be-date-chip{flex:none;padding:3px 9px;border:1px dashed rgba(185,127,46,.5);
-  border-radius:var(--radius-xs);background:rgba(245,184,79,.1);
-  font:500 var(--fs-caption) var(--font-mono);color:var(--gold-900);white-space:nowrap;
-  text-decoration:none;transition:var(--transition-color)}
-a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
-
-/* --- komanda ------------------------------------------------------------- */
-.be-team{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--gap-wide)}
-.be-member{display:grid;grid-template-columns:112px minmax(0,1fr);gap:var(--gap-card);align-items:start}
-.be-member img{width:112px;aspect-ratio:1;object-fit:cover;border-radius:var(--radius-hair);
-  background:rgba(26,23,18,.06)}
-.be-member--l img{object-position:50% 12%;border:1px solid rgba(185,127,46,.35)}
-.be-member--d img{border:1px solid rgba(107,78,219,.30)}
-.be-member b{display:block;font:var(--fw-medium) var(--fs-body-md) var(--font-display);color:var(--text-heading)}
-.be-member small{font:var(--fs-caption) var(--font-mono);color:var(--text-meta)}
-.be-member div p{margin-top:8px;font:var(--fs-body-sm)/var(--lh-body) var(--font-body);color:var(--text-body)}
-.be-member-link a{font:var(--fs-meta) var(--font-mono);color:var(--link);text-decoration:none;
-  border-bottom:1px solid currentColor;padding-bottom:1px;transition:var(--transition-color)}
-.be-member-link a:hover{color:var(--link-hover)}
-.be-skills{margin-top:var(--space-4)}
-.be-skills p{padding:var(--space-5) 0;border-top:1px solid var(--border-hairline);
-  font:var(--type-body);color:var(--text-body)}
-.be-skills p:last-child{border-bottom:1px solid var(--border-hairline)}
-.be-skills b{font-weight:var(--fw-semibold);color:var(--text-heading)}
-
-/* --- ko ieškome ---------------------------------------------------------- */
-.be-seek{font:var(--fw-regular) var(--fs-body-lg)/var(--lh-body) var(--font-body);color:var(--text-body)}
-.be-seek b{font-weight:var(--fw-semibold);color:var(--text-heading)}
-.be-contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:var(--gap-grid);margin:var(--space-8) 0 0}
-.be-contact{padding:var(--pad-card-sm);border:1px solid var(--border-card);
-  border-radius:var(--radius-sm);background:var(--surface-card);box-shadow:var(--shadow-violet-edge)}
-.be-contact dt{font:var(--type-eyebrow);letter-spacing:var(--track-eyebrow-tight);
-  text-transform:uppercase;color:var(--eyebrow-on-paper)}
-.be-contact dd{margin:10px 0 0;font:var(--fs-meta)/var(--lh-mono) var(--font-mono);color:var(--text-heading)}
-.be-contact a{color:var(--link)}
-.be-contact a:hover{color:var(--link-hover)}
-
-/* --- produktai: CryptoSmith X --------------------------------------------- */
-/* The product band, to the product's own handoff: a band, not a card; two mono
-   links and no filled button (the hero spends the one the brand allows); the
-   facts are chips, because no inline separator survives a wrap. A second
-   product is another cs-grid under this one. */
-.cs-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--gap-wide)}
-.cs-lockup{display:inline-flex;align-items:center;gap:21px}
-.cs-plate{width:var(--mark-size-lg);height:var(--mark-size-lg);flex:none;display:grid;place-items:center;
-  border-radius:var(--radius-3xl);background:var(--ink-760);border:1px solid rgba(245,184,79,.34);
-  box-shadow:var(--shadow-mark-lg)}
-.cs-plate img{display:block;width:46px;height:46px}
-/* Shrink-to-fit around the wordmark, so the descriptor spreads to its width. */
-.cs-text{display:flex;flex-direction:column;gap:4px;min-width:0}
-.cs-name{font:var(--fw-semibold) 30px/1.05 var(--font-display);letter-spacing:-.01em;
-  white-space:nowrap;color:var(--text-heading)}
-.cs-name i{font-style:normal;color:var(--violet-700)}
-/* Subordinate line at ~0.4 of the name: width comes from tracking and the
-   gaps, never from bigger type. */
-.cs-desc{display:flex;justify-content:space-between;font:12px/1 var(--font-mono);
-  letter-spacing:.1em;text-transform:uppercase;color:var(--violet-700)}
-.cs-desc span{white-space:nowrap}
-.cs-lead{margin-top:var(--space-6);max-width:34ch;
-  font:var(--fw-regular) var(--fs-body-lg)/1.5 var(--font-body);color:var(--text-body)}
-.cs-facts{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2) 10px;
-  margin:var(--space-7) 0 0;padding:0;list-style:none;
-  font:var(--fw-regular) 11.5px/1.3 var(--font-mono);color:var(--text-heading)}
-.cs-facts li{white-space:nowrap;padding:6px 11px;border-radius:var(--radius-xs);
-  background:var(--surface-card);border:1px solid var(--border-hairline)}
-.cs-body{max-width:48ch;font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);
-  color:var(--text-body)}
-.cs-tagline{margin-top:var(--space-8);
-  font:var(--fw-regular) var(--fs-h3)/var(--lh-h3) var(--font-display);
-  letter-spacing:var(--track-h3);color:var(--text-heading)}
-/* The app's screens, one step quieter than the two links below: the label is
-   meta, the destinations are links. */
-.cs-features{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-top:var(--space-5);
-  font:var(--fs-meta) var(--font-mono);letter-spacing:.04em}
-.cs-features span{color:var(--text-meta)}
-.cs-features a{white-space:nowrap;color:var(--link);text-decoration:none;
-  border-bottom:1px solid currentColor;padding-bottom:1px;transition:var(--transition-color)}
-.cs-features a:hover{color:var(--link-hover)}
-
-.cs-links{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-top:var(--space-3);
-  font:var(--fs-meta) var(--font-mono);letter-spacing:.04em}
-.cs-links a{white-space:nowrap;color:var(--link);text-decoration:none;
-  border-bottom:1px solid currentColor;padding-bottom:1px;transition:var(--transition-color)}
-.cs-links a:hover{color:var(--link-hover)}
-
-/* --- vardas: the quiet split --------------------------------------------- */
-.be-section--name{padding-top:32px;padding-bottom:36px}
-.be-section--name > .be-eyebrow{margin-bottom:var(--space-4)}
+/* --- BLYN / AI ---------------------------------------------------------- */
 .be-split{display:grid;grid-template-columns:1fr 1fr;border-top:var(--rule-strong)}
-.be-syl{padding:18px 22px 20px}
+.be-syl{padding:var(--pad-card-lg)}
 .be-syl--blyn{border-right:1px solid var(--border-hairline);background:var(--tint-gold-fade)}
 .be-syl--ai{background:var(--tint-violet-fade)}
-.be-syl b{display:block;font:var(--fw-regular) 34px/1 var(--font-display);
+.be-syl b{display:block;font:var(--fw-regular) var(--fs-syllable)/var(--lh-flat) var(--font-display);
   letter-spacing:var(--track-h2)}
 .be-syl--blyn b{color:var(--gold-700)}
 .be-syl--ai b{color:var(--violet-700)}
-.be-syl-x{margin-top:10px;font:var(--fw-regular) var(--fs-body-lg)/1.35 var(--font-display);
+.be-syl-x{margin-top:var(--space-6);font:var(--fw-regular) var(--fs-h3)/1.35 var(--font-display);
   color:var(--text-heading)}
-.be-syl-d{margin-top:8px;font:var(--fs-body-sm)/var(--lh-body) var(--font-body);color:var(--text-muted)}
-.be-note{margin-top:var(--space-5);font:var(--fs-meta)/var(--lh-body) var(--font-body);
+.be-syl-d{margin-top:var(--space-3);font:var(--fs-body-sm)/var(--lh-body) var(--font-body);
   color:var(--text-muted)}
-.be-note--tight{margin-top:var(--space-1)}
+/* No ch cap on the three prose blocks that own a whole band or column: the
+   design system caps them at 82ch/96ch/46ch, which stops them well short of the
+   band and reads as an arbitrary line break rather than a measure. The 1160px
+   canvas above is what keeps the line from running away on a wide screen. */
+.be-note{margin-top:var(--space-6);font:var(--fs-meta)/var(--lh-body) var(--font-body);
+  color:var(--text-muted)}
 
-/* --- bendrija ir teisė ---------------------------------------------------- */
-.be-legal{display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);gap:0 var(--gap-wide);
-  padding:40px var(--be-pad-x);border-bottom:1px solid var(--border-hairline);background:var(--surface-card)}
+/* --- the two instances -------------------------------------------------- */
+.be-coins{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:var(--gap-section);
+  align-items:center;padding:52px var(--be-pad-x);border-bottom:1px solid var(--border-hairline);
+  background:var(--paper-000)}
+.be-coins h2{margin:var(--gap-stack) 0 0;font:var(--type-h2);letter-spacing:var(--track-h2)}
+.be-coins-lead{margin-top:var(--fs-meta);
+  font:var(--fs-body-md)/var(--lh-body) var(--font-body);color:var(--text-body)}
+.be-coins-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-inline)}
+/* The coin marks belong to the two members, not to the brand: never recoloured. */
+.be-coin{display:flex;flex-direction:column;align-items:flex-start;gap:var(--gap-inline);
+  padding:var(--pad-card-sm);border-radius:var(--radius-sm);background:var(--paper-000);
+  text-decoration:none;min-width:0}
+.be-coin img{width:44px;height:44px;flex:none}
+.be-coin b{display:block;font:var(--fw-semibold) 16px var(--font-display);letter-spacing:.02em}
+.be-coin small{font:11.5px var(--font-mono);color:var(--text-meta)}
+.be-coin--luko{border:1px solid var(--luko-line)}
+.be-coin--luko b{color:var(--luko-label)}
+.be-coin--byko{border:1px solid var(--byko-line)}
+.be-coin--byko b{color:var(--byko-label)}
+
+/* --- registry + members ------------------------------------------------- */
+.be-legal{display:grid;grid-template-columns:var(--grid-split);gap:0 var(--gap-wide);
+  padding:var(--section-y) var(--be-pad-x);background:var(--surface-card)}
+/* The vertical gradient divider is used only where the two columns map to the
+   two axes: registry (measured fact) beside the members (the people). */
 .be-legal-div{background:var(--gradient-divider-v)}
 .be-legal .be-eyebrow{display:block;margin-bottom:var(--space-7)}
 .be-reg{display:grid;grid-template-columns:auto 1fr;gap:13px var(--space-8);margin:0;
   font:var(--fs-meta) var(--font-mono)}
 .be-reg dt{color:var(--text-meta)}
 .be-reg dd{margin:0;color:var(--text-heading)}
-.be-akt{font:var(--type-body);color:var(--text-body)}
-.be-akt-links{margin-top:var(--space-3);font:var(--fs-meta) var(--font-mono)}
-.be-akt-links a{color:var(--link);text-decoration:none;border-bottom:1px solid currentColor;
-  padding-bottom:1px;transition:var(--transition-color)}
-.be-akt-links a:hover{color:var(--link-hover)}
-.be-akt-legal{margin-top:var(--space-7);padding-top:var(--space-5);
-  border-top:1px solid var(--border-hairline);font:var(--fs-meta)/var(--lh-body) var(--font-mono);
-  color:var(--text-meta)}
+/* The founding act, in the same registry voice as the rows above it. */
+.be-reg-doc{margin-top:var(--space-7);padding-top:var(--space-5);
+  border-top:1px solid var(--border-hairline);font:var(--fs-meta) var(--font-mono)}
+.be-members{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-grid)}
+.be-member img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius-hair);
+  background:rgba(26,23,18,.06)}
+/* Lukas' frame is dropped: a centred crop cuts the top of his head. */
+.be-member--l img{object-position:50% 12%;border:1px solid rgba(185,127,46,.35)}
+.be-member--d img{border:1px solid rgba(107,78,219,.30)}
+.be-member b{display:block;margin-top:var(--space-3);
+  font:var(--fw-medium) var(--fs-body-md) var(--font-display);color:var(--text-heading)}
+.be-member small{font:var(--fs-caption) var(--font-mono);color:var(--text-meta)}
 
-/* --- social links: icon tiles ---------------------------------------------- */
-.be-social{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-.be-social a{display:inline-flex;align-items:center;justify-content:center;
-  width:44px;height:44px;border:1px solid var(--border-card);border-radius:var(--radius-sm);
-  color:var(--link);transition:color .15s ease,border-color .15s ease,background .15s ease}
-.be-social a:hover{color:var(--link-hover);border-color:var(--border-violet-strong);
-  background:var(--surface-raised)}
-.be-foot-social{display:flex;gap:10px;margin-top:var(--space-6)}
-.be-foot-social a{display:inline-flex;align-items:center;justify-content:center;
-  width:44px;height:44px;border:1px solid var(--border-card-on-ink);border-radius:var(--radius-sm);
-  color:var(--text-meta-on-ink);text-decoration:none;
-  transition:color .15s ease,border-color .15s ease}
-.be-foot-social a:hover{color:var(--text-on-ink);border-color:var(--border-hairline-on-ink)}
-
-/* --- partner programmes ---------------------------------------------------- */
-/* A static list rather than the .tr-lane marquee: the block sits inside a text
-   section, where a moving lane would fight the contacts below it. */
-.pt-block{margin-top:var(--space-9)}
-.pt-block > .be-eyebrow{display:block;margin-bottom:var(--space-3)}
-.pt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:0 var(--gap-wide);margin-top:var(--space-6)}
-/* Rules sit on top of each row, not under it: with an odd count the two columns
-   end at different heights, and trailing rules would dangle mid-air. */
-.pt-item{display:flex;align-items:center;gap:14px;padding:14px 0;
-  border-top:1px solid var(--border-hairline)}
-/* A fixed square — a variable-width plate (as in .tr-mono) would ragged-indent
-   the text of the rows beneath it. */
-.pt-plate{width:40px;min-width:40px;height:40px;flex:none;display:grid;place-items:center;padding:0;
-  border:1px solid var(--border-hairline);border-radius:var(--radius-xs);
-  background:var(--surface-page);
-  font:var(--fw-medium) 12px/1 var(--font-mono);letter-spacing:.06em;color:var(--text-heading)}
-.pt-plate img{display:block;height:24px;width:auto;max-width:26px;object-fit:contain}
-.pt-plate--word{font-size:10px;letter-spacing:.02em}
-.pt-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
-.pt-name{font:var(--fw-regular) 17px/1.2 var(--font-display);letter-spacing:-.005em;
-  color:var(--text-heading)}
-.pt-prog{font:var(--fs-caption)/var(--lh-body) var(--font-mono);color:var(--text-meta)}
-@media (max-width:760px){.pt-grid{grid-template-columns:1fr}}
-
-/* --- venues + stack ---------------------------------------------------------- */
-/* Venues is a static list, not a lane: the point of the block is the status
-   column and the 4/4/8 ratio, and a column that slides past cannot be read.
-   The marquee stays underneath it for the stack, where identity marks are all
-   a moving lane has to carry. */
-.vn-body{margin-top:var(--space-6);
-  font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);color:var(--text-body)}
-.vn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:0 var(--gap-wide);margin-top:var(--space-8)}
-/* Rule on top of each venue, never bottom: the columns end at different
-   heights and a trailing rule would dangle. */
-.vn-venue{padding:16px 0 18px;border-top:1px solid var(--border-hairline)}
-/* Marks share a height and nothing else — the lockups run 1:1 to 6.5:1, so a
-   fixed plate would either crush the wordmarks or ragged-indent the rows. */
-.vn-mark{display:flex;align-items:center;gap:11px;height:26px}
-.vn-nm{font:var(--fw-medium) 15px/1 var(--font-display);letter-spacing:-.005em;
-  color:var(--text-heading)}
-.vn-mark img{height:auto;width:auto;max-height:19px;max-width:150px}
-/* Two lockups set an endorsement line under the wordmark — Kraken's "by
-   PAYWARD" and Deribit's "by coinbase" — so only 65% and 52% of their
-   height is the name itself, measured rather than guessed. At the shared
-   19px cap both read far smaller than their neighbours. 26px is the most
-   the 26px row allows. */
-.vn-mark img[src*="kraken"],
-.vn-mark img[src*="deribit"]{max-height:26px}
-.vn-lines{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
-.vn-line{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.vn-p{font:var(--fs-caption)/1.4 var(--font-mono);letter-spacing:.06em;color:var(--text-meta)}
-.vn-sum{margin-top:var(--space-7);padding-top:var(--space-5);
-  border-top:1px solid var(--border-hairline);
-  font:var(--fw-medium) var(--fs-meta) var(--font-mono);letter-spacing:.08em;
-  text-transform:uppercase;color:var(--text-heading)}
-.vn-note{margin-top:var(--space-5)}
-.vn-link{margin-top:var(--space-5);font:var(--fs-meta) var(--font-mono);letter-spacing:.04em}
-.vn-stack{margin-top:var(--space-9);padding-top:var(--space-8);
-  border-top:1px solid var(--border-hairline)}
-.vn-stack > .be-eyebrow{display:block;margin-bottom:var(--space-3)}
-@media (max-width:760px){
-  .vn-grid{grid-template-columns:1fr}
-  .vn-link a{display:inline-block;padding:12px 0;margin:-12px 0}
-}
-
-/* In Venues the word itself carries the live state: the chip keeps its gold,
-   and only "Live" reads violet, so it stands out without restyling the badge. */
-.vn-grid .vn-on{color:var(--violet-700)}
-/* Synthetix's wordmark runs 13.8:1, so the shared 150px width cap would squeeze
-   it to about 11px tall; it needs more room than any other mark to read at all. */
-.vn-mark img[src*="synthetix"]{max-width:210px}
-
-/* --- venues: values that arrive from the API ------------------------------- */
-/* The chip keeps its last known text in the markup and hides it behind a
-   placeholder while the call is in flight. A crawler and a reader without
-   scripts still get real content, and a failed call falls back to it rather
-   than spinning for ever. */
-.vn-live{position:relative}
-.vn-live .vn-val{visibility:hidden}
-.vn-live::after{content:"";position:absolute;top:50%;left:50%;width:11px;height:11px;
-  margin:-6px 0 0 -6px;border:1.5px solid var(--border-hairline);
-  border-top-color:var(--text-meta);border-radius:50%;animation:vn-spin .75s linear infinite}
-.vn-sum.vn-live::after{left:6px;margin-left:0}
-@keyframes vn-spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){
-  .vn-live::after{animation:none;border-top-color:var(--border-hairline)}
-}
-
-/* --- footer + dialog ------------------------------------------------------ */
+/* --- footer ------------------------------------------------------------- */
 .be-foot{padding:var(--space-10) var(--be-pad-x) var(--space-11);background:var(--surface-ink)}
 .be-foot p{font:12.5px/var(--lh-body) var(--font-body);color:var(--text-meta-on-ink)}
 .be-foot-c{margin-top:var(--space-6);font:var(--fs-eyebrow) var(--font-mono);
   letter-spacing:var(--track-foot);text-transform:uppercase;color:var(--sand-600)}
+/* „Skaityti plačiau“ — same control as the live journal's footnote line: a gold
+   underlined word inside the sentence, not a button that looks like a button. */
 .be-more{margin-left:8px;padding:0;border:0;background:none;cursor:pointer;
   color:var(--link-on-ink);font:inherit;text-decoration:underline;text-underline-offset:3px;
   transition:var(--transition-color)}
 .be-more:hover{color:var(--link-on-ink-hover)}
-.be-more--paper{margin-left:0;color:var(--link)}
-.be-more--paper:hover{color:var(--link-hover)}
 
+/* --- disclaimer dialog -------------------------------------------------- */
+/* Native <dialog>: Esc, the focus trap and the backdrop are the browser's.
+   The card is paper, not ink. The journal's dialog is dark because that whole
+   page is dark; this is a light document page, where the design system allows
+   ink only as full-bleed bands (header, stat strip, footer) and specifies a
+   card as #FFFDF8 with a hairline at 6px and no drop shadow. A dark card here
+   would be the third surface on a document that is allowed two. */
 .be-modal{width:min(720px,100vw - 32px);max-height:82vh;padding:0;overflow:hidden;
   border:1px solid var(--border-card);border-radius:var(--radius-sm);
   background:var(--surface-card);color:var(--text-body);box-shadow:var(--shadow-violet-edge)}
+/* Warm ink at 55%, not black: the brand has no pure grey and no pure black scrim. */
 .be-modal::backdrop{background:rgba(26,23,18,.55)}
 .be-modal-head{display:flex;align-items:flex-start;gap:16px;padding:20px 22px 14px;
   border-bottom:1px solid var(--border-hairline)}
@@ -444,214 +242,84 @@ a.be-date-chip:hover{color:var(--gold-700);border-color:rgba(185,127,46,.8)}
   font:var(--fs-body-sm)/1.65 var(--font-body)}
 .be-modal-body p{margin:0 0 11px}
 .be-modal-body p:last-child{margin-bottom:0}
+/* Mono section labels, same register as the eyebrows on the page itself. */
 .be-modal-body h3{margin:var(--space-6) 0 8px;font:var(--fw-semibold) var(--fs-meta) var(--font-mono);
   letter-spacing:.1em;text-transform:uppercase;color:var(--text-meta)}
+.be-modal-body h3:first-child{margin-top:0}
 .be-modal-body ul{margin:0 0 11px;padding-left:20px}
 .be-modal-body li{margin-bottom:5px}
 .be-modal-body b{font-weight:var(--fw-semibold);color:var(--text-heading)}
 
 /* ==========================================================================
-   760px
+   760px. One column, full-width controls, 44px tap targets.
    ========================================================================== */
 @media (max-width:760px){
-  :root{--be-pad-x:18px;--be-pad-x-ink:18px;--be-bleed-ink:0px}
-  html{scroll-padding-top:78px}
-  .be-top{flex-wrap:nowrap;gap:var(--gap-inline)}
-  /* shrink the brand so brand + burger fit the narrow row */
-  .be-brand{min-width:0}
+  :root{--be-x:var(--mobile-x);--be-x-ink:var(--mobile-x);--be-rule-h:var(--rule-h)}
+  .be-top{padding:14px var(--mobile-x);flex-wrap:nowrap;position:relative}
+  .be-brand{min-height:var(--tap-min)}
   .be-mark{width:var(--mark-size-sm);height:var(--mark-size-sm);border-radius:var(--radius-md)}
   .be-mark svg{width:26px;height:26px}
-  .be-wordmark b{font-size:clamp(var(--fs-caption),4vw,var(--fs-body-md))}
+  .be-wordmark b{font-size:var(--fs-body-md)}
   .be-wordmark small{font-size:9px}
   .be-nav{display:none}
   .be-menu{display:block}
-  /* The LT/EN toggle stays in the row, between brand and burger — the switch
-     must be reachable without opening the menu. Tighter pills, tighter gaps,
-     and the wordmark gives way below ~375px so nothing collides. */
-  .be-lang{gap:var(--gap-inline-xs)}
-  .be-lang b,.be-lang a{min-width:var(--space-10);height:30px;padding:0 var(--gap-inline-xs)}
-  .be-rule{height:var(--rule-h)}
-  .be-hero-inner{padding-top:32px}
-  .be-lead{margin-top:var(--space-6);font-size:15.5px}
-  .be-cta{flex-direction:column;gap:10px}
+  .be-section{padding:var(--mobile-y) var(--be-x)}
+  .be-section > .be-eyebrow{margin-bottom:var(--space-7);
+    font-size:var(--fs-micro);letter-spacing:var(--track-eyebrow-tight)}
+  .be-hero-inner{padding:var(--mobile-y) var(--be-x) 0}
+  .be-hero > .be-hero-inner > .be-eyebrow{font-size:var(--fs-micro);letter-spacing:var(--track-eyebrow-tight)}
+  .be-hero-grid{display:block;margin-top:var(--space-7)}
+  .be-h1{font-size:34px;max-width:18ch}
+  .be-axes{gap:var(--space-6)}
+  .be-axis{max-width:none}
+  .be-cta{flex-direction:column;gap:10px;margin-top:var(--space-8)}
   .be-btn{height:var(--control-h-lg);width:100%;padding:0}
+  .be-status{margin-top:var(--space-7)}
   .be-curve{height:96px;margin-top:var(--space-7)}
-  .be-stat{padding:var(--space-5) 18px;border-left:0;border-top:1px solid var(--border-hairline-on-ink)}
-  .be-stats-note{padding:10px 18px 12px;text-align:left;letter-spacing:.06em}
-  .be-section{padding:32px var(--be-pad-x)}
-  .be-row{display:block}
-  .be-row h3{margin:8px 0 6px}
-  .be-row3{grid-template-columns:36px minmax(0,1fr);gap:8px 14px}
-  .be-row3 > span:last-child{grid-column:2;justify-self:start}
-  .sch-d{display:none}
-  .sch-m{display:block}
-  .be-scheme{overflow-x:visible}
-  .cs-grid{grid-template-columns:1fr;gap:var(--space-8)}
-  .cs-plate{width:var(--mark-size);height:var(--mark-size);
-    border-radius:var(--radius-lg);box-shadow:var(--shadow-mark)}
-  .cs-plate img{width:31px;height:31px}
-  .cs-lockup{gap:13px}
-  .cs-name{font-size:19px}
-  .cs-desc{font-size:9px}
-  .cs-lead{font-size:16px;max-width:none}
-  .cs-tagline{font-size:20px}
-  .cs-links a,.cs-features a{display:inline-block;padding:12px 0;margin:-12px 0}
-  .be-member{grid-template-columns:88px minmax(0,1fr)}
-  .be-member img{width:88px}
+  .be-stats{grid-template-columns:1fr}
+  .be-stat{padding:var(--space-5) var(--mobile-x)}
+  .be-stat + .be-stat{border-left:0;border-top:1px solid var(--border-hairline-on-ink)}
+  .be-row{display:block;padding:var(--space-6) 0}
+  .be-row-n{font-size:var(--fs-meta)}
+  .be-row h3{margin:8px 0;font-size:var(--fs-h4)}
+  .be-row p{font-size:var(--fs-body-sm)}
   .be-split{display:block}
+  .be-syl{padding:var(--space-6) 0 var(--space-7)}
   .be-syl--blyn{border-right:0;border-bottom:1px solid var(--border-hairline)}
-  .be-legal{display:block;padding:32px var(--be-pad-x)}
+  .be-syl b{font-size:40px}
+  .be-syl-x{margin-top:var(--gap-stack);font-size:17px}
+  .be-syl-d{margin-top:var(--space-2);font-size:var(--fs-meta)}
+  .be-coins{display:block;padding:var(--mobile-y) var(--be-x)}
+  .be-coins h2{font-size:var(--fs-h3)}
+  .be-coins-lead{font-size:var(--fs-body)}
+  .be-coins-grid{gap:10px;margin-top:var(--space-6)}
+  .be-coin{flex-direction:row;align-items:center;gap:13px;padding:var(--space-4);min-height:56px}
+  .be-coin img{width:30px;height:30px}
+  .be-coin b{font-size:var(--fs-body)}
+  .be-coin small{font-size:var(--fs-micro)}
+  /* One column: members, then the registry — the DOM order already reads that
+     way, and the gradient divider has no two columns left to divide. */
+  .be-legal{display:block;padding:var(--mobile-y) var(--be-x)}
+  .be-legal-reg{margin-top:var(--space-9);padding-top:var(--space-7);
+    border-top:1px solid var(--border-hairline)}
   .be-legal-div{display:none}
-  .be-legal-reg{margin-top:26px;padding-top:22px;border-top:1px solid var(--border-hairline)}
-  /* 44px tap targets for the mono links without moving the lines. */
-  .be-reg dd a,.be-akt-links a,.be-member-link a{display:inline-block;padding:12px 0;margin:-12px 0}
-  .be-foot{padding:var(--space-9) var(--be-pad-x) var(--space-10)}
+  .be-legal .be-eyebrow{margin-bottom:var(--space-6)}
+  .be-members{gap:var(--gap-stack)}
+  .be-member b{margin-top:10px;font-size:var(--fs-body)}
+  .be-member small{font-size:var(--fs-eyebrow)}
+  .be-reg{gap:var(--space-3) var(--space-5);font-size:var(--fs-caption)}
+  /* 44px hit area for the mail and act links without moving the mono rows. */
+  .be-reg dd a,.be-reg-doc a{display:inline-block;padding:14px 0;margin:-14px 0}
+  .be-reg-doc{margin-top:var(--space-5);padding-top:var(--space-4)}
+  .be-foot{padding:var(--space-9) var(--be-x) var(--space-10)}
+  .be-foot p{font-size:var(--fs-caption)}
+  .be-foot-c{font-size:var(--fs-micro)}
+  /* 44px tap target, on its own line so the sentence above keeps its rhythm. */
+  .be-more{display:inline-flex;align-items:center;min-height:var(--tap-min);margin:6px 0 0}
+  .be-modal-head{padding:16px 18px 12px}
+  .be-modal-body{padding:16px 18px 20px}
 }
 
 @media (prefers-reduced-motion:reduce){
   *{transition-duration:0.01ms !important}
 }
-
-/* Append verbatim to the end of site.css (before the two closing media queries is
-   not required — these rules carry their own breakpoints). */
-
-/* --- produktai: one product per slide ------------------------------------
-   The screenshot is the argument, so it gets the whole canvas; prev/next and
-   an "01 / 03" counter carry the paging. Native scroll-snap does the moving —
-   the buttons only nudge the track, so touch swipe works with no JS at all. */
-.pr-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
-  gap:12px 24px;margin-bottom:var(--space-7)}
-.pr-head .be-eyebrow{margin:0}
-.pr-nav{display:flex;align-items:center;gap:12px}
-.pr-count{font:var(--fs-meta) var(--font-mono);letter-spacing:.1em;color:var(--text-meta)}
-.pr-count b{color:var(--text-heading);font-weight:var(--fw-medium)}
-.pr-btn{width:44px;height:44px;display:grid;place-items:center;cursor:pointer;
-  border:1px solid var(--border-card);border-radius:var(--radius-xs);
-  background:var(--surface-card);color:var(--text-heading);
-  font:16px/1 var(--font-mono);transition:var(--transition-color)}
-.pr-btn:hover{border-color:var(--border-gold);color:var(--gold-700,#8A6320)}
-.pr-btn[disabled]{opacity:.32;cursor:default}
-.pr-track{display:flex;gap:var(--gap-wide);overflow-x:auto;scroll-snap-type:x mandatory;
-  scrollbar-width:none;-ms-overflow-style:none;opacity:1;transition:opacity .13s ease}
-.pr-track::-webkit-scrollbar{display:none}
-/* min-width:0 or a long path in the window bar sets the card's width instead of
-   the flex basis: one card then comes out wider than its siblings and the
-   scroll-snap rhythm breaks. .pr-url already ellipsises once the card holds. */
-.pr-card{flex:0 0 calc(50% - var(--gap-wide) / 2);min-width:0;scroll-snap-align:start;
-  display:flex;flex-direction:column;gap:var(--space-6)}
-.pr-shot{border:1px solid var(--border-card);border-radius:var(--radius-sm);overflow:hidden;
-  box-shadow:0 10px 30px rgba(26,23,18,.1)}
-.pr-bar{display:flex;align-items:center;padding:9px 12px;background:var(--ink-760);
-  border-bottom:1px solid var(--border-hairline-on-ink)}
-.pr-url{flex:1;min-width:0;padding:4px 10px;border-radius:var(--radius-xs);
-  background:rgba(255,253,248,.06);font:11.5px/1.3 var(--font-mono);letter-spacing:.03em;
-  color:var(--sand-400);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pr-frame{aspect-ratio:16/10;display:grid;place-items:center;gap:8px;
-  background:repeating-linear-gradient(135deg,#F3EDE1 0 12px,#EFE8DA 12px 24px);
-  text-align:center;padding:20px}
-.pr-frame b{font:var(--fw-medium) 15px/1.3 var(--font-mono);letter-spacing:.04em;color:var(--text-body)}
-.pr-frame span{font:12px/1.5 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--text-meta)}
-/* height:auto is load-bearing — the img carries width/height attributes, and
-   aspect-ratio only applies while one axis is auto. contain, not cover: the
-   teaser is a wide mono diagram, and a crop of it says nothing. */
-.pr-img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:contain;
-  background:#F3EDE1}
-.pr-body{max-width:62ch;font:var(--fw-regular) var(--fs-body-md)/var(--lh-body) var(--font-body);
-  color:var(--text-body)}
-.pr-dots{display:flex;gap:8px;margin-top:var(--space-6)}
-.pr-dot{width:26px;height:3px;border-radius:2px;background:var(--border-card)}
-.pr-dot[aria-current="true"]{background:var(--accent-gold)}
-
-/* --- trust: the record from before the company ---------------------------
-   Logos earned apart, so the band is quiet: monograms, one lane, and it
-   stops on hover and for reduced motion. Full-bleed with a fade at both
-   ends — a marquee that hits a hard edge reads as a bug. */
-/* The eyebrow's 22px bottom margin collapses over this one's top margin, so the
-   visible gap is the larger of the two — tightening the pair means lowering
-   both, not just the note. */
-#pasitikejimas .be-eyebrow{margin-bottom:var(--space-3)}
-.tr-note{margin-top:var(--space-3);
-  font:var(--fs-meta)/var(--lh-body) var(--font-mono);color:var(--text-meta)}
-.tr-row{margin:var(--space-8) calc(-1 * var(--be-pad-x)) 0;overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.tr-lane{display:flex;width:max-content;animation:tr-scroll 64s linear infinite}
-.tr-row:hover .tr-lane{animation-play-state:paused}
-.tr-set{display:flex;align-items:center;gap:46px;padding-right:46px}
-.tr-logo{display:flex;align-items:center;gap:12px;white-space:nowrap}
-/* The plate takes the logo's own proportion — widths run 1:1 to 3:1 — and
-   only the height is shared, so the lane stays on one baseline. */
-.tr-mono img{display:block;height:22px;width:auto;max-width:none}
-.tr-mono{min-width:40px;height:40px;flex:none;display:grid;place-items:center;padding:0 10px;
-  border:1px solid var(--border-hairline);border-radius:var(--radius-xs);
-  background:var(--surface-card);
-  font:var(--fw-medium) 13px/1 var(--font-mono);letter-spacing:.06em;color:var(--text-meta)}
-.tr-name{font:var(--fw-regular) 17px/1.2 var(--font-display);letter-spacing:-.005em;color:var(--text-heading)}
-.tr-name small{display:block;font:10.5px/1.4 var(--font-mono);letter-spacing:.1em;
-  text-transform:uppercase;color:var(--text-meta)}
-@keyframes tr-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.tr-lane{animation:none;flex-wrap:wrap;width:auto}
-  .tr-set{flex-wrap:wrap;gap:22px 46px}}
-@media (max-width:760px){
-  .pr-card{flex:0 0 100%}
-  .pr-btn{width:44px;height:44px}
-  .tr-mono{min-width:34px;height:34px;padding:0 8px}
-  .tr-mono img{height:19px}
-  .tr-name{font-size:15px}
-}
-
-/* Programme No. 1 runs long: its rows sit tighter than the page default so the
-   list reads as one block instead of four separated ones. */
-#programa .be-rows{margin-top:var(--space-5)}
-#programa .be-row{padding:10px 0}
-#programa .be-row-links{margin-top:8px}
-#programa .be-eyebrow--gap{margin-top:var(--space-6)}
-#programa .be-scheme{margin-top:var(--space-7)}
-#programa .be-question{margin-top:var(--space-7)}
-
-/* The three CryptoSmith X products share a prefix, so the lockup splits it:
-   mono prefix, the product word at display size, descriptor under it. */
-.pr-lock{display:flex;align-items:center;gap:18px}
-.pr-lock .cs-plate{width:56px;height:56px;border-radius:var(--radius-lg)}
-.pr-lock .cs-plate img{width:34px;height:34px}
-.pr-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
-.pr-pre{font:var(--fw-regular) 11px/1 var(--font-mono);letter-spacing:.16em;
-  text-transform:uppercase;color:var(--text-meta)}
-.pr-name{font:var(--fw-semibold) 26px/1.05 var(--font-display);letter-spacing:-.01em;
-  color:var(--text-heading)}
-.pr-name i{font-style:normal;color:var(--violet-700)}
-/* Two lines reserved: the roles differ in length, and a wrap on one card
-   must not push its screenshot below the neighbour's. */
-.pr-role{min-height:2.6em;font:var(--fw-regular) 11px/1.3 var(--font-mono);letter-spacing:.09em;
-  text-transform:uppercase;color:var(--violet-700)}
-.pr-for{margin-top:var(--space-3);font:var(--fs-meta)/var(--lh-body) var(--font-mono);
-  color:var(--text-meta)}
-.pr-for b{font-weight:var(--fw-medium);color:var(--text-heading)}
-.pr-pipe{margin-top:var(--space-7);padding-top:var(--space-5);
-  border-top:1px solid var(--border-hairline);
-  font:var(--fs-meta)/var(--lh-body) var(--font-mono);letter-spacing:.04em;color:var(--text-meta)}
-.pr-pipe b{font-weight:var(--fw-medium);color:var(--text-heading)}
-@media (max-width:760px){.pr-name{font-size:22px}}
-
-/* Click a product shot: the same file, opened as big as the window allows.
-   Native <dialog>, so Esc and the focus trap come from the browser. */
-.pr-img{cursor:zoom-in}
-.pr-zoom{width:min(96vw,1900px);max-width:96vw;max-height:94vh;padding:0;
-  overflow:hidden;border:1px solid var(--border-card);border-radius:var(--radius-sm);
-  background:var(--surface-card);box-shadow:var(--shadow-violet-edge)}
-.pr-zoom::backdrop{background:rgba(26,23,18,.72)}
-.pr-zoom-in{position:relative;display:block}
-.pr-zoom img{display:block;width:100%;height:auto;max-height:94vh;object-fit:contain;cursor:zoom-out}
-.pr-zoom-x{position:absolute;top:12px;right:12px;width:40px;height:40px;display:grid;
-  place-items:center;cursor:pointer;border:1px solid var(--border-card);border-radius:var(--radius-xs);
-  background:var(--surface-card);color:var(--text-heading);font:14px/1 var(--font-mono)}
-.pr-zoom-x:hover{border-color:var(--border-gold)}
-
-/* The marquee shows third-party marks, so the band states plainly what they do
-   and do not mean. Quieter than .tr-note above the lane, and full band width —
-   a ch cap here breaks the line mid-band and reads as truncation. */
-.tr-note--legal{margin-top:var(--space-5);color:var(--text-meta);opacity:.78}
-
-/* .pr-txt is a flex column, so a chip would stretch to the card width and sit
-   flush against the role line. The only rule this patch adds. */
-.pr-txt .be-status-chip{margin-top:.5rem;align-self:flex-start}

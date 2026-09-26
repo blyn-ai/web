@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>BlynAI — L&amp;D Finance Lab · infrastructure for autonomous financial systems</title>
-<meta name="description" content="EU-registered engineering company. CryptoSmith X collects derivatives-market data over each venue’s own API and keeps it the way it was seen — gaps as gaps, every figure with its source and time. Live comparison open; stored history on request. Own funds only, no client money.">
+<title>MB „BlynAI“ — algoritminės prekybos tyrimų bendrija</title>
+<meta name="description" content="MB „BlynAI“ — mažoji bendrija, kurianti algoritminės prekybos programinę įrangą. Prekiaujame savo lėšomis, skelbiame kiekvieną sprendimą, platiname kodą atvirai. Finansinių paslaugų neteikiame.">
 <link rel="canonical" href="https://blynai.eu/">
-<link rel="alternate" hreflang="en" href="https://blynai.eu/">
-<link rel="alternate" hreflang="lt" href="https://blynai.eu/lt/">
-<link rel="alternate" hreflang="x-default" href="https://blynai.eu/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://blynai.eu/">
-<meta property="og:site_name" content="BlynAI">
-<meta property="og:title" content="BlynAI — L&amp;D Finance Lab · infrastructure for autonomous financial systems">
-<meta property="og:description" content="EU-registered engineering company. CryptoSmith X collects derivatives-market data over each venue’s own API and keeps it the way it was seen — gaps as gaps, every figure with its source and time. Live comparison open; stored history on request. Own funds only, no client money.">
-<meta property="og:image" content="https://blynai.eu/assets/og-card-company.png">
+<meta property="og:site_name" content="MB „BlynAI“">
+<meta property="og:title" content="MB „BlynAI“ — algoritminės prekybos tyrimų bendrija">
+<meta property="og:description" content="Algoritminė prekyba kriptovaliutomis. Tyrimai, inovacijos, sprendimai.">
+<meta property="og:image" content="https://blynai.eu/og.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="BlynAI — infrastructure for autonomous financial systems. EU-registered engineering company, Vilnius, Lithuania.">
-<meta property="og:locale" content="en_US">
-<meta property="og:locale:alternate" content="lt_LT">
+<meta property="og:image:alt" content="BlynAI Capital — algoritminė prekyba kriptovaliutomis">
+<meta property="og:locale" content="lt_LT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BlynAI — L&amp;D Finance Lab · infrastructure for autonomous financial systems">
-<meta name="twitter:description" content="Infrastructure for autonomous financial systems, tested in live markets with the company's own capital. Every decision is recorded, the code is open. Own funds only; no client money.">
-<meta name="twitter:image" content="https://blynai.eu/assets/og-card-company.png">
 
 <meta name="theme-color" content="#050505">
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -34,12 +27,18 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 
-<link rel="stylesheet" href="ds/tokens/fonts.cdn.css">
-<link rel="stylesheet" href="ds/styles.css?v=7b83c1d0">
-<link rel="stylesheet" href="site.css?v=7b83c1d0">
+<!-- Fonts are self-hosted (see ds/tokens/fonts.css). Preloaded because they sit
+     two @import levels deep and every headline on the page is Space Grotesk. -->
+<link rel="preload" href="fonts/space-grotesk-300-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-300-700-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-sans-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="ds/styles.css">
+<link rel="stylesheet" href="site.css">
 <noscript><style>
-  /* No JavaScript: the dialog cannot open, so the full disclaimer unfolds into
-     the footer band; the telemetry strip keeps its dashes. */
+  /* No JavaScript: the dialog cannot be opened, so it unfolds into the footer
+     band instead of hiding a compliance text. Ink colours, since it lands on ink. */
   .be-more{display:none}
   .be-modal{display:block;position:static;width:auto;max-width:none;max-height:none;
     margin:0;border:0;border-radius:0;box-shadow:none;background:var(--surface-ink);
@@ -53,9 +52,8 @@
 </head>
 <body>
 
-<div class="be-topbar">
 <header class="be-top">
-  <a class="be-brand" href="./" title="L&amp;D — Learn &amp; Develop">
+  <a class="be-brand" href="./">
     <span class="be-mark">
       <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <defs><linearGradient id="mark-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD987"/><stop offset="1" stop-color="#F5B84F"/></linearGradient></defs>
@@ -66,47 +64,49 @@
       </svg>
     </span>
     <span class="be-wordmark">
-      <b>Blyn<i>AI</i></b>
-      <small><span>L</span><span>&amp;</span><span>D</span><i></i><span>F</span><span>I</span><span>N</span><span>A</span><span>N</span><span>C</span><span>E</span><i></i><span>L</span><span>A</span><span>B</span></small>
+      <b>Blyn<i>AI</i> Capital</b>
+      <small>L&amp;D Finance Lab</small>
     </span>
   </a>
-  <nav class="be-nav" aria-label="Page sections">
-    <a href="#metodas">What we do</a>
-    <a href="#produktai">CryptoSmith X</a>
-    <a href="#infrastruktura">Venues</a>
-    <a href="#programa">Programme</a>
-    <a href="#komanda">Team</a>
-    <a href="#kontaktai">Contact</a>
+  <nav class="be-nav" aria-label="Puslapio skyriai">
+    <a href="#vardas">Apie</a>
+    <a href="#tyrimai">Tyrimai</a>
+    <a href="#nariai">Nariai</a>
+    <a href="#rekvizitai">Kontaktai</a>
   </nav>
-  <div class="be-lang" role="group" aria-label="Language">
-    <a href="lt/" hreflang="lt" lang="lt">LT</a><b aria-current="true">EN</b>
-  </div>
   <details class="be-menu">
-    <summary aria-label="Menu"><span class="be-burger"><i></i><i></i><i></i></span></summary>
-    <nav class="be-menu-panel" aria-label="Page sections">
-      <a href="#metodas">What we do</a>
-      <a href="#produktai">CryptoSmith X</a>
-      <a href="#infrastruktura">Venues</a>
-      <a href="#programa">Programme</a>
-      <a href="#komanda">Team</a>
-      <a href="#kontaktai">Contact</a>
+    <summary aria-label="Meniu"><span class="be-burger"><i></i><i></i><i></i></span></summary>
+    <nav class="be-menu-panel" aria-label="Puslapio skyriai">
+      <a href="#vardas">Apie</a>
+      <a href="#tyrimai">Tyrimai</a>
+      <a href="#nariai">Nariai</a>
+      <a href="#rekvizitai">Kontaktai</a>
     </nav>
   </details>
 </header>
 <div class="be-rule"></div>
-</div>
 
 <main>
 
   <section class="be-hero">
     <div class="be-hero-inner">
-      <p class="be-eyebrow">EU-registered company &#183; Vilnius, Lithuania</p>
-      <h1 class="be-h1">Infrastructure for autonomous financial systems.</h1>
-      <p class="be-sub be-sub--hero"><span class="blyn-grad">Market data that remembers how it looked at the time.</span></p>
-      <p class="be-lead">MB „Blynai“ is an EU-registered engineering company. We collect derivatives-market data from <span data-cov-live>19</span> venues over their own APIs and keep it the way it was seen: every figure with its source and the time it arrived, gaps left as gaps, nothing reconstructed afterwards. That store is CryptoSmith X Studio. Live figures are open; stored history is available on request. Our own trading programme runs on the same data &#8212; that is how we test it.</p>
-      <div class="be-cta">
-        <a class="be-btn be-btn--pri" href="#produktai">CryptoSmith X</a>
-        <a class="be-btn be-btn--sec" href="https://cryptosmithx.blynai.eu/studio" target="_blank" rel="noopener">Live comparison</a>
+      <p class="be-eyebrow">Mažoji bendrija &#183; įsteigta Lietuvoje</p>
+      <div class="be-hero-grid">
+        <div>
+          <h1 class="be-h1">Programa prekiauja. <span class="blyn-grad">Mes tyrinėjame, kaip.</span></h1>
+          <div class="be-axes">
+            <p class="be-axis be-axis--blyn"><b>BLYN</b><br>Blockchain Ledger Yield Numerics — grandinė, žurnalas, pelno kreivė.</p>
+            <p class="be-axis be-axis--ai"><b>AI</b><br>Algorithmic Inference — išvada ir orderis, priimtas taisyklių.</p>
+          </div>
+          <div class="be-cta">
+            <a class="be-btn be-btn--pri" href="https://blynai.meetluko.eu">Gyvas žurnalas</a>
+            <a class="be-btn be-btn--sec" href="https://github.com/bykovas/trading-bot">GitHub &#183; atvirasis kodas</a>
+          </div>
+        </div>
+        <aside class="be-status">
+          <p class="be-eyebrow">Būsena</p>
+          <p>Botai veikia be pertraukos.<br>Žurnalas atviras.<br>Klientų lėšų — nėra ir nebus.</p>
+        </aside>
       </div>
     </div>
     <svg class="be-curve" viewBox="0 0 1200 190" preserveAspectRatio="none" aria-hidden="true">
@@ -119,553 +119,150 @@
     </svg>
   </section>
 
-  <!-- Live telemetry, from the same /api/public-stats the journals serve.
-       Values render as dashes until the fetch answers; the strip never blocks
-       the page and never invents a number. -->
-  <section class="be-statband" aria-label="Live telemetry">
-    <dl class="be-stats">
-      <div class="be-stat"><dt>Last cycle</dt><dd><span class="be-chip" id="tl-cycle">&#8212;</span></dd></div>
-      <div class="be-stat"><dt>Testbed live since</dt><dd><span class="be-chip" id="tl-since">2026-07-02</span></dd></div>
-      <div class="be-stat"><dt>Markets monitored</dt><dd><span class="be-chip" id="tl-markets">167</span></dd></div>
-      <div class="be-stat"><dt>System decisions logged</dt><dd><span class="be-chip" id="tl-decisions">5,278,794</span></dd></div>
-    </dl>
-    <p class="be-stats-note">Measured <span id="tl-ts">2026-09-16 10:06 &#183; snapshot</span> &#183; one decision = one pair scored in one cycle &#183; the same telemetry that feeds the journal</p>
-  </section>
+  <dl class="be-stats">
+    <div class="be-stat"><dt>Teisinė forma</dt><dd>Mažoji bendrija</dd></div>
+    <div class="be-stat"><dt>Nariai</dt><dd>2 &#183; po 50 %</dd></div>
+    <div class="be-stat"><dt>Kodo licencija</dt><dd>Atvirasis kodas</dd></div>
+  </dl>
 
-
-
-
-
-
-
-
-
-
-  <section class="be-section be-section--raised" id="metodas">
-    <p class="be-eyebrow">What we do</p>
-    <div class="be-verbs">
-      <p class="be-verb be-verb--1"><b>We collect</b>market data from <span data-cov-live>19</span> venues over their own APIs, every figure with the time it was seen.</p>
-      <p class="be-verb be-verb--2"><b>We keep</b>gaps as gaps, a source on every row, each venue on its own clock.</p>
-      <p class="be-verb be-verb--3"><b>We serve</b>live comparison open now; a free read-only API open now; stored history on request.</p>
-      <p class="be-verb be-verb--4"><b>We use it ourselves</b>our own trading programme runs on the same data. That is the test.</p>
-    </div>
-  </section>
-  <section class="be-section" id="problema">
-    <p class="be-eyebrow">The problem</p>
-    <p class="be-seek">Almost every claim in algorithmic trading is unverifiable. Results are screenshots; backtests rest on data nobody can reconstruct as it looked at the time; the code that trades is rarely the code that was tested. We build the opposite by construction: one traceable path from market data to execution to evidence &#8212; and we run it on our own money first, publishing what we find.</p>
-  </section>
-  <!-- Products: one per slide, the screenshot at full canvas width. Prev/next
-       nudge a scroll-snap track, so swipe keeps working without the script. -->
-  <section class="be-section be-section--raised" id="produktai">
-    <div class="pr-head">
-      <p class="be-eyebrow">What we build &#183; CryptoSmith X</p>
-      <div class="pr-nav">
-        <span class="pr-count" id="prCount"><b>01</b> / 03</span>
-        <button type="button" class="pr-btn" id="prPrev" aria-label="Previous product">&#8592;</button>
-        <button type="button" class="pr-btn" id="prNext" aria-label="Next product">&#8594;</button>
-      </div>
-    </div>
-    <div class="pr-track" id="prTrack">
-      <article class="pr-card" aria-label="Product 1 of 3">
-        <span class="pr-lock">
-          <span class="cs-plate"><svg viewBox="4.6 12.43 30.8 15.14" width="42" height="21" fill="none" aria-hidden="true" style="display:block;color:#BE0069"><path d="M20 23.54 L15.97 27.57 L12.43 24.03 L16.46 20 L12.43 15.97 L15.97 12.43 L20 16.46 L24.03 12.43 L27.57 15.97 L23.54 20 L27.57 24.03 L24.03 27.57 Z" fill="currentColor"></path><circle cx="6.6" cy="20" r="2" fill="currentColor" opacity=".55"></circle><circle cx="33.4" cy="20" r="2" fill="currentColor" opacity=".55"></circle></svg></span>
-          <span class="pr-txt">
-            <span class="pr-pre">CryptoSmith X</span>
-            <b class="pr-name">Studio</b>
-            <span class="pr-role">Market data &#183; collection &#183; history</span>
-            <span class="be-status-chip be-status-chip--live">Collecting since <span data-cov-since>2026-09-05</span> &#183; <span data-cov-live>19</span> venues &#183; free read-only API</span>
-          </span>
-        </span>
-        <div class="pr-shot">
-          <div class="pr-bar"><span class="pr-url">cryptosmithx.blynai.eu/studio</span></div>
-          <img class="pr-img" src="assets/csx-studio-teaser-light.png" alt="CryptoSmith X Studio &#8212; seven venues quoting one instrument, every figure carrying the age of the call that wrote it" loading="lazy" width="2023" height="1270">
-        </div>
-        <div>
-          <p class="pr-body">Studio collects perpetual and spot market data from every live venue listed under Venues, over each venue’s own API and keeps it the way it was seen: ticker, funding, open interest, order-book depth by band, 1-minute candles &#8212; every figure with its source and the time it arrived, gaps left as gaps. Instruments are discovered automatically and keep their dates. Live figures are open through a free read-only API that needs no key; stored history is available on request.</p>
-          <p class="pr-for"><b>For</b> &#8212; developers and quantitative researchers who need multi-exchange market data a backtest can stand on.</p>
-        </div>
-        <p class="cs-links">
-          <a href="https://cryptosmithx.blynai.eu/studio">cryptosmithx.blynai.eu/studio</a>
-          <a href="https://cryptosmithx.blynai.eu/scalar/v1">API reference</a>
-          <a href="https://github.com/blyn-ai/CryptoSmith-X">GitHub &#183; open source</a>
-          <a href="mailto:hello@blynai.eu?subject=CryptoSmith%20X%20data">Request data</a>
-        </p>
-      </article>
-      <article class="pr-card" aria-label="Product 2 of 3">
-        <span class="pr-lock">
-          <span class="cs-plate"><svg viewBox="4.6 12.43 30.8 15.14" width="42" height="21" fill="none" aria-hidden="true" style="display:block;color:#BE0069"><path d="M20 23.54 L15.97 27.57 L12.43 24.03 L16.46 20 L12.43 15.97 L15.97 12.43 L20 16.46 L24.03 12.43 L27.57 15.97 L23.54 20 L27.57 24.03 L24.03 27.57 Z" fill="currentColor"></path><circle cx="6.6" cy="20" r="2" fill="currentColor" opacity=".55"></circle><circle cx="33.4" cy="20" r="2" fill="currentColor" opacity=".55"></circle></svg></span>
-          <span class="pr-txt">
-            <span class="pr-pre">CryptoSmith X</span>
-            <b class="pr-name">Arena</b>
-            <span class="pr-role">Venues compared on one instrument &#183; live</span>
-            <span class="be-status-chip be-status-chip--live">Running</span>
-          </span>
-        </span>
-        <div class="pr-shot">
-          <div class="pr-bar"><span class="pr-url">cryptosmithx.blynai.eu/arena</span></div>
-          <img class="pr-img" src="assets/csx-arena-teaser.png" alt="CryptoSmith X Arena &#8212; measurement field, drawdown depth and the verified leaderboard" loading="lazy" width="2023" height="1270">
-        </div>
-        <div>
-          <p class="pr-body">One instrument, every venue that quotes it, side by side: bid, ask, spread, sizes, mark, index, funding with its interval, open interest, depth by band &#8212; each figure with the age of the call that wrote it, venues ranked best and worst where the comparison is fair. A second mode, for strategy telemetry, follows when Agent journals exist.</p>
-          <p class="pr-for"><b>For</b> &#8212; anyone choosing where to trade or measure a market &#8212; and anyone checking that our collection is alive.</p>
-        </div>
-        <p class="cs-links">
-          <a href="https://cryptosmithx.blynai.eu/arena">cryptosmithx.blynai.eu/arena</a>
-        </p>
-      </article>
-      <article class="pr-card" aria-label="Product 3 of 3">
-        <span class="pr-lock">
-          <span class="cs-plate"><svg viewBox="4.6 12.43 30.8 15.14" width="42" height="21" fill="none" aria-hidden="true" style="display:block;color:#BE0069"><path d="M20 23.54 L15.97 27.57 L12.43 24.03 L16.46 20 L12.43 15.97 L15.97 12.43 L20 16.46 L24.03 12.43 L27.57 15.97 L23.54 20 L27.57 24.03 L24.03 27.57 Z" fill="currentColor"></path><circle cx="6.6" cy="20" r="2" fill="currentColor" opacity=".55"></circle><circle cx="33.4" cy="20" r="2" fill="currentColor" opacity=".55"></circle></svg></span>
-          <span class="pr-txt">
-            <span class="pr-pre">CryptoSmith X</span>
-            <b class="pr-name"><i>Agent</i></b>
-            <span class="pr-role">Strategy execution &#183; self-hosted trading environment</span>
-            <span class="be-status-chip be-status-chip--plan">Prototype &#183; the previous generation runs live</span>
-          </span>
-        </span>
-        <div class="pr-shot">
-          <div class="pr-bar"><span class="pr-url">cryptosmithx.blynai.eu/agent</span></div>
-          <img class="pr-img" src="assets/csx-agent-teaser.png" alt="CryptoSmith X Agent &#8212; market in, strategy deciding, open position and equity" loading="lazy" width="2023" height="1270">
-        </div>
-        <div>
-          <p class="pr-body">An isolated execution environment being built to turn trading logic into real orders. The intended workflow connects an operator&#8217;s own API keys, strategy and risk rules to Studio market data, execution on perpetual futures and continuous position, margin and P&amp;L telemetry.</p>
-          <p class="pr-for"><b>For</b> &#8212; traders who want an execution engine that never pauses and never has a mood.</p>
-        </div>
-        <p class="cs-links">
-          <a href="https://cryptosmithx.blynai.eu/agent">cryptosmithx.blynai.eu/agent</a>
-          <a href="https://github.com/blyn-ai/CryptoSmith-X">GitHub &#183; open source</a>
-        </p>
-      </article>
-    </div>
-    <div class="pr-dots" id="prDots" aria-hidden="true">
-      <span class="pr-dot" aria-current="true"></span>
-      <span class="pr-dot"></span>
-      <span class="pr-dot"></span>
-    </div>
-    <p class="pr-pipe"><b>Studio</b> collects, <b>Arena</b> compares, <b>Agent</b> trades on it. Status is stated on each card.</p>
-  </section>
-  <!-- The record from before the company: logos the founders earned at other
-       companies, apart. One quiet lane, paused on hover. -->
-  <section class="be-section" id="infrastruktura" aria-label="Venues and infrastructure">
-      <p class="be-eyebrow">Venues &#183; exchange coverage</p>
-      <h2 class="be-h2">Venues</h2>
-      <p class="be-sub vn-live" data-sub><span class="vn-val">19 venues are collecting now. 3 more are queued.</span></p>
-      <p class="vn-body">Every venue prices the same instrument differently, and the difference is the data. We read each venue over its own API &#8212; WebSocket where the venue offers a usable one, REST where it does not &#8212; and write what we saw with the time we saw it. Nothing is averaged across venues or reconstructed later; a figure we did not measure stays empty.</p>
-      <div class="vn-grid" data-venues>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/hyperliquid.svg" alt="Hyperliquid" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-05</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/kraken.svg" alt="Kraken" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-05</span></span></li>
-          <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp vn-live"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/weex.svg" alt="WEEX" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-05</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/binance.svg" alt="" loading="lazy"><b class="vn-nm">Binance</b></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-07</span></span></li>
-          <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/avantis.svg" alt="Avantis" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-11</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/bitget.svg" alt="Bitget" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/bybit.svg" alt="Bybit" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-          <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><b class="vn-nm">Coinbase International</b></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/gate.svg" alt="Gate" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/mexc.svg" alt="MEXC" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/okx.svg" alt="OKX" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-12</span></span></li>
-          <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/dydx.svg" alt="dYdX" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/gmx.svg" alt="" loading="lazy"><b class="vn-nm">GMX</b></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><b class="vn-nm">Nado</b></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/synthetix.svg" alt="Synthetix" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-13</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/aster.svg" alt="Aster" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Perpetuals</span><span class="be-status-chip be-status-chip--live vn-live"><span class="vn-val"><span class="vn-on">Live</span> &#183; since 2026-09-16</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/coinbase.svg" alt="Coinbase" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Spot</span><span class="be-status-chip be-status-chip--hyp vn-live"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      <div class="vn-venue">
-        <span class="vn-mark"><img src="assets/venues/deribit.svg" alt="Deribit" loading="lazy"></span>
-        <ul class="vn-lines">
-          <li class="vn-line"><span class="vn-p">Options</span><span class="be-status-chip be-status-chip--hyp vn-live"><span class="vn-val">Planned</span></span></li>
-        </ul>
-      </div>
-      </div>
-      <p class="vn-sum vn-live" data-sum><span class="vn-val">19 live &#183; 3 planned &#183; 750 instruments monitored</span></p>
-      <p class="tr-note vn-note">Live means writing to the database today, since the date shown. Planned means in the queue; the order can change. <span data-trades>Trades are collected on 17 of the 19 live venues.</span></p>
-      <p class="vn-link"><a href="https://cryptosmithx.blynai.eu/studio" target="_blank" rel="noopener">See the live comparison &#8594;</a></p>
-      <div class="vn-stack">
-        <p class="be-eyebrow">The stack it runs on</p>
-        <p class="tr-note">The platform, the data store and the infrastructure the systems run on.</p>
-<div class="tr-row">
-        <div class="tr-lane">
-        <span class="tr-set">
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/dotnet.svg" alt=".NET" loading="lazy"></span><span class="tr-name">.NET<small>PLATFORM</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/postgresql.svg" alt="PostgreSQL" loading="lazy"></span><span class="tr-name">PostgreSQL<small>DECISION LOG</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/docker.svg" alt="Docker" loading="lazy"></span><span class="tr-name">Docker<small>CONTAINERS</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/contabo.svg" alt="Contabo" loading="lazy"></span><span class="tr-name">Contabo<small>VPS HOSTING</small></span></span>
-        <span class="tr-logo"><span class="tr-name">Cloudflare<small>WEB &#183; PAGES &amp; WORKERS</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/github.svg" alt="GitHub" loading="lazy"></span><span class="tr-name">GitHub<small>CODE &#183; CI/CD</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/sentry.svg" alt="Sentry" loading="lazy"></span><span class="tr-name">Sentry<small>ERROR TELEMETRY</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/telegram.svg" alt="Telegram" loading="lazy"></span><span class="tr-name">Telegram<small>ALERTS</small></span></span>
-        </span>
-        <span class="tr-set" aria-hidden="true">
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/dotnet.svg" alt="" loading="lazy"></span><span class="tr-name">.NET<small>PLATFORM</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/postgresql.svg" alt="" loading="lazy"></span><span class="tr-name">PostgreSQL<small>DECISION LOG</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/docker.svg" alt="" loading="lazy"></span><span class="tr-name">Docker<small>CONTAINERS</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/contabo.svg" alt="" loading="lazy"></span><span class="tr-name">Contabo<small>VPS HOSTING</small></span></span>
-        <span class="tr-logo"><span class="tr-name">Cloudflare<small>WEB &#183; PAGES &amp; WORKERS</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/github.svg" alt="" loading="lazy"></span><span class="tr-name">GitHub<small>CODE &#183; CI/CD</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/sentry.svg" alt="" loading="lazy"></span><span class="tr-name">Sentry<small>ERROR TELEMETRY</small></span></span>
-        <span class="tr-logo"><span class="tr-mono"><img src="assets/logos/telegram.svg" alt="" loading="lazy"></span><span class="tr-name">Telegram<small>ALERTS</small></span></span>
-        </span>
-        </div>
-      </div>
-        <p class="tr-note tr-note--legal">Logos identify third-party services the company uses or integrates with. No endorsement or partnership is implied.</p>
-      </div>
-    </section>
-
-  <section class="be-section be-section--raised" id="duomenys" aria-label="How the data is kept">
-    <p class="be-eyebrow">How the data is kept</p>
-    <ol class="be-rows">
-      <!-- enable after schema change
-      <li class="be-row">
-        <span class="be-row-n">01</span>
-        <h3>A figure we did not measure stays empty</h3>
-        <p>A zero is an observation, not a placeholder.</p>
-      </li>
-      -->
-      <li class="be-row">
-        <span class="be-row-n">02</span>
-        <h3>Every row carries its origin</h3>
-        <p>Where it came from and when we saw it.</p>
-      </li>
-      <li class="be-row">
-        <span class="be-row-n">03</span>
-        <h3>Venues are never averaged into one price</h3>
-        <p>Each keeps its own clock, and a comparison shows the age of every figure.</p>
-      </li>
-      <li class="be-row">
-        <span class="be-row-n">04</span>
-        <h3>An instrument keeps its dates</h3>
-        <p>First seen, last seen, delisted. They are not overwritten.</p>
-      </li>
-      <!-- enable after first backfill
-      <li class="be-row">
-        <span class="be-row-n">05</span>
-        <h3>Backfilled history is labelled as filled</h3>
-        <p>History filled from a venue&#8217;s archive carries the date we fetched it.</p>
-      </li>
-      -->
-    </ol>
-  </section>
-  <section class="be-section" id="programa">
-    <p class="be-eyebrow">Programme No. 1 &#183; our own trading runs on this data</p>
-    <h2 class="be-h2">A live algorithmic-trading testbed</h2>
-    <p class="be-sub"><span class="blyn-grad">The programme trades. We study how.</span></p>
-    <p class="be-lead">The programme runs on the same store Studio writes: two instances on live crypto markets, using the company&#8217;s and its members&#8217; own capital. Each pair is scored on dozens of signals, the score becomes a decision, and the decision is written down before the order goes out &#8212; what it saw, what weighed, what the risk was and what it turned down. Backtest, dry run and live trading execute the same code, so a record can be replayed against the journal rather than taken on trust. This is not a service and not a track record for sale; it is how we find out whether the data we keep is good enough to act on.</p>
-
+  <section class="be-section be-section--raised" id="tyrimai">
+    <p class="be-eyebrow">Tyrimų kryptys</p>
     <ol class="be-rows">
       <li class="be-row">
         <span class="be-row-n">01</span>
-        <h3>The same code</h3>
-        <p>Backtest, dry run and live trading on the same code &#8212; what trades is the code that was tested.</p>
+        <h3>Paaiškinamas sprendimas</h3>
+        <p>Kiekvienas orderis įrašomas su signalais, rizikos ribomis ir atmestomis alternatyvomis. Jei sprendimo negalima perskaityti po savaitės — jis netinka tyrimui.</p>
       </li>
       <li class="be-row">
         <span class="be-row-n">02</span>
-        <h3>Every decision recorded</h3>
-        <p>Why it entered, which signals weighed, what the risk was and what was rejected &#8212; written at decision time, not reconstructed afterwards.</p>
+        <h3>Simuliacija prieš tikrovę</h3>
+        <p>Tas pats algoritmas vienu metu leidžiamas istoriniuose duomenyse ir gyvoje rinkoje. Matuojame ne pelną, o atotrūkį tarp dviejų kreivių.</p>
       </li>
       <li class="be-row">
         <span class="be-row-n">03</span>
-        <h3>Two instances &#8212; LUKO and BYKO</h3>
-        <div>
-          <p>Two members, two accounts, two configurations, the same market data. Manual interventions and copied entries are marked separately in the journal.</p>
-          <p class="be-row-links"><a href="https://blynai.meetluko.eu">LUKO &#8212; blynai.meetluko.eu</a><a href="https://blynai.bykovas.lt">BYKO &#8212; blynai.bykovas.lt</a></p>
-        </div>
+        <h3>Rizikos mechanika</h3>
+        <p>Pozicijų dydis, atvėsimo periodai, avarinis stabdys. Tikriname juos realaus kritimo metu, nes lentelėje jie visada atrodo veikiantys.</p>
       </li>
       <li class="be-row">
         <span class="be-row-n">04</span>
-        <h3>Live telemetry</h3>
-        <p>More than a hundred and fifty markets every 120 seconds; the tables of cycles, decisions and market snapshots are open.</p>
+        <h3>Atkuriamumas</h3>
+        <p>Kodas, parametrai ir duomenų momentinės kopijos skelbiami atvirai, kad rezultatą galėtų pakartoti trečiasis asmuo be mūsų dalyvavimo.</p>
       </li>
     </ol>
+  </section>
 
-    <div class="be-scheme">
-      <svg class="sch-d" viewBox="0 0 1000 226" role="img" aria-label="System diagram: market data, signals and score, risk gate, execution, journal; three modes &#8212; one code path">
-        <defs><marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="rgba(26,23,18,.7)"/></marker></defs>
-        <rect x="10" y="24" width="160" height="52" rx="6" fill="#FFFDF8" stroke="rgba(26,23,18,.55)"/>
-        <text x="90" y="54" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500" fill="#1A1712">Market data</text>
-        <line x1="170" y1="50" x2="202" y2="50" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr)"/>
-        <rect x="206" y="24" width="160" height="52" rx="6" fill="#FFFDF8" stroke="rgba(26,23,18,.55)"/>
-        <text x="286" y="54" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500" fill="#1A1712">Signals and score</text>
-        <line x1="366" y1="50" x2="398" y2="50" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr)"/>
-        <rect x="402" y="24" width="160" height="52" rx="6" fill="rgba(245,184,79,.16)" stroke="#B97F2E" stroke-width="1.5"/>
-        <text x="482" y="54" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500" fill="#1A1712">Risk gate</text>
-        <line x1="562" y1="50" x2="594" y2="50" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr)"/>
-        <rect x="598" y="24" width="160" height="52" rx="6" fill="#FFFDF8" stroke="rgba(26,23,18,.55)"/>
-        <text x="678" y="54" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500" fill="#1A1712">Execution</text>
-        <line x1="758" y1="50" x2="790" y2="50" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr)"/>
-        <rect x="794" y="24" width="160" height="52" rx="6" fill="#FFFDF8" stroke="rgba(26,23,18,.55)"/>
-        <text x="874" y="54" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500" fill="#1A1712">Journal</text>
-        <rect x="227" y="148" width="150" height="40" rx="6" fill="rgba(107,78,219,.08)" stroke="rgba(107,78,219,.5)"/>
-        <text x="302" y="172" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="#5B3FC4">Backtest</text>
-        <rect x="407" y="148" width="150" height="40" rx="6" fill="rgba(107,78,219,.08)" stroke="rgba(107,78,219,.5)"/>
-        <text x="482" y="172" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="#5B3FC4">Dry run</text>
-        <rect x="587" y="148" width="150" height="40" rx="6" fill="rgba(107,78,219,.08)" stroke="rgba(107,78,219,.5)"/>
-        <text x="662" y="172" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="#5B3FC4">Live trading</text>
-        <line x1="302" y1="148" x2="302" y2="128" stroke="rgba(26,23,18,.5)"/>
-        <line x1="482" y1="148" x2="482" y2="128" stroke="rgba(26,23,18,.5)"/>
-        <line x1="662" y1="148" x2="662" y2="128" stroke="rgba(26,23,18,.5)"/>
-        <line x1="302" y1="128" x2="662" y2="128" stroke="rgba(26,23,18,.5)"/>
-        <line x1="482" y1="128" x2="482" y2="84" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr)"/>
-        <text x="482" y="214" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1.5" fill="#8A8175">THREE MODES &#8212; ONE CODE PATH</text>
-      </svg>
-      <svg class="sch-m" viewBox="0 0 360 416" role="img" aria-label="System diagram (mobile): three modes &#8212; one code path">
-        <defs><marker id="arr-m" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="rgba(26,23,18,.7)"/></marker></defs>
-        <rect x="8" y="10" width="190" height="48" rx="6" fill="#FFFDF8" stroke="rgba(26,23,18,.55)"/>
-        <text x="103" y="38" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="#1A1712">Market data</text>
-        <line x1="103" y1="58" x2="103" y2="82" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr-m)"/>
-        <rect x="8" y="88" width="190" height="48" rx="6" fill="#FFFDF8" stroke="rgba(26,23,18,.55)"/>
-        <text x="103" y="116" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="#1A1712">Signals and score</text>
-        <line x1="103" y1="136" x2="103" y2="160" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr-m)"/>
-        <rect x="8" y="166" width="190" height="48" rx="6" fill="rgba(245,184,79,.16)" stroke="#B97F2E" stroke-width="1.5"/>
-        <text x="103" y="194" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="#1A1712">Risk gate</text>
-        <line x1="103" y1="214" x2="103" y2="238" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr-m)"/>
-        <rect x="8" y="244" width="190" height="48" rx="6" fill="#FFFDF8" stroke="rgba(26,23,18,.55)"/>
-        <text x="103" y="272" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="#1A1712">Execution</text>
-        <line x1="103" y1="292" x2="103" y2="316" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr-m)"/>
-        <rect x="8" y="322" width="190" height="48" rx="6" fill="#FFFDF8" stroke="rgba(26,23,18,.55)"/>
-        <text x="103" y="350" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="500" fill="#1A1712">Journal</text>
-        <rect x="234" y="120" width="118" height="34" rx="17" fill="rgba(107,78,219,.08)" stroke="rgba(107,78,219,.5)"/>
-        <text x="293" y="141" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" font-weight="500" fill="#5B3FC4">Backtest</text>
-        <rect x="234" y="173" width="118" height="34" rx="17" fill="rgba(107,78,219,.08)" stroke="rgba(107,78,219,.5)"/>
-        <text x="293" y="194" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" font-weight="500" fill="#5B3FC4">Dry run</text>
-        <rect x="234" y="226" width="118" height="34" rx="17" fill="rgba(107,78,219,.08)" stroke="rgba(107,78,219,.5)"/>
-        <text x="293" y="247" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" font-weight="500" fill="#5B3FC4">Live trading</text>
-        <line x1="234" y1="137" x2="214" y2="137" stroke="rgba(26,23,18,.5)"/>
-        <line x1="234" y1="243" x2="214" y2="243" stroke="rgba(26,23,18,.5)"/>
-        <line x1="214" y1="137" x2="214" y2="243" stroke="rgba(26,23,18,.5)"/>
-        <line x1="214" y1="190" x2="204" y2="190" stroke="rgba(26,23,18,.65)" stroke-width="1.5" marker-end="url(#arr-m)"/>
-        <text x="180" y="398" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" letter-spacing="1" fill="#8A8175">THREE MODES &#8212; ONE CODE PATH</text>
-      </svg>
-    </div>
-
-    <p class="be-footnote">First question: how much of a backtest survives a live market, and why &#8212; in progress. So far no strategy has shown an edge after costs.</p>
-    <p class="be-footnote">The code is public (MIT) at github.com/blyn-ai; a packaged release for self-hosting is in preparation.</p>
-  </section>
-  <section class="be-section be-section--raised" id="komanda">
-    <p class="be-eyebrow">Team and competencies</p>
-    <div class="be-team">
-      <div class="be-member be-member--l">
-        <img src="assets/founder-lukas.png" alt="Lukas Peciukonis" loading="lazy">
-        <div>
-          <b>Lukas Peciukonis</b> <small>Co-founder &#183; 50 % member &#183; Director</small>
-          <p>Company management, operations, partnerships, administration. Operator of the LUKO instance.</p>
-        </div>
-      </div>
-      <div class="be-member be-member--d">
-        <img src="assets/founder-denisas.png" alt="Denisas Bykovas" loading="lazy">
-        <div>
-          <b>Denisas Bykovas</b> <small>Co-founder &#183; 50 % member &#183; Technology</small>
-          <p>Systems architecture, the trading engine and the market-data platform, research methodology, the BYKO instance. 25+ years of .NET, PhD in information technology, contributing to the .NET Foundation since 2020.</p>
-          <p class="be-member-link"><a href="https://bykovas.lt" target="_blank" rel="noopener">bykovas.lt</a></p>
-        </div>
-      </div>
-    </div>
-    <p class="be-eyebrow be-eyebrow--tight be-eyebrow--gap">Competencies, and what backs them</p>
-    <div class="be-skills">
-      <p><b>Financial infrastructure at national scale</b> &#8212; EDS4, the tax-filing system of the State Tax Inspectorate, and CENTROlink, the payment infrastructure of the Bank of Lithuania. Systems that make the morning news if they stop.</p>
-      <p><b>Exchange API integrations; backtest, execution and risk engines; telemetry and audit trails</b> &#8212; the trading-bot repository, RUNBOOK.</p>
-      <p><b>Legal perimeter</b> &#8212; own funds only, no third-party assets, both members&#8217; consent for anything else &#8212; the founders&#8217; act of intent and the liability block on this page.</p>
-    </div>
-  </section>
-  <section class="be-section" id="kontaktai">
-    <p class="be-eyebrow">Partnerships and cooperation</p>
-    <p class="be-seek"><b>Data and engineering</b> &#8212; forward collection into your database, stored history with provenance, a venue we do not cover yet. <a href="mailto:hello@blynai.eu">hello@blynai.eu</a><br><b>Company</b> &#8212; R&amp;D programmes, reviewers of the method, exchanges and data providers, strategic conversations. <a href="mailto:hello@blynai.eu">hello@blynai.eu</a><br><br><b>What we do not do: manage third-party trading capital, accept client money for trading, run collective investment schemes, or sell trading signals.</b></p>
-    <dl class="be-contacts">
-      <div class="be-contact">
-        <dt>Data and engineering</dt>
-        <dd>Lukas &#183; <a href="mailto:hello@blynai.eu">hello@blynai.eu</a></dd>
-      </div>
-      <div class="be-contact">
-        <dt>Company</dt>
-        <dd>Denisas &#183; <a href="mailto:hello@blynai.eu">hello@blynai.eu</a></dd>
-      </div>
-      <div class="be-contact">
-        <dt>Follow</dt>
-        <dd class="be-social"><a href="https://www.linkedin.com/company/blynailab/" target="_blank" rel="noopener" aria-label="BlynAI on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.28 8.25h4.44V24H.28V8.25zM8.34 8.25h4.26v2.15h.06c.6-1.1 2.05-2.26 4.22-2.26 4.52 0 5.35 2.9 5.35 6.68V24h-4.44v-7.9c0-1.88-.04-4.3-2.7-4.3-2.7 0-3.11 2.05-3.11 4.17V24H8.34V8.25z"/></svg></a><a href="https://www.facebook.com/blynailab" target="_blank" rel="noopener" aria-label="BlynAI on Facebook"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a><a href="https://x.com/blynailab" target="_blank" rel="noopener" aria-label="BlynAI on X"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.24 2.25h3.31l-7.23 8.26L22.82 21.75h-6.66l-5.22-6.82-5.96 6.82H1.66l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.01 4.13H5.05l12.03 15.64z"/></svg></a></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="be-section be-section--name" aria-label="The name &#183; two syllables">
-    <p class="be-eyebrow be-eyebrow--tight">The name &#183; two syllables</p>
+  <section class="be-section" id="vardas">
+    <p class="be-eyebrow">Vardas &#183; du skiemenys</p>
     <div class="be-split">
       <div class="be-syl be-syl--blyn">
         <b>BLYN</b>
-        <p class="be-syl-x">Block Ledger Yardstick Normalization</p>
-        <p class="be-syl-d">What gets measured: chain data, the order journal, the equity curve and the numbers derivable from them.</p>
+        <p class="be-syl-x">Blockchain Ledger Yield Numerics</p>
+        <p class="be-syl-d">Kas matuojama: grandinės duomenys, orderių žurnalas, pelno kreivė ir skaičiai, kuriuos iš jų galima gauti.</p>
       </div>
       <div class="be-syl be-syl--ai">
         <b>AI</b>
         <p class="be-syl-x">Algorithmic Inference</p>
-        <p class="be-syl-d">What gets done with it: a conclusion and an order, decided by rules rather than instinct. Without a human hand and without its mood.</p>
+        <p class="be-syl-d">Kas iš to daroma: išvada ir orderis, priimtas taisyklių, o ne nuojautos. Be žmogaus rankos ir be jo nuotaikos.</p>
       </div>
     </div>
-    <p class="be-note">In Lithuanian the same word reads as „blynai“ — pancakes. The company keeps both readings on purpose: the first explains what we do, the second admits we are not more serious than we are.</p>
-    <p class="be-note be-note--tight">A pancake is also a failed attempt: the first pancake always burns. We are researching, and open about all of it, so the burnt pancakes are published along with the rest.</p>
+    <p class="be-note">Lietuviškai tas pats žodis skaitomas kaip „blynai“. Bendrija sąmoningai laikosi abiejų skaitymų: pirmasis paaiškina, ką darome, antrasis — kad nesame rimtesni, nei esame.</p>
   </section>
 
-  <section class="be-legal" id="rekvizitai">
+  <section class="be-coins">
     <div>
-      <p class="be-eyebrow">Registry data</p>
-      <dl class="be-reg">
-        <dt>Legal name</dt><dd>MB „Blynai“</dd>
-        <dt>Form</dt><dd>Mažoji bendrija (small partnership)</dd>
-        <dt>Company code</dt><dd>308115000</dd>
-        <dt>Registered</dt><dd>31 August 2026</dd>
-        <dt>Register</dt><dd>Lithuanian Register of Legal Entities &#183; European Union</dd>
-        <dt>Registered office</dt><dd>Girulių g. 10, LT-12112 Vilnius, Lithuania</dd>
-        <dt>Director</dt><dd>Lukas Peciukonis</dd>
-        <dt>E-mail</dt><dd><a href="mailto:hello@blynai.eu">hello@blynai.eu</a></dd>
-      </dl>
+      <p class="be-eyebrow">Du nariai, dvi valiutos</p>
+      <h2>L&amp;D: dvi nepriklausomos boto instancijos</h2>
+      <p class="be-coins-lead">Tas pats kodas, atskiros sąskaitos, atskiri žurnalai. Jei rezultatai skiriasi — skirtumas irgi yra duomenys.</p>
+    </div>
+    <div class="be-coins-grid">
+      <a class="be-coin be-coin--luko" href="https://meetluko.eu">
+        <img src="assets/coin-luko.svg" alt="" width="44" height="44">
+        <span><b>LUKO</b><small>blynai.meetluko.eu</small></span>
+      </a>
+      <a class="be-coin be-coin--byko" href="https://byko.bykovas.lt">
+        <img src="assets/coin-byko.svg" alt="" width="44" height="44">
+        <span><b>BYKO</b><small>blynai.bykovas.lt</small></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="be-legal" id="nariai">
+    <div class="be-legal-mem">
+      <p class="be-eyebrow">Nariai &#183; po 50 %</p>
+      <div class="be-members">
+        <div class="be-member be-member--l">
+          <img src="assets/founder-lukas.png" alt="Lukas Peciukonis" loading="lazy">
+          <b>Lukas Peciukonis</b><small>MB vadovas &#183; &#923;</small>
+        </div>
+        <div class="be-member be-member--d">
+          <img src="assets/founder-denisas.png" alt="Denisas Bykovas" loading="lazy">
+          <b>Denisas Bykovas</b><small>MB narys &#183; &#916;</small>
+        </div>
+      </div>
     </div>
     <div class="be-legal-div" aria-hidden="true"></div>
-    <div class="be-legal-reg">
-      <p class="be-eyebrow">Founders&#8217; act of intent</p>
-      <p class="be-akt">The founders&#8217; act of intent, signed with qualified electronic signatures on 24 August 2026, before registration. The company was entered in the Register of Legal Entities on 31 August 2026. The document is in Lithuanian.</p>
-      <p class="be-akt-links"><a href="aktas/" target="_blank" rel="noopener">Read</a> &#183; <a href="aktas/aktas.pdf" type="application/pdf" download>Download PDF</a></p>
-      <p class="be-akt-legal">Liability limitation and company status &#8212; <button type="button" class="be-more be-more--paper" id="beDisclaimerOpen2">read more</button></p>
+    <div class="be-legal-reg" id="rekvizitai">
+      <p class="be-eyebrow">Registro duomenys</p>
+      <dl class="be-reg">
+        <dt>Pavadinimas</dt><dd>MB „BlynAI“</dd>
+        <dt>Forma</dt><dd>Mažoji bendrija</dd>
+        <dt>J. a. kodas</dt><dd>registruojama</dd>
+        <dt>Buveinė</dt><dd>Lietuvos Respublika</dd>
+        <dt>Direktorius</dt><dd>Lukas Peciukonis</dd>
+        <dt>Paštas</dt><dd><a href="mailto:info@blynai.eu">info@blynai.eu</a></dd>
+      </dl>
+      <p class="be-reg-doc"><a href="aktas/aktas.pdf" type="application/pdf" target="_blank" rel="noopener">2026-08-24 pasirašytas steigėjų ketinimų aktas</a></p>
     </div>
   </section>
 
 </main>
 
 <footer class="be-foot">
-  <p>MB „Blynai“ is not a financial institution, an investment manager or a provider of financial services.
-    <button type="button" class="be-more" id="beDisclaimerOpen">Read more</button></p>
-  <p class="be-foot-social"><a href="https://www.linkedin.com/company/blynailab/" target="_blank" rel="noopener" aria-label="BlynAI on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.28 8.25h4.44V24H.28V8.25zM8.34 8.25h4.26v2.15h.06c.6-1.1 2.05-2.26 4.22-2.26 4.52 0 5.35 2.9 5.35 6.68V24h-4.44v-7.9c0-1.88-.04-4.3-2.7-4.3-2.7 0-3.11 2.05-3.11 4.17V24H8.34V8.25z"/></svg></a><a href="https://www.facebook.com/blynailab" target="_blank" rel="noopener" aria-label="BlynAI on Facebook"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a><a href="https://x.com/blynailab" target="_blank" rel="noopener" aria-label="BlynAI on X"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.24 2.25h3.31l-7.23 8.26L22.82 21.75h-6.66l-5.22-6.82-5.96 6.82H1.66l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.01 4.13H5.05l12.03 15.64z"/></svg></a></p>
-  <p class="be-foot-c">blynai.eu &#183; &#169; 2026 MB „Blynai“</p>
+  <p>MB „BlynAI“ nėra finansų įstaiga, investicijų valdytojas ar finansinių paslaugų teikėja.
+    <button type="button" class="be-more" id="beDisclaimerOpen">Skaityti plačiau</button></p>
+  <p class="be-foot-c">blynai.eu &#183; &#169; 2026 MB „BlynAI“</p>
 </footer>
 
-<dialog class="pr-zoom" id="prZoom" aria-label="Product screenshot">
-  <span class="pr-zoom-in">
-    <button type="button" class="pr-zoom-x" id="prZoomX" aria-label="Close">&#10005;</button>
-    <img id="prZoomImg" alt="">
-  </span>
-</dialog>
-
+<!-- The disclaimer is a compliance text, so it is reproduced verbatim and in
+     full here, and the footer above carries its first sentence. Same pattern as
+     the live journal's „Skaityti plačiau“ dialog. Without JavaScript the
+     <noscript> block below unfolds this into the page instead of hiding it. -->
 <dialog class="be-modal" id="beDisclaimer" aria-labelledby="beDisclaimerTitle">
   <div class="be-modal-head">
-    <h2 class="be-modal-t" id="beDisclaimerTitle">Liability limitation and company status</h2>
-    <button type="button" class="be-modal-x" id="beDisclaimerClose" aria-label="Close">&#10005;</button>
+    <h2 class="be-modal-t" id="beDisclaimerTitle">Atsakomybės ribojimas ir bendrijos statusas</h2>
+    <button type="button" class="be-modal-x" id="beDisclaimerClose" aria-label="Uždaryti">&#10005;</button>
   </div>
   <div class="be-modal-body">
-    <p style="font:var(--fs-caption)/1.6 var(--font-mono);color:var(--text-meta)">This English text is a convenience translation. The Lithuanian version at blynai.eu/lt/ is authoritative.</p>
-    <p>MB „Blynai“ is not a financial institution, an investment manager or a provider of financial services. The company gives no investment advice, does not accept or hold third parties&#8217; money or crypto-assets, and does not operate third parties&#8217; exchange accounts. The company trades only with its own funds; published results are research data, not an offer or a forecast.</p>
-    <p>MB „Blynai“ is a two-member research and engineering company. Its activity is the development of algorithmic-trading software, the study of how it runs on the company&#8217;s own funds, and the publication of results.</p>
+    <p>MB „BlynAI“ nėra finansų įstaiga, investicijų valdytojas ar finansinių paslaugų teikėja. Bendrija neteikia investavimo rekomendacijų, nepriima ir nesaugo trečiųjų asmenų pinigų ar kriptoturto ir nevaldo trečiųjų asmenų biržos sąskaitų. Bendrija prekiauja tik savo lėšomis; paskelbti rezultatai yra tyrimo duomenys, o ne pasiūlymas ar prognozė.</p>
+    <p>MB „BlynAI“ yra dviejų narių tyrimų bendrija. Jos veikla — algoritminės prekybos programinės įrangos kūrimas, jos veikimo tyrimas savo lėšomis ir rezultatų skelbimas.</p>
 
-    <h3>Trading with own funds</h3>
-    <p>The software runs as two independent instances &#8212; <b>LUKO</b> (blynai.meetluko.eu) and <b>BYKO</b> (blynai.bykovas.lt). The same code, separate accounts, separate journals.</p>
+    <h3>Prekyba savo lėšomis</h3>
+    <p>Programinė įranga veikia dviem nepriklausomomis instancijomis — <b>LUKO</b> (blynai.meetluko.eu) ir <b>BYKO</b> (blynai.bykovas.lt). Tas pats kodas, atskiros sąskaitos, atskiri žurnalai.</p>
     <ul>
-      <li>trading is done only with the funds of the company and its members;</li>
-      <li>each instance runs in its own exchange account, with its own API keys;</li>
-      <li>the strategy, risk limits and parameters are set by the members themselves;</li>
-      <li>no client money &#8212; there is none and there will be none.</li>
+      <li>prekiaujama tik bendrijos ir jos narių lėšomis;</li>
+      <li>kiekviena instancija veikia savo biržos paskyroje ir su savo API raktais;</li>
+      <li>strategiją, rizikos ribas ir parametrus nustato patys nariai;</li>
+      <li>klientų lėšų — nėra ir nebus.</li>
     </ul>
 
-    <h3>No third-party assets</h3>
-    <p>The company:</p>
+    <h3>Jokio trečiųjų asmenų turto</h3>
+    <p>Bendrija:</p>
     <ul>
-      <li>does not accept or hold third parties&#8217; money or crypto-assets;</li>
-      <li>does not operate third parties&#8217; exchange accounts;</li>
-      <li>neither holds nor requests API permissions that would allow it to dispose of another person&#8217;s funds;</li>
-      <li>does not carry out collective investment or the management of pooled capital;</li>
-      <li>does not accept third-party funds for trading, collective investment or managed investment activity, and gives no individual investment advice.</li>
+      <li>nepriima ir nesaugo trečiųjų asmenų pinigų ar kriptoturto;</li>
+      <li>nevaldo trečiųjų asmenų biržos sąskaitų;</li>
+      <li>neturi ir neprašo API teisių, leidžiančių disponuoti kitų asmenų lėšomis;</li>
+      <li>nevykdo kolektyvinio investavimo ar bendro kapitalo valdymo;</li>
+      <li>nepriima investicijų ir neteikia individualių investavimo rekomendacijų.</li>
     </ul>
 
-    <h3>Published results</h3>
-    <p>Published data are the historical research data of a specific instance over a specific period. They do not guarantee future results and are not an offer, a forecast or individual investment advice. Failed experiments are published the same way as successful ones.</p>
+    <h3>Skelbiami rezultatai</h3>
+    <p>Skelbiami duomenys yra konkrečios instancijos ir konkretaus laikotarpio istoriniai tyrimo duomenys. Jie negarantuoja būsimų rezultatų ir nėra pasiūlymas, prognozė ar individuali investavimo rekomendacija. Nepavykę eksperimentai skelbiami taip pat, kaip pavykę.</p>
 
-    <h3>Open source</h3>
-    <p>The software is distributed under an open-source model so that a result can be reproduced by a third party without the company&#8217;s involvement. It is provided as is, without warranties. Anyone deploying it does so on infrastructure they control, in their own exchange account and at their own risk; the company makes no trading decisions on their behalf and does not control their account or funds.</p>
+    <h3>Atvirasis kodas</h3>
+    <p>Programinė įranga platinama atvirojo kodo principu, kad rezultatą galėtų pakartoti trečiasis asmuo be bendrijos dalyvavimo. Ji pateikiama tokia, kokia yra, be garantijų. Kiekvienas ją diegiantis asmuo tai daro savo kontroliuojamoje infrastruktūroje, savo biržos paskyroje ir savo atsakomybe; bendrija nepriima prekybos sprendimų jo vardu ir nekontroliuoja jo paskyros ar lėšų.</p>
 
-    <h3>Company status</h3>
-    <p>MB „Blynai“ is a mažoji bendrija (small partnership) registered in the Register of Legal Entities of the Republic of Lithuania, an EU member state, on 31 August 2026, company code 308115000, registered office Girulių g. 10, LT-12112 Vilnius, Lithuania. The members are Lukas Peciukonis and Denisas Bykovas, 50 % each. The director is Lukas Peciukonis. Contact &#8212; hello@blynai.eu.</p>
+    <h3>Bendrijos statusas</h3>
+    <p>MB „BlynAI“ — mažoji bendrija Lietuvos Respublikoje. Juridinio asmens kodas — registruojama; jis nurodomas šiame puslapyje įregistravus bendriją Juridinių asmenų registre. Nariai — Lukas Peciukonis ir Denisas Bykovas, po 50 %. Vadovas — Lukas Peciukonis. Kontaktas — info@blynai.eu.</p>
   </div>
 </dialog>
 
@@ -673,347 +270,37 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "BlynAI",
-  "legalName": "MB „Blynai“",
-  "alternateName": [
-    "L&D Finance Lab"
-  ],
+  "name": "BlynAI Capital",
+  "legalName": "MB „BlynAI“",
+  "alternateName": "L&D Finance Lab",
   "url": "https://blynai.eu/",
-  "description": "EU-registered engineering company. CryptoSmith X collects derivatives-market data over each venue’s own API and keeps it the way it was seen — gaps as gaps, every figure with its source and time. Live comparison open; stored history on request. Own funds only, no client money.",
-  "inLanguage": "en",
   "logo": "https://blynai.eu/assets/logo-avatar-512.svg",
-  "image": "https://blynai.eu/assets/og-card.png",
-  "email": "hello@blynai.eu",
-  "identifier": {
-    "@type": "PropertyValue",
-    "name": "Company code (Register of Legal Entities, Lithuania)",
-    "value": "308115000"
-  },
-  "foundingDate": "2026-08-31",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Girulių g. 10",
-    "addressLocality": "Vilnius",
-    "postalCode": "LT-12112",
-    "addressCountry": "LT"
-  },
+  "image": "https://blynai.eu/og.png",
+  "email": "info@blynai.eu",
+  "address": {"@type": "PostalAddress", "addressCountry": "LT"},
   "founder": [
-    {
-      "@type": "Person",
-      "name": "Lukas Peciukonis",
-      "jobTitle": "Co-founder and Director"
-    },
-    {
-      "@type": "Person",
-      "name": "Denisas Bykovas",
-      "jobTitle": "Co-founder, Technology",
-      "sameAs": [
-        "https://bykovas.lt"
-      ]
-    }
+    {"@type": "Person", "name": "Lukas Peciukonis"},
+    {"@type": "Person", "name": "Denisas Bykovas"}
   ],
-  "sameAs": [
-    "https://github.com/blyn-ai",
-    "https://github.com/blyn-ai/CryptoSmith-X"
-  ]
+  "sameAs": ["https://github.com/bykovas/trading-bot"]
 }
 </script>
 
 <script>
-/* Dialog: native <dialog>, Esc and the focus trap come from the browser.
-   Clicking the dialog element itself means the pointer hit the backdrop. */
+/* The only script on the page: the disclaimer dialog. Native <dialog>, so Esc,
+   the focus trap and the backdrop come from the browser. Clicking the dialog
+   element itself means the pointer landed on the backdrop, not on the card. */
 (function () {
   var dialog = document.getElementById('beDisclaimer');
+  var open = document.getElementById('beDisclaimerOpen');
   var close = document.getElementById('beDisclaimerClose');
-  if (!dialog || !close || !dialog.showModal) return;
-  ['beDisclaimerOpen', 'beDisclaimerOpen2'].forEach(function (id) {
-    var b = document.getElementById(id);
-    if (b) b.addEventListener('click', function () { dialog.showModal(); });
-  });
+  if (!dialog || !open || !close || !dialog.showModal) return;
+  open.addEventListener('click', function () { dialog.showModal(); });
   close.addEventListener('click', function () { dialog.close(); });
-  dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
-})();
-
-/* Telemetry: /api/public-stats from the journal, meetluko first, bykovas as
-   fallback. On any failure the dashes stay — the strip never invents a number. */
-(function () {
-  var HOSTS = ['https://blynai.meetluko.eu', 'https://blynai.bykovas.lt'];
-  function set(id, v) { var el = document.getElementById(id); if (el && v) el.textContent = v; }
-  /* Timestamps are shown in Vilnius time, like the journal's own equity view. */
-  function dt(iso) {
-    if (!iso) return null;
-    try {
-      var d = new Date(iso);
-      var f = new Intl.DateTimeFormat('lt-LT', { timeZone: 'Europe/Vilnius',
-        year: 'numeric', month: '2-digit', day: '2-digit',
-        hour: '2-digit', minute: '2-digit', hour12: false });
-      return f.format(d).replace(',', '');
-    } catch (e) { return iso.slice(0, 10) + ' ' + iso.slice(11, 16) + ' UTC'; }
-  }
-  function num(n) { return typeof n === 'number' ? n.toLocaleString('lt-LT') : null; }
-  function apply(d) {
-    set('tl-cycle', dt(d.lastCycleUtc));
-    set('tl-since', d.liveSinceUtc ? d.liveSinceUtc.slice(0, 10) : null);
-    set('tl-markets', num(d.marketsNow));
-    set('tl-decisions', num(d.decisionsTotal));
-    set('tl-ts', dt(d.utc));
-  }
-  function tryHost(i) {
-    if (i >= HOSTS.length) return;
-    var ctl = new AbortController();
-    var timer = setTimeout(function () { ctl.abort(); }, 4000);
-    fetch(HOSTS[i] + '/api/public-stats', { signal: ctl.signal })
-      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-      .then(function (d) { clearTimeout(timer); apply(d); })
-      .catch(function () { clearTimeout(timer); tryHost(i + 1); });
-  }
-  if (window.fetch && window.AbortController) tryHost(0);
-})();
-</script>
-
-<script>
-/* Products carousel: the track is a scroll-snap row, so touch swipe and
-   keyboard scrolling already work. The buttons scroll by one card; the
-   counter and dots follow the scroll position, whoever moved it. */
-(function () {
-  var track = document.getElementById('prTrack');
-  if (!track) return;
-  var order = [].slice.call(track.children), n = order.length;
-  var count = document.getElementById('prCount');
-  var dots = document.getElementById('prDots').children;
-  var prev = document.getElementById('prPrev'), next = document.getElementById('prNext');
-  var lead = 0, pending = 0, busy = false;
-  function pad(i) { return (i < 9 ? '0' : '') + (i + 1); }
-  function step() { return n > 1 ? order[1].offsetLeft - order[0].offsetLeft || track.clientWidth : track.clientWidth; }
-  function sync() {
-    count.innerHTML = '<b>' + pad(lead) + '</b> / ' + pad(n - 1);
-    for (var d = 0; d < dots.length; d++) {
-      if (d === lead) dots[d].setAttribute('aria-current', 'true');
-      else dots[d].removeAttribute('aria-current');
-    }
-  }
-  /* Endless in both directions: the track never scrolls past its end — the
-     cards are reordered so the leading one sits first and scrollLeft is 0.
-     A swipe is not thrown away: whatever the gesture landed on becomes the
-     new lead, then the same normalisation runs. */
-  function normalise() {
-    for (var i = 0; i < n; i++) track.appendChild(order[(lead + i) % n]);
-    track.scrollLeft = 0;
-    sync();
-  }
-  function run() {
-    if (busy || !pending) return;
-    busy = true;
-    var s = pending > 0 ? 1 : -1;
-    pending -= s;
-    lead = (lead + s + n) % n;
-    track.style.opacity = '0';
-    setTimeout(function () {
-      normalise();
-      track.style.opacity = '1';
-      busy = false;
-      run();
-    }, 130);
-  }
-  function go(s) { pending += s; run(); }
-  /* The screenshot opens at window size — one file serves card and zoom. */
-  var zoom = document.getElementById('prZoom'), zoomImg = document.getElementById('prZoomImg');
-  if (zoom && zoom.showModal) {
-    track.addEventListener('click', function (e) {
-      var img = e.target.closest ? e.target.closest('.pr-img') : null;
-      if (!img) return;
-      zoomImg.src = img.currentSrc || img.src;
-      zoomImg.alt = img.alt || '';
-      zoom.showModal();
-    });
-    document.getElementById('prZoomX').addEventListener('click', function () { zoom.close(); });
-    zoom.addEventListener('click', function (e) {
-      if (e.target === zoom || e.target === zoomImg) zoom.close();
-    });
-  }
-  prev.addEventListener('click', function () { go(-1); });
-  next.addEventListener('click', function () { go(1); });
-  var t;
-  track.addEventListener('scroll', function () {
-    if (busy) return;
-    clearTimeout(t);
-    t = setTimeout(function () {
-      var shift = Math.round(track.scrollLeft / step());
-      if (!shift) return;
-      lead = (lead + shift) % n;
-      normalise();
-    }, 140);
+  dialog.addEventListener('click', function (event) {
+    if (event.target === dialog) dialog.close();
   });
-  window.addEventListener('resize', function () { if (!busy) normalise(); });
-  sync();
 })();
-</script>
-
-<script>
-/* Everything this page says about CryptoSmith X's coverage comes from its API
-   on load: which venues exist, which of them collect, since when, how many
-   instruments, whether trades are stored. Hand-kept lists fell behind the
-   product twice — the hero said four venues while eighteen were collecting.
-   The markup keeps the last snapshot so a failed call, a crawler or a reader
-   with scripts off still gets a true-when-written page; the API replaces it.
-   Venues the API lists as disabled (closed or retired) are not shown: Live
-   means collecting today and Planned means queued, and a closed venue is
-   neither. One pass, no polling: this is coverage, not a ticker. */
-(function () {
-  var BASE = 'https://cryptosmithx.blynai.eu/api/v1/';
-  var ASSETS = 'assets/venues/';
-  /* The marks this site holds and has a source for (assets/venues/SOURCES.md).
-     name: the mark is a glyph, so the name is set beside it. A company with no
-     entry is set as text — a new venue appears without anyone drawing a logo. */
-  var MARKS = {
-    hyperliquid: {}, kraken: {}, weex: { alt: 'WEEX' }, binance: { name: true },
-    okx: { alt: 'OKX' }, bybit: {}, coinbase: {}, deribit: {}, gate: {},
-    mexc: { alt: 'MEXC' }, bitget: {}, avantis: {}, dydx: { alt: 'dYdX' },
-    drift: { name: true }, synthetix: {}, gmx: { name: true }, aster: {}
-  };
-  var KIND_ORDER = { perp: 0, futures: 1, option: 2, spot: 3 };
-  function rank(kind) { return kind in KIND_ORDER ? KIND_ORDER[kind] : 9; }
-  var L = {
-    loc: 'en',
-    live: 'Live', since: 'since', planned: 'Planned',
-    kind: { perp: 'Perpetuals', futures: 'Futures', spot: 'Spot', option: 'Options' },
-    sum: function (live, planned, instruments) {
-      return live + ' live · ' + planned + ' planned · '
-           + instruments + ' instruments monitored';
-    },
-    sub: function (live, planned) {
-      return live + (live === 1 ? ' venue is' : ' venues are') + ' collecting now. '
-           + planned + ' more ' + (planned === 1 ? 'is' : 'are') + ' queued.';
-    },
-    trades: function (withTrades, live) {
-      return withTrades === live
-        ? 'Trades are collected on every live venue.'
-        : 'Trades are collected on ' + withTrades + ' of the ' + live + ' live venues.';
-    }
-  };
-
-  function get(path) {
-    var ctl = new AbortController();
-    var t = setTimeout(function () { ctl.abort(); }, 6000);
-    return fetch(BASE + path, { signal: ctl.signal })
-      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-      .then(function (j) { clearTimeout(t); return j; });
-  }
-  function num(n) { return typeof n === 'number' ? n.toLocaleString(L.loc) : null; }
-  function el(tag, cls, text) {
-    var e = document.createElement(tag);
-    if (cls) e.className = cls;
-    if (text != null) e.textContent = text;
-    return e;
-  }
-  function setAll(sel, text) {
-    var n = document.querySelectorAll(sel);
-    for (var i = 0; i < n.length; i++) n[i].textContent = text;
-  }
-  function reveal() {
-    var n = document.querySelectorAll('.vn-live');
-    for (var i = 0; i < n.length; i++) n[i].classList.remove('vn-live');
-  }
-  function chip(live, since) {
-    var c = el('span', 'be-status-chip be-status-chip--' + (live ? 'live' : 'hyp'));
-    var val = el('span', 'vn-val');
-    if (live) {
-      val.appendChild(el('span', 'vn-on', L.live));
-      if (since) val.appendChild(document.createTextNode(' · ' + L.since + ' ' + since));
-    } else {
-      val.textContent = L.planned;
-    }
-    c.appendChild(val);
-    return c;
-  }
-  function mark(code, name) {
-    var m = el('span', 'vn-mark');
-    var known = MARKS[code];
-    if (known) {
-      var img = el('img');
-      img.src = ASSETS + code + '.svg';
-      img.alt = known.name ? '' : (known.alt || name);
-      img.loading = 'lazy';
-      m.appendChild(img);
-    }
-    if (!known || known.name) m.appendChild(el('b', 'vn-nm', name));
-    return m;
-  }
-
-  /* The whole grid from the API: one card per company, one line per segment. */
-  function renderGrid(grid, ex, since) {
-    var byCompany = {};
-    ex.forEach(function (e) {
-      if (e.status !== 'enabled' && e.status !== 'planned') return;
-      var c = byCompany[e.exchangeCode] || (byCompany[e.exchangeCode] =
-        { code: e.exchangeCode, name: e.exchangeName, segments: [], first: null });
-      var s = since[e.code] || null;
-      c.segments.push({ kind: e.kind, live: e.status === 'enabled', since: s });
-      if (e.status === 'enabled' && s && (!c.first || s < c.first)) c.first = s;
-    });
-    var companies = Object.keys(byCompany).map(function (k) { return byCompany[k]; });
-    // Collecting companies first, oldest collection first; then the queue by name.
-    companies.sort(function (a, b) {
-      var al = a.segments.some(function (s) { return s.live; });
-      var bl = b.segments.some(function (s) { return s.live; });
-      if (al !== bl) return al ? -1 : 1;
-      if (al && a.first !== b.first) return (a.first || '9') < (b.first || '9') ? -1 : 1;
-      return a.name.localeCompare(b.name);
-    });
-    var frag = document.createDocumentFragment();
-    companies.forEach(function (c) {
-      c.segments.sort(function (a, b) {
-        if (a.live !== b.live) return a.live ? -1 : 1;
-        return rank(a.kind) - rank(b.kind);
-      });
-      var card = el('div', 'vn-venue');
-      card.appendChild(mark(c.code, c.name));
-      var ul = el('ul', 'vn-lines');
-      c.segments.forEach(function (s) {
-        var li = el('li', 'vn-line');
-        li.appendChild(el('span', 'vn-p', L.kind[s.kind] || s.kind));
-        li.appendChild(chip(s.live, s.since));
-        ul.appendChild(li);
-      });
-      card.appendChild(ul);
-      frag.appendChild(card);
-    });
-    grid.textContent = '';
-    grid.appendChild(frag);
-  }
-
-  Promise.all([get('exchanges'), get('coverage')]).then(function (r) {
-    var ex = r[0], cv = r[1];
-    if (!Array.isArray(ex) || !cv || !cv.totals) throw 0;
-
-    var since = {};
-    var withTrades = 0;
-    (cv.venues || []).forEach(function (v) {
-      if (!v || !v.code) return;
-      if (v.since) since[v.code] = String(v.since).slice(0, 10);
-      if (v.status === 'enabled' && (v.datasets || []).indexOf('trades') >= 0) withTrades++;
-    });
-
-    var grid = document.querySelector('[data-venues]');
-    if (grid && ex.length && ex[0].exchangeCode) renderGrid(grid, ex, since);
-
-    // count real states only: disabled rows (closed venues, the in-process test
-    // exchange) are neither live nor planned and have no line here
-    var live = ex.filter(function (e) { return e.status === 'enabled'; }).length;
-    var planned = ex.filter(function (e) { return e.status === 'planned'; }).length;
-    var t = cv.totals;
-    var sum = document.querySelector('[data-sum] .vn-val');
-    if (sum && typeof t.instruments === 'number') sum.textContent = L.sum(live, planned, num(t.instruments));
-    var sub = document.querySelector('[data-sub] .vn-val');
-    if (sub) sub.textContent = L.sub(live, planned);
-    var trades = document.querySelector('[data-trades]');
-    if (trades && cv.venues) trades.textContent = L.trades(withTrades, live);
-    setAll('[data-cov-live]', String(live));
-    if (t.since) setAll('[data-cov-since]', String(t.since).slice(0, 10));
-  }).catch(function () {
-    /* leave every last known value exactly as the markup shipped it */
-  }).then(reveal, reveal);
-}());
 </script>
 
 </body>

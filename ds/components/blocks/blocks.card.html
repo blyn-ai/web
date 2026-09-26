@@ -1,0 +1,34 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Blocks" subtitle="Name split, instance coins, members, feature cards" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Blocks</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:0;padding:18px 20px;background:var(--surface-card)}.lbl{font:10px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin:0 0 8px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+if (!window.BlynAICapitalDesignSystem_090ef4) { document.getElementById('root').innerHTML = '<p style="font:13px/1.8 \'IBM Plex Mono\',monospace;color:#8A8175">_ds_bundle.js nepasiekiamas — perkraukite puslapį.</p>'; }
+const { SyllableSplit, CoinCard, MemberCard, FeatureCard } = window.BlynAICapitalDesignSystem_090ef4;
+function Demo(){return (
+<div style={{display:'flex',flexDirection:'column',gap:20}}>
+  <div><p className="lbl">SyllableSplit</p><SyllableSplit
+    left={{word:'BLYN',expansion:'Blockchain Ledger Yield Numerics',note:'Kas matuojama: grandinės duomenys, orderių žurnalas, pelno kreivė.'}}
+    right={{word:'AI',expansion:'Algorithmic Inference',note:'Kas iš to daroma: išvada ir orderis, priimtas taisyklių, o ne nuojautos.'}}
+    note="Lietuviškai tas pats žodis skaitomas kaip „blynai“."/></div>
+  <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:20}}>
+    <div><p className="lbl">CoinCard</p><div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}><CoinCard member="luko"/><CoinCard member="byko"/></div>
+      <div style={{marginTop:10,padding:12,background:'var(--ink-900)',borderRadius:4,display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}><CoinCard member="luko" tone="ink" layout="row" coinSize={38}/><CoinCard member="byko" tone="ink" layout="row" coinSize={38}/></div></div>
+    <div><p className="lbl">MemberCard</p><div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:20}}>
+      <MemberCard name="Lukas Peciukonis" role="MB vadovas · Λ" src="https://meetluko.eu/assets/founder-lukas.png" objectPosition="50% 12%"/>
+      <MemberCard name="Denisas Bykovas" role="MB narys · Δ" accent="violet" src="https://meetluko.eu/assets/founder-denisas.png"/>
+    </div></div>
+  </div>
+  <div><p className="lbl">FeatureCard — ink / glass</p><div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:12,padding:14,background:'var(--ink-760)',borderRadius:4}}>
+    <FeatureCard index="01" title="Ar sprendimą galima paaiškinti?">Fiksuojame įėjimo signalus, rizikos ribas ir atmestas alternatyvas.</FeatureCard>
+    <FeatureCard index="02" title="Kur baigiasi backtesto tiesa?">Lyginame istorinę simuliaciją su tuo pačiu algoritmu realiu laiku.</FeatureCard>
+    <FeatureCard tone="glass" label="Riba" title="Ko nedarome">Nevaldome trečiųjų asmenų lėšų, neteikiame rekomendacijų.</FeatureCard>
+  </div></div>
+</div>);}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

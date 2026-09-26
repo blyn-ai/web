@@ -1,75 +1,50 @@
 # blynai.eu — notes for agents
 
-The public one-page site of MB „Blynai“ (wordmark: BlynAI Systems · L&D Finance
-Lab, where L&D reads Learn & Develop). Static HTML, no build step, no framework.
-The only scripts are two small inline blocks: the disclaimer `<dialog>` and the
-telemetry fetch.
+The public one-page site of MB „BlynAI“. Static HTML, no build step, no
+framework. The only script is twelve inline lines that open the disclaimer
+`<dialog>`; keep it that way.
 
-## Current page ("Home v2")
+## Before changing anything visual
 
-`index.html` implements the designer's "BlynAI Home v2" handoff: hero (finance
-systems lab), live telemetry strip, Metodas (four verbs), Programa Nr. 1 with
-the pipeline SVG, Ką išmokome, Kryptys, Komanda, Ko ieškome, the quiet Vardas
-split, registry + the signed founders' act, footer with the disclaimer dialog.
-Two languages: **EN is the default at `/`**, LT lives at `/lt/`. Each is a real
-static page served 200 — there is NO language-guessing redirect on `/` (that
-is the SEO trap the client called out). The LT/EN switch is a plain link:
-gold pills in the ink header, at every width — on mobile they sit between the
-brand and the burger, never inside the menu (buried there, nobody finds them);
-404.html carries the same pills without a burger. hreflang on both pages
-(en→/, lt→/lt/, x-default→/ = EN); sitemap lists both with alternates.
-**Copy lives in two files** — edit `index.html` (EN) and `lt/index.html` (LT)
-together; `tools/stamp-css.mjs` stamps both.
-The disclaimer dialog is per-language; the EN one opens with a line that the
-Lithuanian text is authoritative (compliance copy must not read as a second
-legal original).
+**Load the `blynai-design` skill, or read `ds/readme.md` directly.** The whole
+BlynAI Capital design system is vendored in `ds/` — tokens, 20 React primitives
+with usage notes, four home-page directions, share cards, templates and 24
+rendered specimen cards. Nothing on this site may invent a colour, a size, a
+spacing value or a piece of copy: it all exists in there already.
 
-## Facts and numbers
+`index.html` is the static implementation of the approved direction,
+`ds/ui_kits/website/HomeLedger.jsx` ("Variant 04 · Žurnalas"). Real copy and real
+destination URLs live in `ds/ui_kits/website/content.js`.
 
-- The telemetry strip reads `GET /api/public-stats` (blynai.meetluko.eu, then
-  blynai.bykovas.lt as fallback — same API container behind both). Contract:
-  utc, lastCycleUtc, liveSinceUtc, marketsNow, decisionsTotal, instances[].
-  Field names are frozen. Timestamps render in Europe/Vilnius. On failure the
-  em dashes stay: the strip never invents a number.
-- **CryptoSmith X coverage comes from its API, never from the markup.** The
-  Venues grid, its summary lines, the trades sentence and every venue count or
-  start date in the prose (`data-venues`, `data-sum`, `data-sub`, `data-trades`,
-  `data-cov-live`, `data-cov-since`; on LT `data-cov-live-gen`/`-nom`, which
-  carry the noun because Lithuanian declines it by the number) are filled on
-  load from `GET cryptosmithx.blynai.eu/api/v1/exchanges` and `/v1/coverage`.
-  The markup holds the last snapshot for crawlers and failed calls; refresh it
-  when coverage changes, but never write a venue count into text the script does
-  not own — meta descriptions and JSON-LD say "over each venue's own API" and no
-  number, because they cannot be updated on load. Disabled venues are not
-  shown. The API allows CORS only from https://blynai.eu, so a local server shows
-  the snapshot, not live data.
-- Prose numbers were verified against the trading-bot repo and live APIs
-  (~150+ markets, 120 s cycle, LLM only picks the watchlist, dozens of signals,
-  hundreds of config parameters). Do not restate numbers without re-verifying;
-  "Ką išmokome" dates/links are git commits confirmed by Denisas.
-- The founders' act (aktas/aktas.pdf) is the signed version — qualified
-  e-signatures dated 2026-08-24 on page 1.
+## Layout of this repo
+
+| Path | What it is |
+|---|---|
+| `index.html`, `site.css` | the page; `site.css` composes design-system tokens only |
+| `ds/` | the design system, vendored verbatim — only `tokens/fonts.css` is ours |
+| `assets/`, `fonts/` | what the page actually ships (marks, coins, portraits, woff2) |
+| `og/og-card.html` → `og.png` | the 1200×630 share card and its rendered output |
+| `tools/render.mjs` | re-renders `og.png`, `favicon.ico` and the app icons |
+| `tools/fetch-fonts.mjs` | re-downloads the woff2 set and rewrites `ds/tokens/fonts.css` |
+| `docs/README.md` | build, design and maintenance notes, and the open items |
+| `README.md` | the public face of the repo: what the company is, plus the disclaimer in English. Not a place for build notes. |
 
 ## Conventions that are easy to break
 
-- **Paths stay relative** — the page must work from file://, any static server
-  and the domain root.
-- **One breakpoint: 760px.** Canvas is 1160px: gutters `max(72px, 50% - 508px)`
-  (34px on ink); bands stay full-bleed, content stays centred.
-- **Stamp the CSS after changing it:** `node tools/stamp-css.mjs` rewrites the
-  `?v=` on stylesheet links. The zone overrides Cache-Control for static
-  extensions (4 h), so an unstamped CSS change can pair stale styles with fresh
-  markup for returning visitors.
-- **ds/ is the design system tokens only** (styles.css + tokens/). fonts.css is
-  self-hosted woff2 (fonts.cdn.css kept beside it for reference). Do not
-  hand-edit tokens; do not invent colours, sizes or spacing outside them.
-- **Brand rules:** Lithuanian only; no performance numbers, no green/red, no
-  icon set, no emoji; the gradient appears as the rule, one headline clause,
-  the primary button and the equity curve; disclaimer text is verbatim
-  compliance copy — never trim or rephrase it.
-- **Kept for the future, not linked from the page:** dokumentacija/ (CryptoSmith
-  X holding page), assets/coin-*.svg, assets/cryptosmith assets if any. aktas/
-  is linked and must stay.
-- `og/og-card.html` is the editable source of `assets/og-card.png` (approved
-  variant 2a). `node tools/render.mjs` re-renders it plus favicon/app icons;
-  the shipped PNG is the designer's render — regenerate only after copy edits.
+- **Paths stay relative.** The page must open from `file://`, from any static
+  server and from the domain root without edits.
+- **One breakpoint: 760px.** Narrow values come from the `narrow` branch of the
+  matching design-system component, not from taste.
+- **The 1160px canvas.** `--be-pad-x` in `site.css` keeps bands full-bleed while
+  content stays on the canvas the design was drawn on. Do not replace it with a
+  centred `max-width` wrapper — the bands must keep bleeding.
+- **`ds/` is vendored.** Update it by copying a newer package over the folder,
+  then restore `ds/tokens/fonts.css` (self-hosted fonts). Do not hand-edit it.
+- **No new dependencies.** No npm, no package.json, no framework. The two tools
+  need only Node and a local Chrome.
+- **Ink is a band, not a card.** On this light document page the design system
+  allows ink only full-bleed (header, stat strip, footer). Overlays and cards on
+  it are paper: `#FFFDF8`, 6px, hairline, no shadow — see the disclaimer dialog.
+- Hard brand rules (Lithuanian only, no performance numbers, no green/red, no
+  icons or emoji, coin marks untouched, disclaimer verbatim) are listed in the
+  skill and in `ds/readme.md`.
