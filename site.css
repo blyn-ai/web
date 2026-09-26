@@ -183,26 +183,24 @@ img{max-width:100%}
 .be-coin--byko b{color:var(--byko-label)}
 
 /* --- registry + members ------------------------------------------------- */
-.be-legal{display:grid;grid-template-columns:var(--grid-split);gap:0 var(--gap-wide);
-  padding:var(--section-y) var(--be-pad-x);background:var(--surface-card)}
-/* The vertical gradient divider is used only where the two columns map to the
-   two axes: registry (measured fact) beside the members (the people). */
-.be-legal-div{background:var(--gradient-divider-v)}
+/* One column: the members, then the registry across the whole canvas. The
+   gradient divider divided two columns that no longer exist; a hairline over
+   the registry does the separating instead. */
+.be-legal{display:block;padding:var(--section-y) var(--be-pad-x);background:var(--surface-card)}
+.be-legal-div{display:none}
+.be-legal-reg{margin-top:var(--space-9);padding-top:var(--space-7);
+  border-top:1px solid var(--border-hairline)}
 .be-legal .be-eyebrow{display:block;margin-bottom:var(--space-7)}
-.be-reg{display:grid;grid-template-columns:auto 1fr;gap:13px var(--space-8);margin:0;
-  font:var(--fs-meta) var(--font-mono)}
+/* Full width takes two label/value pairs per row; one per row when narrow. */
+.be-reg{display:grid;grid-template-columns:auto minmax(0,1fr) auto minmax(0,1fr);
+  gap:13px var(--space-8);margin:0;font:var(--fs-meta) var(--font-mono)}
 .be-reg dt{color:var(--text-meta)}
 .be-reg dd{margin:0;color:var(--text-heading)}
 /* The founding act, in the same registry voice as the rows above it. */
 .be-reg-doc{margin-top:var(--space-7);padding-top:var(--space-5);
   border-top:1px solid var(--border-hairline);font:var(--fs-meta) var(--font-mono)}
 .be-members{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-grid)}
-.be-member img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius-hair);
-  background:rgba(26,23,18,.06)}
-/* Lukas' frame is dropped: a centred crop cuts the top of his head. */
-.be-member--l img{object-position:50% 12%;border:1px solid rgba(185,127,46,.35)}
-.be-member--d img{border:1px solid rgba(107,78,219,.30)}
-.be-member b{display:block;margin-top:var(--space-3);
+.be-member b{display:block;
   font:var(--fw-medium) var(--fs-body-md) var(--font-display);color:var(--text-heading)}
 .be-member small{font:var(--fs-caption) var(--font-mono);color:var(--text-meta)}
 
@@ -297,17 +295,13 @@ img{max-width:100%}
   .be-coin img{width:30px;height:30px}
   .be-coin b{font-size:var(--fs-body)}
   .be-coin small{font-size:var(--fs-micro)}
-  /* One column: members, then the registry — the DOM order already reads that
-     way, and the gradient divider has no two columns left to divide. */
-  .be-legal{display:block;padding:var(--mobile-y) var(--be-x)}
-  .be-legal-reg{margin-top:var(--space-9);padding-top:var(--space-7);
-    border-top:1px solid var(--border-hairline)}
-  .be-legal-div{display:none}
+  .be-legal{padding:var(--mobile-y) var(--be-x)}
   .be-legal .be-eyebrow{margin-bottom:var(--space-6)}
   .be-members{gap:var(--gap-stack)}
-  .be-member b{margin-top:10px;font-size:var(--fs-body)}
+  .be-member b{font-size:var(--fs-body)}
   .be-member small{font-size:var(--fs-eyebrow)}
-  .be-reg{gap:var(--space-3) var(--space-5);font-size:var(--fs-caption)}
+  .be-reg{grid-template-columns:auto minmax(0,1fr);gap:var(--space-3) var(--space-5);
+    font-size:var(--fs-caption)}
   /* 44px hit area for the mail and act links without moving the mono rows. */
   .be-reg dd a,.be-reg-doc a{display:inline-block;padding:14px 0;margin:-14px 0}
   .be-reg-doc{margin-top:var(--space-5);padding-top:var(--space-4)}
