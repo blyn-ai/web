@@ -181,6 +181,19 @@ img{max-width:100%}
 .be-coin--byko{border:1px solid var(--byko-line)}
 .be-coin--byko b{color:var(--byko-label)}
 
+/* --- product ------------------------------------------------------------ */
+#produktas h2{margin:var(--gap-stack) 0 0;font:var(--type-h2);letter-spacing:var(--track-h2);
+  color:var(--text-heading)}
+.be-prod-lead{margin-top:var(--space-6);max-width:68ch;
+  font:var(--fw-regular) var(--fs-lead)/var(--lh-lead) var(--font-body);color:var(--text-body)}
+.be-prod-note{margin-top:var(--space-4);font:var(--fs-meta)/var(--lh-body) var(--font-mono);
+  color:var(--text-meta)}
+/* The screenshot is a dark surface on a paper page: a hairline frame, no shadow. */
+.be-prod-shot{margin:var(--space-8) 0 0;border:1px solid var(--border-card);
+  border-radius:var(--radius-sm);overflow:hidden}
+.be-prod-shot img{display:block;width:100%;height:auto}
+.be-prod-link{margin-top:var(--space-6);font:var(--fs-meta) var(--font-mono)}
+
 /* --- registry + members ------------------------------------------------- */
 /* One column: the members, then the registry across the whole canvas. The
    gradient divider divided two columns that no longer exist; a hairline over
@@ -295,6 +308,9 @@ img{max-width:100%}
   .be-coin img{width:30px;height:30px}
   .be-coin b{font-size:var(--fs-body)}
   .be-coin small{font-size:var(--fs-micro)}
+  #produktas h2{font-size:var(--fs-h3)}
+  .be-prod-lead{margin-top:var(--space-5);font-size:var(--fs-body-md)}
+  .be-prod-shot{margin-top:var(--space-7)}
   .be-legal{padding:var(--mobile-y) var(--be-x)}
   .be-legal .be-eyebrow{margin-bottom:var(--space-6)}
   .be-members{gap:var(--gap-stack)}
