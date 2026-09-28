@@ -109,7 +109,7 @@ img{max-width:100%}
 .be-btn--sec:hover{color:var(--text-heading);background:rgba(26,23,18,.05)}
 /* The four paragraphs under the headline: body text, one measure wide. */
 .be-hero-lead{display:flex;flex-direction:column;gap:var(--space-5);
-  margin-top:var(--space-7);max-width:68ch}
+  margin-top:var(--space-7)}
 .be-hero-lead p{margin:0;font:var(--fw-regular) var(--fs-lead)/var(--lh-lead) var(--font-body);
   color:var(--text-body)}
 /* The brand's only illustration. A drawing of a gain line, never a data series. */
